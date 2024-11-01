@@ -1,0 +1,309 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Duration of Earthquake Ground Motion: Influence on\r\nStructural Collapse Risk and Integration in Design and Assessment Practice",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Chandramohan, R",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Baker, JW",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Deierlein, GG",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2020-05",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "technical report",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Amplitude, frequency content, and duration are widely recognized as the key characteristics of earthquake ground motions that influence structural response. Yet, in current structural design and assessment practice, ground motions are often explicitly characterized by just their pseudo acceleration response spectra—which quantify their amplitude and frequency content—while duration is commonly relegated to implicit, qualitative consideration. This study evaluates the need to explicitly consider duration, in addition to response spectra, in structural design and assessment. \r\n  \r\nThe influence of duration on structural collapse capacity is investigated by numerically simulating the response of structures under short and long duration ground motions. Realistic nonlinear structural models that incorporate the in-cycle and cyclic deterioration of the strength and stiffness of structural components, and the destabilizing P − ∆ effect of gravity loads, are employed to successfully detect the effect of duration. Long duration ground motions from recent large magnitude earthquakes, like the 2008 Wenchuan (China, MW 7.9), 2010 Maule (Chile, MW 8.8), and 2011 Tohoku (Japan, MW 9.0) earthquakes, are used in the analyses. The effect of response spectral shape is controlled for by selecting sets of short and long duration ground motions with similar response spectra, and by employing appropriate statistical tools to post-process the analysis results. Significant duration, Ds, is identified as the duration metric best suited for use in structural design and assessment, since it is amenable to incorporation in a vector intensity measure alongside the response spectrum, and is an efficient predictor of structural collapse capacity. Response spectral shape and duration are together shown to be capable of explaining around 80 % to 85 % of the variance in the collapse intensities of ground motions used to analyze 51 reinforced concrete moment frame buildings. Response spectral shape or duration alone, are capable of explaining a significantly smaller fraction of the variance in the collapse intensities. This highlights the need to explicitly consider both response spectra and duration in structural design and assessment, and indicates that the additional consideration of other ground motion characteristics is likely to produce diminishing returns. \r\n  \r\nA procedure based on the generalized conditional intensity measure (GCIM) framework is developed to compute source-specific conditional probability distributions of the durations of the ground motions anticipated at a site. Commonly used ground motion databases—like the PEER NGA-West2 database—are currently dominated by short duration ground motions, since many more low and moderate magnitude earthquakes (6.0 < MW < 7.5) have been recorded in recent history than large magnitude interface earthquakes (MW ∼ 9.0). Selecting records from the PEER NGA-West2 database without explicitly considering duration is, therefore, shown to result in the unconservative underestimation of structural collapse risk at sites located near active subduction zones, that are susceptible to long duration ground motions from large magnitude interface earthquakes. For example, selecting records from the PEER NGA-West2 database to explicitly match only conditional spectrum targets, and not duration targets, is shown underestimate the mean annual frequency of collapse of an eight-story reinforced concrete moment frame building by 29 % when located in Seattle (Washington) and 59 % when located in Eugene (Oregon). A relatively small influence of duration is observed at San Francisco (California), which is likely to experience short to moderate duration ground motions from shallow crustal earthquakes. The prevalent practice of implicitly accounting for duration using causal parameters like rupture mechanism, earthquake magnitude, source-to-site distance, and site Vs30, is shown to result in the selection of records that poorly match conditional spectrum and duration targets, thereby producing biased collapse risk estimates.\r\n\r\nStrategies are proposed to explicitly consider duration, in addition to response spectral shape, in the analysis procedures contained in the following standards for structural performance assessment and design: (i) the FEMA P-58 seismic performance assessment methodology; (ii) the FEMA P695 methodology to quantify seismic performance factors; and (iii) the ASCE 7-16 seismic design provisions. The effect of duration is incorporated in multiple stripe analysis (MSA) by selecting records to match duration targets, in addition to conditional spectrum targets, at each intensity level. A structural reliability framework incorporating response spectral shape (quantified by a scalar parameter called SaRatio) and duration (quantified by Ds), is developed to compute a hazard-consistent collapse fragility curve by post-processing the results of an incremental dynamic analysis (IDA) conducted using a generic record set. The procedure first involves defining a failure surface by fitting a multiple linear regression model to the computed ground motion collapse intensities using SaRatio and Ds as predictors. The probability of collapse at an intensity level is then computed by integrating the site-specific target distributions of SaRatio and Ds conditional on that intensity level, over the failure domain. A simplified method is additionally developed to efficiently compute just the hazard-consistent median collapse capacity.\r\n  \r\nThe effects of response spectral shape and duration are incorporated in ASCE 7-16’s equivalent lateral force procedure by developing site and structural system-specific adjustment factors for the design base shear. These adjustment factors are computed based on the site-specific conditional median SaRatio and Ds targets and the sensitivity of the structure to the effects of response spectral shape and duration. The use of these adjustment factors ensures a more uniform distribution of structural collapse risk over different geographical regions, and between different structural systems. Sample calculations indicate that a 1 s reinforced concrete moment frame building in San Francisco would need to be designed to a base shear that is 43 % higher than the value used in current practice to maintain parity with a similar structure designed at a reference site, chosen here to be Los Angeles (California). A similar structure in Eugene would need to be designed to a base shear that is 67 % higher. ASCE 7-16’s nonlinear response history analysis procedure requires analyzing structures at the risk-target maximum considered earthquake (MCER) intensity level, at which a significant effect of duration on peak story drift ratio is unlikely to be observed. Hence, the imposed acceptance criteria are unlikely to reliably capture the effect of duration. It is, therefore, recommended that the selected records be scaled to an MCER level modified by a duration adjustment factor, analogous to the one developed for the equivalent lateral load procedure.\r\n  \r\nThe explicit central difference time integration scheme is proposed as a robust and efficient alternative to commonly used implicit schemes, like the Newmark average acceleration scheme, which often suffer from numerical non-convergence issues when used to simulate the dynamic response of nonlinear structural models, especially when simulating response under long duration ground motions. Its robustness stems from its non-iterative nature, while its efficiency is a consequence of the requirement to factorize a linear combination of only the mass and damping matrices at each time step. The use of a constant damping matrix, therefore, ensures that the matrix factorization needs to be performed just once for the entire analysis. It is shown to be more efficient than implicit schemes when conducting IDA in parallel, despite the limit on the maximum time step imposed by its stability criterion. Its benefits are believed to outweigh a few additional steps involved during model creation, including the assignment of mass to all degrees of freedom. Finally, efficient parallel algorithms are developed to conduct MSA and IDA on multi-core computers and distributed parallel clusters, to enable the use of these otherwise computationally intensive analysis techniques in research and practice.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Chandramohan, R and Baker, JW and Deierlein, GG. (2020). Duration of Earthquake Ground Motion: Influence on Structural Collapse Risk and Integration in Design and Assessment Practice. Blume Earthquake Engineering Center Technical Report 200. Stanford Digital Repository. Available at: https://purl.stanford.edu/vk163cm0825",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Civil & Environmental Engineering",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Stanford School of Engineering",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Structural Engineering & Geomechanics",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Blume Earthquake Engineering Center",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "amplitude",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "frequency content",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "duration",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "earthquake ground motions",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "structural response",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "blumecenter@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/vk163cm0825"
+}

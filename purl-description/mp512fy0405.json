@@ -1,0 +1,244 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "PeerMix – A Peer-To-Peer Anonymous Network",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "McGrew, Robert",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Boneh, Daniel ",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Stanford University. Department of Computer Science. ",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "organization",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Department",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2002",
+                    "type": "creation",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "thesis",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "PeerMix is a scalable, peer-to-peer anonymizing routing service that offers strong guarantees of source anonymity against both global observers and collaborating mix nodes. PeerMix connections are bidirectional and application-independent, appropriate for Web browsing or file-sharing. PeerMix functions as a proxy, so proxy-aware applications can add anonymity seamlessly. A subset of the PeerMix nodes operates as an ephemeral mix network; that is, the mix net is a randomly selected and constantly changing subset of the peers. A prototype PeerMix network has been tested on the Stanford University Sweet Hall SPARC machines. This thesis describes previous work on anonymous connections, discusses the PeerMix anonymous routing system, and analyzes its security.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "McGrew, Robert (2002). PeerMix – A Peer-To-Peer Anonymous Network. Stanford Digital Repository. Available at http://purl.stanford.edu/mp512fy0405",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Peer-to-peer architecture--Computer networks",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Routing--Computer network management",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Data protection",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "engreference@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/mp512fy0405"
+}

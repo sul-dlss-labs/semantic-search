@@ -1,0 +1,284 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Model Tests on Earthquake Simulators - Development and Implementation of Experimental Procedures",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Mills, RS",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Krawinkler, H",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Gere, JM",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "1979-06",
+                    "type": "creation",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "technical report",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "For problems which involve complex structures with material and/or geometric non-linear behavior, such as are encountered in earthquake engineering, the practical capabilities of mathematical methods of analysis may be surpassed. In such cases, experimental analysis may serve as an alternative and as a means of extending the limits of theoretical knowledge.\r\n\r\nEssential to accurate experimentation in earthquake engineering is an adequate dynamic test facility consisting of suitable excitation sources (e.g., an earthquake simulator), instrumentation and a minicomputer system for signal generation, data acquisition and data reduction. Due to size constraints, testing of complete structures in the laboratory will often be limited to small-scale models. The necessary capabilities of a test system for dynamic model studies is discussed and illustrated by reference to the facilities at the John A. Blume Earthquake Engineering Center at Stanford University.\r\n\r\nAn actual model test serves to illustrate the accuracy of replica modeling, to assist in the development of testing methodologies and to evaluate the adequacy of a dynamic test facility. In order to develop confidence in the ability of a small-scale model to replicate structural response to earthquakes it was desirable to have a well-defined prototype with documented dynamic properties for correlation of model response. Thus, a three-story, single bay steel frame structure previously tested on the shake table at the University of California, Berkeley was used as a prototype for a 1:6 scale model study.\r\n\r\nThe primary task in the development of a replica model is to simulate all aspects of the prototype structural system which may contribute to the earthquake response characteristics. One modeling method which is applicable to a great number of building structures where gravity effects must be included is artificial mass simulation. Such modeling involves the addition of structurally uncoupled mass to augment the density of the model structure, permitting the choice of a model structural material without regard for mass density scaling.\r\n\r\nThe model wide-flange sections were machined from A36 steel bar stock and primary structural connections were fully welded, utilizing the TIG heliarc process. Subsequent heat treatment of the finished model frames was performed to relieve high initial stresses and to satisfy construction tolerances which were derived from geometric scaling of standard tolerances for building structures.\r\n\r\nA comprehensive test study, encompassing material, subassembly and earthquake simulator tests, was performed to enable an accurate comparison of model and prototype response. Earthquake simulator tests utilized the El Centro 1940 North-South component and an artificial earthquake composed of discrete spectral components to excite the structure both elastically and inelastically. The results of the model test series are discussed in detail. Accurate simulation of the prototype structure in terms of global and local response parameters was achieved. The nature of prototype inelastic response was duplicated by the small-scale model as characterized by yielding of the joint panel zones in shear and by comparison of the ductility demand and energy distribution of the respective structures. Observed minor discrepancies in model-prototype correlation can be explained by the larger weld sizes of the model and by the influence of earthquake simulator reproduction capabilities on test structure response.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Mills, RS, Krawinkler, H and Gere, JM. (1979). Model Tests on Earthquake Simulators - Development and Implementation of Experimental Procedures. John A. Blume Earthquake Engineering Center Technical Report 39. Stanford Digital Repository. Available at: http://purl.stanford.edu/xr887gh2288",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "experimental",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "dynamic",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "shake table",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "jabeec-email@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [
+        {
+            "title": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "John A. Blume Earthquake Engineering Center",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [],
+            "identifier": [],
+            "subject": [],
+            "access": {
+                "url": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "https://blume.stanford.edu",
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": []
+                    }
+                ],
+                "physicalLocation": [],
+                "digitalLocation": [],
+                "accessContact": [],
+                "digitalRepository": [],
+                "note": []
+            },
+            "relatedResource": []
+        }
+    ],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/xr887gh2288"
+}

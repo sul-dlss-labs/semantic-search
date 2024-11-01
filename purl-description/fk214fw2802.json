@@ -1,0 +1,335 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "TR165: Computational Modeling of Human and Social Behaviors for Emergency Egress Analysis",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Pan, Xiaoshan",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2006-06",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "technical report",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Abstract\t\r\nThis dissertation addresses the problem of bringing the perspectives of psychology and sociology about human behavior in emergencies into computational models for egress analysis. Efficacious analysis of emergency egress is facilitated by incorporation of diverse human behavior into a Multi-Agent Simulation System for Egress analysis (MASSEgress). MASSEgress adopts a multi-agent based simulation paradigm to model evacuees as individual agents equipped with sensors, brains and actuators. Individual behavior is simulated through modeling of sensing, decision-making, behavior selection and motor control. Social behavior is simulated through modeling of individual behavior and interactions among individuals. Competitive, queuing, herding, and leader-following behaviors are modeled. MASSEgress is a computational framework; its modular design allows easy extensions to include additional behavior types.\r\n\r\nA set of computational methods including point-test and ray-tracing algorithms, and decision-trees are incorporated into MASSEgress to simulate the sensing, decision-making, behavior selection, and motor control of evacuees. A grid method is utilized to perform collision detection among large number of agents with an O(N) time complexity, and K-Means clustering algorithm is utilized to develop statistical procedures for drawing evacuation patterns from multiple simulations.\r\n\r\nComparisons of MASSEgress with other evacuation models have been performed to demonstrate its capabilities as well as to validate the computational framework with prior results. Simulation to replicate a historical event - evacuation at a Rhode Island nightclub has also been carried out. Finally, an application of MASSEgress to simulate emergency evacuation of a multi-story university building is performed to illustrate the potential utilization of the simulation system for egress design analysis.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Pan, Xiaoshan. (2006). TR165: Computational Modeling of Human and Social Behaviors for Emergency Egress Analysis. Stanford Digital Repository. Available at: http://purl.stanford.edu/fk214fw2802",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "CIFE",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Center for Integrated Facility Engineering",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Stanford University",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "3-D",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Behaviors",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Computational Models",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Decision-Making",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Design",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Egress",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Emergency",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Evacuation",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Multi-Agent System",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Organization Models",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Planning",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Process Models",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Simulation",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Stress",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Validation",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "cife-email@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/fk214fw2802"
+}

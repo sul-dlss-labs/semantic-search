@@ -1,0 +1,267 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Stochastic Model for Earthquake Ground Motion using Wavelet Packets",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Yamamoto, Y",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Baker, JW",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2011-04",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "technical report",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "For performance-based design, nonlinear dynamic structural analysis for various types of input ground motions is required. Stochastic (simulated) ground motions are sometimes useful as input motions, because unlike recorded motions they are not limited in number and because their properties can be varied systematically to study the impact of ground motion properties on structural response. This dissertation describes an approach by which the wavelet packet transform can be used to characterize complex time-varying earthquake ground motions, and it illustrates the potential benefits of such an approach in a variety of earthquake engineering applications. The proposed model is based on Thrainsson and Kiremidjian (2002), which use Fourier amplitudes and phase differences to simulate ground motions and attenuation models to their model parameters. We extend their model using wavelet packet transform since it can control the time and frequency characteristic of time series. The time- and frequency-varying properties of real ground motions can be captured using wavelet packets, so a model is developed that requires only 13 parameters to describe a given ground motion. These 13 parameters are then related to seismological variables such as earthquake magnitude, distance, and site condition, through regression analysis that captures trends in mean values, standard deviations and correlations of these parameters observed in a large database of recorded strong ground motions. The resulting regression equations then form a model that can be used to predict ground motions for a future earthquake scenario; this model is analogous to widely used empirical ground motion prediction models (formerly called “attenuation models”) except that this model predicts entire time series rather than only response spectra. The ground motions produced using this predictive model are explored in detail, and are shown to have elastic response spectra, inelastic response spectra, durations, mean periods, etc., that are consistent in both mean and variability to existing published predictive models for those properties. That consistency allows the proposed model to be used in place of existing models for probabilistic seismic hazard analysis (PSHA) calculations. This new way to calculate PSHA is termed “simulation-based probabilistic seismic hazard analysis” and it allows a deeper understanding of ground motion hazard and hazard deaggregation than is possible with traditional PSHA because it produces a suite of potential ground motion time histories rather than simply a distribution of response spectra. The potential benefits of this approach are demonstrated and explored in detail. Taking this analysis even further, this suite of time histories can be used as input for nonlinear dynamic analysis of structures, to perform a risk analysis (i.e., “probabilistic seismic demand analysis”) that allows computation of the probability of the structure exceeding some level of response in a future earthquake. These risk calculations are often performed today using small sets of scaled recorded ground motions, but that approach requires a variety of assumptions regarding important properties of ground motions, the impacts of ground motion scaling, etc. The approach proposed here facilitates examination of those assumptions, and provides a variety of other relevant information not obtainable by that traditional approach.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Yamamoto, Y and Baker, J. (2013). Stochastic Model for Earthquake Ground Motion using Wavelet Packets. John A. Blume Earthquake Engineering Center Technical Report 176. Stanford Digital Repository. Available at: http://purl.stanford.edu/jv127rd8314",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "nonlinear analysis",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "seismic design",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "structural systems",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "ground motions",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "jabeec-email@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [
+        {
+            "title": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "John A. Blume Earthquake Engineering Center",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [],
+            "identifier": [],
+            "subject": [],
+            "access": {
+                "url": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "https://blume.stanford.edu",
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": []
+                    }
+                ],
+                "physicalLocation": [],
+                "digitalLocation": [],
+                "accessContact": [],
+                "digitalRepository": [],
+                "note": []
+            },
+            "relatedResource": []
+        }
+    ],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/jv127rd8314"
+}

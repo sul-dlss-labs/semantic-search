@@ -1,0 +1,458 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Arendt 2023 BDNF",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "Lu",
+                            "type": "forename",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        },
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "Chen",
+                            "type": "surname",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        }
+                    ],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "status": "primary",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "author",
+                    "code": "aut",
+                    "uri": "http://id.loc.gov/vocabulary/relators/aut",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "uri": "http://id.loc.gov/vocabulary/relators/",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "Kristin",
+                            "type": "forename",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        },
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "Arendt",
+                            "type": "surname",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        }
+                    ],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "author",
+                    "code": "aut",
+                    "uri": "http://id.loc.gov/vocabulary/relators/aut",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "uri": "http://id.loc.gov/vocabulary/relators/",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "type": "deposit",
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2023-10-19",
+                    "type": "publication",
+                    "encoding": {
+                        "code": "edtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        },
+        {
+            "structuredValue": [],
+            "type": "deposit",
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2023-10-20",
+                    "type": "modification",
+                    "encoding": {
+                        "code": "edtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        },
+        {
+            "structuredValue": [],
+            "type": "creation",
+            "date": [
+                {
+                    "structuredValue": [
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "2017-09-01",
+                            "type": "start",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        },
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "2022-09-01",
+                            "type": "end",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        }
+                    ],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "type": "creation",
+                    "encoding": {
+                        "code": "edtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        },
+        {
+            "structuredValue": [],
+            "type": "publication",
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2022-12-28",
+                    "type": "publication",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "edtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Data",
+                    "type": "type",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                },
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Unedited recording",
+                    "type": "subtype",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "parallelValue": [],
+            "groupedValue": [],
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "Stanford self-deposit resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Data sets",
+            "type": "genre",
+            "uri": "http://id.loc.gov/authorities/genreForms/gf2018026119",
+            "identifier": [],
+            "source": {
+                "code": "lcgft",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "dataset",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "local",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Dataset",
+            "type": "resource type",
+            "uri": "http://id.loc.gov/vocabulary/resourceTypes/dat",
+            "identifier": [],
+            "source": {
+                "uri": "http://id.loc.gov/vocabulary/resourceTypes/",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Dataset",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "DataCite resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Homeostatic synaptic plasticity is a non-Hebbian synaptic mechanism that adjusts synaptic strength to maintain network stability while achieving optimal information processing. Among the molecular mediators shown to regulate this form of plasticity, synaptic signaling through retinoic acid (RA) and its receptor, RARα, has been shown to be critically involved in the homeostatic adjustment of synaptic transmission in both hippocampus and sensory cortices. In this study, we explore the molecular mechanism through which postsynaptic RA and RARα regulates presynaptic neurotransmitter release during prolonged synaptic inactivity at mouse glutamatertic synapses. We show that RARα binds to a subset of dendritically sorted brain-derived neurotrophic factor (Bdnf) mRNA splice isoforms and represses their translation. The RA-mediated translational de-repression of postsynaptic BDNF results in the retrograde activation of presynaptic Tropomyosin receptor kinase B (TrkB) receptors, facilitating presynaptic homeostatic compensation through enhanced presynaptic release. Together, our study illustrates a RA-mediated retrograde synaptic signaling pathway through which postsynaptic protein synthesis during synaptic inactivity drives compensatory changes at the presynaptic site.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Chen, L. and Arendt, K. (2023). Arendt 2023 BDNF. Stanford Digital Repository. Available at https://purl.stanford.edu/zk891by2827. https://doi.org/10.25740/zk891by2827.",
+            "type": "preferred citation",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "homeostatic synaptic plasticity",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "luchen1@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            },
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "klarendt@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "adminMetadata": {
+        "contributor": [],
+        "event": [
+            {
+                "structuredValue": [],
+                "type": "creation",
+                "date": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "2023-10-19",
+                        "encoding": {
+                            "code": "edtf",
+                            "note": []
+                        },
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": []
+                    }
+                ],
+                "contributor": [],
+                "location": [],
+                "identifier": [],
+                "note": [],
+                "parallelEvent": []
+            }
+        ],
+        "language": [],
+        "note": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "Metadata created by user via Stanford self-deposit application",
+                "type": "record origin",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "metadataStandard": [],
+        "identifier": []
+    },
+    "purl": "https://purl.stanford.edu/zk891by2827"
+}

@@ -1,0 +1,570 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "2013 Targa Sixty-Six",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Kegelman, John C.",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Harbott, Lene K.",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Liao, Jackie",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Contributing author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Gerdes, J. Christian",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Primary advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "2013-02-22",
+                            "type": "start",
+                            "status": "primary",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        },
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "2013-02-23",
+                            "type": "end",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        }
+                    ],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "type": "creation",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "dataset",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "local",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "software, multimedia",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Race car drivers can offer insights into vehicle control at the limits of handling. These files are part of a collection from the Revs Program at Stanford that provides open access to data from expert drivers under real racing conditions with the aim to facilitate analysis of vehicle control under extreme operating conditions.\r\n\r\nThis item contains data and video from a 1963 Corvette Grand Sport driven during the 2013 Targa Sixty-Six at Palm Beach International Raceway in Jupiter, Florida. The car was driven during three race sessions, each with one or two separate outings.\r\n\r\nEach outing has two associated data files: a Comma Separated Values (.csv) file and a MATLAB MAT-file (.mat). The text file 'channels.txt' contains a description of the CSV data channels, including units. An additional CSV file 'grandsport.csv' contains relevant vehicle parameters including wheel base and mass measurements.\r\n\r\nData files and one example video file are located on this PURL page. All other associated video files can be found at https://purl.stanford.edu/yj807zw8315.\r\n\r\nThe file names follow the convention 'date_session_outing_driver_vehicle'.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Kegelman, John C. and Harbott, Lene K. and Gerdes, J. Christian. (2016). 2013 Targa Sixty-Six. Stanford Digital Repository. Available at: http://purl.stanford.edu/yf219gg2055",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Kegelman, John C. and Harbott, Lene K. and Gerdes, J. Christian. (2016). Insights into vehicle trajectories at the handling limits: analysing open data from race car drivers. Vehicle System Dynamics. Available at: http://dx.doi.org/10.1080/00423114.2016.1249893",
+            "type": "citation/reference",
+            "identifier": [],
+            "displayLabel": "Related Publication",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "vehicle dynamics",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Corvette",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Grand Sport",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Palm Beach International Raceway",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Mechanical Engineering",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "School of Engineering",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Revs Program at Stanford",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "kegelman@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [
+        {
+            "title": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Additional 2013 Targa Sixty-Six Videos",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [],
+            "identifier": [],
+            "subject": [],
+            "purl": "https://purl.stanford.edu/yj807zw8315",
+            "relatedResource": []
+        },
+        {
+            "title": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Revs Program at Stanford",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [],
+            "identifier": [],
+            "subject": [],
+            "access": {
+                "url": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "http://revs.stanford.edu/",
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": []
+                    }
+                ],
+                "physicalLocation": [],
+                "digitalLocation": [],
+                "accessContact": [],
+                "digitalRepository": [],
+                "note": []
+            },
+            "relatedResource": []
+        },
+        {
+            "title": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Revs Institute for Automotive Research",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [],
+            "identifier": [],
+            "subject": [],
+            "access": {
+                "url": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "http://revsinstitute.org/",
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": []
+                    }
+                ],
+                "physicalLocation": [],
+                "digitalLocation": [],
+                "accessContact": [],
+                "digitalRepository": [],
+                "note": []
+            },
+            "relatedResource": []
+        },
+        {
+            "title": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "1963 Chevrolet Corvette Grand Sport",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [],
+            "identifier": [],
+            "subject": [],
+            "access": {
+                "url": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "http://revsinstitute.org/the-collection/1963-chevrolet-corvette-grand-sport/",
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": []
+                    }
+                ],
+                "physicalLocation": [],
+                "digitalLocation": [],
+                "accessContact": [],
+                "digitalRepository": [],
+                "note": []
+            },
+            "relatedResource": []
+        },
+        {
+            "title": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Palm Beach International Raceway",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [],
+            "identifier": [],
+            "subject": [],
+            "access": {
+                "url": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "http://racepbir.com/",
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": []
+                    }
+                ],
+                "physicalLocation": [],
+                "digitalLocation": [],
+                "accessContact": [],
+                "digitalRepository": [],
+                "note": []
+            },
+            "relatedResource": []
+        },
+        {
+            "title": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Brian Redman's Targa Sixty-Six",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [],
+            "identifier": [],
+            "subject": [],
+            "access": {
+                "url": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "http://www.gorace.com/",
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": []
+                    }
+                ],
+                "physicalLocation": [],
+                "digitalLocation": [],
+                "accessContact": [],
+                "digitalRepository": [],
+                "note": []
+            },
+            "relatedResource": []
+        }
+    ],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/yf219gg2055"
+}

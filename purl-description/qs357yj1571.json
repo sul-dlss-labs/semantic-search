@@ -1,0 +1,267 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Seismic Performance, Capacity and Reliability of Structures as Seen Through Incremental Dynamic Analysis",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Vamvatsikos, D",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Cornell, CA",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2005-08",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "technical report",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Incremental Dynamic Analysis (IDA) is an emerging structural analysis method that offers thorough seismic demand and limit-state capacity prediction capability by using a series of nonlinear dynamic analyses under a suite of multiply scaled ground motion records. Realization of its opportunities is enhanced by several innovations, such as choosing suitable ground motion intensity measures and representative structural demand measures. In addition, proper interpolation and summarization techniques for multiple records need to be employed, providing the means for estimating the probability distribution of the structural demand given the seismic intensity. Limit-states, such as the dynamic global system instability, can be naturally defined in the context of IDA. The associated capacities are thus calculated such that, when properly combined with Probabilistic Seismic Hazard Analysis, they allow the estimation of the mean annual frequencies of limit-state exceedance. \r\n\r\nIDA is resource-intensive. Thus the use of simpler approaches becomes attractive. The IDA can be related to the computationally simpler Static Pushover (SPO), enabling a fast and accurate approximation to be established for single-degree-of-freedom systems. By investigating oscillators with quadrilinear backbones and summarizing the results into a few empirical equations, a new software tool, SPO2IDA, is produced here that allows direct estimation of the summarized IDA results. Interesting observations are made regarding the influence of the period and the backbone shape on the seismic performance of oscillators. Taking advantage of SPO2IDA, existing methodologies for predicting the seismic performance of first-mode-dominated, multi-degree-of-freedom systems can be upgraded to provide accurate estimation well beyond the peak of the SPO.\r\n\r\nThe IDA results may display quite large record-to-record variability. By incorporating elastic\r\nspectrum information, efficient intensity measures can be created that reduce such dispersions, resulting in significant computational savings. By employing either a single optimal spectral value, a vector of two or a scalar combination of several spectral values, significant efficiency is achieved. As the structure becomes damaged, the evolution of such optimally selected spectral values is observed, providing intuition about the role of spectral shape in the seismic performance of structures.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Vamvatsikos, D and Cornell, CA. (2005). Seismic Performance, Capacity and Reliability of Structures as Seen Through Incremental Dynamic Analysis. John A. Blume Earthquake Engineering Center Technical Report 151, Stanford Digital Repository. Available at: http://purl.stanford.edu/qs357yj1571",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Incremental Dynamic Analysis",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Blume Earthquake Engineering Center",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Department of Civil & Environmental Engineering",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "School of Engineering",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "structural analysis",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "seismic demand",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "ground motion",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Probabilistic Seismic Hazard Analysis",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "jabeec-email@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/qs357yj1571"
+}

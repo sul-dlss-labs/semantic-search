@@ -1,0 +1,299 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "USGS OFR 02-217: Oceanographic Observations in the Hudson Shelf Valley, December 1999 - April 2000: Data Report",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Butman, Bradford",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Alexander, P Soupy",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Harris, Courtney K",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Traykovski, Peter A",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2002",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "mixed material",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "manuscript",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "\"This data report presents oceanographic observations made in the Hudson Shelf Valley, offshore of New York, between December 1999 and April 2000. These observations were made by the U.S. Geological Survey (www.usgs.gov) as part of a program to investigate the transport and fate of sediment and associated contaminants in the coastal waters offshore of the New York - New Jersey metropolitan region. The report presents a description of the field program and instrumentation, an overview of the data through summary plots and statistics, and the data in NetCDF, ASCII, and Matlab format. The objective of this report is to make the data available in digital form, and to provide summary plots and statistics to facilitate browsing of the data set. See Harris and others (in press) for analysis of this data set. See USGS Studies in the New York Bight (woodshole.er.usgs.gov/project-pages/newyork/) for a description of other studies and publications.\r\n\r\nThe experiment was designed to observe sediment transport and circulation in the vicinity of the Hudson Shelf Valley, a 20-m deep valley that extends from the shelf edge across the continental shelf to water depths of about 20 m (figure 1). The head of the shelf valley lies near historic dumpsites where dredged material, sewage sludge, and other industrial wastes have been deposited over the last century (Massa and others, 1996). Some of the material disposed within the New York Bight and New York Harbor estuary now appears to reside in the Hudson Shelf Valley, based on elevated concentrations of lead and other metals in shelf valley sediments (ten Brink and others (1996), Mecray and others (1999), ten Brink and others (1998), Mecray and others (2001)).\r\n\r\nPast studies using moored current arrays observed strong shoreward currents (means of 0.10-0.12 m/s) within the upper portion (20-50 m water depth) of the Hudson Shelf Valley (see Nelsen and others, 1978; Manning and others, 1994). Harris and Signell (1999) used numerical models of circulation and sediment transport to predict that winds from the northwest could generate up-valley directed currents energetic enough to resuspend sediment within the Hudson Shelf Valley. These winds occur frequently, and Harris and Signell (1999) concluded that resuspension and transport by the associated up-valley currents may dominate sediment flux within the Hudson Shelf Valley. While Harris and Signell's (1999) circulation calculations were consistent with Manning and others (1994) observations, their transport predictions could not be verified because simultaneous measurements of suspended sediment concentration and current were not available.\"",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Ocean bottom",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "New York",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "brannerlibrary@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [
+        {
+            "title": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Open-File Report 02-217",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [],
+            "identifier": [],
+            "subject": [],
+            "access": {
+                "url": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "https://pubs.er.usgs.gov/publication/ofr02217",
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": []
+                    }
+                ],
+                "physicalLocation": [],
+                "digitalLocation": [],
+                "accessContact": [],
+                "digitalRepository": [],
+                "note": []
+            },
+            "relatedResource": []
+        }
+    ],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/bb695cv5154"
+}

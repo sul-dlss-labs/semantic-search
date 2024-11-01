@@ -1,0 +1,252 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "A Stochastic Ground Motion Forecast Model with Geophysical Considerations",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Suzuki, S",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Kiremidjian, AS",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "1988-09",
+                    "type": "creation",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "technical report",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "A method for site hazard estimates from subduction earthquakes is developed by combining a time-dependent earthquake recurrence model and a theoretical ground motion model into a unified hazard model. The time-dependent model is used to estimate probabilities of earthquake occurrences in regions characterized by large infrequent earthquake events. The model considers random stress accumulation and release rates and variations in earthquake recurrence patterns. The Bayesian approach is used to determine the model parameters from the limited data. In order to estimate ground motion at a site, a theoretical model is used based on the normal mode method for the vibrations of the spherical earth. A stochastic rupture model, which represents an incoherent slip over a fault plane, is used to simulate ground motions in the higher-frequency range. This theoretical model can simulate ground motions based on the regional tectonic setting, earthquake source mechanisms, wave-propagation effects from source to site, and local soil properties.\r\n\r\n\r\nThe proposed seismic hazard model forecasts probabilities of exceedence of specified ground motion levels and provides risk-consistent response spectra based on geophysical information in a region. This model is applied to the subduction zone along the Middle America Trench where data have suggested time-dependent behavior. The spectral ground motion attenuation relationships in Mexico City are developed for earthquakes that can occur along the Guerrero gap. The seismic hazard potential is estimated specifically from these earthquakes t mainly because the next large earthquake is expected to occur in the Guerrero gap.\r\n\r\n\r\nThe results from the application of the model indicate that a site ground motion should be consistent with regional earthquake occurrence patterns, source mechanisms, and wave-propagation path effects. The time-dependent seismic hazard model with a variable slip rate represents a considerable improvement over existing time-independent hazard models. The proposed site hazard model is particularly useful for estimating the ground motions from large infrequent earthquakes for which recorded strong ground motions are limited.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Suzuki, S and Kiremidjian, AS. (1988). A Stochastic Ground Motion Forecast Model with Geophysical Considerations. John A. Blume Earthquake Engineering Center Technical Report 88. Stanford Digital Repository. Available at: http://purl.stanford.edu/tr093vw6760",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "risk assessment",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "ground motions",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "probabilistic seismic hazard analysis",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "jabeec-email@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [
+        {
+            "title": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "John A. Blume Earthquake Engineering Center",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [],
+            "identifier": [],
+            "subject": [],
+            "access": {
+                "url": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "https://blume.stanford.edu",
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": []
+                    }
+                ],
+                "physicalLocation": [],
+                "digitalLocation": [],
+                "accessContact": [],
+                "digitalRepository": [],
+                "note": []
+            },
+            "relatedResource": []
+        }
+    ],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/tr093vw6760"
+}

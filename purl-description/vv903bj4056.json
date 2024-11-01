@@ -1,0 +1,372 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Braintrust",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "Bruno",
+                            "type": "forename",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        },
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "Lam",
+                            "type": "surname",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        }
+                    ],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "status": "primary",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "author",
+                    "code": "aut",
+                    "uri": "http://id.loc.gov/vocabulary/relators/aut",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "uri": "http://id.loc.gov/vocabulary/relators/",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "type": "deposit",
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2024-09-04",
+                    "type": "publication",
+                    "encoding": {
+                        "code": "edtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        },
+        {
+            "structuredValue": [],
+            "type": "publication",
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2024-08-13",
+                    "type": "publication",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "edtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Mixed Materials",
+                    "type": "type",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                },
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Report",
+                    "type": "subtype",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                },
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Video recording",
+                    "type": "subtype",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "parallelValue": [],
+            "groupedValue": [],
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "Stanford self-deposit resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "mixed material",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "moving image",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Collection",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "DataCite resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "From stocking stores to supporting customer requests, we rely on frontline workers’ labor daily. Yet, many remain stuck in low-wage, precarious jobs despite having the motivation to move up the career ladder. A key impediment is a lack of understanding of the competencies required to land their target jobs. Co-designed with industry professionals, Braintrust enables learners to try their target jobs’ day-to-day tasks. The learners’ submissions are compared to outputs developed by practitioners of the target jobs, enabling learners to self-assess their strengths and weaknesses. By tapping into this braintrust of experts, frontline workers gain clarity around which learning experiences to prioritize as they pursue their future jobs.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Lam, B. (2024). Braintrust. Stanford Digital Repository. Available at https://purl.stanford.edu/vv903bj4056. https://doi.org/10.25740/vv903bj4056.",
+            "type": "preferred citation",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Adult learning",
+            "type": "topic",
+            "uri": "http://id.worldcat.org/fast/797364/",
+            "identifier": [],
+            "source": {
+                "code": "fast",
+                "uri": "http://id.worldcat.org/fast/",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Workforce",
+            "type": "topic",
+            "uri": "http://id.worldcat.org/fast/990165/",
+            "identifier": [],
+            "source": {
+                "code": "fast",
+                "uri": "http://id.worldcat.org/fast/",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Upskill",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Frontline workers",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "brunolam23@gmail.com",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "adminMetadata": {
+        "contributor": [],
+        "event": [
+            {
+                "structuredValue": [],
+                "type": "creation",
+                "date": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "2024-09-04",
+                        "encoding": {
+                            "code": "edtf",
+                            "note": []
+                        },
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": []
+                    }
+                ],
+                "contributor": [],
+                "location": [],
+                "identifier": [],
+                "note": [],
+                "parallelEvent": []
+            }
+        ],
+        "language": [],
+        "note": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "Metadata created by user via Stanford self-deposit application",
+                "type": "record origin",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "metadataStandard": [],
+        "identifier": []
+    },
+    "purl": "https://purl.stanford.edu/vv903bj4056"
+}

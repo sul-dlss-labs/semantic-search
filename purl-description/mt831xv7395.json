@@ -1,0 +1,461 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Interpreting drilling records to predict well success",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "Dang",
+                            "type": "forename",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        },
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "Ton",
+                            "type": "surname",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        }
+                    ],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "status": "primary",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "author",
+                    "code": "aut",
+                    "uri": "http://id.loc.gov/vocabulary/relators/aut",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "uri": "http://id.loc.gov/vocabulary/relators/",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "type": "deposit",
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2021-08-31",
+                    "type": "publication",
+                    "encoding": {
+                        "code": "edtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        },
+        {
+            "structuredValue": [],
+            "type": "deposit",
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2022-12-05",
+                    "type": "modification",
+                    "encoding": {
+                        "code": "edtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        },
+        {
+            "structuredValue": [],
+            "type": "creation",
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2021-08-21",
+                    "type": "creation",
+                    "encoding": {
+                        "code": "edtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "qualifier": "approximate",
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        },
+        {
+            "structuredValue": [],
+            "type": "publication",
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2021-08-21",
+                    "type": "publication",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "edtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Text",
+                    "type": "type",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                },
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Thesis",
+                    "type": "subtype",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "parallelValue": [],
+            "groupedValue": [],
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "Stanford self-deposit resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "DataCite resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "For the last decade, modern machine learning, especially the deep neural network, has made tremendous impacts to all facets of life. The energy industry is not oblivious to the trend, and machine learning has found its applications in all of kind of operations. Often, the most cost-intensive operation that is carried out in the energy industry is the well drilling operation. This report is an extensive study on the application of deep neural networks in optimizing geothermal well drilling operation, but can be readily applied to oil and gas well due to their similarities.\r\n\r\nThis study shows that drilling optimization by optimizing rate-of-penetration from past drilling records is a highly delicate process. Not only a sufficient amount of data from multiple sources of information is required, the data also must be properly recorded and standardized, or it must go through preprocessing to filter out invalid entries and to standardize. In this study, a R2 score of 0.53 has been achieved for the rate-of-penetration prediction deep neural network model with random train/validation splitting scheme. However, as the rate-of-penetration prediction model trained with random splitting scheme has limited usage in production, an alternative splitting scheme called well-by-well train/validation splitting is used. With the well-by-well train/validation splitting scheme, the rate-of-penetration prediction deep neural network model was only able to achieve a R2 score of 0.1\r\n\r\nRate-of-penetration is not the only criterion used in drilling optimization. This study also considered optimization by reducing nonproductive times. The most common reasons for nonproductive times are tripping, and the drillers encountering problems. Therefore, having a model that can forecast these nonproductive times is helpful to the overall quest of minimizing the total costs. In this study, machine learning models that can predict potential tripping/problems from drilling records have been developed, and both models have satisfactory accuracy to be used in real life situations.\r\n\r\nThe problem of incorporating nonnumerical entries in drilling records was also studied in this study. In addition to the standard numerical-type entries, textural-type entries are often found in drilling records. These textural-type entries are often nonstandardized written English remarks/comments from the drillers, which may carry useful information about the condition of the well that does not available elsewhere in the records. However, these remarks/comments require expensive and time-consuming manual data preprocessing in order to incorporate them into machine learning models. Bidirectional Encoder Representations from Transformers (BERT) provides a solution for automating preprocessing of textural data. Using textual information, together with numerical information, has improved the quality of predictions in most cases.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Ton, D. (2021). Interpreting drilling records to predict well success. Stanford Digital Repository. Available at https://purl.stanford.edu/mt831xv7395",
+            "type": "preferred citation",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Oil well drilling",
+            "type": "topic",
+            "uri": "http://id.worldcat.org/fast/1044853/",
+            "identifier": [],
+            "source": {
+                "code": "fast",
+                "uri": "http://id.worldcat.org/fast/",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Geothermal well drilling",
+            "type": "topic",
+            "uri": "http://id.worldcat.org/fast/1940998/",
+            "identifier": [],
+            "source": {
+                "code": "fast",
+                "uri": "http://id.worldcat.org/fast/",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Machine learning",
+            "type": "topic",
+            "uri": "http://id.worldcat.org/fast/1004795/",
+            "identifier": [],
+            "source": {
+                "code": "fast",
+                "uri": "http://id.worldcat.org/fast/",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Neural networks (Computer science)",
+            "type": "topic",
+            "uri": "http://id.worldcat.org/fast/1036260/",
+            "identifier": [],
+            "source": {
+                "code": "fast",
+                "uri": "http://id.worldcat.org/fast/",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Natural language processing",
+            "type": "title",
+            "uri": "http://id.worldcat.org/fast/1397704/",
+            "identifier": [],
+            "source": {
+                "code": "fast",
+                "uri": "http://id.worldcat.org/fast/",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Petroleum engineers",
+            "type": "topic",
+            "uri": "http://id.worldcat.org/fast/1059523/",
+            "identifier": [],
+            "source": {
+                "code": "fast",
+                "uri": "http://id.worldcat.org/fast/",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Geothermal engineering",
+            "type": "topic",
+            "uri": "http://id.worldcat.org/fast/941136/",
+            "identifier": [],
+            "source": {
+                "code": "fast",
+                "uri": "http://id.worldcat.org/fast/",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Cluster analysis",
+            "type": "topic",
+            "uri": "http://id.worldcat.org/fast/864976/",
+            "identifier": [],
+            "source": {
+                "code": "fast",
+                "uri": "http://id.worldcat.org/fast/",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "dangton@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "adminMetadata": {
+        "contributor": [],
+        "event": [
+            {
+                "structuredValue": [],
+                "type": "creation",
+                "date": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "2021-08-31",
+                        "encoding": {
+                            "code": "edtf",
+                            "note": []
+                        },
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": []
+                    }
+                ],
+                "contributor": [],
+                "location": [],
+                "identifier": [],
+                "note": [],
+                "parallelEvent": []
+            }
+        ],
+        "language": [],
+        "note": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "Metadata created by user via Stanford self-deposit application",
+                "type": "record origin",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "metadataStandard": [],
+        "identifier": []
+    },
+    "purl": "https://purl.stanford.edu/mt831xv7395"
+}

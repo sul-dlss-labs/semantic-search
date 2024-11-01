@@ -1,0 +1,668 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Leland quarterly",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Leland, a quarterly statement on literature, culture, art, and politics",
+            "type": "alternative",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "Stanford University",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        },
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "English Department",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        }
+                    ],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "organization",
+            "role": [],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "2006",
+                            "type": "start",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        },
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "9999",
+                            "type": "end",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        }
+                    ],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "type": "publication",
+                    "encoding": {
+                        "code": "marc",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "code": "cau",
+                    "identifier": [],
+                    "source": {
+                        "code": "marccountry",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "serial",
+                    "type": "issuance",
+                    "identifier": [],
+                    "source": {
+                        "value": "MODS issuance terms",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                },
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Three times a year",
+                    "type": "frequency",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcfrequency",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "parallelEvent": []
+        },
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "c2006-",
+                    "type": "publication",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [
+                {
+                    "name": [
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "Stanford University, Department of English",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        }
+                    ],
+                    "type": "organization",
+                    "role": [
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "publisher",
+                            "code": "pbl",
+                            "uri": "http://id.loc.gov/vocabulary/relators/pbl",
+                            "identifier": [],
+                            "source": {
+                                "code": "marcrelator",
+                                "uri": "http://id.loc.gov/vocabulary/relators/",
+                                "note": []
+                            },
+                            "note": [],
+                            "appliesTo": []
+                        }
+                    ],
+                    "identifier": [],
+                    "note": [],
+                    "parallelContributor": []
+                }
+            ],
+            "location": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Stanford, CA",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "3 times per year",
+                    "type": "frequency",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "periodical",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "print",
+            "type": "form",
+            "identifier": [],
+            "source": {
+                "code": "marcform",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "electronic resource",
+            "type": "form",
+            "identifier": [],
+            "source": {
+                "code": "marccategory",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "remote",
+            "type": "form",
+            "identifier": [],
+            "source": {
+                "code": "marcsmd",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "v. : ill. ; 29 cm.",
+            "type": "extent",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [
+        {
+            "appliesTo": [],
+            "code": "eng",
+            "groupedValue": [],
+            "note": [],
+            "parallelValue": [],
+            "source": {
+                "code": "iso639-2b",
+                "note": []
+            },
+            "structuredValue": []
+        }
+    ],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "General interest magazine showcasing Stanford University undergraduate art and writing -- from fiction to poetry, essays to reviews.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Began with: Volume 1, Number 1 (fall 2006).",
+            "type": "date/sequential designation",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Description based on: Volume 1, Number 1 (fall 2006); title from cover.",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Latest issue consulted: Volume 1, Number 1 (fall 2006).",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Also issued online.",
+            "type": "additional physical form",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "type": "place",
+            "code": "n-us-ca",
+            "identifier": [],
+            "source": {
+                "code": "marcgac",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Stanford University",
+                    "type": "organization",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                },
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Periodicals",
+                    "type": "genre",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "parallelValue": [],
+            "groupedValue": [],
+            "identifier": [],
+            "source": {
+                "code": "lcsh",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "College students' writings, American",
+                    "type": "topic",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                },
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "California",
+                    "type": "place",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                },
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Stanford",
+                    "type": "place",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                },
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Periodicals",
+                    "type": "genre",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "parallelValue": [],
+            "groupedValue": [],
+            "identifier": [],
+            "source": {
+                "code": "lcsh",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Art, American",
+                    "type": "topic",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                },
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "California",
+                    "type": "place",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                },
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Stanford",
+                    "type": "place",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                },
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "21st century",
+                    "type": "time",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                },
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Periodicals",
+                    "type": "genre",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "parallelValue": [],
+            "groupedValue": [],
+            "identifier": [],
+            "source": {
+                "code": "lcsh",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "LH1.S7 L45",
+            "type": "classification",
+            "identifier": [],
+            "source": {
+                "code": "lcc",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "http://lelandquarterly.com/",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "adminMetadata": {
+        "contributor": [
+            {
+                "name": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "code": "STF",
+                        "identifier": [],
+                        "source": {
+                            "code": "marcorg",
+                            "note": []
+                        },
+                        "note": [],
+                        "appliesTo": []
+                    }
+                ],
+                "type": "organization",
+                "role": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "original cataloging agency",
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": []
+                    }
+                ],
+                "identifier": [],
+                "note": [],
+                "parallelContributor": []
+            }
+        ],
+        "event": [
+            {
+                "structuredValue": [],
+                "type": "creation",
+                "date": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "091009",
+                        "encoding": {
+                            "code": "marc",
+                            "note": []
+                        },
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": []
+                    }
+                ],
+                "contributor": [],
+                "location": [],
+                "identifier": [],
+                "note": [],
+                "parallelEvent": []
+            }
+        ],
+        "language": [],
+        "note": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "Converted from MARCXML to MODS version 3.7 using MARC21slim2MODS3-7_SDR_v2-1.xsl (SUL 3.7 version 2.1 20210127; LC Revision 1.140 20200717)",
+                "type": "record origin",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "metadataStandard": [
+            {
+                "code": "aacr",
+                "note": []
+            }
+        ],
+        "identifier": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "a8350117",
+                "type": "SIRSI",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+            }
+        ]
+    },
+    "purl": "https://purl.stanford.edu/xm377yc8002"
+}

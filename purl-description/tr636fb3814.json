@@ -1,0 +1,293 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Integration of Production Data into Reservoir Models: a Forward Modeling Perspective",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Srinivasan, Sanjay",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Journel, Andre G.",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Primary advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Hewett, Thomas",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Graham, Stephan",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Stanford University, Department of Petroleum Engineering",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "organization",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Degree granting institution",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2000-03",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "thesis",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "The integration of dynamic data into reservoir models is a challenging task that must account for the non-linear dependence of fluid flow on the permeability values at multiple locations within the reservoir. The volume of the reservoir affecting the dynamic production data observed at wells is typically unknown. Traditionally, the non-linear transfer function relating the permeability field to the observed well response is approximated using a non-linear power average of permeability values taken one location at a time. Permeability fields are then conditioned to these non-linear proxies using iterative techniques such as simulated annealing. These iterative techniques are cpu intensive. An alternate direct sequential simulation technique is presented in this thesis that is based on the traditional geostatistical paradigms of sequential simulation and block conditioning. The conditioned permeability models obtained by the sequential simulation technique are data exact, in the sense that the proxy calculated on the simulated models exactly reproduce the well test effective permeability value. However, the proxy is but a vehicle to introduce well test data into the simulation of permeability models. The end objective is to develop permeability models that reproduce the well test target when the full transfer function (flow simulator) is applied. This research points out that the permeability models constrained to the traditional power average proxy reproduce the well test datum poorly, when well test flow simulation is performed on them. Because the traditional power average proxy accounts for permeability values one location at a time, it ignores the spatial connectivity of the permeability field. An improved proxy is proposed that accounts for the multiple point characteristics of the permeability field. It is shown that such an improved proxy can be derived from the equations that govern fluid flow in the reservoir. The multiple point proxy proposed considers the permeability values at a set of nodes over a given spatial template, hence reflects spatial patterns of connectivity. The calibration of that proxy is done on a training set of reservoir models that exhibit the same pattern of spatial variability as the target reservoir. A neural-network based calibration procedure is proposed. The procedure is demonstrated on a succession of examples that highlight the importance of including permeability connectivity characteristics into the proxy. An added advantage of the multiple point proxy is its ability to represent the entire well test pressure profile. New geostatistical simulation algorithms must be developed to reproduce such multiple point proxy data. Two iterative simulation techniques, a modified simulated annealing approach and a Markov chain Monte Carlo approach are proposed. These techniques iteratively update a prior model for the spatial distribution of permeability into a posterior model that honors the proxy data. The application of the proposed algorithms for reproducing both well test effective permeability as well as the complete pressure profile is demonstrated. Both techniques yield simulated permeability fields that accurately reproduce the flow characteristics of the target reservoir. The concept of defining a proxy which accurately captures the physics of flow, then conditioning the permeability field to such a proxy is the crucial paradigm underlying this thesis.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Srinivasan, Sanjay. (2000). Integration of Production Data into Reservoir Models: a Forward Modeling Perspective. Stanford Digital Repository. Available at: https://purl.stanford.edu/tr636fb3814",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "School of Earth Energy & Environmental Sciences",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "brannerlibrary@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/tr636fb3814"
+}

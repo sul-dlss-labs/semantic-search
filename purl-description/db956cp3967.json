@@ -1,0 +1,227 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Data-Space Inversion with Variable Well Controls in the Prediction Period",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Jiang, Su",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Durlofsky, Louis J.",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Primary advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2018-06",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "thesis",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Data-space inversion (DSI) and related procedures represent a family of methods that provide posterior (history-matched) predictions for quantities of interest, along with uncertainty quantification, without constructing posterior models. Rather, posterior predictions are generated directly from a large set of prior-model simulations and observed data. Current DSI methods require that well controls (e.g., bottom-hole pressures) be specified for the full duration of the simulation time frame (historical period plus prediction period). This means that, if well settings are changed, the full set of prior models must be re-simulated using the new controls, which would be very time consuming for optimization computations.\r\nIn this work we develop a data-space inversion with variable controls (DSIVC) procedure. DSIVC enables the generation of posterior forecasts, under user-specified well controls in the post-history-match period, without re-running any prior simulations. In DSIVC, we first perform flow simulations on all prior realizations with randomly generated well controls (with a prescribed number of stages). User-specified controls are then treated as additional `observations' to be matched in posterior predictions. Posterior data samples are generated using a randomized maximum likelihood procedure in data space. Data-space principal component analysis and histogram transformation are applied to improve DSIVC performance and efficiency.\r\nExtensive results are presented for a bimodal channelized system. Different (synthetic) true models, and different sets of post-history-match controls, are considered. For any well control specification, a set of 100 posterior predictions can be generated in seconds or minutes. Posterior predictions from our DSIVC procedure are compared to those from an existing DSI method for a number of cases. The DSI results require all prior models to be re-simulated using the specified controls, while DSIVC requires only one set of prior simulation runs. Substantial uncertainty reduction is typically achieved through data-space inversion, and general agreement between DSIVC and DSI results is consistently observed. The DSIVC method is then applied for well control optimization under uncertainty. A mesh adaptive direct search algorithm is used to maximize expected net present value (NPV) over 100 posterior predictions. Clear improvement in expected NPV is achieved using DSIVC. The method may thus be suitable for use in closed-loop reservoir management, with both data assimilation and production optimization performed in data space.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Jiang, Su (2018). Data-Space Inversion with Variable Well Controls in the Prediction Period. Stanford Digital Repository. Available at: https://purl.stanford.edu/db956cp3967",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "School of Earth Energy & Environmental Sciences",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Data-space inversion",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Variable controls",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Optimization",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "sujiang@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/db956cp3967"
+}

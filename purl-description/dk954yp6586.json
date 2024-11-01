@@ -1,0 +1,843 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Dataset and R code for article \"Topical emollient therapy with sunflower seed oil alters the skin microbiota of young children with severe acute malnutrition in Bangladesh: a randomised, controlled study\"",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "Natalie",
+                            "type": "forename",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        },
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "Fischer",
+                            "type": "surname",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        }
+                    ],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "status": "primary",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "author",
+                    "code": "aut",
+                    "uri": "http://id.loc.gov/vocabulary/relators/aut",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "uri": "http://id.loc.gov/vocabulary/relators/",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "David",
+                            "type": "forename",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        },
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "Relman",
+                            "type": "surname",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        }
+                    ],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "research team head",
+                    "code": "rth",
+                    "uri": "http://id.loc.gov/vocabulary/relators/rth",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "uri": "http://id.loc.gov/vocabulary/relators/",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "Gary L.",
+                            "type": "forename",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        },
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "Darmstadt",
+                            "type": "surname",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        }
+                    ],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "research team head",
+                    "code": "rth",
+                    "uri": "http://id.loc.gov/vocabulary/relators/rth",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "uri": "http://id.loc.gov/vocabulary/relators/",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "KM",
+                            "type": "forename",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        },
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "Shahuhja",
+                            "type": "surname",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        }
+                    ],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "author",
+                    "code": "aut",
+                    "uri": "http://id.loc.gov/vocabulary/relators/aut",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "uri": "http://id.loc.gov/vocabulary/relators/",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "Lindsay",
+                            "type": "forename",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        },
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "Kendall",
+                            "type": "surname",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        }
+                    ],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "author",
+                    "code": "aut",
+                    "uri": "http://id.loc.gov/vocabulary/relators/aut",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "uri": "http://id.loc.gov/vocabulary/relators/",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "Rachel A.",
+                            "type": "forename",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        },
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "Gibson",
+                            "type": "surname",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        }
+                    ],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "author",
+                    "code": "aut",
+                    "uri": "http://id.loc.gov/vocabulary/relators/aut",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "uri": "http://id.loc.gov/vocabulary/relators/",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "Tahmeed",
+                            "type": "forename",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        },
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "Ahmed",
+                            "type": "surname",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        }
+                    ],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "research team head",
+                    "code": "rth",
+                    "uri": "http://id.loc.gov/vocabulary/relators/rth",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "uri": "http://id.loc.gov/vocabulary/relators/",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "Jonathan M",
+                            "type": "forename",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        },
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "Crowther",
+                            "type": "surname",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        }
+                    ],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "author",
+                    "code": "aut",
+                    "uri": "http://id.loc.gov/vocabulary/relators/aut",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "uri": "http://id.loc.gov/vocabulary/relators/",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "type": "deposit",
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2021-11-25",
+                    "type": "publication",
+                    "encoding": {
+                        "code": "edtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        },
+        {
+            "structuredValue": [],
+            "type": "deposit",
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2022-12-05",
+                    "type": "modification",
+                    "encoding": {
+                        "code": "edtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        },
+        {
+            "structuredValue": [],
+            "type": "creation",
+            "date": [
+                {
+                    "structuredValue": [
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "2017",
+                            "type": "start",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        },
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "2018",
+                            "type": "end",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        }
+                    ],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "type": "creation",
+                    "encoding": {
+                        "code": "edtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "qualifier": "approximate",
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Data",
+                    "type": "type",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "parallelValue": [],
+            "groupedValue": [],
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "Stanford self-deposit resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Data sets",
+            "type": "genre",
+            "uri": "http://id.loc.gov/authorities/genreForms/gf2018026119",
+            "identifier": [],
+            "source": {
+                "code": "lcgft",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "dataset",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "local",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Dataset",
+            "type": "resource type",
+            "uri": "http://id.loc.gov/vocabulary/resourceTypes/dat",
+            "identifier": [],
+            "source": {
+                "uri": "http://id.loc.gov/vocabulary/resourceTypes/",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Dataset",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "DataCite resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Background Topical emollient therapy with sunflower seed oil (SSO) reduces \r\nrisk of sepsis and mortality in very preterm infants in low- or middle-income countries (LMICs). Proposed mechanisms include modulation of skin and pos-sibly gut barrier function. The skin and gut microbiota play important roles in regulating barrier function, but the effects of emollient therapy on these micro-biotas are poorly understood.\r\nMethods We characterised microbiota structure and diversity with 16S rRNA gene amplicon sequence data and ecological statistics in 20 children with se-vere acute malnutrition (SAM) aged 2-24 months, at four skin sites and in stool, during a randomised, controlled trial of emollient therapy with SSO in Bangla-desh. Microbes associated with therapy were identified with tree-based sparse discriminant analysis.\r\nResults The skin microbiota of Bangladeshi children with SAM was highly di-verse and displayed significant variation in structure as a function of physical distance between sites. Microbiota structure differed between the study groups (P = 0.005), was more diverse in emollient-treated subjects–including on the forehead which did not receive direct treatment–and changed with each day (P = 0.005) at all skin sites. Overall, Prevotellaceae were the most differentially affected by emollient treatment; several genera within this family became more abundant in the emollient group than in the controls across several skin sites. Gut microbiota structure was associated with sample day (P = 0.045) and subject age (P = 0.045), but was not significantly affected by emollient treatment (P = 0.060).\r\nConclusions Emollient therapy altered the skin microbiota in a consistent and temporally coherent manner. We speculate that therapy with SSO enhances skin barrier function in part through alterations in the microbiota, and through systemic mechanisms. Strategies to strengthen skin and gut barrier function in populations at risk, such as children in LMICs like Bangladesh, might include deliberate manipulation of their skin microbiota.\r\nTrial registration ClinicalTrials.gov: NCT02616289.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Fischer N, Darmstadt GL, Shahunja KM, Crowther JM, Kendall L, Gibson RA, Ahmed T, Relman DA. Topical emollient therapy with sunflower seed oil alters the skin microbiota of young children with severe acute malnutrition in Bangladesh: A randomised, controlled study. J Glob Health 2021;11:04047.",
+            "type": "preferred citation",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "barrier function / emollient therapy / Prevotellaceae / skin microbiota / gut microbiota",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "Natalie.Fischer211@gmail.com",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [
+        {
+            "title": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Fischer et al 2021 Journal of Global Health",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [],
+            "identifier": [],
+            "subject": [],
+            "access": {
+                "url": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "http://www.jogh.org/documents/2021/jogh-11-04047.htm",
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": []
+                    }
+                ],
+                "physicalLocation": [],
+                "digitalLocation": [],
+                "accessContact": [],
+                "digitalRepository": [],
+                "note": []
+            },
+            "relatedResource": []
+        },
+        {
+            "title": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Fischer et al 2021 Journal of Global Health pdf",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [],
+            "identifier": [],
+            "subject": [],
+            "access": {
+                "url": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "http://www.jogh.org/documents/2021/jogh-11-04047.pdf",
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": []
+                    }
+                ],
+                "physicalLocation": [],
+                "digitalLocation": [],
+                "accessContact": [],
+                "digitalRepository": [],
+                "note": []
+            },
+            "relatedResource": []
+        },
+        {
+            "title": [],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Shahunja, K. M., Ahmed, T., Hossain, M. I., Mahfuz, M., Kendall, L., Zhu, X., et al. (2020). Topical emollient therapy in the management of severe acute malnutrition in children under two: A randomized controlled clinical trial in Bangladesh. Journal of Global Health, 10(1), 1–13. http://doi.org/10.7189/jogh.10.010414",
+                    "type": "preferred citation",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "subject": [],
+            "relatedResource": []
+        }
+    ],
+    "marcEncodedData": [],
+    "adminMetadata": {
+        "contributor": [],
+        "event": [
+            {
+                "structuredValue": [],
+                "type": "creation",
+                "date": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "2021-11-25",
+                        "encoding": {
+                            "code": "edtf",
+                            "note": []
+                        },
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": []
+                    }
+                ],
+                "contributor": [],
+                "location": [],
+                "identifier": [],
+                "note": [],
+                "parallelEvent": []
+            }
+        ],
+        "language": [],
+        "note": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "Metadata created by user via Stanford self-deposit application",
+                "type": "record origin",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "metadataStandard": [],
+        "identifier": []
+    },
+    "purl": "https://purl.stanford.edu/dk954yp6586"
+}

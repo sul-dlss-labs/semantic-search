@@ -1,0 +1,446 @@
+{
+    "title": [
+        {
+            "structuredValue": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Introduction to the Sakushi kaitei",
+                    "type": "main title",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                },
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "a reference text by Dr. Stuart Sargent",
+                    "type": "subtitle",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "parallelValue": [],
+            "groupedValue": [],
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Sargent, Stuart Howard, 1946-",
+                    "uri": "http://id.loc.gov/authorities/names/n85804271",
+                    "identifier": [],
+                    "source": {
+                        "code": "naf",
+                        "uri": "http://id.loc.gov/authorities/names/",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "status": "primary",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "code": "aut",
+                    "uri": "http://id.loc.gov/vocabulary/relators/aut",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "uri": "http://id.loc.gov/vocabulary/relators/",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "2015",
+                            "type": "start",
+                            "status": "primary",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        },
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "2021",
+                            "type": "end",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        }
+                    ],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "type": "creation",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "qualifier": "approximate",
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Conference publications",
+            "type": "genre",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "online resource",
+            "type": "form",
+            "identifier": [],
+            "source": {
+                "code": "rdacarrier",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "access",
+            "type": "reformatting quality",
+            "identifier": [],
+            "source": {
+                "value": "MODS reformatting quality terms",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "application/pdf",
+            "type": "media type",
+            "identifier": [],
+            "source": {
+                "value": "IANA media types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "52 pages",
+            "type": "extent",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "born digital",
+            "type": "digital origin",
+            "identifier": [],
+            "source": {
+                "value": "MODS digital origin terms",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [
+        {
+            "appliesTo": [],
+            "code": "eng",
+            "groupedValue": [],
+            "note": [],
+            "parallelValue": [],
+            "source": {
+                "code": "iso639-2b",
+                "uri": "http://id.loc.gov/vocabulary/iso639-2",
+                "note": []
+            },
+            "structuredValue": [],
+            "uri": "http://id.loc.gov/vocabulary/iso639-2/eng",
+            "value": "English"
+        },
+        {
+            "appliesTo": [],
+            "code": "jpn",
+            "groupedValue": [],
+            "note": [],
+            "parallelValue": [],
+            "source": {
+                "code": "iso639-2b",
+                "uri": "http://id.loc.gov/vocabulary/iso639-2",
+                "note": []
+            },
+            "structuredValue": [],
+            "uri": "http://id.loc.gov/vocabulary/iso639-2/jpn",
+            "value": "Japanese"
+        }
+    ],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "This reference text, written by Dr. Stuart Sargent, who donated Sakushi Kaitei to the Stanford University Libraries, provides an introduction to the work with extensive references.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Table of contents: Introduction. Genesis of the Volumes. The Editors. Provenance of the Stanford Copy. Detailed Contents of the First Volume: I. Sakushi kaitei 作詩階梯. II. Japanese translation of the Qiuxing ge shihua 秋星閣詩話by Li Yi 李沂 (1556 – 1614). III. Shiwa no shiwa詩話の詩話. IV. Shikū Hyosei Nijuyon shihin chūshaku 司空表聖二十四詩品註釋. V. Shi ben 詩辯. VI. Shiji seigo 四字成語. VII. Kanshi no kanshō 漢詩の鑑賞, by Kawashima Seidō 川島清堂 (1886 – 1946). Contents of the Second Volume",
+            "type": "table of contents",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Chinese poetry",
+                    "type": "topic",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                },
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Japanese authors",
+                    "type": "topic",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                },
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "History and criticism",
+                    "type": "topic",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "parallelValue": [],
+            "groupedValue": [],
+            "identifier": [],
+            "source": {
+                "code": "local",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "Stanford University. East Asia Library",
+                "type": "repository",
+                "uri": "http://id.loc.gov/authorities/names/no2016112695",
+                "identifier": [],
+                "source": {
+                    "code": "naf",
+                    "note": []
+                },
+                "note": [],
+                "appliesTo": []
+            },
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "reganmk@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [
+        {
+            "type": "references",
+            "displayLabel": "Related publication",
+            "title": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Sakushi kaitei oyobi shiwa ; Sakushi mondō",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [],
+            "identifier": [],
+            "subject": [],
+            "relatedResource": []
+        },
+        {
+            "type": "references",
+            "title": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Sakushi kaitei",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [],
+            "identifier": [],
+            "subject": [],
+            "purl": "https://purl.stanford.edu/zm994fk7753",
+            "relatedResource": []
+        }
+    ],
+    "marcEncodedData": [],
+    "adminMetadata": {
+        "contributor": [
+            {
+                "name": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "code": "CSt",
+                        "uri": "http://id.loc.gov/vocabulary/organizations/cst",
+                        "identifier": [],
+                        "source": {
+                            "code": "marcorg",
+                            "uri": "http://id.loc.gov/vocabulary/organizations",
+                            "note": []
+                        },
+                        "note": [],
+                        "appliesTo": []
+                    }
+                ],
+                "type": "organization",
+                "role": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "original cataloging agency",
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": []
+                    }
+                ],
+                "identifier": [],
+                "note": [],
+                "parallelContributor": []
+            }
+        ],
+        "event": [],
+        "language": [],
+        "note": [],
+        "metadataStandard": [],
+        "identifier": []
+    },
+    "purl": "https://purl.stanford.edu/mn521kw5258"
+}

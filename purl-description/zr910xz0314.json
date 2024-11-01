@@ -1,0 +1,212 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "A Method for Structural Safety Evaluation under Mainshock-Aftershock Earthquake Sequences",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Sunasaka, Y",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Kiremidjian, AS",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "1993-07",
+                    "type": "creation",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "technical report",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Structures are frequently subjected to sequences of mainshock and aftershocks during their life. Strong aftershocks have been known to cause extensive structural damage and losses of human lives and property in addition to the damage and losses of the mainshock. It is clear that aftershocks are crucial to structural safety in the event of earthquakes.\r\n A procedure for evaluating the structural safety under mainshock-aftershock earthquake sequences is described. This procedure consists of 3 steps:(1) simulation of the mainshock-aftershock earthquake sequences, (2) calculation of ground motions at the structural site, and (3) calculation of the structural damage. At step (1), we assume that the probability density of interarrival times of mainshocks is Weibull or exponentially distributed according to the earthquake data near the site. In addition, the magnitudes of mainshocks are assumed to be exponentially distributed. Then the number and the magnitude of aftershocks depend on the magnitude of the mainshock. The magnitudes of aftershocks are modeled by an exponential distribution. At step (2), we assume that epicenters of earthquakes are uniformly distributed along active faults. Then we calculate the response spectra of ground motions with magnitudes calculated in steps (1) and epicenters using the Joyner and Boor (1982) spectral attenuation equation. The time histories of ground motions are then simulated using the duration independent envelope function proposed by Tung et ale (1992). At the final step (3), we obtain structural damage which can be calculated by nonlinear analysis of structure. The structural safety during the mainshock-aftershock sequences is estimated from the cumulative damage index from the complete sequences.\r\n The proposed damage estimation method is applied to the overpass of Highway 101 at Painter Street in Rio Dell, California. The structure is modeled as a single degree of freedom system. A probabilistic occurrence model of the mainshock-aftershock sequence is developed according to the earthquake data near Eureka. The average and standard deviation of damage index of the structure are estimated using the proposed simulation procedure. Based on the results from this simulation, it is observed that the cumulative damage from the mainshock-aftershock sequences is found to be significantly higher than the damage obtained if only mainshocks are included in the analysis. Thus, consideration of the aftershock sequences in the damage model plays an important role in the computation of damage indices and should be considered in all damage analysis.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Sunasaka, Y and Kiremidjian, AS. (1993). A Method for Structural Safety Evaluation under Mainshock-Aftershock Earthquake Sequences. Stanford Digital Repository. Available at: http://purl.stanford.edu/zr910xz0314",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "risk assessment",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "structural analysis",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "seismic performance",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "jabeec-email@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/zr910xz0314"
+}

@@ -1,0 +1,236 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Mask Designs for Micropatterning of Cells",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Sadeghipour, Ehsan",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Möller, Jens",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Pruitt, Beth",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Primary advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "2010-09-30",
+                            "type": "start",
+                            "status": "primary",
+                            "identifier": [],
+                            "qualifier": "approximate",
+                            "note": [],
+                            "appliesTo": []
+                        },
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "2014-08-30",
+                            "type": "end",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        }
+                    ],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "type": "creation",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "software, multimedia",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "This repository webpage presents mask designs for the micropatterning of cells for completeness. These masks were used to fabricate S1818 patterning on glass coverslips or SU-8 molds for PDMS stamping. Masks were designed by L-edit and fabricated on soda-lime glass or transparency plastics with chrome or ink and with a 3 or 15 μm minimum feature size resolution, as listed below.\r\n\r\nCell micropatterning Mask 1 \r\nFile name: ETH Mask.tdb \r\nFabrication date: 01.15.2012. \r\nManufacturer: Photosciences, inc. Torrance, CA \r\nCarrier substrate: soda-lime glass \r\nResolution: 3 μm +/- 0.5 μm \r\nPolarity: Digitized data dark (clear field) \r\nOrientation: Chrome side down\r\n\r\nCell micropatterning Mask 2 \r\nFile name: Philip_JooYong_mask_design_v1.tdb \r\nFabrication date: 08.20.2012.\r\nManufacturer: Zimmerman printing, Germany\r\nCarrier substrate: transparency\r\nResolution: 15 μm \r\nPolarity: Digitized data dark (clear field)\r\nOrientation: Ink side down\r\n\r\nCell micropatterning Mask 3\r\nFile name: cell_cell_ECM_pattern_final.tdb\r\nFabrication date: 10.30.2012.\r\nManufacturer: Photosciences, inc. Torrance, CA\r\nCarrier substrate: soda-lime glass\r\nResolution: 3 μm +/- 0.5 μm\r\nPolarity: Digitized data dark (clear field)\r\nOrientation: Chrome side down\r\n\r\nCell micropatterning Mask 4\r\nFile name: cell_ ECM_pattern_final_aspect_ratio_v1.tdb\r\nFabrication date: 02.17.2014.\r\nManufacturer: Photosciences, inc. Torrance, CA\r\nCarrier substrate: soda-lime glass\r\nResolution: 3 μm +/- 0.5 μm\r\nPolarity: Digitized data dark (clear field)\r\nOrientation: Chrome side down",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Sim JY, et al. (2012) Uniaxial cell stretcher enables high resolution live cell imaging. 2012 IEEE 25th International Conference on Micro Electro Mechanical Systems (MEMS), pp 854–857. http://dx.doi.org/10.1109/MEMSYS.2012.6170320",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "mask design micropatterning of cells",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "simba85@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/ms902yj3161"
+}

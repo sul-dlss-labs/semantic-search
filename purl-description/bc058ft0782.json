@@ -1,0 +1,874 @@
+{
+    "title": [
+        {
+            "structuredValue": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Advances in the astronautical sciences",
+                    "type": "main title",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                },
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Volume 176, part I, pages 1-1208",
+                    "type": "part number",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "parallelValue": [],
+            "groupedValue": [],
+            "status": "primary",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "1957",
+                            "type": "start",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        },
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "9999",
+                            "type": "end",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        }
+                    ],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "type": "publication",
+                    "encoding": {
+                        "code": "marc",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "code": "cau",
+                    "identifier": [],
+                    "source": {
+                        "code": "marccountry",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "serial",
+                    "type": "issuance",
+                    "identifier": [],
+                    "source": {
+                        "value": "MODS issuance terms",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                },
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Unknown",
+                    "type": "frequency",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcfrequency",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "parallelEvent": []
+        },
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "1957-",
+                    "type": "publication",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [
+                {
+                    "name": [
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "Distributed by UNIVELT, inc.",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        }
+                    ],
+                    "type": "organization",
+                    "role": [
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "publisher",
+                            "code": "pbl",
+                            "uri": "http://id.loc.gov/vocabulary/relators/pbl",
+                            "identifier": [],
+                            "source": {
+                                "code": "marcrelator",
+                                "uri": "http://id.loc.gov/vocabulary/relators/",
+                                "note": []
+                            },
+                            "note": [],
+                            "appliesTo": []
+                        }
+                    ],
+                    "identifier": [],
+                    "note": [],
+                    "parallelContributor": []
+                }
+            ],
+            "location": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Tarzana, Calif. [etc.]",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "series",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "print",
+            "type": "form",
+            "identifier": [],
+            "source": {
+                "code": "marcform",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "v.",
+            "type": "extent",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [
+        {
+            "appliesTo": [],
+            "code": "eng",
+            "groupedValue": [],
+            "note": [],
+            "parallelValue": [],
+            "source": {
+                "code": "iso639-2b",
+                "note": []
+            },
+            "structuredValue": []
+        }
+    ],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "176.01",
+            "type": "date/sequential designation",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "v. 1-",
+            "type": "date/sequential designation",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Issued as an American Astronautical Society Publication.",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Vols. 1- are the Proceedings of the American Astronautical Society's Annual and West Coast meetings.",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "<Vol. 114 (2003)-> accompanied by CD-ROM supplement.",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "0065-3438",
+            "type": "ISSN",
+            "identifier": [],
+            "source": {
+                "code": "issn",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "57043769",
+            "type": "LCCN",
+            "identifier": [],
+            "source": {
+                "code": "lccn",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "sn 80013319",
+            "type": "LCCN",
+            "status": "invalid",
+            "identifier": [],
+            "source": {
+                "code": "lccn",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "subject": [
+        {
+            "structuredValue": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Astronautics",
+                    "type": "topic",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                },
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Societies, etc",
+                    "type": "topic",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "parallelValue": [],
+            "groupedValue": [],
+            "identifier": [],
+            "source": {
+                "code": "lcsh",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "http://searchworks.stanford.edu/view/485615",
+                "identifier": [],
+                "displayLabel": "Title record in SearchWorks",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [
+        {
+            "title": [],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [],
+            "identifier": [],
+            "subject": [],
+            "purl": "https://purl.stanford.edu/bh013fy9154",
+            "access": {
+                "url": [],
+                "physicalLocation": [],
+                "digitalLocation": [],
+                "accessContact": [],
+                "digitalRepository": [],
+                "note": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "Available to Stanford-affiliated users.",
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": [
+                            {
+                                "structuredValue": [],
+                                "parallelValue": [],
+                                "groupedValue": [],
+                                "value": "purl",
+                                "identifier": [],
+                                "note": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            "relatedResource": []
+        },
+        {
+            "title": [],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [],
+            "identifier": [],
+            "subject": [],
+            "purl": "https://purl.stanford.edu/ks009gf3367",
+            "access": {
+                "url": [],
+                "physicalLocation": [],
+                "digitalLocation": [],
+                "accessContact": [],
+                "digitalRepository": [],
+                "note": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "Available to Stanford-affiliated users.",
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": [
+                            {
+                                "structuredValue": [],
+                                "parallelValue": [],
+                                "groupedValue": [],
+                                "value": "purl",
+                                "identifier": [],
+                                "note": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            "relatedResource": []
+        },
+        {
+            "title": [],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [],
+            "identifier": [],
+            "subject": [],
+            "purl": "https://purl.stanford.edu/th959bz7605",
+            "access": {
+                "url": [],
+                "physicalLocation": [],
+                "digitalLocation": [],
+                "accessContact": [],
+                "digitalRepository": [],
+                "note": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "Available to Stanford-affiliated users.",
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": [
+                            {
+                                "structuredValue": [],
+                                "parallelValue": [],
+                                "groupedValue": [],
+                                "value": "purl",
+                                "identifier": [],
+                                "note": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            "relatedResource": []
+        },
+        {
+            "title": [],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [],
+            "identifier": [],
+            "subject": [],
+            "purl": "https://purl.stanford.edu/xm709kj5069",
+            "access": {
+                "url": [],
+                "physicalLocation": [],
+                "digitalLocation": [],
+                "accessContact": [],
+                "digitalRepository": [],
+                "note": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "Available to Stanford-affiliated users.",
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": [
+                            {
+                                "structuredValue": [],
+                                "parallelValue": [],
+                                "groupedValue": [],
+                                "value": "purl",
+                                "identifier": [],
+                                "note": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            "relatedResource": []
+        },
+        {
+            "title": [],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [],
+            "identifier": [],
+            "subject": [],
+            "purl": "https://purl.stanford.edu/ng240rf0666",
+            "access": {
+                "url": [],
+                "physicalLocation": [],
+                "digitalLocation": [],
+                "accessContact": [],
+                "digitalRepository": [],
+                "note": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "Available to Stanford-affiliated users.",
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": [
+                            {
+                                "structuredValue": [],
+                                "parallelValue": [],
+                                "groupedValue": [],
+                                "value": "purl",
+                                "identifier": [],
+                                "note": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            "relatedResource": []
+        },
+        {
+            "title": [],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [],
+            "identifier": [],
+            "subject": [],
+            "purl": "https://purl.stanford.edu/mg520rz4753",
+            "access": {
+                "url": [],
+                "physicalLocation": [],
+                "digitalLocation": [],
+                "accessContact": [],
+                "digitalRepository": [],
+                "note": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "Available to Stanford-affiliated users.",
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": [
+                            {
+                                "structuredValue": [],
+                                "parallelValue": [],
+                                "groupedValue": [],
+                                "value": "purl",
+                                "identifier": [],
+                                "note": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            "relatedResource": []
+        },
+        {
+            "title": [],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [],
+            "identifier": [],
+            "subject": [],
+            "purl": "https://purl.stanford.edu/mk818vz6818",
+            "access": {
+                "url": [],
+                "physicalLocation": [],
+                "digitalLocation": [],
+                "accessContact": [],
+                "digitalRepository": [],
+                "note": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "Available to Stanford-affiliated users.",
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": [
+                            {
+                                "structuredValue": [],
+                                "parallelValue": [],
+                                "groupedValue": [],
+                                "value": "purl",
+                                "identifier": [],
+                                "note": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            "relatedResource": []
+        },
+        {
+            "title": [],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [],
+            "identifier": [],
+            "subject": [],
+            "purl": "https://purl.stanford.edu/df484cs8101",
+            "access": {
+                "url": [],
+                "physicalLocation": [],
+                "digitalLocation": [],
+                "accessContact": [],
+                "digitalRepository": [],
+                "note": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "Available to Stanford-affiliated users.",
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": [
+                            {
+                                "structuredValue": [],
+                                "parallelValue": [],
+                                "groupedValue": [],
+                                "value": "purl",
+                                "identifier": [],
+                                "note": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            "relatedResource": []
+        },
+        {
+            "title": [],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [],
+            "identifier": [],
+            "subject": [],
+            "purl": "https://purl.stanford.edu/rw138vr3300",
+            "access": {
+                "url": [],
+                "physicalLocation": [],
+                "digitalLocation": [],
+                "accessContact": [],
+                "digitalRepository": [],
+                "note": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "Available to Stanford-affiliated users.",
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": [
+                            {
+                                "structuredValue": [],
+                                "parallelValue": [],
+                                "groupedValue": [],
+                                "value": "purl",
+                                "identifier": [],
+                                "note": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            "relatedResource": []
+        }
+    ],
+    "marcEncodedData": [],
+    "adminMetadata": {
+        "contributor": [
+            {
+                "name": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "code": "CSt",
+                        "identifier": [],
+                        "source": {
+                            "code": "marcorg",
+                            "note": []
+                        },
+                        "note": [],
+                        "appliesTo": []
+                    }
+                ],
+                "type": "organization",
+                "role": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "original cataloging agency",
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": []
+                    }
+                ],
+                "identifier": [],
+                "note": [],
+                "parallelContributor": []
+            }
+        ],
+        "event": [
+            {
+                "structuredValue": [],
+                "type": "creation",
+                "date": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "790219",
+                        "encoding": {
+                            "code": "marc",
+                            "note": []
+                        },
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": []
+                    }
+                ],
+                "contributor": [],
+                "location": [],
+                "identifier": [],
+                "note": [],
+                "parallelEvent": []
+            },
+            {
+                "structuredValue": [],
+                "type": "modification",
+                "date": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "19901112000000.0",
+                        "encoding": {
+                            "code": "iso8601",
+                            "note": []
+                        },
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": []
+                    }
+                ],
+                "contributor": [],
+                "location": [],
+                "identifier": [],
+                "note": [],
+                "parallelEvent": []
+            }
+        ],
+        "language": [],
+        "note": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "Converted from MARCXML to MODS version 3.7 using MARC21slim2MODS3-7_SDR_v2-5.xsl (SUL 3.7 version 2.5 20210421; LC Revision 1.140 20200717)",
+                "type": "record origin",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "metadataStandard": [],
+        "identifier": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "a485615",
+                "type": "SIRSI",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+            }
+        ]
+    },
+    "purl": "https://purl.stanford.edu/bc058ft0782"
+}

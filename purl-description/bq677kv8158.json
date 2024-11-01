@@ -1,0 +1,205 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "TR211: Automated Look-Ahead Schedule Generation and Optimization for the Finishing Phase of Complex Construction Projects",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Dong, Ning",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2012-06",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "technical report",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Look-ahead schedules (LASs) are the last opportunity for general contractors to allocate resources for maximum effectiveness. Unfortunately, in the finishing phase of complex construction projects, project planners, site engineers, and construction engineers struggle to use LASs to effectively organize and allocate limited project resources such as crews and rooms on a daily basis because (1) the LAS generation process is time-consuming, even with the help of the existing commercial tools; (2) the LASs created are error-prone when the site engineers and project planners need to consider constraints including precedence constraints, room and crew availabilities, and engineering constraints, such as zone and blocking constraints; (3) there is no way to tell whether the LASs created are the best means by which to achieve specific project goals, such as shortest project duration and minimum project cost, even if accurate LASs can be quickly generated.\r\n\r\nThis dissertation describes an integrated approach I have developed to automating LAS generation and quickly discovering optimized LASs in the finishing phase of a complex building project. The approach builds on three theoretical foundations: automated construction schedule generation, computer simulation, and artificial intelligence for schedule optimization. The approach consists of an automated LAS generation (ALASG) method that ensures the rapid creation of error-free LAS. Coupled with computer simulation and an optimization method based on a genetic algorithm (GA), the ALASG method also finds near-optimal LAS quickly. The ALASG method is composed of an information model that integrates the project databases at the appropriate levels of detail to facilitate the sound formation of operations and the consideration of constraints and a LAS generation process model that simulates the daily LAS generation process on site. The GA-based optimization method interacts with the information model and the process model to create LASs optimized towards specific project goals. I have also implemented a software prototype based on the ALASG method and the GA-based optimization methods. The results from the use of this prototype in student and engineer design charrettes and two comparison studies provide evidence for the power of this approach to construct more high-quality LASs faster.\r\n\r\nThe dissertation includes three interrelated papers. The first paper, chapter 2, describes the method for automating LAS generation for the finishing phase of complex projects based on information modeling, process modeling, and simulation methods. This chapter identifies “room” as a core component for LAS generation and depicts different perspectives from which to view the room. That is, from the product perspective, a room is a part of the final building product to be used by end users; from the process perspective it belongs to a certain fragnet, and from the resource perspective, it is a type of resource. The chapter also describes the implementation of the prototype. Based on this prototype, the second paper, chapter 3, discusses the practical value of the prototype and its possible applications in the construction industry. Specifically, I define measurements for resource utilization and then evaluate its relation to project goals in the finishing phase of complex projects. The third paper, chapter 4, presents a GA-based method of finding optimized LASs. In addition to addressing the traditional constraints, such as operation precedence constraints and resource availability, it considers three key practical aspects that project planners and construction managers encounter frequently on site: the engineering priorities of each individual room, the zone constraint, and the blocking constraint. To encompass these aspects, the GA-based method interacts with the information model and the process model described in the first paper.\r\n\r\nCollectively, these three papers illustrate an automated and integrated method that liberates site engineers and project planners from the tedious and time-consuming LAS generation process and provides them with accurate work assignments to guide field work so that they can channel their time and energy towards other project tasks. This dissertation is one of the few studies in the field of construction schedule automation and optimization to date that (1) addresses automated LAS generation for the finishing phase of complex projects and (2) explores LAS optimization in light of engineering constraints.\r\n\r\nChapter 4 has been officially published in Advanced Engineering and Informatics:\r\n\r\nN. Dong, D. Ge, M. Fischer, Z. Haddad, A genetic algorithm-based method for look-ahead scheduling in the finishing phase of construction projects, Advanced Engineering and Informatics, 26 (4) (2012) 737-748.\r\n\r\nChapter 2 is in minor modification with Automation in Construction.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Dong, Ning. (2012). TR211: Automated Look-Ahead Schedule Generation and Optimization for the Finishing Phase of Complex Construction Projects. Stanford Digital Repository. Available at: http://purl.stanford.edu/bq677kv8158",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Center for Integrated Facility Engineering",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Stanford University",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "LAS",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "look-ahead schedules",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Optimization",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "cife-email@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/bq677kv8158"
+}

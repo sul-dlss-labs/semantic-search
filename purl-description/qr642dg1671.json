@@ -1,0 +1,287 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Second-Order Random Ocean Waves: Prediction of temporal and Spatial Variation from Fixed and Moving References: The WAVEMAKER Routine (Version 3.2)",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Sweetman, B.",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Winterstein, S. R.",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "1999-05",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "technical report",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "WAVEMAKER is a FORTRAN program used to simulate random non-Gaussian ocean wave histories to identify the underlying first- and second-order components of user specified waves, or to predict wave time histories at other user specified fixed or moving spatial locations based on the originally simulated or identified wave history.\r\n\r\n \r\n\r\nOcean wave histories are simulated by generating a first-order (Gaussian) wave process with an arbitrary power spectrum, and applying nonlinear corrections based on second-order hydrodynamics. Inputs to the routine include the first-order spectrum, the water depth, and a set of fixed or moving locations in the along-wave direction at which wave elevation histories are desired. It may thus provide useful input to estimate loads on spatially distributed ocean structures and ships.\r\n\r\n\r\nThe WAVEMAKER package includes a separate driver program, which facilitates input/output and generates several analytical spectral models. Its input is specified in command-line format, similar to that of the TFPOP program for hydrodynamic post-processing also developed in the Stanford RMS Program. Example problems are included to demonstrate the various uses of WAVEMAKER.\r\n\r\n\r\nIn simulation, WAVEMAKER first uses standard frequency domain methods to generate first-order Gaussian histories at each location. For each of these, WAVEMAKER then evaluates the full set of second-order corrections according to hydrodynamic theory. Thus the first-order wave process, with N components at frequencies ωn gives rise to a total of N2 corrections, spread over all sum frequencies ωn + ωm, and to another N2 corrections over all difference frequencies ωn - ωm.\r\n\r\n\r\nWAVEMAKER also includes the ability to identify the underlying first-order Gaussian history from a given observed time history. This feature is particularly attractive for use in situations where the second-order nonlinearity in the waves is built into the structural response calculations. To amid double-counting, the input waves should be filtered to remove any second-order nonlinearity. WAVEMAKER takes in an input wave history and identifies its first- and second-order wave components. This identification, an inverse feature to simulation is based on a Newton-Raphson scheme to solve N simultaneous nonlinear equations to identify the first -order waves which, when run through the second-order wave predictor, matches the observed waves.\r\n\r\n\r\nFurther, WAVEMAKER is capable of using the identified underlying first-order Gaussian wave history to predict consistent first- and second-order wave histories at alternative user-specified locations by individually phase-shifting each of the first-order components and then adding on a second-order correction as described above at the new wave location.\r\n\r\n\r\nFinally, WAVEMAKER is capable of predicting these consistent first- and second-order histories as they would be observed from a user-specified moving reference point, based on a user-specified motion time-history. This prediction is accomplished by interpolating between a series of prodictions at fixed locations.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Sweetman, B. and Winterstein, S. R.. (1999). Second-Order Random Ocean Waves: Prediction of temporal and Spatial Variation from Fixed and Moving References: The WAVEMAKER Routine (Version 3.2)\r\n. Reliability of Marine Structures Program Technical Report RMS-37. Stanford Digital Repository. Available at: http://purl.stanford.edu/qr642dg1671",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "WAVEMAKER",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "FORTRAN",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Gaussian",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "waves",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Newton-Raphson",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "non-Gaussian",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "wave",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Sweetman",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Winterstein",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "RMS-37",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "jabeec-email@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/qr642dg1671"
+}

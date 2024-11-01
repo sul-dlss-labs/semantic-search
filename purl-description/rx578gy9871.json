@@ -1,0 +1,267 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Probabilistic Seismic Lifeline Risk Assessment Using Efficient Sampling and Data Reduction Techniques",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Jayaram, N",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Baker, JW",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2010-05",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "technical report",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Lifelines are large, geographically-distributed systems that are essential support systems for any society. Probabilistic seismic risk assessment for lifelines is less straightforward than for individual structures, due to challenges in quantifying the ground-motion hazard over a region rather than at just a single site and in developing a risk assessment framework that deals with the heavy computational burden associated with lifeline performance evaluations.\r\n\r\nQuantification of the regional ground-motion hazard requires information on the joint distribution of ground-motion intensities at multiple sites. Statistical tests are used here to examine the commonly-used assumptions of univariate normality of logarithmic intensities and multivariate normality of spatially-distributed logarithmic intensities. Further, observed and simulated ground-motion time histories are used to estimate the spatial correlation between intra-event residuals, which can be used to parameterize the joint distribution of the ground-motion intensities. Factors that affect the decay of the correlation with increasing separation distance are identified.\r\nThe study then develops a computationally-efficient lifeline risk assessment framework based on efficient sampling and data reduction techniques. The framework can be used for developing a small, but stochastically representative, catalog of spatially-correlated ground-motion intensity maps that can be used for performing lifeline risk assessments. The catalog is used to evaluate the exceedance rates of various travel-time delays on an aggregated (higher-scale) model of the San Francisco Bay Area transportation network.The risk estimates obtained are consistent with those obtained using conventional Monte Carlo simulation (MCS) that requires three orders of magnitudes more ground-motion intensity maps. Therefore, the proposed technique can be used to drastically reduce the computational expense of a MCS-based risk assessment, without compromising the accuracy of the risk estimates. Further, the catalog of ground-motion intensity maps is used in conjunction with a statistical learning technique termed Multivariate Adaptive Regression Trees (MART) in order to obtain an approximate relationship between the ground-motion intensities at lifeline component locations and the lifeline performance. The lifeline performance predicted by this relationship can be used in place of the actual lifeline performance with advantage in problems whose computational demand stems from the need for repeated lifeline performance evaluations.\r\n\r\nEven though the above-mentioned risk assessment framework facilitates the consideration of spatial correlation between ground-motion intensities, current ground-motion models (e.g., NGA ground-motion models) that are used to predict the distribution of ground motion intensities at individual sites are fitted assuming independence between the intraevent residuals. This study proposes a method to consider the spatial correlation in the mixed-effects regression procedure used for fitting ground-motion models, and empirically shows that the risk estimates of spatially-distributed systems can be inaccurate while using ground-motion models fitted without the consideration of spatial correlation.\r\n\r\nFinally, the study also investigates the extension of the seismic hazard and risk assessment concepts discussed earlier to hurricane hazard and risk modeling. The focus is on quantifying the uncertainties and the spatial correlation in hurricane wind fields (using the same techniques that are used to quantify these parameters in earthquake ground motion fields), and evaluating their impact on the hurricane risk of spatially-distributed systems. The results show that the uncertainties and the spatial correlation in the wind fields must be modeled in order to avoid introducing errors into the risk calculations of spatially-distributed systems. The results also show that the tools developed in this thesis for seismic risk assessment can also be applicable to risk assessments that consider other hazards.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Jayaram, N and Baker, J. (2013). Probabilistic Seismic Lifeline Risk Assessment Using Efficient Sampling and Data Reduction Techniques. Probabilistic Seismic Lifeline Risk Assessment Using Efficient Sampling and Data Reduction Techniques 175. Stanford Digital Repository. Available at: http://purl.stanford.edu/rx578gy9871",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "lifelines",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "risk assessment",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "ground motions",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "hazard analysis",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "jabeec-email@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [
+        {
+            "title": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "John A. Blume Earthquake Engineering Center",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [],
+            "identifier": [],
+            "subject": [],
+            "access": {
+                "url": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "https://blume.stanford.edu",
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": []
+                    }
+                ],
+                "physicalLocation": [],
+                "digitalLocation": [],
+                "accessContact": [],
+                "digitalRepository": [],
+                "note": []
+            },
+            "relatedResource": []
+        }
+    ],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/rx578gy9871"
+}

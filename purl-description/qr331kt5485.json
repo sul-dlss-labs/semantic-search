@@ -1,0 +1,224 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Efficient transportation model using iterative traffic assignment: a code supplement to \"Seismic risk assessment of complex transportation networks\"",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Miller, Mahalia",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Baker, Jack",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Primary advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2014-06",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "software, multimedia",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "This folder contains example code and data to illustrate the efficient transportation model using iterative traffic assignment described in Chapter 2 of M. Miller, \"Seismic risk assessment of complex transportation networks,\" PhD Thesis, Stanford University, 2014.\r\n\r\nThe compressed folder contains the following files:\r\nbd.py -- a function for building the travel demand\r\nbridge_metadata_NBI.xlsx -- a file that has the background data about the case study road bridges\r\ninput/20140114_master_bridge_dict.pkl -- sample data for the SF Bay Area road components (bridges)\r\ninput/20140114_master_transit_dict.pkl -- sample data for the SF Bay Area BART components\r\ninput/BATS2000_34SuperD_TripTableData.csv -- average daily trips between different superdistricts. See http://analytics.mtc.ca.gov/foswiki/Main/DataDictionary for more info\r\ninput/graphMTC_CentroidsLength3int.gpickle -- the graph of the SF Bay Area highways and key local roads\r\ninput/sample_ground_motion_intensity_map_JUST_THREE.txt -- ground-motion intensity map data for just three ground-motion intensity maps. The columns refer to:  first column is simulation number, second is fault id, third is magnitude, fourth is the annual occurrence rate (SUPER USEFUL), fifth is Sa (NOT logSa) in site new ID 1, sixth is Sa in site new ID 2, ...site ID n\r\ninput/sample_ground_motion_intensity_maps_road_only_filtered.txt -- same columns as the previous file but this has a full hazard-consistent set of events\r\ninput/superdistricts_centroids_dummies.csv -- file that has a centroidal/dummy link node for each superdistrict (for traffic assignment)\r\ninput/superdistricts_clean.csv -- file that has a few nodes in each superdistrict (for traffic assignment)\r\nita.py -- the core function that does the iterative traffic assignment\r\nmahmodel_road_only.py -- the main file with only road damage considered\r\nmahmodel.py -- alternative main file that also keeps track of which transit components are damaged\r\nmake_bridge_dict.py -- a sample file for showing how to create your own master_bridge_dict.pkl\r\noutput -- a folder for output. See README for more details.\r\nREADME_quick_traffic_model.txt -- documentation for this folder\r\ntransit_to_damage.py -- a file that gives some helper functions for translating damaged components to nonoperational transit lines for the case study\r\nutil.py -- helper functions",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Efficient transportation model using iterative traffic assignment: a code supplement to \"Seismic risk assessment of complex transportation networks.\" http://purl.stanford.edu/qr331kt5485",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "M. Miller, “Seismic risk assessment of complex transportation networks,” PhD Thesis, Stanford University, 2014. http://purl.stanford.edu/hx023kk0983",
+            "type": "citation/reference",
+            "identifier": [],
+            "displayLabel": "Related Publication",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "risk assessment",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "transportation",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "seismic risk",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "network analysis",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "bakerjw@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/qr331kt5485"
+}

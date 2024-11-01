@@ -1,0 +1,229 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Application of Reduced-Order Modeling for Geological Carbon Sequestration",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Jin, Larry Zhaoyang",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Durlofsky, Louis J.",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Primary advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Stanford University, Department of Energy Resources Engineering",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "organization",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Degree granting institution",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2015-06",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "thesis",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Carbon capture and storage (CCS), in which CO2 associated with power generation is separated from the flue gas stream and then injected into deep subsurface formations, represents a potential means of reducing a major source of greenhouse gas emissions. Flow simulation can be used to design and manage CO2 sequestration projects, but the large number of detailed runs required for some applications, such as computational optimization and uncertainty assessment, can be very expensive. Computationally-efficient procedures including numerical reduced-order models, which have been applied in related areas such as oil reservoir simulation, may thus be very useful in this regard. In this work, we explore the use of trajectory piecewise linearization (TPWL) combined with proper orthogonal decomposition (POD) for simulating CO2 storage problems. POD-TPWL models of this type have been successfully used for oil-water and oil-gas compositional reservoir simulation problems. The basic approach with POD-TPWL is to first perform one (or a few) full-order `training` runs, which entail high-fidelity flow simulations under a prescribed set of well controls (e.g., time-varying bottomhole pressures or rates). For subsequent (test) runs, which involve different well control settings, the solution at each time step is represented based on a linearization around a training solution. The use of POD, along with a constraint reduction procedure, which projects the set of governing equations into a low-dimensional subspace, provides a high degree of efficiency. The full-order simulations applied in this work use a two-phase, two-component (CO2 and water) formulation within Stanford`s Automatic Differentiation-based General Purpose Research Simulator (AD-GPRS). This simulator was modified to output the state and derivative matrices required to construct the POD-TPWL model. New features introduced in this work, in addition to the application of POD-TPWL to CO2 sequestration simulations, are the use of rate-control specifications for wells and the incorporation of horizontal injectors into the model. Because of the way in which AD-GPRS represents wells, the use of rate-controlled wells in POD-TPWL requires additional matrix manipulations in the model construction step. CO2 storage with both a synthetic (channelized) aquifer and an approximate model of the Mount Simon formation (planned for use with FutureGen~2.0) are considered for test cases that involve wells controlled by both time-varying bottomhole pressures and rates. Generally accurate results are obtained for well quantities and for CO2 plume location, though the accuracy of the POD-TPWL model is seen to degrade as the controls used in test models deviate from those applied in training runs. Run-time speedups with POD-TPWL for these cases are about a factor of 370 relative to high-fidelity AD-GPRS simulations. The overhead required to construct the POD-TPWL model (including training runs) is equivalent to about the time required for three full-order runs. The POD-TPWL model is then extended to allow parameters associated with the geologic model to be perturbed in test runs. Preliminary results using this capability in two-dimensional models, in which all block-to-block transmissibilities are multiplied by a constant value relative to the training run, demonstrate that the POD-TPWL model is able to capture general trends in the relevant well quantities. The differences between test- and training-case results are, however, very small in the scenarios considered. Results are also presented for a CO2-enhanced oil recovery problem, which demonstrates the use of POD-TPWL for problems where CO2 is both utilized and sequestered.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Jin, Larry Zhaoyang. (2015). Application of Reduced-Order Modeling for Geological Carbon Sequestration. Stanford Digital Repository. Available at: https://purl.stanford.edu/rc116xv1261",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "School of Earth Energy & Environmental Sciences",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "brannerlibrary@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/rc116xv1261"
+}

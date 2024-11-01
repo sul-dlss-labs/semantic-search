@@ -1,0 +1,294 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "A Seismic Monitoring and Alarm-System in Real Time (SMART) for Intelligent Structures",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Takeuchi, Y",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Smith, HA",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Shah, HC",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "1992-06",
+                    "type": "creation",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "technical report",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "The concept and development of \"intelligent\" structures has been the focus of recent research in both the U.S. and abroad. The majority of this research has focused on active control of system response due to external excitations with the primary objective\r\nof maintaining structural and occupant safety. Other research in the development of smart structures has been concerned with control of a system's internal environment such that occupant comfort and an optimal working environment is maintained. However, the concept of intelligent structures extends beyond these traditional applications and integrates both internal and external control systems.\r\n\r\n\r\nIntegrated control systems can be developed which combine the control of structural behavior with control of the structure's environmental state and energy needs. In addition to monitoring the behavior of the primary structure and any secondary systems, a intelligent structure should be capable of monitoring its environment and energy consumption. The objectives for such an integrated control system are to maintain structural safety and occupant comfort levels while maximizing the energy efficiency of the system. In addition, to fully integrating the control systems of intelligent structures, the control systems of entire regions can be integrated where information is transmitted between structures using a networked telecommunications system. This study uses a network of intelligent structures in seismic zones to develop a Seismic Monitoring and Alarm-system in Real Time (SMART) to notify buildings of impending earthquakes.\r\n\r\nEach intelligent structure in the network consists of four primary components which are utilized in the advance notification system: a trigger algorithm, a signal processing unit, an information database, and a decision making unit. The trigger algorithm at the intelligent structure or sensor closest to the ruptured fault activates the system at the arrival of the P-wave and immediately transmits an early warning signal to outlying intelligent structures in the seismic zone. A signal processing unit at the intelligent structure closest to the fault processes the earthquake data, calculates approximations of a few pertinent earthquake parameters, and transmits these parameters through the network. Local information databases at each intelligent structure contain information relevant to the ability of the structure to withstand external loadings. Once the earthquake parameters from the signal processing unit are transmitted to the outlying intelligent structures, the decision making unit together with the local database processes the information and determines the most appropriate control strategy and emergency management procedure to activate. These decisions are made based on the available earthquake information and on the structure's control configuration and dynamic characteristics.\r\n\r\nThere are two types of early warnings available for the advance notification system: the primary and the secondary warnings. The primary warning is triggered when displacement in excess of 1 em is detected at one or more sensors. The secondary warning involves a two-part trigger system where the P-wave must be recognized by three different sensor stations and the S-wave arrival must be recognized by at least one station.\r\n\r\nCase studies involving a simulated application to the Loma Prieta and Whittier Narrows earthquakes show that potential exists for using advance notification systems for damage mitigation. However, full implementation of the SMART system would require a thorough investigation of the technological requirements (hardware and software) and is beyond the scope of the present study.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Takeuchi, Y and Smith, HA and Shah, HC. (1992). A Seismic Monitoring and Alarm-System in Real Time (SMART) for Intelligent Structures. John A Blume Earthquake Engineering Center Technical Report 1992.  Stanford Digital Repository. Available at: http://purl.stanford.edu/gr346yv3290",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "emergency management",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "health monitoring",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "seismic performance",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "dynamic",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "jabeec-email@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [
+        {
+            "title": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "John A. Blume Earthquake Engineering Center",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [],
+            "identifier": [],
+            "subject": [],
+            "access": {
+                "url": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "https://blume.stanford.edu",
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": []
+                    }
+                ],
+                "physicalLocation": [],
+                "digitalLocation": [],
+                "accessContact": [],
+                "digitalRepository": [],
+                "note": []
+            },
+            "relatedResource": []
+        }
+    ],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/gr346yv3290"
+}

@@ -1,0 +1,257 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Nonlinear Controller using Variable Damping Elements for Civil Structures",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Hatada, T",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Smith, HA",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "1997-09",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "technical report",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "The ultimate objective of active structural response control is to secure the safety of civil structures against extreme environmental loads such as large earthquakes. In developing a control system to improve the safety of building structures during a large earthquake, the size of the structure to be controlled, the magnitude of the disturbance, and the limitation of the control device capacity must be carefully considered. In addition, consideration of the robustness and reliability of a control algorithm under realistic applications is required. Utilization of semi-active control devices provides a viable means of accommodating these considerations.\r\n\r\nIn this category, a variable damping device was reported for control of building responses for large earthquakes. This device requires just a small amount of power even for large earthquakes. Furthermore, the device does not apply control force directly to the building, so the reliability and robustness of the device operations are guaranteed, making this device suitable for the application to a control system for large earthquakes. During the control process, the variable damping device smoothly changes its damping coefficient. In the- control algorithm, this effect is accomplished through a control force expressed as a product of the damping coefficient and the velocity of the damping device at each time instant. However, the control algorithm has to be developed under the condition that the control force must be in the same direction of the velocity. Additionally, the device capacity, the bounds of the damping values, and the maximum value of the control force must be realistically considered in the control algorithm.  This research presents a complete formulation and application of a nonlinear  control algorithm  which utilizes  the variable  damping  device for application to civil structures subjected to large earthquake excitations.\r\nThe nonlinear control algorithm is formulated based on the definition of the performance index and Lyapunov stability theory considering the constraints associated with the function of the control device. Furthermore, a boundary layer filter is introduced to eliminate the chattering effect associated with implementation of the controller. As a result, the proposed nonlinear control algorithm takes the form of Filtered Bang-Bang control method. The physical interpretations of the proposed nonlinear control algorithm are examined through the analysis of the SDOF system. Its control effect is examined considering the energy dissipation of the system. As a result, its physical interpretation is summarized as an equivalent damping ratio for the control parameters. The derived control force is physically interpreted as a nonlinear damping force which attempts to maximize energy dissipation under the constraints of the control force generator. Its physical insights can be used to evaluate the performance of the proposed nonlinear control algorithm, facilitating the design of the control system.\r\n\r\nTo assess performance and examine the physical significance of the proposed nonlinear control algorithm, the control effect is analyzed through numerical simulations on a three-story model building structure subjected to a large earthquake. The results show that the superiority of the proposed nonlinear control algorithm becomes prominent for large excitations, and this observation indicates its applicability to the control system for large earthquakes. Finally, the analysis results demonstrate the applicability of the proposed nonlinear control algorithm, implemented using the variable damping device, to realistic, full-scale civil structures.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Hatada, T and Smith, HA. (1997). Nonlinear Controller using Variable Damping Elements for Civil Structures. Blume Earthquake Engineering Center Technical Report 125. Stanford Digital Repository. Available at: http://purl.stanford.edu/nr645my5497",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Incremental Dynamic Analysis",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Blume Earthquake Engineering Center",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Department of Civil & Environmental Engineering",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "School of Engineering",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "structural analysis",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "seismic demand",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "building response",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "jabeec-email@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/nr645my5497"
+}

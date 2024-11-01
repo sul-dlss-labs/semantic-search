@@ -1,0 +1,281 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "A Study of Factors Influencing Floor Response Spectra in Nonlinear Multi-Degree-of-Freedom Structures",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Sewell, RT",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Cornell, CA",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Toro, GR",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "McGuire, RK",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "1986-11",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "technical report",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "This report summarizes a study that demonstrates the influence of various factors on both the floor response spectrum (FRS) and the ratio of the FRS for nonlinear structural response to that for linear structural response (i.e., FRSR or Floor Response Spectrum Ratio) in multiple degree of freedom (MDOF) structures. The results indicate that FRSR predictions based on single degree of freedom (SDOF) structural models may be inaccurate and unconservative at high frequencies (i.e., frequencies greater than the fundamental structure frequency), in comparison with FRSR predictions based on analysis using MDOF models. The magnitude of this unconservatism depends to a great extent on the configuration of the structure and the characteristics of the input ground motion. For a structure subjected to broad-band seismic excitation. highfrequency (HF) FRSR values based on an MDOF model are often shown to be significantly in excess of unity (e.g .. around 2-3). whereas HF FRSR predicted from an SDOF model are always less that unity (e.g ., 0.7). In this case, nonlinear behavior (e.g.. yielding and pinching in the hysteresis) of the structural elements induces HF excitation in the structure that excites the higher structural modes. As a result. the higher modes of the structure become (relatively) more important to the response for nonlinear as compared to linear behavior. For a structure subjected to a low energy / high frequency seismic record of the type recently recorded in the eastern U.S.. however, HF FRSR based on an MDOF model may typically be around 0.8-0.9. thus approaching the (beneficially) low HF FRSR values of around 0.7 for SDOF models. In this case, the higher modes-of the structure are already excited considerably for linear structural response; hence any induced HF excitation is masked by the original input. It is shown in this report, though, that typical structures may not yield under these types of records. possibly making the reductions in HF FRS associated with these motions unrealizable in practice.\r\n\r\n\r\nIn light of inconsistencies in earlier literature dealing with the behavior of HF FRS for SDOF and MDOF nonlinear structures, the present report is helpful in clarifying how various factors influence elastic equipment response (modeled by the FRS) in nonlinear structures. For instance, it could be thought that the numerical analysis procedures which have only been proven accurate in determining structural forces and displacements might not produce accurate equipment response; the higher modes of the MDOF structure perhaps tending to amplify any inaccuracies. This report, however. shows that this is not the case and that carefully executed analysis procedures (integration methods, time steps, damping specification. etc.) will lead to correct solutions for equipment response.\r\n\r\n\r\nFictitious sharp \"corners\" in the force-deformation models of MDOF structures could also be thought to lead to HF equipment response errors (due to fictitious excitation of higher modes) as opposed to more realistic models of the structure with smooth stiffness transitions. This report shows. however, that sharpcornered models lead to HF FRSR values only marginally greater than those obtained from smooth models. Additionally, it is demonstrated that pinched hysteretic models generally lead to only slightly greater HF FRSR as opposed to those obtained from bilinear models. Other factors. such as structural damping and equipment damping, were shown not to have an unusual or unanticipated influence on the HF response of equipment in nonlinear MDOF structures. Of course, equipment response is also dependent upon the in-structure location, and hence FRS and FRSR results at various floor levels are shown.\r\n\r\nThe factors found to have the most important (and perhaps unpredictable) influence on HF equipment response were the number of degrees of freedom of the structure, the localization of nonlinearity in the structure, the distribution of strength in the structure, and also the input ground motion. For instance, in a structure with several degrees of freedom and with nonlinearity occurring in only a localized portion of the structure, the amount of induced high frequency is generally large, and hence large HF FRSR result. This is because local yielding causes a local force excitation (or load correction) which excites higher structural modes; hence, the induced high frequency is large for such a case. Also, as noted previously, ground motions which have substantial energy at the fundamental structure frequency and little energy at the higher-mode frequencies tend to produce large HF FRSR values, whereas ground motions which have large energy content at the higher-mode frequencies relative to that at the fundamental structure frequency tend to result in low HF FRSR values.\r\n\r\n\r\nAll factors which were conceived to have a significant effect on equipment response in nonlinear structures were examined by means of a comprehensive parameter study. This report presents results of this parameter study and understanding obtained which is useful in predicting under what conditions one might expect large HF FRSR values and under what conditions the low HF FRSR values, as obtained from SDOF models, can be anticipated. As indicated in the conclusions of this study, it is promising that the absolute response of equipment can be predicted, for a given amount of structural nonlinearity (e.g. ductility), in a simple manner from the input ground motion spectrum.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Sewell RT and Cornell CA and Toro GR and McGuire RK. (1986). A Study of Factors Influencing Floor Response Spectra in Nonlinear Multi-Degree-of-Freedom Structures . John A. Blume Earthquake Engineering Center Technical Report 82. Stanford Digital Repository. Available at: http://purl.stanford.edu/vf765pj9489",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "nonlinear analysis",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "seismic design",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "structural systems",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "jabeec-email@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/vf765pj9489"
+}

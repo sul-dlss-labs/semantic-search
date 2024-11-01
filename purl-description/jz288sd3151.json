@@ -1,0 +1,291 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "A computational pipeline to uncover genomic regulatory regions that modulate the Wnt signaling pathway",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Patel, Bhavenkumar",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Rohatgi, Rajat",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Primary advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Nelson, W. James",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Stanford University, Department of Biology, 2016",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "organization",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Degree granting institution",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2016-06",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "thesis",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "The Wnt pathway is an instructive signaling system in development, tissue homeostasis, and cancer. Although many core components of the canonical Wnt signaling cascade have been identified, additional layers of regulation likely remain undiscovered. To identify genes and regulatory elements involved in Wnt signaling, we performed unbiased forward genetic screens in a human haploid cell line using insertional mutagenesis with a retrovirus. The work in this thesis is divided into two experimental sections based on the analysis of these haploid genetic screens: 1) design and implementation of an improved and generally applicable computational pipeline to map the genomic insertion sites of the retroviral mutagen used in these screens and 2) the experimental analysis of a class of unexpected mutants we discovered using this pipeline. \r\n\tAnalysis of insertional genetic screens in cultured cells has traditionally been “gene-centric”, focused on mapping the insertions in genomic regions with annotated, protein-coding transcripts. We hypothesized that recurrent insertions in non-protein coding regions or unexpected patterns of insertions in coding regions of the genome may identify regulatory elements or cryptic transcripts that regulate Wnt signaling. Therefore, we developed a bioinformatics pipeline designed to be “gene blind” by identifying recurrent insertions in one-thousand base-pair bins across the human genome, chosen consecutively across each chromosome without regard to gene boundaries. Using this pipeline, we found several genomic regions, including unannotated areas near the genes LRP6, TCF7L2, TFAP4 and APC, that are strong candidates to play important regulatory roles in Wnt responsiveness. These genomic regions may represent regulatory elements such as enhancers, promoters, or cis-acting non-coding RNAs (ncRNAs). \r\n\tA human tumor suppressor gene that is a central negative regulator of the Wnt pathway, the adenomatous polyposis coli (APC) gene is one of the most commonly mutated genes in colorectal cancer. Therefore, we designed a screen to search for genes that positively regulate the high-level oncogenic signaling observed when the APC gene is inactivated using CRISPR/Cas9 engineering. Our bioinformatics pipeline identified a perplexing pattern of retroviral insertions in the APC gene that were enriched for in cells selected for reduced Wnt signaling in the absence of APC. This was paradoxical since APC had already been engineered to contain a frameshift mutation in these cells. We found that these insertions somehow increase the level of APC protein, leading to the suppression of signaling in cells still containing a putatively inactivating lesion in the APC gene. \r\n\tIn summary, the combined use of haploid screens and a custom bioinformatics pipeline has the potential to probe the genomic regulome of a signaling pathway that plays a central role in development and cancer. Future detailed understanding of these genetic elements and their mechanism of function may reveal new strategies that could be used to target human cancers resulting from deregulation of the Wnt pathway.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Patel, Bhavenkumar, Rohatgi, Rajat and Nelson, W. James. (2016). A computational pipeline to uncover genomic regulatory regions that modulate the Wnt signaling pathway. Stanford Digital Repository. Available at: http://purl.stanford.edu/jz288sd3151",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Biology",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Genetic Screens",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Wnt Signaling Pathway",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "APC",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "bhavenp@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/jz288sd3151"
+}

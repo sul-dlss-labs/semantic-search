@@ -1,0 +1,229 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Real-Time Calibration of Drift-Flux Flow Models",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Nagoo, Anand S.",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Aziz, Khalid",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Primary advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Stanford University, Department of Petroleum Engineering",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "organization",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Degree granting institution",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2006-06",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "thesis",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "One of the key near-term challenges of the energy industry is the need to exploit new and mature fields more efficiently and at lower costs than ever before. This report describes an approach for addressing this challenge in the specific area of modeling of multiphase flows in oil production systems (specifically wells and pipelines) and continuous calibration of models for the purpose of better multiphase flow predictions. The overall objective is to make flow-related decisions more rapidly, i.e., in real-time. To enable this objective, this work proposes two novelties: a new drift-flux flow model for upward bubbly flows in small-to-large diameter wells and pipes, and a real-time calibration algorithm of well and pipe flow models with field sensor measurements. In formulating the new drift-flux model, the restrictions of existing drift-flux models were analyzed and flow phenomena that were deemed important were explicitly related to the two parameters of the drift-flux model, i.e. the distribution parameter and the drift velocity. These flow phenomena were bubble coalescence/breakup, evolution of radial bubble distributions and asymmetric radial bubble distributions in deviated well and pipe flows. The new drift-flux model was tested with an existing model at the department, MSWell, using large (7.25 and 6 inches) and small (1.79 inches) diameter data from the experiments described in Hill (1992), Oddie et al. (2003), and Spedding and Nguyen (1976), respectively. With these experiments, the predictions of void fraction using the new model was shown to be satisfactory for gas-water two-phase flows, better for oilwater- gas three-phase flows and best for oil-water two-phase flows. Identification of the average bubble sizes and regimes matched fairly well with visual observations of the Oddie et al. (2003) dataset. The role and use of flow model calibration in a real-time surveillance strategy was analyzed in the context of calibration as a tool for integration of real-time sensor measurements, field data and flow models. In formulating the new calibration algorithm, the flow of sensors data from an automation network on a facility to a computer model on a remote desktop was analyzed, and a proposed method was used in calculations using these remote sensors data. Additionally, in the calibration algorithm itself, a direct threephase holdup objective function is derived and used in calibrations of the drift-flux modelís parameters in alignment with an existing three-phase holdup calculation procedure in the department. The calibration algorithm was implemented in a simple oil well case with simulated real-time sensor measurements, for illustrating how minimal field operating data could be used to achieve calibration of the drift-flux model to pressure sensors data. For this example, the calibration algorithm has been proven to work under certain conditions. Restricting conditions, in which the algorithm stalls (or becomes unstable), are shown to be the large amount of memory requirements, and the difficultly of using un-preprocessed real-time data in a gradient-based, non-linear least squares optimization routine. The latter causes stalling whenever there is a series of unfeasible calibrated drift-flux parameters present, whereas the former causes stalling due to low system resources. Overall, despite the complex physics and computational requirements, the results of the computer model of this research, called SURF, are both qualitatively and quantitatively encouraging. It is hoped that continued work in this area of research will eventually lead to the ability to make faster, better-informed flow-related decisions that minimize long term production losses.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Nagoo, Anand S. (2006). Real-Time Calibration of Drift-Flux Flow Models. Stanford Digital Repository. Available at: https://purl.stanford.edu/dm111cx0620",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "School of Earth Energy & Environmental Sciences",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "brannerlibrary@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/dm111cx0620"
+}

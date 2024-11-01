@@ -1,0 +1,272 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Estimation of Downtime Related Revenue Losses in Maritime Ports due to Earthquakes",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Pachakis, D",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Kiremidjian, AS",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2005-01",
+                    "type": "creation",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "technical report",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Recent earthquakes in California and Japan demonstrated that the potential for losses to a port subjected to them cannot be ignored but should be evaluated based on the seismicity of the region, so that mitigation actions can be pursued. Examination of the financial and operational repercussions of potential failures due to such extreme events through risk analysis will help authorities to allocate their resources prudently in the planning and design of new terminals or in the expansion and upgrade of old ones.\r\n\r\n\r\nThe main objective of this research is twofold: on one hand to provide a methodology for estimating downtime revenue losses a port incurs from scenario earthquake events and on the other hand to provide methods for deriving the moments and approximating the cumulative distribution function of the aggregate loss for these scenario events. The first objective is achieved through simulating the port operations and measuring the differences in revenues between regular operations and when the operations are interrupted by an earthquake. Since most of the dry cargo in modern ports is containerized, the operations of a port consisting of container terminals are studied. The second objective, more theoretical in nature, is achieved by adapting methods used in actuarial science to calculate the statistical characteristics of the total aggregate loss for a given exposure period, assuming earthquake arrivals as a Poisson process and discounting losses due to future earthquakes in the present.\r\n\r\n\r\nFour examples, two single-terminal and two multi-terminal, are presented that demonstrate the applicability of different aspects of the methodology. The first example is a preliminary investigation of the effects of changes in operational parameters such as traffic intensity, berth length, and queueing capacity in the port revenues. The second example illustrates how a vulnerability model can be combined with the operations simulation model to provide probabilistic loss estimates for scenario earthquakes. In the third example, one of the eight terminals of a multi-terminal container port is closed for six months and the ships are diverted to other terminals. The revenue differences of the different diverting options are analyzed. In the fourth example, each of the eight terminals of the container port are closed successively and the ships are diverted to the remaining open ones. The ability of the port to absorb the current traffic with reduced operational capacity without losing a significant amount of revenues is assessed.\r\n\r\n\r\nThe benefits of the proposed methodology are multiple. First, having a distribution for the expected aggregate loss for a set of credible earthquake scenarios can assist port authorities in the cost-benefit analysis and evaluation of seismic upgrade projects. Second, knowing the monetary effect of downtime for given port traffic, the proposed methodology can help port authorities make retrofit timing decisions, where the projections of future traffic loss must be accounted together with the retrofit cost. Third, revenue loss estimation can help port management negotiate specific insurance contracts and achieve premium reductions. Finally, from the side of loss control, simulation of port operations can be particularly effective in identifying the most effective operating strategies to reduce operating losses, not only after an earthquake but also other events causing downtime, such as strikes, hurricanes, and terrorism.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Pachakis, D and Kiremidjian, AS. (2005). Estimation of Downtime Related Revenue Losses in Maritime Ports due to Earthquakes. John A. Blume Earthquake Engineering Center Technical Report 146. Stanford Digital Repository. Available at: http://purl.stanford.edu/dv787vw3727",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "risk assessment",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "probabilistic seismic hazard analysis",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "loss estimation",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "transportation",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "retrofit",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "jabeec-email@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [
+        {
+            "title": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "John A. Blume Earthquake Engineering Center",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [],
+            "identifier": [],
+            "subject": [],
+            "access": {
+                "url": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "https://blume.stanford.edu",
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": []
+                    }
+                ],
+                "physicalLocation": [],
+                "digitalLocation": [],
+                "accessContact": [],
+                "digitalRepository": [],
+                "note": []
+            },
+            "relatedResource": []
+        }
+    ],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/dv787vw3727"
+}

@@ -1,0 +1,207 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "A Framework for Rate-Independent Crystal Plasticity in the Finite Deformation Range",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Rahmani, H",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Borja, RI",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2014-07",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "technical report",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "In this study we present a framework for the stress-strain analysis of polycrystalline materials subjected to quasistatic and isothermal loading conditions. We focus on rate-independent crystal plasticity as the primary micro-mechanism in the plastic deformation of crystalline aggregates. This deformation mechanism is modeled by a nonlinear stress-strain relationship and multiple linearly dependent yield constraints. Convergence problems induced by linear dependency of constraints is one of the challenges in modeling rate-independent crystal plasticity. Failure to converge at a single crystal level can cause numerical stability problems when modeling larger scales such as boundary value problems.\r\n     In this work we first build a stress point model based on the ‘ultimate’ algorithm in the infinitesimal deformation range. Since this algorithm solves the stress-strain response analytically, the model is unconditionally convergent. Numerical examples are presented to demonstrate the numerical stability of the algorithm and the significance of considering crystal microstructure in modeling the plastic deformation of single crystals. To investigate the overall elasto-plastic behavior of crystalline solids at scales larger than a single crystal, the stress point model at the infinitesimal deformation range is implemented in a nonlinear finite element code. Several boundary value problems are presented to demonstrate the numerical stability of the finite element model and also the effect of considering crystal microstructure on predicting the macro-scale elasto-plastic behavior of crystalline solids.\r\n     We next formulate crystal plasticity in the finite deformation range. This formulation, which is based on the theory of distribution and strong discontinuity concepts, considers both material and geometric nonlinearity in the plastic deformation of crystals. We propose exact and approximate stress point algorithms to solve the presented framework. To find the set of linearly independent slip systems, we follow the same idea as the `ultimate' algorithm. The presented numerical examples demonstrate that the simplified approximate algorithm is accurate. The examples also indicate the significant impact of geometric nonlinearity on the stress-strain response of single crystals. \r\n     We derive a framework to analyze the onset and configuration of localization in crystalline solids at infinitesimal and finite deformation ranges. The presented examples demonstrate that geometric nonlinearity has a significant impact on the localization analyses of crystalline solids.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Rahmani, H and Borja, RI. (2014). A Framework for Rate-Independent Crystal Plasticity in the Finite Deformation Range. John A. Blume Earthquake Engineering Center Technical Report 185. Stanford Digital Repository. Available at: http://purl.stanford.edu/wv172tx8702",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "crystal plasticity",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "finite deformation",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "jabeec-email@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/wv172tx8702"
+}

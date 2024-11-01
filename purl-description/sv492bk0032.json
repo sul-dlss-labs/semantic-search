@@ -1,0 +1,438 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Pilot - Evaluation of a Smartphone Decision-Support Tool for Diarrheal Disease Management in a Resource-Limited Setting",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Nelson, Eric",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Creator",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Haque, Farhana",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Creator",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "2015-11",
+                            "type": "start",
+                            "status": "primary",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        },
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "2019-09",
+                            "type": "end",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        }
+                    ],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "type": "creation",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "qualifier": "approximate",
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "dataset",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "local",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "software, multimedia",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Pilot - \"Evaluation of a Smartphone Decision-Support Tool for Diarrheal Disease Management in a Resource-Limited Setting\"  \r\n\r\nThe emergence of mobile technology offers new opportunities to improve clinical guideline adherence in resource-limited settings. We conducted a clinical pilot study in rural Bangladesh to evaluate the impact of a smartphone adaptation of the World Health Organization (WHO) diarrheal disease management guidelines, including a modality for age-based weight estimation. Software development was guided by end-user input and evaluated in a resource-limited district and sub-district hospital during the fall 2015 cholera season; both hospitals lacked scales which necessitated weight estimation. The study consisted of a 6 week pre-intervention and 6 week intervention period with a 10-day post-discharge follow-up. Standard of care was maintained throughout the study with the exception that admitting clinicians used the tool during the intervention. Inclusion criteria were patients two months of age and older with uncomplicated diarrheal disease. The primary outcome was adherence to guidelines for prescriptions of intravenous (IV) fluids, antibiotics and zinc. A total of 841 patients were enrolled (325 pre-intervention; 516 intervention). During the intervention, the proportion of prescriptions for IV fluids decreased at the district and sub-district hospitals (both p < 0.001) with risk ratios (RRs) of 0.5 and 0.2, respectively. However, when IV fluids were prescribed, the volume better adhered to recommendations. The proportion of prescriptions for the recommended antibiotic azithromycin increased (p < 0.001 district; p = 0.035 sub-district) with RRs of 6.9 (district) and 1.6 (sub-district) while prescriptions for other antibiotics decreased; zinc adherence increased. Limitations included an absence of a concurrent control group and no independent dehydration assessment during the pre-intervention. Despite limitations, opportunities were identified to improve clinical care, including better assessment, weight estimation, and fluid/antibiotic selection. These findings demonstrate that a smartphone-based tool can improve guideline adherence. This study should serve as a catalyst for a randomized controlled trial to expand on the findings and address limitations.\r\n\r\nTrial -\r\n\"Electronic decision-support improves diarrhoeal disease guideline adherence (mHealth Diarrhoea Management, mHDM, Trial): a cluster randomized controlled trial\"  \r\n\r\nBackground: Acute diarrhoeal disease management often requires rehydration alone without antibiotics. However, antibiotics are frequently used inappropriately and this is an important driver of antimicrobial resistance. The mHDM trial was conducted to determine if electronic decision-support improves rehydration and antibiotic guideline adherence in resource-limited settings.\r\nMethods A cluster randomized controlled trial was conducted at ten district hospitals in Bangladesh. Inclusion criteria were patients two-months of age or older with uncomplicated acute diarrhoea. Admission orders were observed without intervention followed by randomization to electronic (‘Rehydration Calculator’) or paper formatted World Health Organization guidelines. Generalized linear mixed-effect models, accounting for hospital clustering, served as the analytical framework.  \r\n\r\nFindings: Of 6,577 screened patients, 4,975 were enrolled. There was no statistical difference between electronic and paper decision-support for IV fluids ordered (interaction p=0.31). Among severely dehydrated patients, volumes were 29.2% higher (0.014 L/kg) for electronic compared to paper decision-support (0.062 L/kg, 95%CI 0.051-0.076 vs 0.048 L/kg, 95%CI 0.039-0.058; interaction p=0.01). Inappropriate antibiotics decreased with electronic decision-support, including a 28.5% decrease for electronic (97.2%, 95%CI 90.3-99.3 to 68.7%, 95%CI 40.9-87.4) compared to a 23.8% increase for paper (43.1%, 95%CI 19.8-70.0 to 66.9%, 95%CI 39.8-86.1) among children under 5 years (interaction p<0.001). Class-switching from non-indicated (ciprofloxacin, metronidazole; interaction p values <0.001) to indicated (azithromycin; interaction p<0.001) antibiotics occurred for both decision-support methods.  \r\n\r\nInterpretation: Electronic decision-support, and paper to a lesser extent, improved guideline adherence with a prominent reduction of inappropriate antibiotic orders. The accessibility of the electronic medium offers scalability to improve guideline adherence for acute diarrhoeal disease management and combat antibiotic resistance globally.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Nelson, Eric and Haque, Farhana. (Nove). Rehydration Calculator Overview and De-identified Pilot and Trial (mHDM) Data. Stanford Digital Repository. Available at: http://purl.stanford.edu/sv492bk0032",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "diarrhea",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "diarrhoea",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "cholera",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "dehydration",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "intravenous fluids",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "IV fluids",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "ORS",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "oral rehydration solution",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Bangladesh",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "global health",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "mHealth",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "mobile technology",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "antibiotic stewardship",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "quality improvement",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "smartphone",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "GIS",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "geospatial",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "weight estimation",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "rehydration calculator",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "maples@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [
+        {
+            "title": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Evaluation of a Smartphone Decision-Support Tool for Diarrheal Disease Management in a Resource-Limited Setting",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [],
+            "identifier": [],
+            "subject": [],
+            "access": {
+                "url": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0005290",
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": []
+                    }
+                ],
+                "physicalLocation": [],
+                "digitalLocation": [],
+                "accessContact": [],
+                "digitalRepository": [],
+                "note": []
+            },
+            "relatedResource": []
+        }
+    ],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/sv492bk0032"
+}

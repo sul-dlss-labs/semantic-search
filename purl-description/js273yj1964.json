@@ -1,0 +1,229 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Development of a Semi-Analytical Model to Calculate Pressure Buildup and Front Movement for CO2 Sequestration Sites and Its Applicability to the Two Elk Energy Park in the Powder River Basin of Wyoming",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Sargent, Whitney",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Benson, Sally M.",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Primary advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Stanford University, Department of Energy Resources Engineering",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "organization",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Degree granting institution",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2012-06",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "thesis",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "A goal for carbon capture and sequestration (CCS) is to reduce CO2 emissions into the atmosphere and store the CO2 permanently in underground reservoirs. This work develops an extended semi-analytical model and performs a reservoir simulation study. The purpose is to assess the injectivity and capacity of CO2 storage in a portion of the Powder River Basin (PRB) called the Two Elk Energy Park (TEEP). The motivation for a new semi-analytical model is motivated by the need to estimate CO2 injectivity, pressure buildup, and CO2 plume migration in stacked layers, such as those present in the PRB. In addition to this, the reservoir simulation study can assess the effects of formation structure and heterogeneity. The lithology of the PRB targeted for CO2 storage consists of highly heterogeneous layers of sandstone, shale, and carbonates. No single formation is suitable for large scale injection, but a very thick sequence of moderate to low permeability units may provide sufficient injectivity and capacity for a large scale carbon sequestration project. First, this study applies a semi-analytical model to estimate the injectivity and capacity of the PRB. The two issues to be addressed are the heterogeneous layering and the different pressure gradient between the well, filled with CO2, and the formation, a saline aquifer, at different depths. The work by Kumar and Bryant (2009) provides the basis for the extended semi-analytical model. The model calculates the well pressure along a perforated interval and accounts for the density difference of CO2 in the well and includes a method to estimate the dry-out zone and a two-phase zone radius in a single homogeneous layer. The new model is the SAHCO2 injection model, a semi-analytical solution for predicting pressure buildup and plume migration in a heterogeneous system comprised of permeable layers separated by low permeability rocks. The SAHCO2 injection model takes advantage of the Kumar and Bryant (2009) model but has added functionality to include a heterogeneously layered system, an expanding constant pressure boundary to mimic an infinite-acting reservoir, and updated phase front definition. Comparison with a representative numerical model yields good agreement with the extended semi-analytical model. The SAHCO2 injection model can be used for several applications; namely, for complex sandstone layering formations, large storage reservoirs, and for quick and easy screening of potential CO2 storage sites. Four reservoir/sealing units identified in the PRB are characterized from literature and well data from locations far from the injection site. SAHCO2 injection model results conclude the estimated pressure buildup is 14.3% of initial reservoir pressure after 50 years of constant injection of 3 Mt/yr of CO2. The maximum plume migration is 2.6 km in the Hulett formation. The second approach for assessing the PRB for CO2 injectivity is to carry out regional-scale three-dimensional numerical simulations. The newly developed geological model assesses the influence of the formation dip, discontinuous layering, and boundary conditions on the long-term fate of injected CO2. The largest reservoir/sealing unit is the Minnelusa-Madison/Goose Egg formations. A static geologic model representing these units is used for numerical simulation of this region. The results for a high permeability and porosity case show that 3 Mt/yr of CO2 can be injected with 3.6% increase in initial pressure and a maximum plume migration of 4.6 km at 50 years of injection and 7.6 km at 1,100 years of shut-in. A low permeability and porosity case requires additional wells to achieve the target rate of 3 Mt/yr of CO2. Multiple well scenarios under a field rate constraint achieve the target rate with a pressure buildup of 4.4% from initial reservoir pressure. Plume migrations from different wells interfered with each other to achieve maximum coverage of the grid area, 16 by 16 km.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Sargent, Whitney. (2012). Development of a Semi-Analytical Model to Calculate Pressure Buildup and Front Movement for CO2 Sequestration Sites and Its Applicability to the Two Elk Energy Park in the Powder River Basin of Wyoming. Stanford Digital Repository. Available at: https://purl.stanford.edu/js273yj1964",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "School of Earth Energy & Environmental Sciences",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "brannerlibrary@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/js273yj1964"
+}

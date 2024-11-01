@@ -1,0 +1,267 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Adaptive Dynamic Analysis Considering Structural Lifespan: An Approach Based on Fuzzy Mathematics",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Wadia-Fascetti, S ",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Smith, HA",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "1994-08",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "technical report",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "In this thesis a new analysis procedure is proposed which integrates system identification objectives and fuzzy set mathematics to formulate an adaptive analysis model capable of considering the changes a structure experiences during its lifespan. The adaptive models quantify the uncertainties associated with dynamic parameters at three stages during the structure's lifespan; calibration, degradation, and damage. The adaptive model proposed here, unlike conventional system identification techniques, does not require experimental response data from the as-built structure. Instead, fuzzy set mathematics is used to represent the level of confidence of various design assumptions, and the vertex method is used to develop a fuzzy set which bounds the structure's dynamic parameters.\r\n\r\nThe calibration model, the first of the three categories considered in the adaptive model, quantifies the error between the dynamic parameters predicted by the analytical structural model and those of the actual structure. The error in the dynamic parameters is based on the modeling uncertainties for the structural masses and the structural stiffness. Quantification of the fundamental uncertainties and the use of the calibration model makes it possible to predict the potential values of the higher-level dynamic parameters. The degradation model uses the results from the calibration model and uncertainty in the rate of degradation of fundamental parameters to predict the uncertainty in the dynamic parameters during the structure's lifespan.\r\n\r\nIt has been well accepted that the excitation acting on a structure (due to an earthquake) is dependent on the site's proximity to the fault rupture, earthquake magnitude, and local site conditions. In this study the uncertainty in the excitation is modeled through the development of the fuzzy response spectra. The fuzzy spectrum used in the dynamic analysis is selected based on the local soil conditions and the site's proximity to the potential earthquake. Each spectrum provides the analyst with a range of frequency content and maximum responses for the possible earthquake. The forced vibration analysis is performed by superimposing the fuzzy spectrum with the adaptive models (which quantify the potential sources of error in structure's dynamic properties) to quantify the uncertainty in the response for the structure.\r\n\r\nA case study of the Santa Clara County Office Building, located is San Jose, California, is presented. This structure's dynamic behavior has been studied extensively since its instrumentation with the California Strong Motion Instrumentation Program. The dynamic parameters obtained from the calibration model and the ground motion models are compared to the actual parameters of the structure. It is found that the calibration model is capable of bounding the dynamic properties (natural frequencies and maximum building response) of the structure at high levels of confidence.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Wadia-Fascetti, S  and Smith, HA. (1994). Adaptive Dynamic Analysis Considering Structural Lifespan: An Approach Based on Fuzzy Mathematics. John A. Blume Earthquake Engineering Center Technical Report 113. Stanford Digital Repository. Available at: http://purl.stanford.edu/yw586zd3918",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "dynamic",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "structural analysis",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "vibration",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "structural analysis",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "jabeec-email@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [
+        {
+            "title": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "John A. Blume Earthquake Engineering Center",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [],
+            "identifier": [],
+            "subject": [],
+            "access": {
+                "url": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "https://blume.stanford.edu",
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": []
+                    }
+                ],
+                "physicalLocation": [],
+                "digitalLocation": [],
+                "accessContact": [],
+                "digitalRepository": [],
+                "note": []
+            },
+            "relatedResource": []
+        }
+    ],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/yw586zd3918"
+}

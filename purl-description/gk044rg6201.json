@@ -1,0 +1,293 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Modeling of Horizontal Wells with Pressure Drop in the Well",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Penmatcha, Viswanatha Raju ",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Aziz, Khalid",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Primary advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Brigham, William E.",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Horne, Roland N.",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Stanford University, Department of Petroleum Engineering",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "organization",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Degree granting institution",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "1997-12",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "thesis",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Often, for vertical wells, pressure drop in the wellbore opposite to the sandface due to friction and acceleration is ignored. Such an assumption would not introduce much of an error in the productivity calculations for a vertical well because gravitational pressure drop dominates the frictional and accelerational pressure drop. This is not the case for a horizontal well because these wells can be very long and gravitational pressure drop is less. Frictional and accelerational pressure drop can be important in long horizontal wells in high permeability reservoirs producing large flow rates.If pressure drop in the wellbore is not taken into account in such cases for a horizontal well, the productivity of the well can be grossly over-estimated. In reservoirs with an aquifer or a gas cap, ignoring wellbore pressure drop would make the engineer assume that displacement is uniform along the well. But in reality the in flow into the well can be very skewed and fluids tend to break through at the heel of the well much faster than anywhere else along the well. The only way to capture these effects is by considering pressure drop in the wellbore.A one-dimensional reservoir/wellbore coupling model is developed in this work to calculate true productivity of a horizontal well. A formula is developed to show that the ratio of wellbore pressure drop to reservoir drawdown gives a good indication of the frictional effects on well productivity. Using this model, sensitivity studies are conducted to see the effect of reservoir, wellbore, and fluid parameters on wellbore friction. As expected, the error in well productivity calculations from ignoring wellbore friction increases with larger reservoir permeabilities, higher ow rates, or larger wellbore roughnesses, and decreases with higher fluid viscosities or higher drawdowns. Pressure drop in the wellbore causes the incremental production from a horizontal well to decrease with an increase in the well length. A methodology is developed in this study to calculate the optimum well length for a system with single-phase flow.Comprehensive, transient, three-dimensional, semi-analytical models are developed in this work to calculate the productivity of a finite-conductivity and an infinite-conductivity horizontal well. The finite-conductivity well model provides a reference solution to calculate the productivity of a horizontal well placed in a box-shaped drainage volume with due consideration to frictional and accelerational pressure drops, fluid inflow effects, and variable skin along the well. We believe that our finite conductive well model is more general than any published previously. It has been tested, where appropriate, with published results. This model can be used to obtain the desired perforation density along the well so that in ow will be uniform along the entire well length. Using superposition in time, these models can be run under either constant flow rate, constant bottom-hole pressure, or a sequence of these two constraints.Reservoir simulators require a well model to couple the well block pressure to the well pressure. Most of the commercial simulators use the Peaceman well model, which was developed for a two-dimensional system with radial ow near the well. This model gives significant errors when used on partially penetrating vertical or horizontal wells because the flow in these cases is three-dimensional in nature. A new three-dimensional well model is developed using the infinite and finite conductivity semianalytical models. The well index calculated by this new approach is different for each well block, unlike the two-dimensional models.When the line source solution of Babu and Odeh (1989) is used to calculate the productivity of a horizontal well in an anisotropic reservoir, the pressure varies along the circumference of the well. There has been considerable discussion in the literature on how to calculate the correct well pressure for this solution. These discussions are presented in some detail in this study. This work shows that the inner boundary condition at the well should be uniform pressure. Under this inner boundary condition, a new angle is proposed at which the well pressure should be calculated when the line source solution is used in an anisotropic reservoir.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Penmatcha, Viswanatha Raju. (1997). Modeling of Horizontal Wells with Pressure Drop in the Well. Stanford Digital Repository. Available at: https://purl.stanford.edu/gk044rg6201",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "School of Earth Energy & Environmental Sciences",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "brannerlibrary@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/gk044rg6201"
+}

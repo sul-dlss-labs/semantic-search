@@ -1,0 +1,193 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "USGS OFR 97-96: USGS gamma-ray modeling programs",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Duval, Joseph S",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "1997",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "mixed material",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "manuscript",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "\"This open file report describes several gamma-ray modeling programs which allow you to investigate the basic physical parameters which affect airborne gamma-ray measurements, to design an airborne gamma-ray survey, and model the effects of anomalous finite gamma-ray sources.  The programs which allow you to investigate \r\nthe basic physical parameters are named Circle and Strip.\r\n\r\nCircle calculates the field of view for a stationary gamma-ray detector.  This program allows you to change all of the parameters which affect the measurement of the gamma-ray flux from a flat homogeneous source which is infinitely thick.  You can calculate the percentage of the gamma-ray flux which originates within layers of \r\ndifferent thicknesses as well as from within circular areas of different radii.\r\n\r\nStrip calculates the field of view for an airborne gamma-ray detector. This program also allows you to change all of the parameters which affect the measurement of the gamma-ray flux from a flat homogeneous source which is infinitely thick but the effects of the motion of the aircraft are included in the calculations.  The results provide \r\ninformation about the percentages of the gamma-ray flux which originate within strips of ground parallel to the flight path of the aircraft.\r\n\r\nGdesign is a program which helps you design an airborne gamma-ray survey.  This program allows you to specify parameters related to the gamma-ray measurements, the size of the survey area, and expected cost of the survey.  The program then attempts to honor the specified parameters but makes adjustments as necessary in order to achieve as good a survey as possible within the limitations placed upon the parameters.\r\n\r\nGmodel1 is a program which simulates an airborne gamma-ray system and allows you to estimate the effects of anomalous finite gamma-ray sources.  The program offers different types of sources which can be circular, rectangular, or long linear sources.  This program requires a system-response grid which is calculated using the program Gmodgrd.\r\n\r\nGmodgrd calculates a system-response grid for an airborne gamma-ray system.  The program allows you to specify most of the parameters which affect the airborne gamma-ray measurements and calculates a system-response grid which is saved to disk for use with the modeling program Gmodel1.\"",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Gamma ray spectrometry--Computer programs",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "brannerlibrary@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [
+        {
+            "title": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Open-File Report 97-96",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [],
+            "identifier": [],
+            "subject": [],
+            "access": {
+                "url": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "https://pubs.er.usgs.gov/publication/ofr9796",
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": []
+                    }
+                ],
+                "physicalLocation": [],
+                "digitalLocation": [],
+                "accessContact": [],
+                "digitalRepository": [],
+                "note": []
+            },
+            "relatedResource": []
+        }
+    ],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/yc476hk4531"
+}

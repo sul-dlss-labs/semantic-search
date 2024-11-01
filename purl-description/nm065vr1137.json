@@ -1,0 +1,242 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Damage Diagnosis Algorithms for Wireless Structural Health Monitoring",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Kesavan, KN",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Kiremidjian, AS",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2007-11",
+                    "type": "creation",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "technical report",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Recent research efforts in wireless structural health monitoring have resulted in an explosion in the development of new sensors. Little attention, however, has been focused on the efficient and effective use of the data collected by these sensors. While these wireless sensor networks enable dense instrumentation, the amount of data that needs to be transmitted can prove to be prohibitive. The main difficulty arises from the low data rates associated with low power ad-hoc wireless sensor networks. Thus, data transmission over the wireless network is demanding, time consuming and can significantly reduce power source life. Typically these data are required because current damage detection algorithms perform global system level analysis rather than local sensor level analysis. In this dissertation, three local sensor based damage diagnosis algorithms using statistical signal processing and pattern classification techniques have been developed. The main features of these algorithms are that they are simple, robust and computationally efficient.\r\n\r\nThe first algorithm uses time series to model the vibration signal and defines a damage sensitive feature DSF using the first three autoregressive (AR) coefficients. A t-test on the DSF’s is used to discriminate between an undamaged state and a damaged state. This algorithm is valid for linear and stationary signals.\r\n\r\nThe second algorithm utilizes the first three AR coefficients as the feature vector. Damage detection is performed using the Gaussian Mixture Models (GMM’s) and the gap statistic. This algorithm, like the first algorithm described above, is valid for linear, stationary signals. This algorithm is shown to be more effective in detecting minor damage patterns in comparison to the first algorithm. A damage measure has been developed using the Mahalanobis distance between the means of the damaged and undamaged datasets.\r\n\r\nThe third algorithm uses the wavelet energies at the fifth, sixth and seventh dyadic scales as feature vectors. This algorithm allows the use of non-stationary signals. This algorithm requires a creation of a database of baseline signals. The first part of this algorithm requires finding that signal in the database closest to the new signal. The second part of this algorithm is to obtain the feature vectors. Both of these steps are performed using principal components analysis. Damage detection is performed using the k-means algorithm in conjunction with the gap statistic. A damage measure has been developed using the Euclidean distance between the means of the damaged and undamaged feature vector.\r\n\r\nThe performance of the developed algorithms is validated using the datasets of the ASCE Benchmark Structure. It is observed that the damage patterns as defined in the ASCE Benchmark Structure are consistently identified using these algorithms. The damage measures are also shown to correlate well with the extent of damage.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Kesavan, KN and Kiremidjian, AS. (2013). Damage Diagnosis Algorithms for Wireless Structural Health Monitoring. John A. Blume Earthquake Engineering Center Technical Report 165. Stanford Digital Repository. Available at: http://purl.stanford.edu/nm065vr1137",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "structural health monitoring",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "sensing",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "jabeec-email@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [
+        {
+            "title": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "John A. Blume Earthquake Engineering Center",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [],
+            "identifier": [],
+            "subject": [],
+            "access": {
+                "url": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "https://blume.stanford.edu",
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": []
+                    }
+                ],
+                "physicalLocation": [],
+                "digitalLocation": [],
+                "accessContact": [],
+                "digitalRepository": [],
+                "note": []
+            },
+            "relatedResource": []
+        }
+    ],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/nm065vr1137"
+}

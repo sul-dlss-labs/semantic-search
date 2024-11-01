@@ -1,0 +1,229 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Enhanced Linearized Reduced-Order Models for Subsurface Flow Simulation",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "He, Jincong",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Durlofsky, Louis J.",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Primary advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Stanford University, Department of Energy Resources Engineering",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "organization",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Degree granting institution",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2010-06",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "thesis",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Many reservoir simulation applications, such as optimization of well settings and his- tory matching, require a large number of runs. Using traditional simulators for such problems is often very expensive computationally. In this thesis we extend and enhance the trajectory piecewise linearization (TPWL) method for accurate and efficient reduced-order modeling for such applications. In this approach, the reservoir equations are linearized around previously simulated training runs and the high-dimension state space is projected into a low-dimension space using proper orthogonal decomposition (POD). With linearization and reduction, simulations that require hours to run can now be completed within a few seconds. TPWL does require overhead computations that correspond to the time required for a few full-order simulations. In this work, both the accuracy and stability of the TPWL method are considered. A local resolution treatment, in which we preserve high resolution in well blocks and other important ow regions, is proposed to improve the accuracy of the method. Stability analysis shows that, particularly for cases with density differences between phases, the TPWL method can be unstable. The stability of the method can be quantified in terms of the spectral radius of an amplification matrix appearing in the TPWL model equation. Two different stabilizing methods are proposed. The first method seeks to minimize the spectral radius of the amplification matrix by choosing the optimized number of reduced variables. The second method stabilizes cases with density differences using a basis constructed from the same case without density differences. Both methods are tested on two reservoir problems of practical size with significant density differences. Results demonstrate that both methods are able to provide stabilized and accurate solutions for these cases. The stabilized TPWL method is then implemented as a surrogate model within a generalized pattern search (GPS) optimization procedure. Two production optimization problems are considered. In the first problem, optimization of 36 bottom hole pressure (BHP) variables under linear constraints is performed on a model containing 4800 grid blocks. Comparison with the results from full-order simulations is possible in this case and demonstrates the accuracy and applicability of TPWL for this problem. In the second production optimization example, 54 BHP variables under nonlinear constraints are optimized for a model containing 20,400 grid blocks. The TPWL method is shown to provide a feasible solution with much improved net present value. The equivalent of only around 20 full-order training simulations are needed for this problem, even though the optimization requires more than 4000 function evaluations (which are provided by the TPWL model). Finally, the potential use of TPWL for history matching is investigated. Preliminary results show that the TPWL approach is able to provide a reasonable approximation to the true solution even when the geological model for the test case is considerably different than that for the training case. This capability is very useful for history matching and suggests that further study of TPWL in this application area is warranted.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "He, Jincong. (2010). Enhanced Linearized Reduced-Order Models for Subsurface Flow Simulation. Stanford Digital Repository. Available at: https://purl.stanford.edu/tr023cx0968",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "School of Earth Energy & Environmental Sciences",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "brannerlibrary@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/tr023cx0968"
+}

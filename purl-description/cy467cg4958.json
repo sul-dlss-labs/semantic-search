@@ -1,0 +1,267 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Effects of Architectural Walls on Building Response to Ambient and Seismic Excitations",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Vance, VL ",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Smith, HA",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "1996-06",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "technical report",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "A building is a complex assemblage of both 'structural' and 'non-structural' components. While many non-structural elements - including architectural walls - are connected directly to the structural system, their effects are largely ignored in conventional analyses. Engineers have a qualitative understanding of how non-structural components alter building response, but little research has been conducted to quantify their impact. Non-structural components potentially contribute to overall building stiffness, strength, and damping.\r\n\r\nThe objective of the research presented herein is to assess the amount by which architectural walls alter building characteristics and response to ambient and seismic excitations. Specifically, the amount by which architectural walls alter building period, stiffness, displacements, drifts, amount of energy dissipated and base shear demands is quantified. Interior steel stud walls with gypsum wallboard facing panel are the focus of the present research since they are common in industrial and commercial facilities, and experimental data describing their behavior is available.\r\n\r\nTwo analytical model are developed as part of the current research to represent architectural walls. The first model, designated the 'super-element model', consists of three separate finite elements to represent the studs, joints and facing panels of the wall assemblages explicitly, and is meant to be used to further study the behavior of architectural walls. The second model, which is designated the 'DRAIN-2DX model', is based on a quadrilateral, plane-stress element with nonlinear load-deformation characteristics, and is incorporated directly into DRAIN-2DX, a dynamic, nonlinear finite element analysis program [Prakash et al., 1993]. The purpose of the DRAIN2DX model is to study the effects of architectural walls on building response.\r\n\r\nThe effects of architectural walls are quantified by conducting a parametric study, which involves performing time-history analyses of a set of six frames both with and without architectural walls. Three different wall configurations and three different distributions of walls are included in the parametric study. A suite of fifteen input ground motion records, scaled to each of five different levels, is used for the analyses.\r\n\r\nArchitectural walls contribute stiffness to the frames, thus reducing the natural period of the frames by as much as 60%. As a direct result of this increase in stiffness, the frame displacements are reduced by as much as 40%. Although in certain cases inclusion of the walls increases the base shear demands, the effect of the walls on base shear is not, in general, significant since their strength relative to that of the bare frame is low. In addition, inclusion of the walls, in general, increases the amount of energy dissipated.\r\n\r\nThe effects of architectural walls are greatest under low level seismic or ambient excitations. The results of the research presented herein, thus, are most useful in validating analytical building models and understanding building response to low level excitations. In addition, the results of this research may be used to improve system identification and damage detection techniques. While considering the behavior and effects of architectural walls under low level excitations is important, ignoring their effects during severe earthquakes is, in general, acceptable.\r\n\r\nIn conjunction with the parametric study, two equivalent linearization techniques are proposed which may be used to account for the effects of the walls without explicitly modeling their nonlinear load-deformation characteristics. Although the response of the equivalent linear systems and those of the frames with the wails included do not match exactly, the peak response of the equivalent linear systems is within 20% of those of the original systems. Equivalent linearization techniques may be particularly useful in system identification and damage detection applications where is it important to develop accurate building models but difficult to consider nonlinear behavior.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Vance, VL  and Smith, HA. (1996). Effects of Architectural Walls on Building Response to Ambient and Seismic Excitations. John A. Blume Earthquake Engineering Center Technical Report 117. Stanford Digital Repository. Available at: http://purl.stanford.edu/cy467cg4958",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "vibration",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "structural materials",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "computer modeling",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "risk assessment",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "jabeec-email@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [
+        {
+            "title": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "John A. Blume Earthquake Engineering Center",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [],
+            "identifier": [],
+            "subject": [],
+            "access": {
+                "url": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "https://blume.stanford.edu",
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": []
+                    }
+                ],
+                "physicalLocation": [],
+                "digitalLocation": [],
+                "accessContact": [],
+                "digitalRepository": [],
+                "note": []
+            },
+            "relatedResource": []
+        }
+    ],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/cy467cg4958"
+}

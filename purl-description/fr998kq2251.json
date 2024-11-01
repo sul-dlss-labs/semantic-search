@@ -1,0 +1,272 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Risk Assessment for Highway Transportation Systems",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Basöz, NI",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Kiremidjian, AS",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "1996-11",
+                    "type": "creation",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "technical report",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "A risk assessment methodology for lifeline systems is developed to serve as a tool in the decision process for: (i) retrofitting of critical structures in the system as a means of pre-disaster mitigation, (ii) pre-disaster emergency response planning, and (iii) emergency response operations immediately after the disaster. The objective is to assist in such decisions for minimizing life and dollar loss due to damage from natural or man-made hazards.\r\n\r\nThe methodology is based on vulnerability and importance assessment of the components in the system. Hazard analysis, structural classification schemes, and fragility analysis are employed to assess the vulnerability criterion for each component. The importance of a component is assessed through network analysis and decision analysis methods. The network analysis methods are used to assess the impact of damaged components on the system functionality. The engineering, economic and social factors are integrated using decision models based on multiattribute utility theory.\r\n\r\nWhile the concepts of the methodology are applicable to lifeline systems in general, the details are developed for highway transportation systems subjected to earthquakes. The details of the methodology are discussed in applications to bridge prioritization for seismic retrofitting, pre-earthquake emergency response planning and post-earthquake emergency response management activities.\r\n\r\nThe bridge prioritization methodology is intended to assist with decisions on pre-earthquake mitigation strategies. Bridges are ranked based on the seismic exposure, structural vulnerability, and the consequences of potential bridge failures. New bridge classes and damage states are defined, and an Expert System is developed for Classification Of Bridges (ESCOB). The consequences of bridge damage is assessed using decision maker's values and risk preferences for various factors. These factors include life safety, impact on emergency response activities., long-term economic impacts, lifeline interaction, effect to defense security and impact on historical assets. The impact of bridge damage on the highway system functionality is introduced as part of the importance assessment. Algorithms for Connectivity Analysis For Emergency Response (CAFER) and for serviceability analysis are developed and are used to evaluate the effect of bridge damage to emergency response activities and socioeconomic recovery, respectively.\r\n\r\nThe risk assessment methodology is also applied to assist in decisions for emergency response planning and management activities such as reducing life loss from secondary effects (e.g., debris and fires). In these applications., CAFER is used to determine accessibility of the disaster areas, available routes to the disaster areas and travel time delays.\r\n\r\nThe methodology is implemented in a geographic information system (GIS). An interface is developed to use GIS concurrently with a land use transportation system (LUTS). Several case studies are presented for Palo Alto and Northridge, California areas. These case studies demonstrate that the proposed risk assessment methodology is applicable to large highway network systems. As expected and indicated by currently available bridge prioritization methodologies, location in high seismicity areas and poor design details tend to raise the ranking of a bridge for seismic retrofitting. In the proposed methodology, however, the ranking also reflects the importance of the bridge functionality to the performance of the highway system, and the values and risk preferences of the decision maker. The network analysis algorithms developed in this dissertation proved to be computationally efficient even when applied to detailed models of large highway network systems. The use of GIS concurrently with LUTS proved to be very effective in conducting a risk analysis for the highway transportation systems.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Basöz, NI and Kiremidjian, AS. (1996). Risk Assessment for Highway Transportation Systems. John A. Blume Earthquake Engineering Center Technical Report 118. Stanford Digital Repository. Available at: http://purl.stanford.edu/fr998kq2251",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "emergency management",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "risk assessment",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "risk management",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "hazard analysis",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "transportation",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "jabeec-email@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [
+        {
+            "title": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "John A. Blume Earthquake Engineering Center",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [],
+            "identifier": [],
+            "subject": [],
+            "access": {
+                "url": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "https://blume.stanford.edu",
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": []
+                    }
+                ],
+                "physicalLocation": [],
+                "digitalLocation": [],
+                "accessContact": [],
+                "digitalRepository": [],
+                "note": []
+            },
+            "relatedResource": []
+        }
+    ],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/fr998kq2251"
+}

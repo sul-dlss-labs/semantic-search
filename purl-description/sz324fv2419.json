@@ -1,0 +1,230 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Collapse Performance Assessment of Steel-Framed Buildings under Fires",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Deierlein, GG",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2007-03",
+                    "type": "creation",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "technical report",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "The main objective of this research is to investigate the collapse performance of steel-framed buildings under fires and to contribute to the development of methods and tools for performance-based structural fire engineering. This research approach employs detailed finite element simulations to assess the strength of individual members (beams and columns) and indeterminate structural sub-assemblies (beams, columns, connections and floor diaphragms). One specific focus of the investigation is to assess the accuracy of beam and column strength design equations of the American Institute of Steel Construction (AISC) Specification for Structural Steel Buildings. The simulation results show these design equations to be up to 60 % unconservative for columns and 80-100 % unconservative for laterally unbraced beams. Alternative equations are proposed that more accurately capture the effects of strength and stiffness degradation at elevated temperatures. About eight hundred simulations are performed to verify the proposed equations, accompanied by studies on members with different steel strengths and section sizes.\r\n\r\nThe assessment technique for individual members is then extended to examine fire effects for indeterminate gravity frame systems, including forces induced by restraint to thermal expansion and nonlinear force redistribution due to yielding and large deformations. Structural sub-assemblies are devised to examine indeterminate effects of gravity-framing in a 10-story building, which is representative of design and detailing practice in the United States. Three types of sub-assemblies are considered, including an interior gravity column, a composite floor beam, and an exterior column-beam assembly. The sub-assembly models include the restraining effects of floor framing that surrounds (both horizontally and vertically) the localized compartment fire. The sub-assembly simulations support the following observations and conclusions: (1) the rotational end restraint provided by the columns above and below the fire story have a significant stabilizing effect on gravity columns in the fire zone (providing up to a 40 % increase in strength above the pin-ended condition at 400 °C), (2) vertical restraint of the heated column, by floor framing above the fire story, does not significantly impact the strength limit state of the columns in the fire zone (3) short of designing the building system with special redundant load paths, thermal insulation is essential to avoid progressive collapse of highly-stressed gravity columns during building fires (4) thermal insulation requirements for beams can be reduced while preserving collapse resistance through enhanced connection details that are insulated, employ slotted holes to permit thermal elongation, and incorporate thermally protected reinforcing bars in the slab. These studies and conclusions are limited to evaluation of collapse safety and do not address aspects related to post-fire repairs and loss assessment.\r\n\r\nUncertainty in the collapse behavior under fires is evaluated considering variability in the gravity loading and structural response parameters. Using the statistical information to quantify the random variables, the collapse probability of the column, beam and beamcolumn sub-assemblies is assessed by the mean-value first-order second-moment (FOSM) method. The collapse probability is conditioned with respect to the scaled intensity of fire compartment gas temperature, which is treated as independent variable. These studies indicate that the variability in the high-temperature steel yield strength is the most significant factor in the uncertainty assessment. The studies further show that for the design fire temperature, the probability of column failure ranges from 4 % to 38 % (β = 0.3-1.8) for designs based on the AISC strength provisions (with φ = 0.9). These probabilities reduce to 0.5 % to 3 % (β = 1.9-2.6) based on the proposed equations (with φ = 0.9).",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Takagi, J and Deierlein, GG. (2013). Collapse Performance Assessment of Steel-Framed Buildings under Fires. John A. Blume Earthquake Engineering Center Technical Report 163. Stanford Digital Repository. Available at: http://purl.stanford.edu/sz324fv2419",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "collapse",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "steel",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "fire",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "performance-based engineering",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "jabeec-email@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [
+        {
+            "title": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "John A. Blume Earthquake Engineering Center",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [],
+            "identifier": [],
+            "subject": [],
+            "access": {
+                "url": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "https://blume.stanford.edu",
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": []
+                    }
+                ],
+                "physicalLocation": [],
+                "digitalLocation": [],
+                "accessContact": [],
+                "digitalRepository": [],
+                "note": []
+            },
+            "relatedResource": []
+        }
+    ],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/sz324fv2419"
+}

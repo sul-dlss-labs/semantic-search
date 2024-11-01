@@ -1,0 +1,280 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Regulatory Analysis and Hydraulic Simulation of Biomethane Deployment in California",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Von Wald, Gregory",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Brandt, Adam R.",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Primary advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Stanford University, Energy Resources Engineering",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "organization",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Degree granting institution",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2018-06",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "thesis",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "As gas utilities seek to address climate challenges, incorporation of new gaseous energy resources, such as biomethane, into the pipeline may serve as an important strategy. In this thesis, I model scenarios of biomethane development in California. \r\nFirst, I conduct an interchangeability assessment using data on historical gas quality delivered to consumers. Then, I model the compositional space of acceptable biomethane with each regulatory constraint imposed as a function of the gaseous components present in the gas. This regulatory analysis reveals a significant compositional region in which the heating value specification could be relaxed to levels near 970 BTU/scf while the remainder of the gas quality specifications, specifically gas interchangeability, are maintained. \r\nRegional changes in gas quality due to development of biomethane were assessed using steady-state simulation of regional natural gas pipeline networks. Three selected regions of California (San Diego, Hanford, and South Bay Area) were modeled as directed graphs, composed of gas demand and supply “nodes” connected by pipeline “branches.” For each region, several different breakeven price scenarios were modeled including: (1) market price of natural gas with no incentives, (2) addition of revenue from California’s Low Carbon Fuel Standard credits, (3) addition of revenue from the federal Renewable Fuel Standard Renewable Identification Number credits, and (4) a 100% biomethane development scenario. \r\nUnder Case 1, without any regulatory incentive revenues, there are no economically viable biomethane projects in any of the studied regions. With the incorporation of LCFS revenues, the portion of local, annual natural gas demands served by biomethane would be 3.26% in San Diego (3.82 bcf/yr), 50.4% in Hanford (2.15 bcf/yr), and 2.8% in the South Bay area (4.58 bcf/yr). In San Diego, some radial branches would receive nearly 100% natural gas during winter months and nearly 100% biomethane during spring months of low consumption. With additional revenues from RIN credits, the portion of local, annual natural gas demands served by biomethane would be 3.57% in San Diego (4.18 bcf/yr), 104% in Hanford (4.47 bcf/yr), and 3.2% in the South Bay area (5.34 bcf/yr). Under this more aggressive build-out scenario, rural regions, such as Hanford, with high concentrations of dairy farms and low natural gas consumption may act as net exporters of biomethane. Under a 100% biomethane development scenario, the portion of local, annual natural gas demands served by biomethane would be 3.6% in San Diego (4.2 bcf/yr), 123% in Hanford (5.26 bcf/yr), and 3.23% in the South Bay area (5.35 bcf/yr). High year-round demands for natural gas in the South Bay area minimizes gas quality disruption, even under widespread biomethane development in the region. \r\nImpacts of introduction of biomethane are expected to be highly localized and it is important for utilities to use the data and tools at their disposal to plan for these potential changes in gas system behavior and heating value delivered to the consumer.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Von Wald, G. (2018). Regulatory Analysis and Hydraulic Simulation of Biomethane Deployment in California. Stanford Digital Repository. Available at: https://purl.stanford.edu/vg070rj5807",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Von Wald, G., Brandt, A. R., Rajagopal, D., Stanion, A., (2018). Biomethane in California Common Carrier Pipelines: Assessing Heating Value and Maximum Siloxane Specifications. Sacramento, CA: California Council on Science and Technology.",
+            "type": "citation/reference",
+            "identifier": [],
+            "displayLabel": "Related Publication",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "School of Earth Energy & Environmental Sciences",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Energy Resources Engineering",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "biomethane",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "pipeline",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "California",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "gvonwald@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/vg070rj5807"
+}

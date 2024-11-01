@@ -1,0 +1,229 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Modeling Study of a Single-Well Enhanced Geothermal System (EGS)",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Wang, Zhe",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Horne, Roland N.",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Primary advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Stanford University, Department of Energy Resources Engineering",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "organization",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Degree granting institution",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2009-06",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "thesis",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "The concept of an Enhanced Geothermal System (EGS) intrigues the interests of industry and government, for it may make underground thermal energy recoverable over a much wider range of locations than is feasible for conventional hydrothermal resources. However, making EGS projects competitive with other energy sources has to be achieved through technological advances to make them cost efficient. From the perspective of reducing EGS cost, a single wellbore configuration may be a possible candidate. Applicability of such a configuration depends on its thermal output capacity. In this work, a numerical model was built, by which the thermal outputs capacity of several single-well EGS configurations were explored and the parameters that affect the result were studied. In this work, a single-well EGS comprised of a downhole thermosiphon and a novel completion design was investigated. The thermosiphon is a downhole heat exchanger that takes advantage of the gravity head difference of liquid at different temperatures. Two types of working fluid, CO2 and isopentane, were simulated and compared. As reported by previous studies by other researchers, a downhole heat exchanger is not capable of generating energy sustainably. Therefore, a novel wellbore completion that connects the well to a fracture system was proposed here as a way to enhance thermal production. This system has the following advantages:  only one well needs to be drilled;  the need for downhole pumping is avoided by taking advantage of the thermosiphon effect;  heat recovery from the fractures carrying fluid through the reservoir makes the system sustainable. However, our simulation results showed that even with connection to a fracture system, this single wellbore Downhole Heat Exchanger has limited thermal output. Therefore, several other types of single-well configurations were simulated and com- pared to two-well EGS. These configurations include: 1) installing a crossover device; 2) injecting fluid directly into the formation and producing back into the wellbore from a different interval in the same well; 3) a cyclic injection and production scheme, or \"huff and puff.\" Modeling of all these configurations was achieved by coupling a wellbore and a fracture model. These two models were built separately, and coupled by an iterative process to match the flowrate in the formation annulus. This research work focused on the wellbore modeling. The wellbore model takes into consideration fluid mechanics, fluid phase behavior and heat transfer. A numerical method was implemented, with a finite difference approach used to solve the governing partial differential equations. The temperature eld at each new time step was calculated numerically by solving the governing equations (mass, momentum and energy conservation equations), and fluid properties at each cell were interpolated from thermodynamic properties tables. This numerical wellbore model was verified by matching the result from an analytical solution, and also by matching the result from another numerical model based on identical inputs. The significant contributions of this work include:  building a numerical wellbore model that can be used to solve for nonlinear, non-isothermal heat transfer between wellbore and formation;  studying the effect of wellbore parameters (e.g. wellbore geometry, insulation, etc.) on the thermal production;  studying the heat extraction and electrical conversion efficiency of CO2, with the simulation showing promise of CO2 as a working fluid;  exploring the thermal energy extraction of a single-well EGS, by simulating an extensive set of different single wellbore configurations.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Wang, Zhe. (2009). Modeling Study of a Single-Well Enhanced Geothermal System (EGS). Stanford Digital Repository. Available at: https://purl.stanford.edu/bz915yj3775",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "School of Earth Energy & Environmental Sciences",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "brannerlibrary@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/bz915yj3775"
+}

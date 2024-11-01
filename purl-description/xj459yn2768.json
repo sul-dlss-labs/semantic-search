@@ -1,0 +1,293 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Development and Application of Reduced-Order Modeling Procedures for Reservoir Simulation",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Cardoso, Marco Antonio",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Durlofsky, Louis J.",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Primary advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Tchelepi, Hamdi",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Sarma, Pallav",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Stanford University, Department of Energy Resources Engineering",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "organization",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Degree granting institution",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2009-03",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "thesis",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Subsurface flow modeling is essential for understanding and managing many energy-related processes, including oil production and the geological storage of carbon dioxide. Some applications, particularly those involving optimization of eld performance, are very demanding computationally due to the large number of ow simulations that must be performed and the typically large dimension of the simulation models. In this work, reduced-order modeling (ROM) techniques are developed for subsurface ow modeling and applied to reduce the simulation time of subsurface ow models. The two ROM procedures considered are proper orthogonal decomposition (POD) and trajectory piecewise linearization (TPWL). Proper orthogonal decomposition is a commonly used ROM technique that can be applied for nonlinear problems. In the POD procedure a full (high-fidelity) simulation is run, solution snapshots for the pressure and saturation states are stored, and singular value decomposition (SVD) is performed on the resulting data matrix. This provides a reduced basis which is used to project the solution into a low-dimensional subspace. Using this basis, we need only solve for a reduced set of unknowns. We extend the standard POD approach by incorporating a clustering technique and a missing point estimation (MPE) procedure. These act to reduce the number of columns and rows in the basis matrix. The ROM procedure is implemented into Stanford's general purpose research simulator (GPRS). Extensive ow simulations involving water injection into a geologically complex 3D oil reservoir model containing 60,000 grid blocks are performed. The numerical solutions demonstrate that the POD-based ROM procedure can accurately reproduce the reference simulations over a reasonable range of control settings and provide speedups of up to an order of magnitude when compared with the high-fidelity model simulated using an optimized solver. In an attempt to achieve significantly greater speedups, a trajectory piecewise linearization (TPWL) procedure for the reduced-order modeling of two-phase ow in subsurface formations is formulated. The method represents new pressure and saturation states using linear expansions around states previously simulated and saved during a series of preprocessing training runs. The linearized representation is projected into a low-dimensional space, with the projection matrix constructed using the reduced POD basis. The TPWL method is applied to heterogeneous reservoir models and extensive test simulations are performed. It is shown that the TPWL approach provides accurate results when the controls (bottom hole pressures of the production wells) applied in test simulations are within the general range of the controls employed in the training runs, even though the well pressure schedules for the test runs can differ significantly from those of the training simulations. Runtime speedups using the procedure are very significant - a factor of 2 { 3 orders of magnitude (depending on model size and whether or not mass balance error is computed at every time step) for the cases considered. Finally, the TPWL representations are used in several optimizations involving the determination of optimal bottom hole pressures for producer wells. Three different geological models are considered. Both gradient-based and generalized pattern search optimization algorithms are considered for one model; for the other two models only the gradient-based algorithm is applied. Results for optimized net present value (NPV) using TPWL are shown to be in consistently close agreement with that computed using high-fidelity simulations. Most significantly, when the optimal well settings obtained using TPWL are applied in high-fidelity models, the resulting NPVs are within 0.7% of the values determined using the high-fidelity simulations. Additionally, the TPWL procedure is applied to a computationally demanding multiobjective optimization problem, for which the Pareto front is determined. Limited high-fidelity simulations demonstrate the accuracy and applicability of TPWL for this challenging problem.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Cardoso, Marco Antonio. (2009). Development and Application of Reduced-Order Modeling Procedures for Reservoir Simulation. Stanford Digital Repository. Available at: https://purl.stanford.edu/xj459yn2768",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "School of Earth Energy & Environmental Sciences",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "brannerlibrary@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/xj459yn2768"
+}

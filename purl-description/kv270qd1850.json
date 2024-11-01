@@ -1,0 +1,293 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Global Net-to-Gross Uncertainty Assessment at Reservoir Appraisal Stage",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Maharaja, Amisha",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Journel, Andre",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Primary advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Caers, Jef",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Mukerji, Tapan",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Stanford University, Department of Energy Resources Engineering",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "organization",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Degree granting institution",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2007-06",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "thesis",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Net-to-gross (NTG) is the fraction of reservoir volume occupied by hydrocarbon-bearing rocks. It is a global attribute and as such no replicate of it can be found over the reservoir. An estimate of global NTG is obtained from wells, but this estimate depends heavily on the location of the few wells available. If these wells were located elsewhere the NTG estimate would have been different. Wells at reservoir appraisal stage are few because they are expensive, and they tend to be preferentially located in high pay zones. Consequently, any naive estimate of NTG from these wells is likely to over-estimate the global NTG. Since new wells cannot be drilled from the real reservoir to assess uncertainty, synthetic wells are re-sampled from stochastic realizations of reservoir facies which are conditioned to all available data. Stochastic realizations, however, require a prior knowledge of the structural model and of a global NTG, which are both highly uncertain at appraisal stage. Hence, we propose to consider alternative structural models, and to randomize the global NTG value corresponding to each structural model. The structural model is randomized by considering alternate geological interpretations that fit all existing data. The global NTG associated with each particular geological interpretation is randomized by considering a probability distribution of global NTG value, which represents both the possible range of NTG values and the prior probability of those NTG values. Such a distribution can be obtained by pooling together NTG values of previously discovered reservoirs that are deemed analogous to the newly discovered reservoir. This prior probability distribution is then updated into a posterior probability distribution given the NTG estimate observed from the actual reservoir data. To perform this update, the prior NTG distribution is first discretized into M classes. For each class a representative facies realization is simulated from each geo- logical scenario. All such realizations must honor all available data. Synthetic data sets are re-sampled from this realization by following the initial drilling strategy. The NTG estimates computed from these synthetic data sets provide the likelihood of ob- serving the initial NTG estimate in a simulated reservoir with that global NTG. Then using Bayes rule, the prior probability of the global reservoir NTG being in any given class m is updated given the observed NTG estimate. Repeating this procedure for all prior global NTG classes provides the posterior probability distribution of global NTG. This posterior global NTG distribution is a model of uncertainty specific to the reservoir under study and to a particular geological scenario. Posterior distributions corresponding to different geological scenarios can be combined into a single posterior, but this calls for a prior probability of occurrence of each scenario. Tests on a synthetic reservoir reveal that both initial NTG estimate and prior NTG distribution have a large impact on the posterior NTG distribution. A biased NTG estimate would result in non-representative posterior uncertainty intervals. Due to its exhaustive coverage, incorporating seismic data helps correct the bias due to preferential well location. In addition, using a prior NTG distribution based on relevant historical information helps obtaining more representative posterior NTG uncertainty models. Posterior statistics also depend on the discretization of the prior NTG distribution. An early sensitivity analysis should be performed to determine the appropriate level of discretization. Application of the workflow to an actual deep-water reservoir showed that the impact of the geological scenario on the posterior NTG distribution is larger when the facies geometries are very different. The range of the posterior distribution is always smaller than that of the prior distribution. The shape of the prior distribution impacts the posterior probability. With each additional well the posterior uncertainty intervals shrink, indicating that more data reduces uncertainty. The case study also revealed challenges encountered in practice, such as re-sampling from domains of varying thickness and deducing facies proportions from a global NTG value in the multiple facies case. The proposed workflow is demanding because it requires more decisions and modeling effort than any of the existing approaches. But in return it provides more informed models of NTG uncertainty reflecting a company’s geological expertise and historical information. These valuable sources of information must be incorporated when assessing NTG uncertainty, especially at appraisal stage when well data is sparse and the stakes are high. There is no such thing as an objective or true model of un- certainty since each model is necessarily a result of multiple subjective decisions that go into building that model.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Maharaja, Amisha. (2007). Global Net-to-Gross Uncertainty Assessment at Reservoir Appraisal Stage. Stanford Digital Repository. Available at: https://purl.stanford.edu/kv270qd1850",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "School of Earth Energy & Environmental Sciences",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "brannerlibrary@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/kv270qd1850"
+}

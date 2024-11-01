@@ -1,0 +1,229 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Detailed Assessment of Multilevel Optimization for Field Development",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Boch, Adrien",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Durlofsky, Louis J.",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Primary advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Stanford University, Department of Energy Resources Engineering",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "organization",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Degree granting institution",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2015-07",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "thesis",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "The well locations and/or controls that maximize an objective such as net present value (NPV) can be determined through computational optimization. These optimizations are often computationally costly, since they require many simulation runs. Multilevel optimization procedures can reduce computation time relative to standard (single-level) optimizations, so they are of interest for this problem. In this work we apply a multilevel optimization framework recently developed by Aliyev and Durlofsky. This multilevel treatment uses a PSO-MADS hybrid algorithm and performs optimization over a sequence of upscaled models (for the cases considered here, these models involve 10 × 10, 25 × 25, 50 × 50 and 100 × 100 grid blocks). The choice of which grid levels to use (among the four considered), as well as the termination criteria at each level, was not considered in detail in previous work. In this thesis, a specific criterion for transitioning from level to level is introduced. Essentially, the optimization proceeds until a plateau in NPV is reached, at which point the optimizer switches to the next grid level. The multilevel treatment applied here involves various algorithmic parameters, namely the sequence of grid levels at which to run optimization and a tolerance factor that quantifies the termination criterion at each coarse grid level. An extensive assessment of optimizer performance over a wide range of algorithmic settings is conducted for two different problems, both of which involve two-dimensional channelized systems. Because the PSO-MADS optimizer is a stochastic search procedure, the optimizations are run 10 times for each set of algorithmic parameters, and the results are averaged. Results are presented as plots of average optimized NPV (over the 10 runs) versus average computational time. This allows us to identify Pareto fronts, which quantify the optimal tradeoffs between optimizer performance and computational effort. The results obtained for the two cases are relatively consistent. The best-average-NPV procedures in both cases involve optimization at all four grid levels, though other grid sequences yield average NPVs that are nearly as high but require much less computational effort. We observe that, when optimization is performed at the 50 × 50 grid level, the additional improvement in NPV at the 100 × 100 level is relatively low. Consequently, terminating the optimization after the second-finest scale may represent a cost-effective approach. In fact, appropriate “compromise points” (between optimizer performance and computational effort) correspond, for both cases, to running optimization at all coarse scales (10 × 10, 25 × 25 and 50 × 50), but not at the fine scale. No clear dependence of the results on the tolerance factor was observed over the range considered.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Boch, Adrien. (2015). Detailed Assessment of Multilevel Optimization for Field Development. Stanford Digital Repository. Available at: https://purl.stanford.edu/pp963gh4327",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "School of Earth Energy & Environmental Sciences",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "brannerlibrary@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/pp963gh4327"
+}

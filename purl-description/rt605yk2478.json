@@ -1,0 +1,216 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Code and Data Supplement for \"Near-optimal matrix recovery from random linear measurements\"",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Romanov, Elad",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2017-04-01",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "dataset",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "local",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "software, multimedia",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "In matrix recovery from random linear measurements, one is interested in\r\nrecovering an unknown $M$-by-$N$ matrix $X_0$ from $n<MN$ measurements\r\n$y_i=Tr(A_i^\\T X_0)$ where each $A_i$ is an $M$-by-$N$ measurement matrix with\r\ni.i.d random entries, $i=1,\\ldots,n$.  We present a novel matrix recovery\r\nalgorithm, based on approximate message passing, which iteratively  applies an\r\noptimal singular value shrinker -- a nonconvex nonlinearity tailored\r\nspecifically for matrix estimation.  Our algorithm often converges exponentially\r\nfast, offering a significant speedup over previously suggested matrix recovery\r\nalgorithms, such as iterative solvers for Nuclear Norm Minimization (NNM).  It\r\nis well known that there is recovery tradeoff between the information content of\r\nthe object $X_0$ to be recovered (specifically, its matrix rank $r$) and the\r\nnumber of linear measurements $n$ from which recovery is to be attempted.  The\r\nprecise tradeoff between $r$ and $n$, beyond which recovery by a given algorithm\r\nbecomes possible, traces the so-called phase transition curve of that algorithm\r\nin the $(r,n)$ plane.  The phase transition curve of our algorithm is noticeably\r\nbetter than that of NNM. Interestingly, it is close to the information-theoretic\r\nlower bound for the minimal number of measurements needed for matrix recovery,\r\nmaking it not only the fastest algorithm known, but also near-optimal in terms\r\nof the matrices it successfully recovers.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Romanov, Elad. (2017). Code and Data Supplement for \"Near-optimal matrix recovery from random linear measurements.\" Stanford Digital Repository. Available at: http://purl.stanford.edu/rt605yk2478",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Romanov, Elad and Gavish, Matan. (2018). Near-optimal matrix recovery from random linear measurements. PNAS. 115(28):7200-7205. https://doi.org/10.1073/pnas.1705490115",
+            "type": "citation/reference",
+            "identifier": [],
+            "displayLabel": "Related Publication",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Matrix completion",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "approximate message passing",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "compressed sensing",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "singular value shrinkage",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "nuclear norm minimization",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "gavish@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/rt605yk2478"
+}

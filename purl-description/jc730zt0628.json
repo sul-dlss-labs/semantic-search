@@ -1,0 +1,254 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Quiet Rage",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Zimbardo, Philip G.",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2004",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "mixed material",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "manuscript",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Audio, video and image files from Quiet Rage: The Stanford Prison Experiment documentary.\r\n\r\nQuiet Rage – DVD Project Notes\r\n\r\nNOTES:\r\nThese notes are designed as an archival document to describe the process used to make a DVD with slide show of the video of the film: “Quiet Rage” in May of 2004 at Wesleyan University.\r\n\r\nThe original Betacam SP master tape was digitized on an Apple G4 Laptop using Final Cut Pro 3 software.\r\nThe resulting file was an 11.23 gigabyte, uncompressed DV stream.\r\n\r\nMinor editing (removing opening and ending black) was done in Final Cut Pro 3 (Mac-only software) and chapter markers were inserted at appropriate places. The file was rendered into an .m2v file (video) and an .aiff file (audio) for the DVD.\r\nThe .m2v and .aiff files were imported into DVD Studio Pro 2 (Mac-only software) as a track.\r\n\r\nWe used Photoshop 7 (Windows version) to create an opening menu and chapter menu that were saved as .psd files (Photoshop native format). These files were at a size of 720 x 534 pixels and a resolution of 72 dpi (standard for NTSC/DVD Video). The fonts were Chiller, Times New Roman, and JS_Stencil Lithuanian.\r\n\r\nWe also created artwork to be printed onto the surface of the DVD and artwork for a cover to be inserted into black plastic DVD cases. For the words “Quiet Rage” a font called Chiller was used, and for “The Stanford Prison Experiment” a font called JS_Stencil_Lithuanian (Times New Roman was used elsewhere). The Chiller and Stencil font files are included on this CD, as are the Photoshop artwork files in .psd format at a resolution of 600 dpi.\r\n\r\nNote: This CD also contains two Photoshop files that were not ultimately used but may be useful in the future: dvd_cover_jewel.psd (artwork sized for a jewel case instead of a large black plastic DVD case), and dvd_label_large_hole.psd (for DVD brands that have a large, unprintable hole in the center).\r\n\r\nThe 70 original still images to be used in the slide show also had to be prepared for the DVD. Any image that will be seen on a TV set must be resized to reflect the “non-square” pixels on a television. This is why the DVD menus were made at 720 x 534 instead of 720 x 480 (the standard size of captured video). For the still images, this meant resizing the vertical dimension so that it was 89.99% of the original. This was accomplished with a script in Photoshop.\r\n\r\nIn addition, an opening informational image was created in Photoshop to be the first slide in the slide show (00-opening.jpg). The resized images, opening image, and DVD menus were then imported into the DVD Studio Pro project.\r\nThe stills and new opening image were arranged using the DVD Studio Pro slideshow feature. The first image was a given a duration of 8 seconds, and all others were given a display time of 5 seconds.\r\n\r\nThe DVD's main menu was created with buttons linking to the start of the film track (\"Play Film\"), a secondary chapter menu (\"Chapter Selection\"), and the slide show (\"Slide Show\"). This was a layered menu with button effects made by associating Photoshop layers with appropriate button states (“up,” “highlighted,” and “activated”).\r\n\r\nThe chapter menu was also created as a layered menu, and buttons were added that pointed to each of the chapter markers and also a link back to the main menu.\r\n\r\nThe DVD was then “built” in DVD Studio Pro. This process involved multiplexing the video and audio streams and integrating them with the slide show and menus to create two folders (Video_TS and Audio_TS). The Audio_TS folder is empty but necessary for certain older DVD players. The Video_TS folder contains one or more .VOB files (Video OBject) and tiny .IFO and .BUP (InFOrmation and BackUP) files that interact with DVD Players and tell them how to play the DVD.\r\nThe Video_TS and Audio_TS were burned onto a blank DVD and tested in various computers and DVD Players.\r\n\r\nOnce the DVD was finalized, the files were transferred to a Windows machine that was connected to a DVD duplicator and printer: Primera’s “Composer Pro” (duplicator) and “Signature IV” (printer).\r\n\r\nFor media we used 4x (speed) inkjet-printable DVD-R’s from a company known as Ritek/Arita (sometimes Ridata).\r\nTo print on the DVD using the .psd (Photoshop) file, we had to “print to file” first to create a .prn file that the Signature IV printer could understand. The .prn file was then opened in Primera’s software in order to print directly onto the DVDs.\r\nThe DVD burning and printing was a slow process, even at the 4x speed. Although the Composer Pro duplicator has two DVD drives, its software advised us not to use them both at once. This meant our production time averaged 5 or 6 DVD’s per hour with intermittent verification (DVD checking).\r\n\r\nARCHIVE FILES\r\nThere are three DVDs that contain the uncompressed video stream. These files can be brought into Final Cut Pro or another video editing program and rejoined without losing any of the original content. They are:\r\n\r\n1_part_quiet_rage.dv 00:00:00;00 - 00:16:58;21\r\n2_part_quiet_rage.dv 00:16:58;22 - 00:36:09;16\r\n3_part_quiet_rage.dv 00:36:09;17 - 00:51:41;25\r\n\r\nThere is one DVD that contains the DVD Studio Pro project and all of the “assets” (video stream, audio stream, slide show images, and menu files). Because of the way DVD Studio Pro works, it will be necessary to re-link these assets if the project is opened on a different computer. It would be advisable to copy the information from the DVD onto the computer’s hard drive before attempting to re-link and edit the project.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Zimbardo, Philip G. (2004). Quiet Rage. Stanford Digital Repository. Available at: http://purl.stanford.edu/jc730zt0628",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Philip G. Zimbardo",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Stanford Prison Experiment",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Quiet Rage",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Prisons",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Prisoners",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Prison conditions",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "universityarchives@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [
+        {
+            "title": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Finding Aid",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [],
+            "identifier": [],
+            "subject": [],
+            "access": {
+                "url": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "http://www.oac.cdlib.org/findaid/ark:/13030/kt7f59s371",
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": []
+                    }
+                ],
+                "physicalLocation": [],
+                "digitalLocation": [],
+                "accessContact": [],
+                "digitalRepository": [],
+                "note": []
+            },
+            "relatedResource": []
+        }
+    ],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/jc730zt0628"
+}

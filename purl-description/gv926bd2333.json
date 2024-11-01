@@ -1,0 +1,291 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Integrated Structural Health Monitoring and Control Employing Wireless Sensing Technology",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Ruiz-Sandoval, M",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Spencer Jr, BF",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Nagayama, T",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Kurata, N",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2004-06",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "technical report",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "\"Smart\" sensors with embedded microprocessors and wireless communication links have the potential to change fundamentally the way civil infrastructure systems are monitored, controlled, and maintained. A 2002 National Research Council report noted that the use of networked systems of embedded computers and sensors throughout society could well dwarf all previous milestones in the information revolution. Structural health monitoring and control systems (SHM/C) represent one of the primary applications for new sensor technologies. This dissertation explores the use of the smart sensor technology for the SHM/C of civil infrastructure.\r\n\r\nFollowing a brief introduction to smart sensor technology, a literature review of the devices developed to date is presented. The research herein concentrates on the Mote platform developed at the University of California at Berkeley. This platform offers for the first time an open software/hardware environment for a broad range of smart sensing research.\r\n\r\nThe suitability of the accelerometer on the existing Berkeley-Mote platform for civil engineering applications is then investigated. A new sensor board (called Tadeo) is developed that has a high sensitivity accelerometer, a microphone, a thermistor, and photo resistor. The accelerometer employed overcomes many of the deficiencies of the sensor on the available boards. However, a number of the challenges still remaining are identified.\r\n\r\nA high resistance foil strain gauge sensor for the Berkeley-platform is also developed for the Berkeley-Mote platform. This type of strain gauge was chosen because of its wide frequency range, including DC capabilities, and low power consumption. Experimental verification was conducted for using a three-story model building. These test indicate that the wireless strain sensor has good resolution, and the response is comparable with conventional wired strain sensors.\r\n\r\nAn agent-based paradigm is proposed that supports implementation of SHM/C algorithms on networks of smart sensors. Because traditional algorithms for SHM/C assume that data is centrally processed, they cannot be implemented directly in the distributed computing environment employed by smart sensors. To demonstrate the efficacy of this approach, a reference implementation of the agent-based framework is provided for a SHM system employing the AR-ARX algorithm. Numerical examples indicate that the framework is effective.\r\n\r\nA proof-of-concept experiment to test the wireless sensor network (WSN) for structure monitoring is presented. Within limits of the wireless network, it was adapted a system to emulate a traditional centralized sensing system by gathering data and returning it to a central location for processing. The experiment shows a great imbalance in the sensing/aggregation ratio. Data compression and processing at the sensor level are proposed as alternatives to alleviated this effect.\r\n\r\nThis initial research demonstrates the feasibility of using smart sensors for SHM of civil infrastructure. New sensor boards have been developed and shown to meet the needs of the application. An agent-based framework for smart sensing is proposed and shown to perform well. This research lay the foundation from which the many opportunities offered by smart sensing technology can be pursued.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Ruiz-Sandoval, M and Spencer Jr, BF and Nagayama, T and Kurata, N. (2004). Integrated Structural Health Monitoring and Control Employing Wireless Sensing Technology. CUREE-Kajima Research Report CKV--04. Stanford Digital Repository. Available at: http://purl.stanford.edu/gv926bd2333",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Structural Health Monitoring and Control Systems",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Tadeo",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "AR-ARX Algorithm",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Wireless Sensor Network",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "jabeec-email@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/gv926bd2333"
+}

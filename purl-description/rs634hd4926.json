@@ -1,0 +1,257 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Quantifying Temporally-Varying Induced\r\nSeismicity Hazard and Regional Risk:\r\nStatistical Approaches and Application in Oklahoma",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Gupta, A",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Baker, JW ",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2020-05",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "technical report",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "In this dissertation, we describe a Bayesian change-point model to estimate time varying seismicity rates, develop a mixture of mixtures model to associate wastewater injection volumes with seismicity, propose a regional ground-motion prediction equation and describe a framework to quantify temporally-varying seismic hazard and\r\nregional risk, with application to induced seismicity in Oklahoma.\r\n \r\nSeismicity in Oklahoma has been surpassing that of California in recent years and there have been multiple cases of damage to the built environment from these earthquakes. This has raised significant concerns regarding the recent increase in seismicity among energy enterprises, regulators, and researchers. This increase in seismicity has been linked to injection of wastewater generated during oil and gas extraction into the earth for disposal. Seismicity caused as a result of anthropogenic processes is referred to as induced seismicity. Other parts of the United States and the world have also observed earthquakes resulting from human activities, for example, Kansas, Texas and Arkansas due to fluid injection; Ohio, United Kingdom and Alberta (Canada) due to hydraulic fracturing; and Geysers (California), Switzerland and Netherlands due to geothermal energy extraction. The recent increase in induced seismicity has been unprecedented, and has led to considerable research in the area.\r\n\r\nInduced seismicity changes over time with changes in fluid injection. We describe a Bayesian change-point model that detects if the seismicity rate has changed using a time series of observed earthquake occurrences. We show that for steep changes in seismicity rates, such as those that have been observed for induced seismicity in Oklahoma, change can be detected within 3 months of its occurrence. The Bayesian model yields posterior probability distributions for the date of change, and the rates before and after the change. We show that results are stable for multiple choices of\r\nprior distributions. We extend the model to also estimate spatially-varying rates. A smoothing radius which ensures that rates change smoothly with distance, is selected by maximizing the likelihood of observing a future catalog of earthquakes. Application of the model is demonstrated for induced seismicity in Oklahoma. \r\n\r\nWe compile a database of ground motions from the central and eastern United States for magnitude ≥ 3 earthquakes from 2001 through 2016. We separate the ground motions as originating from induced and tectonic earthquakes. We compare these ground motions with two ground-motion prediction equations. We observe that ground motions from tectonic earthquakes attenuate faster within the first 20 km. This results in slightly higher ground shaking from induced earthquakes. We propose a ground-motion prediction equation (GMPE) for induced earthquakes in the central US, by scaling an existing GMPE. Our proposed GMPE better matches the ground motions up to 200 km than either of the GMPE’s that we compared to.\r\n\r\nWe use a logistic regression model to show that high wastewater injection volumes are correlated with regions of seismicity change. We propose a statistical model to establish functional relationships between injection volumes and seismicity. According to our model, seismicity follows a Poisson process and the process occurs with a\r\ncertain probability. Both the rate of the process and the probability are functions of injection volumes. We use a mixture of mixtures model to find these functional relationships. We implement the model for injection volumes and seismicity in Oklahoma and present the relationships across different regions in the state. We also describe a generalized mixture of mixtures model that can be used to find temporal or spatial trends in the mixing proportions and parameters of mixture distributions.\r\n\r\nWe extend the Probabilistic Seismic Hazard Assessment (PSHA) framework to account for temporally-changing seismicity rates due to induced seismicity. Seismicity rates can be obtained from multiple methods, like the change-point model or the mixture of mixtures model. For the latter model, injection volumes can be used directly for hazard estimation without first obtaining the seismicity rates. Using injection volumes in the hazard and risk framework helps regulators and operators to quantify the effects of volume changes. We implement a stochastic Monte-Carlo approach using OpenQuake to estimate temporally-varying induced seismicity hazard in Oklahoma City and estimate the regional risk for the complete portfolio of buildings in Oklahoma obtained using HAZUS. We perform sensitivity analyses to demonstrate the impacts of seismicity rates, injection volumes, magnitude distribution, GMPE’s and exposure vulnerability on our estimated hazard and risk. Maximum magnitudes do not have a large impact on short-term hazard and risk, while magnitude distributions, GMPE’s and exposure vulnerability have significant impacts. Reducing injection volumes by\r\n50% reduced the hazard and the risk by about 25%, indicating that larger reductions in injection volumes may be required than the desirable reduction in risk. \r\n\r\nOur goal with this dissertation is to provide stakeholders, regulators and community members with the necessary tools to quantify impacts from induced seismicity. We believe that the tools developed in this dissertation will result in developing effective risk mitigation strategies for regions of induced seismicity.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Gupta, A and Baker, JW . (2020). Quantifying Temporally-Varying Induced\r\nSeismicity Hazard and Regional Risk:\r\nStatistical Approaches and Application in Oklahoma. Blume Earthquake Engineering Center Technical Report 202.  Stanford Digital Repository. Available at: https://purl.stanford.edu/rs634hd4926",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Civil & Environmental Engineering",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Stanford School of Engineering",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Structural Engineering & Geomechanics",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Blume Earthquake Engineering Center",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Bayesian change-point model",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "wastewater",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "induced seismicity",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "blumecenter@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/rs634hd4926"
+}

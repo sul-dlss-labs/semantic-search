@@ -1,0 +1,242 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Probabilistic Seismic Demand Analysis using Advanced Ground Motion Intensity Measures, Attenuation Relationships, and Near-Fault Effects",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Tothong, P",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Cornell, CA",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2007-01",
+                    "type": "creation",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "technical report",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "In performance-based earthquake engineering (PBEE), evaluating the seismic performance (or seismic risk) of a structure at a designated site has gained major attention, especially in the past decade. One of the objectives in PBEE is to quantify the seismic reliability of a structure (due to future random earthquakes) at a site. For that purpose, Probabilistic Seismic Demand Analysis (PSDA) is utilized as a tool to estimate the mean annual frequency of exceeding a specified value of a structural demand parameter (e.g., interstory drift ratio). This dissertation focuses on applying advanced scalar ground motion intensity measures (lMs, specifically, inelastic spectral displacement (Sdt) and Sdt with a higher-mode factor, denoted as IMii&2E) when assessing the seismic performance of structures. The results using these advanced IMs are compared with a conventional elastic-based scalar IM (i.e., pseudo spectral acceleration, Sa) and the vector IM (i.e., Sa with epsilon, denoted as <Sa,ε>). The advantages of applying advanced IMs are: (i) \"sufficiency\" or more accurate evaluations of seismic performance can be achieved while eliminating the need to perform detailed ground motion record selection for the nonlinear dynamic structural analyses, (ii) \"efficiency\" or smaller variability of structural responses, and (iii) \"scaling robustness,\" which implies that ground motion records can be scaled without introducing a bias in the structural responses. For ordinary records, using the advanced IMs (Sdi and  IMii&2E) leads to the same conclusions obtained using the vector 1M, <Sa,ε>). However, using advanced IMs to evaluate the structural performance for near-source pulse-like records is found to be more accurate than using the elastic-based IMs (i.e., Sa and <Sa,ε>).\r\n\r\nFor structural demands that are dominated by the first mode of vibration, using Sdi can be advantageous relative to the conventionally-used Sa and <.Sa, e». We demonstrate that this is true for ordinary and for near-source pulse-like earthquake records; the latter cannot be adequately characterized by either Sa alone or <Sa, e>. For structural demands with significant higher-mode contributions (under either of the two types of ground motions), an advanced scalar 1M that incorporates higher modes needs to be utilized.\r\n\r\nThe shortcoming of using an advanced 1M in the past has been the nonexistence of ground motion hazard information in terms of this advanced 1M. For this reason, the ground motion prediction models for Sdi and IM/l&.2£ are developed in this dissertation. The attenuation relationships for Sdi and IM/l&.2£ can be implemented in PSHA programs to generate either a site-specific hazard curve or even national seismic hazard maps (similar to those developed for Sa by the U.S. Geological Survey (USGS; http://earthquake.usgs.gov/researchlhazmaps).\r\n\r\nLastly, the seismic performance of structures using an 1M-based PSDA is compared with the results from a simulation-based approach in order to validate the effectiveness and accuracy of the former. The results of these two methods are shown to be statistically equivalent, providing confidence in the use of the 1M-based PSDA.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Tothong, P and Cornell, CA. (2013). Probabilistic Seismic Demand Analysis using Advanced Ground Motion Intensity Measures, Attenuation Relationships, and Near-Fault Effects. John A. Blume Earthquake Engineering Center Technical Report 161. Stanford Digital Repository. Available at: http://purl.stanford.edu/sb054gn6828",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "seismic performance",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "performance-based engineering",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "jabeec-email@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [
+        {
+            "title": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "John A. Blume Earthquake Engineering Center",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [],
+            "identifier": [],
+            "subject": [],
+            "access": {
+                "url": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "https://blume.stanford.edu",
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": []
+                    }
+                ],
+                "physicalLocation": [],
+                "digitalLocation": [],
+                "accessContact": [],
+                "digitalRepository": [],
+                "note": []
+            },
+            "relatedResource": []
+        }
+    ],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/sb054gn6828"
+}

@@ -1,0 +1,220 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "A Semi-Markovian Model for Low-Cycle Elastic-Plastic Fatigue Crack Growth",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Al-Sugair, FH",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "1988-07",
+                    "type": "creation",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "technical report",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Assessment of fatigue crack growth is important for the safe operation of components in nuclear power plants, pressure vessels, and airplane structures. The primary objective in fatigue crack analysis is to estimate the time it takes for a crack to reach a certain length. This dissertation uses a stochastic process approach in order to represent the random nature of the low-cycle (elastic-plastic} fatigue crack growth process. The only source of randomness included in the model is the randomness in the materials resistance to fatigue crack growth. This source of variability has been recognized as a major cause of the scatter observed in high-cycle fatigue crack growth data.\r\n\r\n\r\nA semi-Markov renewal model is used to describe the fatigue crack growth process in the elastic-plastic region. The event interoccurrence times for this process are assumed to be ganuna-distributed independent random variables. The holding time distributions and the one-step transition probabilities of the process are derived from the event interoccurrence time distributions. In order to completely define the distribution of the interoccurrence times, the first two moments must be found. For this, a fatigue crack growth law that describes crack growth in the elastic-plastic region is adopted. A growth law introduced by Begley and Dowling (1976) is used to relate the fatigue crack growth rate to the J-integral range. The J-integral (Rice, 1968) offers a measure of the intensity of the crack tip strain field. The deviations from the growth law are modelled as a random process which is lognormally distributed with unit median. The fatigue crack growth law is then integrated and the first two moments of the integral are evaluated.\r\n\r\n\r\nTo demonstrate the model, the parameters of the gamma-distributed event interoccurrence times are obtained from data which Dowling (1976) obtained from A533B pressure vessel steel samples. A problem engineers frequently encounter is the limited amounts of data available for obtaining parameters for their models. This is certainly the case for low-cycle fatigue because of the difficulties involved with testing small size specimens. In order to evaluate the model's predictions, simulation is used to generate sample paths of the fatigue crack growth process. A simulation scheme is introduced which is particularily useful for this case. Comparison of results from the model to the simulated data shows that it predicts the mean time to reach a certain crack length quite well. For the variance, the model works better for problems which exhibit larger amounts of plasticity.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Al-Sugair, FH and . (1988). A Semi-Markovian Model for Low-Cycle Elastic-Plastic Fatigue Crack Growth. John A. Blume Earthquake Engineering Center Technical Report 86 .Stanford Digital Repository. Available at: http://purl.stanford.edu/mt960vq1200",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "fatigue",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "stochastic",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "structural systems",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "jabeec-email@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [
+        {
+            "title": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "John A. Blume Earthquake Engineering Center",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [],
+            "identifier": [],
+            "subject": [],
+            "access": {
+                "url": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "https://blume.stanford.edu",
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": []
+                    }
+                ],
+                "physicalLocation": [],
+                "digitalLocation": [],
+                "accessContact": [],
+                "digitalRepository": [],
+                "note": []
+            },
+            "relatedResource": []
+        }
+    ],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/mt960vq1200"
+}

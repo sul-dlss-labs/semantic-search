@@ -1,0 +1,282 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "R code for the analyses in \"Leukocyte Telomere Length in Relation to 17 Biomarkers of Cardiovascular Disease Risk: A Cross-Sectional Study of US Adults\"",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Rehkopf, David",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "2015-04",
+                            "type": "start",
+                            "status": "primary",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        },
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "2016-11",
+                            "type": "end",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        }
+                    ],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "type": "creation",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "dataset",
+            "type": "genre",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "software, multimedia",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Background. Leukocyte telomere length (LTL) is a putative biological marker of immune system age, and there are demonstrated associations between LTL and cardiovascular disease. This may be due in part to the relationship of LTL with other biomarkers associated with cardiovascular disease risk. However, the strength of associations between LTL and adiposity, metabolic, proinflammatory, and cardiovascular biomarkers has not been systematically evaluated in a United States nationally representative population.\r\n\r\nMethods and Findings. We examined associations between LTL and 17 cardiovascular biomarkers, including lipoproteins, blood sugar, circulatory pressure, proinflammatory markers, kidney function, and adiposity measures, in adults ages 20 to 84 from the cross-sectional US nationally representative 1999±2002 National Health and Nutrition Examination Survey (NHANES) (n = 7,252), statistically adjusting for immune cell type distributions. We also examine whether these associations differed systematically by age, race/ethnicity, gender, education, and income. We found that a one unit difference in the following biomarkers were associated with a 1 kilo base pair different in LTL: BMI -0.00478 (95% CI -0.00749,-0.00206), waist circumference -0.00211 (95% CI -0.00325,-0.000969), percentage of body fat -0.00516 (95% CI -0.00761,-0.0027), high density lipoprotein (HDL) cholesterol 0.00179 (95% CI 0.000571,-0.00301), triglycerides -0.000285 (95% CI -0.000555,-0.0000158), pulse rate -0.00194 (95% CI -0.00317,-0.000705), C-reactive protein -0.0363 (95% CI 0.0601,-0.0124), cystitis C -0.0391 (95% CI -0.0772,-0.00107). When using clinical cut-points we additionally found associations between LTL and insulin resistance -0.0412 (95% CI -0.0685,-0.0139), systolic blood pressure 0.0455 (95% CI 0.00137,0.0897), and diastolic blood pressure -0.0674 (95% CI-0.126,-0.00889). These associations were 10%-15% greater without controlling for leukocyte cell types. There were very few differences in the associations by age, race/ethnicity, gender, education, or income. Our findings are relevant to the relationships between these cardiovascular biomarkers in the general population but not to cardiovascular disease as a clinical outcome.\r\n\r\nConclusions. LTL is most strongly associated with adiposity, but is also associated with biomarkers across several physiological systems. LTL may thus be a predictor of cardiovascular disease through its association with multiple risk factors that are physiologically correlated with risk for development of cardiovascular disease. Our results are consistent with LTL being a biomarker of cardiovascular aging through established physiological mechanisms.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Rehkopf, David. (2016). R code for the analyses in \"Leukocyte Telomere Length in Relation to 17 Biomarkers of Cardiovascular Disease Risk: A Cross-Sectional Study of US Adults\". Stanford Digital Repository. Available at: http://purl.stanford.edu/rm601wy2649",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Rehkopf DH, Needham BL, Lin J, Blackburn EH, Zota AR, Wojcicki JM, et al. (2016) Leukocyte Telomere Length in Relation to 17 Biomarkers of Cardiovascular Disease Risk: A Cross-Sectional Study of US Adults. PLoS Med 13\r\n(11): e1002188. https://dx.doi.org/10.1371/journal.pmed.1002188",
+            "type": "citation/reference",
+            "identifier": [],
+            "displayLabel": "Related Publication",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "School of Medicine",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Department of Medicine",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Division of General Medical Disciplines",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Population Health Sciences",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "cardiovascular disease",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "telomere length",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "biomarkers",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "epidemiology",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "population health",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "NHANES",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "drehkopf@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/rm601wy2649"
+}

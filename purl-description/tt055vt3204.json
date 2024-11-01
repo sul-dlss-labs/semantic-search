@@ -1,0 +1,225 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Diffusion Model and the Energy Fluctuation Scale: A Unified Approach to Extremes and Fatigue",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Winterstein, SR",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "1984-11",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "technical report",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Diffusion models of randomly evolving phenomena are studied. A particular class of these models -- LD (\"linear drift\") processes and their transformations -- are found to display a wide variety of marginal behavior, and to possess correlation structure and first-passage statistics that are readily estimated. Two such processes receive special study: Exponential-Markov and Weibull-Markov processes, useful in modelling squared (energy) envelopes of narrow-band responses, as well as the rate of fatigue damage accumulation arising from such responses.\r\n\r\nTo fully specify the diffusion envelope model, the energy fluctuation scale of a Gaussian response is introduced. This quantity is found to be easily estimated from either the response spectral density or autocorrelation function, and to be relatively insensitive to high frequency response components and precise envelope definition. Unlike other bandwidth measures in common use, those based on the energy fluctuation scale do not require a differentiable response or envelope, and hence permit the use of diffusion models of these processes.\r\n\r\nDiffusion envelope models are used to obtain closed-form estimates of the statistics of extrema, and the rates of first-passage failures associated with narrow-band Gaussian responses and their envelopes. These results are extended. to study macro-time scale clustering of threshold crossings, due to locally nonergodic and nonstationary effects within intermittent responses. Applications to load combination problems are considered.\r\n\r\nDiffusion models of fatigue damage accumulation and crack growth under random loading are also set forth. The mean upcrossing rate of the response is found to provide useful first-order estimates of \"average\" fatigue behavior (e.g., mean damage accumulation rate, mean time to reach a critical level of damage or crack length, etc.). Second-order estimates of fatigue damage rates and life statistics are also developed. The energy fluctuation scale is used to estimate the mean rate of extrema, range statistics, and rainflow damage rate. It is also demonstrated that within specimen material variability may be incorporated into these results, using diffusion models based on the fluctuation scale of these effects.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Winterstein, S.R. (1984). Diffusion Model and the Energy Fluctuation Scale: A Unified Approach to Extremes and Fatigue. John A. Blume Earthquake Engineering Center Technical Report 64. Stanford Digital Repository. Available at: http://purl.stanford.edu/tt055vt3204",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "damage detection",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "fatigue",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "modelling",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "jabeec-email@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [
+        {
+            "title": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "John A. Blume Earthquake Engineering Center",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [],
+            "identifier": [],
+            "subject": [],
+            "access": {
+                "url": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "https://blume.stanford.edu",
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": []
+                    }
+                ],
+                "physicalLocation": [],
+                "digitalLocation": [],
+                "accessContact": [],
+                "digitalRepository": [],
+                "note": []
+            },
+            "relatedResource": []
+        }
+    ],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/tt055vt3204"
+}

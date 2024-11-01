@@ -1,0 +1,229 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Rapid Surface Detection of CO2 Leaks from Geologic Sequestration Sites",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Moriarty, Dylan",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Benson, Sally M.",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Primary advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Stanford University, Department of Energy Resources Engineering",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "organization",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Degree granting institution",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2014-06",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "thesis",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "To provide confidence that geological storage projects are safe and effective, a suite of reliable and cost-efficient monitoring methods are needed to assure carbon dioxide stays underground. This study focuses on developing a method to characterize and detect leakage of carbon dioxide from a geologic sequestration site, based on a real-time detection system using a mobile sensing platform. The goal of the study is to systematically evaluate the robustness of detection ability and optimize the data acquisition parameters by testing under different conditions such as varying wind velocities, gas sampling inlet height, spatial resolution and sampling strategy, and isotope selection (e.g. 12C, 13C or d13C). For this study a Picarro gas analyser was used to measure 12CO2, 13CO2 and d13C. The instrument utilizes wavelength-scanned cavity ring down spectroscopy to accurately identify concentrations of various atmospheric gases including their isotopic composition every 2-3 seconds. The CO2, concentration data were paired with data from a centimeter accurate GPS and a stationary, tri-level wind monitoring station during field-testing. Field testing was conducted at the Zero Emissions Research and Technology Center (ZERT) in Bozeman, Montana. Here, a 70 m long horizontal well buried approximately 1.8 m below the surface leaked CO2 at a constant rate of 0.15 t/day (corresponding to 0.005% of a 1 Mt per year CO2 storage project). The isotopic composition of the CO2 was known to be 98.96% 12CO2 and 1.03% 13CO2 for a d13C of -65.09‰. The Picarro and GPS instruments were attached to a typical garden wagon and attached to a battery for power. Replicate surveys were carried out under varying wind conditions to see the effect of wind direction and speed. Sample inlet height was also varied between 3 cm to 1 m above the ground surface. Once the data were collected, spatial and statistical analyses were done to identify anomalies. The most reliable indicator of leakage was deviation from the mean value of 12CO2 or 13CO2 concentrations by one order of magnitude or more. Anomalous readings were then spatially related using ordinary kriging. Analysis results showed consistent leak detection 7 m away from the well with an inlet height of 0.3 m above the surface under varying wind conditions. Under ideal wind conditions (downwind from well) leak detection was possible up to 25 m from the well at an inlet height of 0.3 m. The d13C measurement was also considered but was later found not to be a robust means of detection due to large variations caused by asynchrony of the 12C and 13C measurements. In conclusion, (1) 12CO2 or 13CO2 measurements provide equally good leak detection ability and importantly, the isotopic composition was not needed to reliably detect the leak, (2) the ability to detect the leak was not influenced by wind speed and direction during the survey, (3) optimal sampling height is nearest the ground as possible, and (4) instrument velocity does not have a large effect on detection ability over the range of sampling speed tested here (0.5 to 2.5 m/s). This work can also be applied to other fugitive emissions such as natural gas leakage and coal seam fire tracking and is vital to assuring compliance and safety of future carbon sequestration sites.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Moriarty, Dylan. (2014). Rapid Surface Detection of CO2 Leaks from Geologic Sequestration Sites. Stanford Digital Repository. Available at: https://purl.stanford.edu/hg796qd2166",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "School of Earth Energy & Environmental Sciences",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "brannerlibrary@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/hg796qd2166"
+}

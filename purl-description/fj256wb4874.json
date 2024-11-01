@@ -1,0 +1,229 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Parameter Determination for Simplified Models of Two- and Three-Phase Flow in Wells",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Diaz Teran Ortegon, Luis Rodrigo",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Durlofsky, Louis J.",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Primary advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Stanford University, Department of Petroleum Engineering",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "organization",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Degree granting institution",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2004-06",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "thesis",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "The prediction of holdup and pressure drop within wellbores can be of importance in reservoir simulation, particularly when advanced wells (horizontal or multilateral) need to be modeled. Pressure losses in the wellbore can cause loss of production from one interval and overproduction from another when the intervals are hydraulically connected through the wellbore. Simplified homogeneous models, mechanistic models and empirical correlations are viable procedures for the prediction of the slip between phases in pipes and wellbores. Drift-flux type homogeneous models are particularly attractive for reservoir simulation as they are simple, continuous, and differentiable. For a gas-liquid system, the drift-flux model relates the gas velocity to the total mixture velocity in terms of two basic parameters. The 'profile coefficient' parameter accounts for the variation of velocities and fluid concentrations along the pipe, while the 'drift-velocity' parameter represents the local relative velocity between fluids, driven by buoyancy. The drift-flux model studied in this work is capable of modeling gas-liquid, liquid-liquid and three-phase (gas-oil-water) vertical and inclined flows. It involves a number of semi-empirical parameters which can be tuned using experimental data. In the original model, the values of these parameters were obtained using data from experiments carried out in small diameter pipes. In this study we assess and improve the accuracy of the model through optimizations using new steady-state, two and three-phase flow, large diameter data (measured by Schlumberger Cambridge Research). Gas-liquid data from the Stanford multiphase flow database were also used to establish parameters for small diameter pipes. The existing gas-liquid and oil-water models were optimized using the large diameter data. In the first case, significantly lower gas holdup was observed in the experiments than was predicted with the original parameters. The optimized parameters provide close vi agreement between the experimental and drift-flux model results. Similar accuracy was also achieved for the oil-water system. Using the results from the two-phase water-gas and oil-water analysis, the three-phase flow model was evaluated. Both the original and optimized two-phase parameters were inadequate to predict accurately the three-phase flow behavior. The original model predicts the gas and oil holdups in a two stage procedure, under the assumption that oilwater slip can be computed independent of gas holdup. This assumption proved to be erroneous. For near vertical flows the gas flow disrupts the oil-water flow, essentially eliminating oil-water slip. However, as the pipe deviation increases, some slip between oil and water occurs. A modified three-phase model was introduced to model the effects of the gas on the oil-water slip. The model is able to predict with reasonable accuracy the three phase data. Optimizations using the Stanford multiphase flow database produced parameters that are slightly different from the original parameters. The profile coefficient in this case is in agreement with the accepted value of 1.2, although the drift velocity required modification, especially for the deviated flows.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Diaz Teran Ortegon, Luis Rodrigo. (2004). Parameter Determination for Simplified Models of Two- and Three-Phase Flow in Wells. Stanford Digital Repository. Available at: https://purl.stanford.edu/fj256wb4874",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "School of Earth Energy & Environmental Sciences",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "brannerlibrary@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/fj256wb4874"
+}

@@ -1,0 +1,222 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Mucin-derived O-glycans supplemented to diet mitigate diverse microbiota perturbations",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Pruss, Kali",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2020-09-19",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "dataset",
+            "type": "genre",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "software, multimedia",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Microbiota-accessible carbohydrates (MACs) are powerful modulators of microbiota composition and function. These substrates are often derived from diet, such as complex polysaccharides from plants or human milk oligosaccharides (HMOs) during breastfeeding. Host-derived mucus glycans on gut-secreted mucin proteins may serve as a continuous endogenous source of MACs for resident microbes; here we investigate the potential role of purified, orally-administered mucus glycans in maintaining a healthy microbial community. In this study, we liberated and purified O-linked glycans from porcine gastric mucin and assessed their efficacy in shaping the recovery of a perturbed microbiota in a mouse model. We found that porcine mucin glycans (PMGs) and HMOs enrich for taxonomically similar resident microbes. We demonstrate that PMGs aid recovery of the microbiota after antibiotic treatment, suppress C. difficile abundance, delay the onset of diet-induced obesity, and increase relative abundance of resident Akkermansia muciniphila. In silico analysis revealed that genes associated with mucus utilization are abundant and diverse in prevalent gut commensals and rare in enteric pathogens, consistent with these glycan-degrading capabilities being selected for during host development and throughout evolution of the host-microbe relationship. Importantly, we identify mucus glycans as a novel class of prebiotic compounds that can be used to mitigate perturbations to the microbiota and provide benefits to host physiology.\r\n\r\nThis repository contains the raw sequencing data contained in this paper.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Pruss, Kali. (2020). Mucin-derived O-glycans supplemented to diet mitigate diverse microbiota perturbations. Stanford Digital Repository. Available at: https://purl.stanford.edu/kk642cf5780",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Pruss K. M.*, Marcobal A.*, Southwick A.M., Dahan D., Smits S.A., Ferreyra J.A., Higginbottom S.K., Sonnenburg E.D., Kashyap P.C., Choudhury B., Bode L., and J. L., Sonnenburg. Mucin-derived O-glycans supplemented to diet mitigate diverse microbiota perturbations. The ISME Journal. 2020. https://doi.org/10.1038/s41396-020-00798-6",
+            "type": "citation/reference",
+            "identifier": [],
+            "displayLabel": "Related Publication",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Human milk oligosaccharides",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Porcine mucin glycans",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "gut microbiota",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "diet-induced obesity",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Clostridium difficile",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "prebiotics",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "jsonnenburg@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/kk642cf5780"
+}

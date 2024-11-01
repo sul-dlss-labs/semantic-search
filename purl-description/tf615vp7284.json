@@ -1,0 +1,252 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Development of Algorithms for Building Inventory Compilation through Remote Sensing and Statistical Inferencing",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Sarabandi, P",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Kiremidjian, AS",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2007-08",
+                    "type": "creation",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "technical report",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Building inventories are one of the core components of disaster vulnerability and loss estimations models, and as such, play a key role in providing decision support for risk assessment, disaster management and emergency response efforts. In may parts of the world inclusive building inventories, suitable for the use in catastrophe models cannot be found. Furthermore, there are serious shortcomings in the existing building inventories that include incomplete or out-dated information on critical attributes as well as missing or erroneous values for attributes.\r\n\r\nIn this report a set of methodologies for updating spatial and geometric information of buildings from single and multiple high-resolution optical satellite images are presented. Basic concepts, terminologies and fundamentals of 3-D terrain modeling from satellite images are first introduced. Different sensor projection models are then presented and sources of optical noise such as lens distortions are discussed. An algorithm for extracting height and creating 3-D building models from a single high resolution satellite image is formulated. The proposed algorithm is a semi-automated supervised method capable of extracting attributes such as longitude, latitude, height, square footage, perimeter, irregularity index and etc. The associated errors due to the interactive nature of the algorithm are quantified and solutions for minimizing the human-induced errors are proposed. The height extraction algorithm is validated against independent survey data and results are presented. The validation results show that an average height modeling accuracy of 1.5% can be achieved using this algorithm.\r\n\r\nFurthermore, concept of cross-sensor data fusion for the purpose of 3-D scene reconstruction using quasi-stereo images is developed in this dissertation. The developed algorithm utilizes two or more single satellite images acquired from different sensors and provides the means to construct 3-D building models in a more economical way. A terrain-dependent-search algorithm is formulated to facilitate the search for correspondences in a quasi-stereo pair of images. The calculated heights for sample buildings using cross-sensor data fusion algorithm show an average coefficient of variation 1.03%.\r\n\r\nIn order to infer structural-type and occupancy-type, i.e. engineering attributes, of buildings from spatial and geometric attributes of 3-D models, a statistical data analysis framework is formulated. Applications of \"Classification Trees\" and \"Multinomial Logistic Models\" in modeling the marginal probabilities of class-membership of engineering attributes are investigated. Adaptive statistical models to incorporate different spatial and geometric attributes of buildings -while inferring the engineering attributes- are developed in this dissertation. The inferred engineering attributes in conjunction with the spatial and geometric attributes derived from the imagery can be used to augment regional building inventories and therefore enhance the result of catastrophe models.\r\n\r\nIn the last part of the report, a set of empirically-derived motion-damage relationships based on the correlation of observed building performance with measured ground-motion parameters from 1994 Northridge and 1999 Chi-Chi Taiwan earthquakes are developed. Fragility functions in the form of cumulative lognormal distributions and damage probability matrices for several classes of buildings (wood, steel and concrete), as well as number of ground-motion intensity measures are developed and compared to currently-used motion-damage relationships.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Sarabandi, P and Kiremidjian, AS. (2013). Development of Algorithms for Building Inventory Compilation through Remote Sensing and Statistical Inferencing. John A. Blume Earthquake Engineering Center Technical Report 164. Stanford Digital Repository. Available at: http://purl.stanford.edu/tf615vp7284",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "loss estimation",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "remote sensing",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "statistical inferencing",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "jabeec-email@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [
+        {
+            "title": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "John A. Blume Earthquake Engineering Center",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [],
+            "identifier": [],
+            "subject": [],
+            "access": {
+                "url": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "https://blume.stanford.edu",
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": []
+                    }
+                ],
+                "physicalLocation": [],
+                "digitalLocation": [],
+                "accessContact": [],
+                "digitalRepository": [],
+                "note": []
+            },
+            "relatedResource": []
+        }
+    ],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/tf615vp7284"
+}

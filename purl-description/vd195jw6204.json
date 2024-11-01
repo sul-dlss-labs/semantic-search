@@ -1,0 +1,330 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Using AI and Deep Learning to Predict IQ and Reading Skills in Humans through Analysis of Human Brain White Matter Fascicles",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Roitman, Lucas Martin Agudiez",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Wandell, Brian A ",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Primary advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Lerma-Usabiaga, Garikoitz",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2020-06-04",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "thesis",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "This study uses Artificial Intelligence techniques and white matter data in the human brain, to analyze potential pathways to transhumanism: enhancing human cognitive abilities, and eventually creating a brain-computer interface that could result in brains enhanced by artificial intelligence. For example, using machine learning technologies, we could predict the particular development curves for some brain regions or tracts, and teach particular skills at the right time, when that area’s development is taking place. Moreover, by imaging the brain, we could identify specific  brain substrates to stimulate while learning new skills, as performed by some existing researchers and companies,.\r\nDeep Machine Learning models could be used to personalize content for different subjects based on their specific brain psychology, which can be applied in multiple fields, from education to entertainment, marketing, business and sales..\r\nIn this research, we have used brain magnetic resonance imaging techniques to identify  brain white matter structure (brain tracts in particular) to train deep learning and other shallow artificial intelligence models which predict reading abilities and cognitive skills' scores. \r\nThe fractional anisotropy, a measure of how water diffuses within a brain location can be measured along the length of a tract (the FA profile). These profiles correlate with reading proficiency. We use these profiles to analyze the relationship between white matter in the human brain and reading and cognitive abilities. We examine  multiple machine learning models that could help predict cognitive skills measures such as IQ and reading proficiency in subjects based on their fractional anisotropy profiles.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Roitman, Lucas Martin Agudiez and Wandell, Brian A and Lerma-Usabiaga, Garikoitz. (2020). Using AI and Deep Learning to Predict IQ and Reading Skills in Humans through Analysis of Human Brain White Matter Fascicles. Stanford Digital Repository. Available at: https://purl.stanford.edu/vd195jw6204",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Yeatman, Jason D., et al. \"Development of white matter and reading skills.\" Proceedings of the National Academy of Sciences 109.44 (2012): E3045-E3053.\r\nWandell, Brian A. \"Clarifying human white matter.\" Annual review of neuroscience 39 (2016): 103-128.\r\nLe, Rosemary, et al. \"The field of view available to the ventral occipito-temporal reading circuitry.\" Journal of vision 17.4 (2017): 6-6.\r\nWandell, Brian A., and Rosemary K. Le. \"Diagnosing the neural circuitry of reading.\" Neuron 96.2 (2017): 298-311.\r\nWandell, Brian A., and Jason D. Yeatman. \"Biological development of reading circuits.\" Current Opinion in Neurobiology 23.2 (2013): 261-268.\r\nYeatman, Jason D., et al. \"Anatomical properties of the arcuate fasciculus predict phonological and reading skills in children.\" Journal of cognitive neuroscience 23.11 (2011): 3304-3317.\r\nLerma-Usabiaga, Garikoitz, et al. \"Replication and generalization in applied neuroimaging.\" NeuroImage 202 (2019): 116048.\r\nCappelletti, Marinella, et al. \"Transfer of cognitive training across magnitude dimensions achieved with concurrent brain stimulation of the parietal lobe.\" Journal of Neuroscience 33.37 (2013): 14899-14907.\r\nAganj I, Lenglet C, Jahanshad N, Yacoub E, Harel N, et al. 2011. A Hough transform global probabilistic approach to multiple-subject diffusion MRI tractography. Med. Image Anal.\r\nAlexander DC, Barker GJ, Arridge SR. 2002. Detection and modeling of non-Gaussian apparent diffusion coefficient profiles in human brain data. Magn. Reson. Med.\r\nAllen, John S., et al. \"Sexual dimorphism and asymmetries in the gray–white composition of the human cerebrum.\" Neuroimage 18.4 (2003): 880-894.\r\nNitsche, Michael A., et al. \"Transcranial direct current stimulation: state of the art 2008.\" Brain stimulation 1.3 (2008): 206-223.\r\nCappelletti, Marinella, et al. \"Transfer of cognitive training across magnitude dimensions achieved with concurrent brain stimulation of the parietal lobe.\" Journal of Neuroscience 33.37 (2013)\r\nCourchesne, Eric, et al. \"Normal brain development and aging: quantitative analysis at in vivo MR imaging in healthy volunteers.\" Radiology 216.3 (2000): 672-682.\r\nMatsuzawa, Junko, et al. \"Age-related volumetric changes of brain gray and white matter in healthy infants and children.\" Cerebral cortex 11.4 (2001): 335-342.\r\nPaus, Tomas, et al. \"Maturation of white matter in the human brain: a review of magnetic resonance studies.\" Brain research bulletin 54.3 (2001): 255-266.\r\nMiller, A. K. H., R. L. Alston, and J. A. N. Corsellis. \"Variation with age in the volumes of grey and white matter in the cerebral hemispheres of man: measurements with an image analyser.\" Neuropathology and applied neurobiology 6.2 (1980): 119-132.\r\nJernigan, Terry L., et al. \"Effects of age on tissues and regions of the cerebrum and cerebellum.\" Neurobiology of aging 22.4 (2001): 581-594.\r\nGur, Raquel E., et al. \"Reduced dorsal and orbital prefrontal gray matter volumes in schizophrenia.\" Archives of general psychiatry 57.8 (2000): 761-768.\r\nMathalon, Daniel H., et al. \"Progressive brain volume changes and the clinical course of schizophrenia in men: a longitudinal magnetic resonance imaging study.\" Archives of general psychiatry 58.2 (2001): 148-157.\r\nBrambilla, Paolo, et al. \"Differential effects of age on brain gray matter in bipolar patients and healthy individuals.\" Neuropsychobiology 43.4 (2001): 242-247.\r\nSalat, David H., Jeffrey A. Kaye, and Jeri S. Janowsky. \"Prefrontal gray and white matter volumes in healthy aging and Alzheimer disease.\" Archives of neurology 56.3 (1999): 338-344.\r\nLerma-Usabiaga, Garikoitz, et al. \"Replication and generalization in applied neuroimaging.\" NeuroImage 202 (2019): 116048.",
+            "type": "citation/reference",
+            "identifier": [],
+            "displayLabel": "Related Publication",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "iq",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "plasticity",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "connectome",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "tensor",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "education",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "white matter",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "human brain",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "biomarker",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "tractography",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "oligodendrocytes",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "roitman@alumni.stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/vd195jw6204"
+}

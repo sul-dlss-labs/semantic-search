@@ -1,0 +1,261 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Microcomputer Simulation of Pressure-Volume-Temperature Experiments",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Bouett, Lawrence William",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Orr, Jr., Franklin M.",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Primary advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Horne, Roland N.",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Stanford University, Department of Petroleum Engineering",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "organization",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Degree granting institution",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "1988-05",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "thesis",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Phase behavior plays a fundamental role in oil recovery processes, ranging from the production of gas condensate reservoirs to the injection of CO 2 for enhanced oil recovery (EOR) purposes. Reservoir engineers work routinely with data obtained from pressure-volume-temperature (PVT) experiments (for example Rs, B0, and [Lg) but are sometimes less familiar with the experimental procedures used to obtain the data than with the uses to which the data may be put. Students learning about the behavior of reservoir fluids need to understand how experiments are performed. Researchers performing PVT experiments may find it useful to be able to predict the course of an experiment while it is being conducted. It is a relatively uncomplicated task to use an equation of state (EOS) to predict the nature and composition of a fluid of known overall composition under specified conditions of temperature and pressure. The procedure is iterative, and out of the equilibrium condition come the equilibrium ratios (K values), vapor and liquid mole fractions, and the individual phase volumes and compositions. Equilibrium may be single- or multi-phase. Once the simulation has been run, it is necessary to change the input conditions to reflect a new system, then run the simulation again. Even if it is made easy to conduct repeated steps of the simulation process described above, still one cannot easily add a component or change the overall volume of the system to reflect the changes typically made during a PVT experiment in the laboratory. Thus, while an equation of state phase equilibrium calculation provides useful information, the formulation and structure of most EOS programs does not allow the user to duplicate easily the sequence of operations performed during PVT laboratory experiments. In this thesis, a simulator that follows more closely the experimental procedures used in typical laboratory experiments is described. It combines a graphic computer representation of a realistic PVT laboratory with a simulator based on an EOS. This interactive PVT simulator allows the user to become familiar with the experimental techniques used in a PVT laboratory. Simulator experiments can be performed far more rapidly than actual experiments, and of course, avoid the potential safety concerns inherent in high pressure experiments. Thus, a PVT simulator has considerable value both as a predictive and as a teaching tool. In order to be useful, whether for training, practice or prediction, the simulator should allow the user to perform any of the operations that would be performed during PVT experiments in the physical laboratory. To accomplish this the simulator must: ï allow an action, such as opening a valve or turning on a pump, to be taken, ï predict any resulting changes in phase behavior, ï reflect those changes graphically, and ï wait for another action to be taken. The simulator, to the extent possible due to hardware and software limitations, reflects the dynamic changes that occur in the laboratory, such as the real-time representation of pump function and changes in fluid interface levels and pressures. This interactive process is then repeated indefinitely until either the simulation is terminated by the operator or an inappropriate action is taken, which results in an unexpected termination of the run. This work describes a PVT simulator that meets those objectives. It describes the laboratory equipment simulated and outlines the structure and operation of the program. In addition, it illustrates program operation by performing simulated experiments.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Bouett, Lawrence William. (1988). Microcomputer Simulation of Pressure-Volume-Temperature Experiments. Stanford Digital Repository. Available at: https://purl.stanford.edu/dn302tv1768",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "School of Earth Energy & Environmental Sciences",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "brannerlibrary@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/dn302tv1768"
+}

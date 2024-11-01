@@ -1,0 +1,185 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "A Probabalistic Framework to Include the Effects of Near-fault Directivity in Seismic Hazard Assessment",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Shahi, SK",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2013-05",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "technical report",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Growth of major population centers near seismically active faults has significantly increased the probability of a large earthquake striking close to a big city in the near future. This, coupled with the fact that near-fault ground motions are known to impose larger demands on structures than ground motions far from the fault, makes the quantitative study of near-fault seismic hazard and risk important.\r\n\r\nDirectivity effects cause pulse-like ground motions that are known to increase the seismic hazard and risk in near-fault region. These effects depend on the source-to- site geometry parameters, which are not included in most ground-motion models used for probabilistic seismic hazard assessment computation. In this study, we develop a comprehensive framework to study near-fault ground motions, and account for their effects in seismic hazard assessment. The proposed framework is designed to be modular, with separate models to predict the probability of observing a pulse at a site, the probability distribution of the period of the observed pulse, and a narrow band amplification of the spectral ordinate conditioned on the period of the pulse. The framework also allows deaggregation of hazard with respect to probability of observing the pulse at the site and the period of the pulse. This deaggregation information can be used to aid in ground-motion selection at near fault sites.\r\n\r\nA database of recorded ground motions with each record classified as pulse-like or non-pulse-like is needed for an empirical study of directivity effects. Early studies of directivity effects used manually classified pulses. Manual classification of ground motions as pulse-like is labor intensive, slow, and has the possibility to introduce subjectivity into the classifications. To address these problems we propose an efficient algorithm to classify multi-component ground motions as pulse-like and non-pulse- like. The proposed algorithm uses the continuous wavelet transform of two orthogonal components of the ground motion to identify pulses in arbitrary orientations. The proposed algorithm was used to classify each record in the NGA-West2 database, which created the largest set of pulse-like motions ever used to study directivity effects.\r\nThe framework to include directivity effects in seismic hazard assessment, as pro- posed in this study, requires a ground-motion model that accounts for directivity effects in its prediction. Most of the current directivity models were developed as a correction for already existing ground-motion models, and were fitted using ground- motion model residuals. Directivity effects are dependent on magnitude, distance, and the spectral acceleration period. This interaction of directivity effects with magnitude and distance makes separation of distance and magnitude scaling from directivity ef- fects challenging. To properly account for directivity effects in a ground-motion model they need to be fitted as a part of the original model and not as a correction. We propose a method to include the effects of directivity in a ground-motion model and also develop models to make unbiased prediction of ground-motion intensity, even when the directivity parameters are not available.\r\nFinally, following the approach used to model directivity effects, we developed a modular framework to characterize ground-motion directionality, which causes the ground-motion intensity to vary with orientation. Using the expanded NGA-West2 database we developed new models to predict the ratio between maximum and median ground-motion intensity over all orientations. Other models to predict distribution of orientations of the maximum intensity relative to the fault and the relationship between this orientation at different periods are also presented. The models developed in this dissertation allow us to compute response spectra that are expected to be observed in a single orientation (e.g., fault normal, orientation of maximum intensity at a period). It is expected that the proposed spectra can be a more realistic representation of single orientation ground motion compared to the median or maximum spectra over all orientations that is currently used.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Shahi, SK and Baker, JW. (2013). A Probabalistic Framework to Include the Effects of Near-fault Directivity in Seismic Hazard Assessment. John A. Blume Earthquake Engineering Center Technical Report 180. Stanford Digital Repository. Available at: http://purl.stanford.edu/xh812jt9999",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "seismic hazard assessment",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "probabilistic framework",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "ground motions",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "jabeec-email@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/xh812jt9999"
+}

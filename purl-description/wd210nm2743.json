@@ -1,0 +1,279 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Detection of Wellbore Problems with Data Analytics",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Cheng, Jingru",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Horne, Roland",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Primary advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Stanford University, Department of Energy Resources Engineering",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "organization",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Degree granting institution",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2021-06-02",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "thesis",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Deep learning is thriving in the recent years, and has obtained more strengths in detection and classification of patterns contained in the inputs. Comparing with traditional well testing analysis and conventional machine learning techniques, deep learning methods can provide us with new ways to interpret the well test data with higher accuracy and less effort on feature manipulation. \r\n\r\nScale deposition can cause tubing diameter decreases and therefore results in production declines, which can further lead to drastic economic losses. Using conventional methods to detect it usually takes a long time, during which the scale deposition will accumulate and make the removing of it even harder. Therefore, a sensitive and accurate approach to detect the scale deposition at the very beginning and predict the magnitude of existing scale buildup is valuable to reduce the damage and losses due to this problem. Moreover, near wellbore damage is also a significant problem during the production, while permeability is an important property of the reservoir for petroleum engineering. In previous studies, people always used conventional methods to analyze the transients in well test data to obtain the skin factor and permeability at the same time. However, searching for a method which is not dependent on costly buildup tests can be much effective and economic for the estimation of skin factor and permeability.\r\n\r\nIn this study, different deep learning methods were applied to the series of wellbore problem mentioned above. Firstly, we applied point-wise neural network models combining long short-term memory (LSTM) and fully connected layers to predict the presence and magnitude of full scale deposition over the whole wellbore depth, focusing on relatively larger and smaller tubing internal diameter (ID) changes respectively, corresponding to more or less scale deposition. Comparing the predicted to the simulated diameter, a correlation metric R-square more than 90% can be achieved in this step to predict the tubing ID changes. Different splits of dataset into training and test datasets as well as a variety of feature combinations as inputs were also investigated in this part, to consider the possible circumstances of limited data and gauge unavailability in real production processes. Secondly, both single and multioutput deep neural network models were applied to investigate partial depth scale deposition, which is a three-dimensional problem which can be simplified by extracting tubing ID changes and the scale deposition segment length. A multioutput model with a combination of convolutional and LSTM layers with residual network blocks was trained to output the tubing ID changes and the lengths at the same time, with self-defined loss function adjusted for multiple outputs. Tubing ID changes were accurately extracted with correlation metric R-square more than 90%, while the length of the scale deposit could be classified into two classes (high scaling or low scaling) with good accuracy. In the future, we will try to locate the scale deposition and conduct a much accurate regression of the lengths of the scaling parts by obtaining more realistic data from either simulator or field cases with a wider distribution of lengths and depths of the scaling parts. As a summary, deep learning algorithms were shown to be able to predict the scaling problem in advance with high accuracy and sensitivity, while avoiding the considerable production decrease that can occur when using the existing physical and chemical methods due to the time delays during conventional well testing analysis.\r\n\r\nThen, we implemented LSTM models with simple structures to extract the information about permeability from the well test data. To avoid the error because of the entanglement of the permeability with other terms, we estimated a combined term Bμ/kh which will be further discussed in chapter 4 instead of permeability in this study. And by a simple model with only one LSTM layer and a few fully connected layers, we successfully extracted the Bμ/kh term from time series step by step, firstly from the time series with approximated transients by averaging the production rate and generating pressure from it, and then from the semi-real time series without transients by directly selecting random time series from the real production rate and generating pressure from it. Different combinations of features were also tried as inputs in this part, and adding the convolutional features from Tian (2019) were testified to help with the performance of the model. In the end, we implemented a similar LSTM model on the same datasets to extract the skin factor. The model could also successfully extract the skin factor with high accuracy, and the convolutional features were also able to help with the performance. As a conclusion, by simple LSTM models, we could extract the permeability and skin factor successfully from semi-real dataset generated based on everyday production rate without costly buildup tests in it. In the future, we will try to generate more realistic data from simulator or even obtain field data to implement our model. It may even be able to provide an alternative way, which is more effective and economic than the conventional way, for the estimation of skin factor and permeability in the future.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Cheng, Jingru. (2021). Detection of Wellbore Problems with Data Analytics. Stanford Digital Repository. Available at: https://purl.stanford.edu/wd210nm2743",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "School of Earth Energy & Environmental Sciences",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "wellbore scaling",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "permeability",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "skin factor",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "machine learning",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "producing wells",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "cjr63@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/wd210nm2743"
+}

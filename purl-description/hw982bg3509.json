@@ -1,0 +1,195 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Seismic Hazard Analysis of Multi-Degree-of-Freedom Structures",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Inoue, T.",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "1990-07",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "technical report",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "The annual probability of seismic damage (Extreme linear and/or non-linear response) of multi-degree-of-freedom (MDOF)structures was studied by means of establishing a relationship between MDOF response and an approximate single-degree-of-freedom (SDOF) model response. The assumption in the hazard analysis is that this SDOF response plays the major role in the global hazard problem from a probabilistic point of view.\r\n\r\nFirst, linear structures are considered. The maximum 1th story drift of a lumped MDOF system is approximated by the square root of the sum of the squares (SRSS) of the modal responses. A damage index for a linear MDOF system, DIMDOF can be defined as the largest value of the ratios of the maximum story drift to the story drift capacity in each story. If DIMDOF > 1, the system has exceeded its capacity (e.g., yield level) in at least one story. If only the first mode of MDOF system is used as an approximate SDOF model, the damage index of the approximate SDOF system, DISDOF, can be defined in the same manner. A MDOF response factor, C, can be defined as C = DISDOF/DIMDOF.\r\n\r\n\r\nLet Sv be the spectral velocity of a future earthquake at a specified period and damping. For given magnitude and distance, the Svj values (for structural periods, j = 1,2, .. .) are random variables. Therefore DISDOF, DIMDOF, and C are all random variables. A crude estimate of the mean of C can be found by substituting the mean values of the Svj's into the equation for C. The first two moments of C, including its correlation with DISDOF were calculated by a few simple Monte Carlo simulations for several types of structures using the Joyner and Boore (1982) spectral ordinate attenuations and standard deviations. As Svj's for different periods appear in the SRSS equations and in the equation for C, correlations among the lognormally distributed random variables Svj were first evaluated from the response data (supplied by Dr. Joyner). Appendix A provides a simple expression for the correlation as a function of the difference in the periods. The moments of C are, in general, functions of magnitude and distance and structural parameters; C approaches unity if a MDOF structure's response is dominated by the first mode.\r\n\r\n\r\nDefine the spectral velocity VDM as the velocity when DISDOF > 1 (i.e., when the maximum of the ratio of the approximate SDOF structure story drift to its corresponding capacity exceeds one). For a given structure this is an easily calculated value. Then, for given magnitude, m, and distance, r, the probability that any story drift of an MDOF structure exceeds its corresponding story drift capacity is given by P[Sv1 /C > VDM ιm, r ]. This equation can be used in a conventional seismic hazard program to find the annual failure probability. Assuming lognormality of Sv/C, this probability is an explicit function of the first two moments of Sv/C. These may in turn be fit (by regression analysis) to become explicit functions of m and r, as with typical empirical at tenuation analysis. It will be particularly easy to use if the mean of C (or In C ) is relatively insensitive to m and r, and if the standard deviation of In C is small compared to that of Sv (i.e., less than about half of 0.6, say). In this case, the available at tenuation laws for Sv1 may be used directly. These conditions will certainly hold if the first mode dominates the response. But the conditions may well hold much more broadly. Results for a model offshore structure with a deep water first -natural period and relative stiffnesses \"designed\" to have relatively large 2nd and 3rd mode response contributions suggest that this C behavior will be true in general. In t his case the mean of C is not unity, but it is only a mild function of m and r, and its standard deviation is relatively small; at most only an easily determined secondary adjustment to the Sv1 attenuation law is necessary. This opens the way to very simple seismic hazard analysis for complex structural system response. Note that the method implicitly includes relative frequency content and duration as it varies with magnitude and distance.\r\n\r\n\r\nSecond, the method is extended to non-linear structures. Spectral reduction factors F for MDOF structures are calculated using strong ground motion records. They can be represented by a mean and a relatively low dispersion as in the cases of SDOF structures. Importantly, this mean continues to be approximately independent of magnitude and distance. The probability that any story of an MDOF structure experiences a damage level of DM = x is given by P[Sv /(CFDM) > VDM ιm, r ]. The means and standard deviations of In[Sv /(C F)] can be evaluated using the linear prediction results of factor C and a small number of nonlinear response analyses to get the mean factor F. The standard deviations of In[Sv /(C F)] are almost identical to those of In Sv. Seismic hazard analyses of four MDOF model structures for the damage level of ductility 4 are demonstrated.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Inoue, T. (1990). Seismic Hazard Analysis of Multi-Degree-of-Freedom Structures. Reliability of Marine Structures Program Technical Report RMS-8. Stanford Digital Repository. Available at: http://purl.stanford.edu/hw982bg3509",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "RMS-8",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "MDOF",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "seismic hazard analysis",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "SDOF",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "jabeec-email@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/hw982bg3509"
+}

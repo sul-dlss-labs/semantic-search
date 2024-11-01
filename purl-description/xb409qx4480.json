@@ -1,0 +1,229 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Stratified Flow Model and Interfacial Friction Factor Correlations",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Ouyang, Liang-Biao",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Aziz, Khalid",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Primary advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Stanford University, Department of Petroleum Engineering",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "organization",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Degree granting institution",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "1995-06",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "thesis",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Interfacial friction factor correlations for both stratified and annular flow are reviewed in the present paper. These correlations are used to predict the liquid holdup and pressure gradient that are compared with the experimental observations. These comparisons show that: (a) most existing correlations can lead to large deviation from measurements, (b) the Andritsos & Hanratty (1987) correlation can provide fairly satisfactor prediction for both stratified smooth and stratified wavy flow, (c) the modified Andreussi &Persen (1987) correlation predicts liquid holdup and pressure gradient that are closer to experiments for stratified smooth flow but only gives fair results for stratified wavy flow, (d) among available correlations, the Andritsos & Hanratty (1987) correlation, the modified Andreussi & Persen (1987), as well as the Hanratty & Andritsos (1984) correlation, are the best choices to determine the interfacial friction factor for stratified flow. None of the existing correlations provide satisfactory predictions.Consistency check of experimental data indicates the widely-used stratified flow model is inconsistent with experimental observations. It must be noted that this conclusion is independent of the interfacial friction factor correlation. Consideration of direct experimental measurements of wall friction shear stress (Govier, Radford & Dunn, 1957; Govier & Omer, 1962; Kowalski, 1984), shows that the liquid phase wall friction shear calculation should be reconsidered, since the standard method (which is nothing else but the single phase method) underestimates the liquid phase wall friction factor.New correlations for both the liquid phase wall friction and the interfacial friction factors have been developed from the available stratified flow measurements. The new correlations are then used to predict the liquid holdup for Minami & Brill (1987) experiment and fairly satisfactory coincidence is observed.New liquid phase wall friction factor correlation and new interfacial friction factor correlation area also employed in the Stanford Mechanistic Model (Aziz & Petalas, 1994) to predict flow pattern, liquid holdup and pressure gradient for different combinations of gas-liquid properties and pipe geometry. It is found that the combination of new liquid phase wall friction factor correlation and the Baker et al. (1988) correlation for interfacial friction factor are reasonable for the prediction of liquid holdup and pressure gradient between stratified flow and its adjacent flow patterns, including annular-mist flow, slug flow and bubble flow. Unfortunately, no great reduction is observed in the discontinuity occurring in the transition between different flow patterns if both the new liquid phase wall friction factor correlation and new interfacial friction factor correlation are applied. That is because insufficient data points are available for marginal data ranges, such as high gas or liquid superfacial velocities, large pipe diameters, and large inclinations from the horizontal. Hence the new correlations should be tested with more stratified flow data, and modified as appropriate.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Ouyang, Liang-Biao. (1995). Stratified Flow Model and Interfacial Friction Factor Correlations. Stanford Digital Repository. Available at: https://purl.stanford.edu/xb409qx4480",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "School of Earth Energy & Environmental Sciences",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "brannerlibrary@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/xb409qx4480"
+}

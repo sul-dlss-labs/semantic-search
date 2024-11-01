@@ -1,0 +1,261 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Drawdown and Interference Test Analysis For Gas Wells With Wellbore Storage, Damage, and Nonlaminar Flow Effects",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Fligelman, Haim",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Cinco-Ley, Heber",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Primary advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Ramey, Jr., Henry J.",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Stanford University, Department of Petroleum Engineering",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "organization",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Degree granting institution",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "1980-11",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "thesis",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "This study provides a rigorous investigation of the pressure response caused by a well located in an infinite medium and producing gas at a constant rate. Strange behavior evident on pressure buildup curves obtained from very low permeability high drawdown formations inspired the research. In the anomalous cases, the typical unit slope on a log-log graph of real gas pseudo-pressure, m(p), vs time for wellbore storage-dominated data becomes very steep before going through the transition to the semilog straight line. A major objective was to study this behavior with a rigorous material balance on the wellbore. In addition, a complete sensitivity analysis of the pressure response at the wellbore with a non-Darcy flow effect caused by high velocity flow was a second goal of the study. Effects of gas gravity, initial pressure, formation temperature, radius of the well, constant value of formation permeability, permeability as a function of pressure, a skin effect: parameter, radius of the damaged zone, and wellbore storage were studied thoroughly to permit improvement in existing well test analysis techniques. As a consequence, a mathematical model was developed and solved numerically. It simulates radial flow with a fully penetrating well located in the center of a circular slab reservoir of constant thickness. Wellbore storage is treated rigorously by considering a static column for the wellbore. A damaged region is modeled by an annular region of different constant initial permeability concentric with the well, the non-Darcy flow effect is included by a Forchheimer-type flow equation,and a stress-sensitive formation characterized by permeability as a function of pressure. The computer program has been employed to obtain the dimensionless real gas pseudo-pressure distribution as a function of dimensionless time and position. Different inner boundary conditions,such as the constant terminal rate case and the constant terminal pressure case at the sandface, can be handled, and different conditions at the outer boundary (infinitely large, no-flow, and constant pressure outer boundaries) can also be studied.Analysis of simulated drawdown tests has produced several new and important results and conclusions. One new finding is that both the slope and intercept of the semilog straight line portion of a graph of dimensionless real gas pseudo-pressure vs dimensionless time are sensitive to both the gas and well properties, and the conventional method of analyzing drawdown tests can lead to large errors. Another finding concerns wellbore storage. Although wellbore storage was treated in a rigorous manner, the shape (even for high pressure drawdown cases) of log-log curves of the dimensionless real gas pseudo-pressure vs the dimensionless time was similar to the equivalent graph for the liquid solution, and the same as results for previous studies with approximate handling of natural gas wellbore storage. Although log-log type-curve matching seems to be a poor technique for analyzing drawdown cases with non-Darcy flow, the method can be useful for detecting the beginning of the semilog straight line. In buildup cases characterized by moderate to high pressure drawdown before shut-in, a shift of the conventional log-log graph to a larger value of the dimensionless wellbore storage constant is detected. The typical unit slope in the wellbore storage control period is still preserved, and after that period, the buildup curve coincides smoothly with the constant properties liquid curve. Extreme pressure drawdown cases before shut-in exhibit a more significant shift which is followed also by a steepening towards the liquid solution.It was found that by letting the non-Darcy flow (turbulence) parameter vary with permeability according to the Katz empirical correlation, the rate-dependent pseudo-skin was not simply an additional term, as are the other skin effect components. Stress-sensitive formations also affect the results as the transient response is different from that of an equivalent case with constant permeability.High velocity flow effect is more significant in production cases than in equivalent injection cases. Both cases lead to the appearance of a semilog straight line which has a higher (production) or lower (injection) slope than the classic slope of 1.151.A new procedure for analyzing drawdown tests was found. This method appears to be superior to the conventional technique when only one flowrate is available. The pseudo-skin non-Darcy term as obtained according to the suggested technique is greater than that calculated from the existing one-flowrate method for determination of the non-Darcy term.Finally, it was also found that conventional type-curve matching techniques are valid for analyzing interference in t'he case of real gas flow if the pressure data is replaced by the appropriate values of the real gas potential.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Fligelman, Haim. (1980). Drawdown and Interference Test Analysis For Gas Wells With Wellbore Storage, Damage, and Nonlaminar Flow Effects. Stanford Digital Repository. Available at: http://purl.stanford.edu/kj004ng6732",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "School of Earth Energy & Environmental Sciences",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "brannerlibrary@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/kj004ng6732"
+}

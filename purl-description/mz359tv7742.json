@@ -1,0 +1,235 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Structural System Reliability Analysis Method",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Karamchandani, A",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "1987-07",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "technical report",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "The focus of this report is on the use of approximate methods to obtain the probability of failure of Structural Systems. The emphasis is on the methodology to estimate the probability of failure given a probabilistic formulation of the problem (e.g., given the description of the random variables, and a deterministic procedure to check for failure). The formulation aspect (e.g., how to model the random wave loads or define structural failure) is not discussed here.\r\n\r\n\r\nThe approximate methods described in this report can be divided into two broad classes, general purpose methods and specialized methods.\r\n\r\n\r\nThe first set of methods (Chapter 2) is more general in the sense that they can be used with any arbitrary formulation of the problem (e.g., can be used in formulation which includes nonlinear dynamic response of an offshore platform to an earthquake). The basic methods in this set (e.g., Monte Carlo and Latin Hypercube) involve simulating realizations of the random variables, and determining, for each simulation, if failure occurs. The ratio of failures to total simulations is an estimate of the failure probability. These methods are conceptually simple, but due to the low failure probabilities typically encountered in structural systems, the number of simulations (and accompanying checks for failure) required are large and, for most realistic problems, the methods are not affordable. Another subclass of methods in this set (importance sampling and reduced space) try to focus on the regions (of the random variables) in which there is a higher (or at least conditionally higher) probability of failure (e.g., cases where the loads are high). If there is prior knowledge about the regions in which the failure probability is relatively high, then these methods can be very effective. However, in typical structural reliability problems, there is little a priori knowledge about the failure region and so the use of these methods is restricted. Another method (response surface), which has recently seen use in systems reliability in a seismic context, is based on approximating the failure criterion by a low-order polynomial which is then easy to evaluate. As in importance sampling and reduced space methods, the crucial point here is to fit the approximate polynomial at a place where the failure probability is relatively high. In brief. the general purpose methods, as they exist today, are of restricted use in structural systems reliability. However, modified (and hybrid) versions of these methods may be useful and the concepts underlying these extensions are presented at the end of chapter 2.\r\n\r\nThe second class of methods is computationally more efficient. but the methods are only applicable to a narrow class of structural reliability problems. In these problems the structure must be represented by a finite number of elements (which may include nonlinear truss members or hinge elements) and the force deformation characteristics of the elements are restricted to a two state representation. Note: the elements can be elasto-plastic, brittle or semi-brittle (i.e. after failure the force in the element drops immediately to a smaller postfailure level), but interaction is ignored. Only static loads are considered and these are assumed to increase linearly from zero. The failure criterion is collapse of the structure under the applied load (ignoring dynamics, load reversal, second-order effects, etc.). Most of the research in structural systems reliability has been in this class of methods, and among them, the failure-path-based approaches have received the most attention. This approach is intuitively easy to understand. It involves identifying sequences of element failures that lead to failure of the structure and then defining system failure as the event that any one of these sequences will occur. For typical structural systems, the total number of mechanically possible failure sequences is very large, but only a small fraction of these are likely to occur and a crucial step in the process is to identify the most-likely-to-occur sequences. Currently, probabilistic search techniques are available that can efficiently help identify these sequences. The next step is defining the system failure event (in terms of the random variables) and evaluating the probability of system failure. Again, for realistic structures, an exact procedure to do this is not economically viable. However. there have been recent advances in the computational aspects (specifically, computing the probability of occurrence of an intersection of events where each individual event has a small probability of occurrence) and currently. given a set of sequences, it is possible to estimate (approximately) the probability that the system will fail.\r\n\r\n\r\nThe second class of methods also includes a survival-set approach (based on identifying sets of elements whose survival implies the system cannot fail) and plasticity-based approaches. The survival-set approach seems to be of limited use since there is (as yet) no efficient way to identify important survival sets, and even if the important survival sets are identified, computing system failure probability is difficult (note: the recently developed computational tools are not effective for these problems). The plasticity-based approaches are computationally efficient, but are applicable to a much narrower class of problems, i.e., elements are elasto-plastic (i.e., not brittle or semi-brittle). In short, the specialized methods of Chapter 3 are computationally efficient, but of restricted use due to the idealizations of the structure, loads and response (e.g., two-state members, ignoring interaction. static monotonically increasing load, ignoring second order effects, etc.). The methods could, however, be extended to account for more realistic element force-deformation behaviour (e.g., multi-state members to represent buckling of braces) and interaction.\r\n\r\n\r\nIn summary, the general purpose methods as they exist today, can be used with the most sophisticated models and analysis procedures, but are not yet economically viable for large problems. In contrast, the specialized methods are computationally efficient, but are restricted to highly idealized problems. In the near term, the specialized methods can be extended to include a more realistic structural model, but for a more realistic modeling of the loads and structural response, further work in the area of the general purpose methods is required.\r\n\r\n\r\nFor a brief overview of structural system reliability analysis methods, the reader is referred to the sections highlighted in section 1. 3.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Karamchandani, A. (1987). Structural System Reliability Analysis Method. John A. Blume Earthquake Engineering Center Technical Report 83. Stanford Digital Repository. Available at: http://purl.stanford.edu/mz359tv7742",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "probabilistic seismic hazard analysis",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "structural analysis",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "reliability",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "structural systems",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "jabeec-email@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [
+        {
+            "title": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "John A. Blume Earthquake Engineering Center",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [],
+            "identifier": [],
+            "subject": [],
+            "access": {
+                "url": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "https://blume.stanford.edu",
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": []
+                    }
+                ],
+                "physicalLocation": [],
+                "digitalLocation": [],
+                "accessContact": [],
+                "digitalRepository": [],
+                "note": []
+            },
+            "relatedResource": []
+        }
+    ],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/mz359tv7742"
+}

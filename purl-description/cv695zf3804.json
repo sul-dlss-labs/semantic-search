@@ -1,0 +1,293 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "New Methods for Accurate Upscaling with Full-Tensor Effects",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Chen, Tianhong",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Gerritsen, Margot G.",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Primary advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Durlofsky, Louis J.",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Primary advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Lambers, James V. ",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Stanford University, Department of Energy Resources Engineering",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "organization",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Degree granting institution",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2009-03",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "thesis",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Upscaling is commonly applied to generate practical reservoir simulation models from highly detailed geocellular descriptions. It is often the case that fine-scale geological features, or the principal correlation directions of the geostatistical model, are not aligned with the simulation grid. For such systems, full-tensor effects generally arise at the coarse scale, even if the fine-scale permeability is isotropic. In this thesis, new upscaling procedures designed to accurately capture full-tensor effects are developed and evaluated. These techniques are based on variable compact multipoint (VCMP) flux approximations, and are applied to both Cartesian and non-Cartesian grids. The new upscaling procedures generate coarse-scale transmissibilities directly. The inclusion of global flow effects in upscaling computations is known to improve coarse-grid accuracy for highly heterogeneous systems. For this reason, approaches for incorporating global flow effects into the upscaled models are investigated. These include global methods, in which global fine-scale flow information is used for the upscaling, and local-global techniques, in which the global flow information derives from coarse-scale simulations. We first consider global upscaling methods and develop two procedures within the context of VCMP – one in which the upscaled model is determined directly (VCMP-DG) and one in which iteration of the coarse-scale model is used to minimize the mismatch between coarse-scale fluxes and integrated fine-scale fluxes (VCMPIG). These two approaches use a complementary local flow in addition to a finescale global flow in the determination of upscaled transmissibilities. VCMP generates locally varying stencils that are optimized for flow accuracy and minimum stencil width. To guarantee monotonicity, the VCMP stencils are adapted to assure the coefficient matrix is an M-matrix whenever nonmonotone solutions are encountered. This is referred to as a selective M-fix procedure. The new global VCMP upscaling methods are applied to multiple realizations of two-dimensional fine-scale permeability descriptions to generate coarse models defined on both Cartesian and irregular quadrilateral grids. Both log-normally distributed permeability fields with oriented layers and channelized models are considered. Six different upscaling techniques (extended local, direct global, and iterated global, each using both two-point and VCMP flux approximations) are assessed for four different sets of global boundary conditions. The global VCMP techniques consistently display high degrees of accuracy for both pressure and flux. For the oriented-layer cases, where full-tensor effects are important, the global VCMP methods are shown to provide clearly better overall accuracy than analogous methods based on two-point flux approximations. For channelized cases in which full-tensor effects are not significant, both types of methods provide high levels of accuracy. The selective M-fix procedure is also shown to lead to improved accuracy, which can be significant in some cases. In total, for the systems considered here, the new global VCMP upscaling techniques are observed to provide the best overall accuracy of any of the upscaling methods investigated. Global upscaling methods are not always appropriate because they require global fine-scale flow solutions. Therefore, we also develop and evaluate a variable compact multipoint adaptive local-global technique (VCMP-ALG), as a more efficient alternative to global VCMP methods. This approach avoids global fine-scale computations. The VCMP-ALG method successfully combines the positive attributes of its two underlying component procedures – the VCMP flux scheme and adaptive local-global (ALG) upscaling. The performance of the local-global VCMP upscaling technique is evaluated for multiple realizations of oriented variogram-based models and synthetic deltaic systems. Extensive numerical results for two-dimensional cases demonstrate that the VCMP-ALG approach provides better overall accuracy than either of the underlying methods applied individually. However, as would be expected, it does not achieve the level of accuracy of the global VCMP methods. We also present results for two-phase oil-water flows and demonstrate that the VCMP-ALG transmissibilities, although computed from single-phase flow computations, are well-suited for use in two-phase flow simulations. The global VCMP and VCMP-ALG methods described above are also applied to irregular quadrilateral grids. A level of accuracy comparable to that achieved for Cartesian grids is observed. These computations, however, are all for logically Cartesian grids (i.e., grids that maintain a logical i, j structure). In the final portion of this thesis, the upscaling procedures are extended to treat corner-point grids with pinchouts (in which case the i, j structure is lost). Such grids are often used in practice for modeling geological layers that merge into other layers. Coarse-scale simulation results demonstrate that high degrees of accuracy are again achieved through use of VCMP-ALG or global VCMP methods.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Chen, Tianhong. (2009). New Methods for Accurate Upscaling with Full-Tensor Effects. Stanford Digital Repository. Available at: https://purl.stanford.edu/cv695zf3804",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "School of Earth Energy & Environmental Sciences",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "brannerlibrary@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/cv695zf3804"
+}

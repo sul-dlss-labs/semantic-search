@@ -1,0 +1,293 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Accurate Coarse Reservoir Modeling Using Unstructured Grids, Flow-Based Upscaling and Streamline Simulation",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Prevost, Mathieu",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Durlofsky, Louis J.",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Primary advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Aziz, Khalid",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Karimi-Fard, Mohammad",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Stanford University, Department of Petroleum Engineering",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "organization",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Degree granting institution",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2003-12",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "thesis",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Geological characterizations typically produce detailed geocellular models that display high degrees of heterogeneity and geological complexity. These models are in general too detailed for direct use in reservoir simulators. For this reason, some type of coarsening procedure must be applied to obtain the flow model from the detailed geological model. This work addresses the generation of accurate coarse models that are able to capture complex reservoir geometries and at the same time preserve the basic flow response of the detailed model. This requires the use of unstructured gridding techniques and the application of specialized averaging or upscaling methods to capture subscale permeability heterogeneity. A computationally efficient flow-based diagnostic, capable of assessing the quality of the coarse model, is also an important component of the overall methodology.In this work, new capabilities in all of these areas are presented. The techniques developed are suitable for use with a multipoint unstructured finite volume numerical scheme. The finite volume grid is formed as the dual of the underlying tetrahedral (in three dimensions) or triangular (in two dimensions) primal grid. A streamline simulation technique for the efficient modeling of flow and transport on unstructured grids is presented. This tool can be used to provide the flow-based assessment of the coarse model. The streamline method applied here considers unit mobility (tracer) displacements. The key to accurate streamline simulation on unstructured grids entails the determination of an appropriate velocity interpolant. The technique presented here consists of a local postprocessing of the numerically calculated fluxes, leading to a consistent and flux-continuous piecewise constant representation for the velocity defined on a subgrid of tetrahedra or hexahedra. The resulting tracing acts to minimize the nonphysical swirling of the streamlines and is shown to provide accurate results for several reference problems.The effects of fine scale heterogeneity in the coarse model are captured through the use of permeability or transmissibility upscaling. The permeability upscaling involves the local calculation of an equivalent permeability tensor for each coarse scale control volume. The transmissibility upscaling requires the calculation of the flow over the region corresponding to two coarse simulation cells and the subsequent determination of the flow through the interface between the two cells. The permeability upscaling is appropriate for use with multipoint flux approximations while the transmissibility upscaling is applicable within the context of two-point flux approximations. For the problems considered here, the transmissibility upscaling appears to be the superior technique, though more investigation of this issue is required.The unstructured grid can be adapted to both geological features as well as to specific flow problems. Flow adaptation is accomplished through the use of single phase fine scale flow solutions, which are used to generate target grid resolution maps. Grids can be adapted to contain fine cells in regions of high flow or in regions leading to the early breakthrough of injected fluid. The unstructured grid generation techniques have been implemented in a Gocad-based software platform that allows for the construction of problem-specific adapted grids. The accuracy of the overall methodology is demonstrated through application to large synthetic reservoirs. Results are presented in terms of global flow rates and water cut. It is shown that the new techniques are able to provide coarse scale descriptions of reasonable accuracy even for very high levels of coarsening. It is further demonstrated that the use of optimal cell aspect ratios and/or flow information can act to improve the accuracy of the coarse scale model considerably.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Prevost, Mathieu. (2003). Accurate Coarse Reservoir Modeling Using Unstructured Grids, Flow-Based Upscaling and Streamline Simulation. Stanford Digital Repository. Available at: https://purl.stanford.edu/py777sd3489",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "School of Earth Energy & Environmental Sciences",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "brannerlibrary@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/py777sd3489"
+}

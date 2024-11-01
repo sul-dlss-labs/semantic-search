@@ -1,0 +1,270 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Analysis, Evaluation, and Improvement of Performance-Based Earthquake Engineering Damage and Loss Predictions",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Cremen, G",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Baker, JW ",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2020-05",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "technical report",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Performance-based earthquake engineering (PBEE) has in many ways revolutionized\r\nthe thinking about seismic engineering design and acceptable performance of buildings in earthquakes. It is now making its way into commercial engineering design and\r\nrisk analysis practice, as engineers aim to design better-performing buildings, and\r\nholders of mortgage or insurance instruments try to better understand the risk they\r\nface from damage to associated buildings. Some parts of the calculations (e.g. structural response) have been extensively assessed and validated. There are few similar\r\nstudies, however, that focus on the damage and loss predictions. The purpose of this\r\ndissertation is to address this, by analyzing, evaluating, and improving the damage\r\nand loss predictions. The specific PBEE methodology examined in this dissertation\r\nis the FEMA P-58 Seismic Performance Assessment Procedure.\r\n\r\nFEMA P-58 damage and loss predictions are analyzed, to determine how they\r\nare impacted by other parts of the calculations. Firstly, variance-based sensitivity\r\nanalyses are conducted to investigate the interaction of loss predictions with different\r\ninputs to the calculations, using two buildings at an example site in downtown Los\r\nAngeles. This type of sensitivity analysis operates within a probabilistic framework,\r\nand measures sensitivity across the whole input space. Of the six inputs considered\r\nin the analyses, it is found that predictions of building repair cost (as a fraction of\r\nreplacement value) are most sensitive to shaking intensity and building age, while\r\nbuilding re-occupancy time predictions are most sensitive to shaking intensity and\r\nbuilding lateral system. Secondly, a methodology is developed to quantify the impact\r\nof available structural response data from seismic instrumentation on the quality of\r\nthe damage and loss predictions. The methodology is applied to buildings that were instrumented during the 1994 Mw 6.7 Northridge earthquake. The density of instrumentation examined ranges from the case in which all floors are instrumented to that\r\nin which no floors are instrumented and simplified procedures are used to produce\r\nstructural response predictions. It is found that the quality of the predictions generally improves as the density of seismic instrumentation increases, but it is not crucial\r\nfor the density to be very high to achieve reasonable accuracy in both damage and\r\nloss predictions (although this may depend on the arrangement of instrumentation\r\nwithin a building).\r\n\r\nLoss predictions are evaluated using data observed in previous seismic events, to\r\nunderstand the degree to which they reflect real-life consequences of earthquakes. A\r\nmethodology is developed for evaluating the ability of FEMA P-58 component-level\r\nlosses to predict damage observed for groups of buildings. The methodology explicitly\r\nincorporates uncertainties in predictions, and utilizes a ground shaking benchmark to\r\ndetermine whether the FEMA P-58 loss predictions provide more insight into damage\r\nthan variations in ground shaking between buildings. Two sample applications of\r\nthe methodology are provided, involving non-structural component damage data for\r\ngroups of buildings in the 2011 Mw 6.1 Christchurch earthquake, for which there is\r\nnegligible variation in shaking between buildings, and the Northridge earthquake, for\r\nwhich there is notable variation in shaking between buildings. It is found that FEMA\r\nP-58 non-structural component-level loss predictions perform better overall than the\r\nground shaking benchmark in both cases. A preliminary evaluation of building-level\r\nlosses is also conducted for a sample of buildings in the Christchurch earthquake.\r\nMean building repair cost predictions are compared with observed building damage,\r\nand mean recovery time predictions are compared with closure times reported by\r\ntenants. Both types of building-level loss predictions are found to generally align\r\nwith the observed data, despite limitations of the information used to produce the\r\npredictions.\r\n\r\nFinally, this dissertation includes a number of recommendations for improving\r\nnon-structural mechanical component fragility functions and associated loss predictions used in FEMA-58 calculations. The fitting technique currently used for the functions does not converge in some cases, and the methodology used to predict anchored mechanical component losses can lead to some unexpected results, such as\r\nnon-smooth variation of repair costs with anchorage capacity. An alternative statistical technique is proposed for fitting the fragility functions that mitigates the\r\nnon-convergence problems when fitting and makes predictions that better align with\r\ndamage observed in past events. A more intuitive methodology for predicting anchored mechanical component losses is suggested, which leads to loss predictions that\r\nvary monotonically as a function of anchorage capacity and better correspond with\r\ndamage observed in past events.\r\n\r\nThe findings of this dissertation help to enhance understanding of, and improve,\r\nthe damage and loss predictions used in the FEMA P-58 seismic performance assessment procedure. They ultimately enable various stakeholders, such as building\r\nowners, design professionals, lenders, and insurers, to make more informed decisions\r\nabout seismic risk.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Cremen, G and Baker, JW . (2020). Analysis, Evaluation, and Improvement of Performance-Based Earthquake Engineering Damage and Loss Predictions. Blume Earthquake Engineering Center Technical Report 203. Stanford Digital Repository. Available at: https://purl.stanford.edu/rj805jv0955",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Civil & Environmental Engineering",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Stanford School of Engineering",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Structural Engineering & Geomechanics",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Blume Earthquake Engineering Center",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Performance-based earthquake engineering (PBEE)",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "FEMA P-58 Seismic Performance Assessment Procedure",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "fragility functions",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "blumecenter@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [
+        {
+            "title": [],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [],
+            "identifier": [],
+            "subject": [],
+            "purl": "https://purl.stanford.edu/pd168xb2523",
+            "relatedResource": []
+        }
+    ],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/rj805jv0955"
+}

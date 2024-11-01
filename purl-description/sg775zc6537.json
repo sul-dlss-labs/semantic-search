@@ -1,0 +1,225 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Simplified Seismic Reliability Analysis on Earth Dams",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Sewell, RT",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "1984-07",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "technical report",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "The Corps of Engineers has estimated that nearly one-third of the 64,000 non-Federal dams in the United States are classifiable as \"high hazard\". This estimation, combined with the occurrence of recent dam failures, has led to heightened concern over the safety of existing dams.\r\n\r\nMany of the hazardous dams in the U.S. need to be either reconstructed, upgraded, or abandoned altogether. However, the cost of such action has been estimated to easily exceed $1 billion. Given this tremendous financial burden in the face of limited resources, it became clearly evident that a consistent procedure to rank dams for refurbishment, such that societal risk is minimized, needed to be developed.\r\n\r\nThis dissertation represents a portion of such a ranking procedure for existing dams. The entire probabilistic risk-based methodology has been developed at Stanford University through contract with the Federal Emergency Management Agency. In the overall method, the safety of dams under the influence of a variety of hazards, such as floods, earthquakes, piping, etc., was considered. The objective of this work has been to specifically address the seismic safety of earth dams, in this risk-screening context. In particular, the determination of seismic reliability for earth dams, in a consistent yet simplified manner, has been the goal of this dissertation. Although this herein termed \"simplified procedure\" has been developed for evaluating the safety of existing dams, it may also be employed to obtain seismic reliability estimates for earth dams in the preliminary design process.\r\n\r\nTo introduce the concept of reliability analysis, Chapter 2 of this dissertation discusses some of the basic probabilistic theory behind such an analysis. First, the more advanced reliability theory of structural components is considered. Then, it is demonstrated how a few assumptions can be made to modify this theory in order to obtain the simplified reliability methodology incorporated in this work; i.e., one involving the combination of hazard and fragility.\r\n\r\nOnce the general hazard/fragility probabilistic theory is described, Chapter 3 discusses seismic hazard analysis. Specifically, the outline of details required to quantify the ground motion hazard at a dam site, for a given period of time, is presented. The use of such hazard quantification in the simplified procedure of this dissertation is delineated.\r\n\r\nThe context of Chapter 4 provides an explanation of the deterministic geotechnical response analyses which are utilized in the probabilistic framework of this thesis. Two modes of failure are specifically dealt with; (1) failure due to excessive embankment sloughing caused by liquefaction, and (2) failure due to cumulative deformation generated along a well-defined failure surface. Both of these failure modes involve permanent downward dam crest displacements, and thus, available freeboard was selected as a somewhat realistic yet simplified failure criterion. As a part of the seismic response analyses for earth dams, a simplified method for assessing modal vibration characteristics is also given in Chapter 4.\r\n\r\nChapter 5 integrates the results of Chapters 2, 3, and 4 into a step-by-step method which constitutes the heart of the simplified procedure. An engineer should be able to incorporate his judgment into this method in order to obtain reasonable estimates of seismic failure probabilities for earth dams. To enhance the usefulness and consistency in application of the simplified procedure, a computer program which performs the method is presented in Chapter 6. Guidelines for program alteration are also included.\r\n\r\nChapter 7 concludes this dissertation by summarizing the work and by proposing suggestions for further study into the seismic reliability of earth dams.\r\n\r\nThe reader is strongly encouraged to consider the appendices to this thesis. In particular, Appendix A presents nine case studies of the procedure, which the engineer should use as a guide for application of the method. Appendix B gives flowcharts and a listing of the computer program described in Chapter 6. Finally, Appendix C discusses the Point Estimate Method for obtaining probability moments of a random variable which is a function of other random variables.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Sewell, R.T.. (1984). Simplified Seismic Reliability Analysis on Earth Dams. John A. Blume Earthquake Engineering Center Technical Report 66. Stanford Digital Repository. Available at: http://purl.stanford.edu/sg775zc6537",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "probabilistic seismic hazard analysis",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "risk assessment",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "risk management",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "jabeec-email@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [
+        {
+            "title": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "John A. Blume Earthquake Engineering Center",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [],
+            "identifier": [],
+            "subject": [],
+            "access": {
+                "url": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "https://blume.stanford.edu",
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": []
+                    }
+                ],
+                "physicalLocation": [],
+                "digitalLocation": [],
+                "accessContact": [],
+                "digitalRepository": [],
+                "note": []
+            },
+            "relatedResource": []
+        }
+    ],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/sg775zc6537"
+}

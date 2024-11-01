@@ -1,0 +1,229 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "High-Resolution Numerical Simulation of CO2 Sequestration in Saline Aquifers",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Iskhakov, Ruslan",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Tchelepi, Hamdi A.",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Primary advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Stanford University, Department of Energy Resources Engineering",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "organization",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Degree granting institution",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2013-08",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "thesis",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "We study the migration of CO2 plumes in deep saline aquifers during the post-injection period using high-resolution numerical simulation. The interactions between buoyancy driven flow, dissolution of CO2 into the brine, capillary mixing, and diffusion/dispersion effects lead to complex behaviors in space and time. Here, a two-component, two-phase mathematical model is used, and the phase behavior is represented using an equation-of-state. In order to resolve the nonlinear coupling, the Fully Implicit Method (FIM) is used for time discretization. We need that the numerical solutions are quite sensitive to both grid resolution and time truncation errors. These challenges are compounded by the presence of a miscible convective instability, which can dominate the overall evolution of the plume. A lock-exchange configuration is set up, in which the entire CO2 plume is emplaced near the bottom end (inlet) of the aquifer. Following an initial period of intense counter-current flow, the pressure gradient and the streamlines some distance away from the bulk of the plume become nearly constant. In order to improve the overall computational efficiency of the simulations, a moving-outer-boundary (MOB) scheme was implemented. Specifically, the domain is split into two sub-domains: one that stretches from the inlet to just beyond the leading edge of the CO2 plume, followed by a region that extends all the way to the outer (up-dip) boundary of the aquifer. In the second sub-domain, the pressure and saturation distributions remain unchanged. Pressure, velocity, and saturation distributions at the end of a time step are used to delineate the boundary between the two computational sub-domains. This is facilitated by the observation made by many investigators including our group - that the leading-edge speed is nearly constant during the long post-injection period. When the boundary between the sub-domains needs to by moved, a few small time steps are performed on the global computational domain. This ensures that the evolution of the capillary transition zone and other mixing phenomena are fully resolved before operating only on the active sub-domain. This method is somewhat similar to the adaptive implicit method (AIM) when only the parts of the domain where significant changes in time take place are treated using FIM. However, AIM has significant stability issues for this problem and can improve the overall performance by only a small margin. All simulations were performed using the Automatic-Differentiation General Purpose Research Simulator (ADGPRS). The results demonstrate that compared with the standard approach of solving a global problem all the time, the MOB method improves the total computational time by 40-50% with 0.5% error (measured in terms of the up-dip leading-edge speed). Simulation results are then shown for extremely large aquifer models using our MOB approach.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Iskhakov, Ruslan. (2013). High-Resolution Numerical Simulation of CO2 Sequestration in Saline Aquifers. Stanford Digital Repository. Available at: https://purl.stanford.edu/wf626rr1198",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "School of Earth Energy & Environmental Sciences",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "brannerlibrary@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/wf626rr1198"
+}

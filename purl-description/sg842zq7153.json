@@ -1,0 +1,229 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Pseudo Function Generation",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Archer, Rosalind",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Aziz, Khalid",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Primary advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Stanford University, Department of Petroleum Engineering",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "organization",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Degree granting institution",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "1996-09",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "thesis",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Pseudo functions are methods used to capture fine grid heterogeneity and to minimise numerical diffusion in coarse grid simulation. This report presents the theory of several pseudo function algorithms (Jacks et al. (1973), Kyte and Berry (1975), Flux Weighted Potentials by Guzman et al. (1994), Stone (1991), Hewett and Berhens (1991), Beier (1992) and the streamline method by Hewett and Yamada (1995)).Stone's original formulation is presented as well as derivations of Stone pseudo functions by Guzman et al. (1994) and Bogdanov and Turetskaya (1995). Guzman et al. concluded that Stone pseudo functions were mathematically inconsistent whereas Bogdanov and Turetskaya presented a consistent formulation. The consistency of this derivation is demonstrated in this report. Guzman et al. and Bogdanov and Turetskaya however make differing assumptions in their derivations which lead to these differing results. Bogdanov and Turetskaya also proposed a modified form ofStone pseudo functions which they claim is a more robust method. These pseudo functions produced results identical to the Stone method in all cases studied in this report.Water floods of homogeneous cross sections were simulated to determine the effect of the viscous to gravity ratio. Of the Kyte and Berry, Stone, modified Stone (Bogdanov and Turetskaya), and streamline methods only the Kyte and Berry method failed to give satisfactory results when gravity was important. The role of gravity was further stressed by considering a dipping cross section. An areal model which included two high permeability channels was simulated also. The four pseudo function methods produced good results in this case.A heterogeneous cross section was also upscaled. In a variation of this case 15% shale was added to the permeability field. The Kyte and Berry method failed completely in both cases. The Stone and streamline methods produced good results with the streamline method giving the most accurate reproduction of the fine grid watercut curve.The final case considered was a complex field case based on that studied by Guzman et al. None of the pseudo function methods produced acceptable results when upscaling this case. Directional pseudo functions were not used due to simulator restrictions. Their use may improve the result of the coarse grid simulation. This case also highlighted the difficulties of modifying calculated pseudo functions into monotonic functions for use in a simulator. This case produced pseudo relative permeability curves which were double valued functions of water saturation. Though physically reasonable these curves had to be smoothed and averaged resulting in a loss of information.The cases considered in this report show that pseudo functions can be successfully used in some circumstances, especially those where gravity (and gravity segregation) are not important features of the displacement.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Archer, Rosalind. (1996). Pseudo Function Generation. Stanford Digital Repository. Available at: https://purl.stanford.edu/sg842zq7153",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "School of Earth Energy & Environmental Sciences",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "brannerlibrary@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/sg842zq7153"
+}

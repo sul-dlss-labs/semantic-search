@@ -1,0 +1,261 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Optimization of Well Design and Location in a Real Field",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Abukhamsin, Ahmed Y.",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Aziz, Khalid",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Primary advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Onwunalu, Jerome E.",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Stanford University, Department of Petroleum Engineering",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "organization",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Degree granting institution",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2009-06",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "thesis",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "As many fields around the world are reaching maturity, the need to develop new tools that allows reservoir engineers to optimize reservoir performance is becoming more demanding. One of the more challenging and influential problems along these lines is the well placement optimization problem. In this problem, there are many variables to consider: geological variables like reservoir architecture, permeability and porosity distribution, and fluid contacts; production variables such as well placement, well number, well type, and production rate; economic variables like fluid prices and drilling costs. All these variables, together with reservoir geological uncertainty, make the determination of a suitable development plan for a given field difficult. The objective of this research was to employ an efficient optimization technique to a real field located in Saudi Arabia in order to determine the optimum well location and design in terms of well type, number of laterals, and well and lateral trajectories. Based on the success of Genetic Algorithm (GA) in problems of high complexity with high dimensionality and nonlinearity, they were used here as the main optimization engine. Both GA types, binary GA (bGA) and continuous GA (cGA), showed significant improvements over initial solutions but the work was carried out with the cGA because it appeared to be more robust for the problem in consideration. After choosing the optimization technique to achieve our objective, considerable work was performed to study the sensitivity of the different algorithm parameters on converged solutions. When a definite conclusion could not be reached from this analysis, more tests were performed by combining cases and trying new directions to better discern the effects of the parameters. For example, dynamic mutation was implemented and it showed superior performance when compared to cases with fixed mutation probability. To further improve results given by the base optimization algorithm, it was hybridized with another optimization technique, namely the Hill Climber (HC). This step alone showed an improvement of about 12% over the base algorithm. Once the different cGA parameters were determined, multiple optimization runs were performed to obtain a sound development plan for this field. More in-depth analysis was executed in an attempt to quantify the effect of some of the uncertain reservoir parameters in the model, some of the assumptions made during optimization, and some of the preconditioning steps taken before optimization. The studied effects included: uncertainty of aquifer strength, effect of using the accurate well index, and effect of using an upscaled model for optimization. To fulfill aforementioned objectives, the location and design for a number of wells were optimized in an offshore carbonate reservoir in Saudi Arabia. The reservoir is mildly heterogeneous with low and high permeability areas scattered over the field. Applying the cGA to this reservoir showed that the optimum well configuration is a trilateral well. Studies regarding aquifer strength uncertainty and effect of using the accurate well index showed insignificant effect on optimized solutions. On the other hand comparing results from the fine and coarse reservoir models revealed that the best solutions are different between the two models. In general, solutions from different runs had different well designs due to the stochastic nature of the algorithm but there were some similarities in well locations.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Abukhamsin, Ahmed Y. (2009). Optimization of Well Design and Location in a Real Field. Stanford Digital Repository. Available at: https://purl.stanford.edu/bp025mg9274",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "School of Earth Energy & Environmental Sciences",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "brannerlibrary@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/bp025mg9274"
+}

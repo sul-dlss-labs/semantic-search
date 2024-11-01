@@ -1,0 +1,317 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Earthquakes, Records and Nonlinear MDOF Responses",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Shome, N.",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Carballo, J. E.",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "1997-06",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "technical report",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "This report addresses common issues which seismologists and structural engineers face while selecting ground-motion records for nonlinear dynamic analysis of realistic multi-degree-of-freedom (MDOF) structure.  A 5-DOF representation of a 5-story 2D steel moment resisting frame is used to verify the issues by comparing the results of various post-elastic damage measures from several sets of 20 recorded accelerograms, where each set is chosen from a specific magnitude-distance \"bin\" (i.e., from a specific scenario or design earthquake).  Each set of ground-motion records has an associated median response spectrum shape and level, as well as representative scatter. The damage measures considered here are ductility, normalized hysteretic energy (NHE), and damage index (Park and Ang) which is a combination of ductility and hysteretic energy.\r\n\r\nRegarding the issue of scaling of ground-motion records, it is observed that when the records in each bin are scaled to the bin-median spectral acceleration at the fundamental frequency of the structure, we get the same median damage measures as those of the unscaled sets. We also scale the records in one bin to the higher and lower median intensity levels of other bins. In these cases also the most median results are very close to the results of unscaled case. Both of these scaling operations involve factors as large as 3.\r\n\r\nThe effectiveness of several alternative scaling measures (e.g., commonly used scaling to the peak ground acceleration (PGA) level, scaling to the spectral acceleration level averaged over a frequency band, etc.) is also investigated. It is observed that scaling of ground-motion records to the 5% -damped spectral acceleration at the fundamental frequency of the structure is best among the alternatives. We conclude that the uncritical use of PGA is to be discouraged. The results from the second approach show some marginal reduction in variance when a narrow range of frequency is used to calculate the average spectral acceleration, but the gain is not worth of the effort.\r\n\r\nThe advantage of scaling of records is also demonstrated. If instead of using unscaled records, one scales the records to a spectral acceleration level prior to their use in structural analysis, the median damage measures can be estimated from a smaller number of records. Typically the reduction in dispersion of the damage measures of scaled records is about half of those from unscaled records. This reduces by a factor of four the sample size required for a given confidence band width. This significant reduction in sample size makes it practical to carry out nonlinear dynamic analysis for large, realistic structures as well.\r\n\r\nThe issues associated with the estimation and use of the dispersion (standard deviation) in response are also discussed here. This statistic is required for criteria that call for the 84th percentile demand and is also necessary for probabilistic or performance-based design. Although it is observed that properly scaled results have reduced dispersion compared to the results from unscaled records, it is shown here how to recover the standard deviation of the post-elastic damage measures from the results of scaled records.\r\n\r\nThe question of whether the scaled nonlinear damage measures depend systematically on ground-motion parameters such as magnitude, distance, or duration, is also addressed in this report. As has already been observed for the SDOF structures, the response measures considered are not dependent on any of those ground motion parameters except NHE which shows some dependency on duration of records.\r\n\r\nFinally, it has been demonstrated here that we can predict similar performance level statistics for the structure from a \"direct approach\" as well as from an \"indirect/alternative approach\". In the direct approach, the ground motions are scaled to different levels of spectral acceleration to get the response of the structure and then a regression model is fitted to predict the target response. In the alternative approach, the ground motions are scaled to a level so that they give precisely the target damage measure; this level can be obtained only by trial and error or by interpolation. The former approach is easy to understand and apply to real life problems. An advantage of the alternative approach is that it calculates the nonlinear capacity factor, Fµ or R.\r\n\r\nThis factor helps to compare results from different structural systems and different parameter variations. It is shown here how the direct and indirect approaches can be used to calculate the annual probability of exceedance of a target level of a damage measure. This procedure is called Probabilistic Seismic Demand Analysis (PSDA). This couples the nonlinear structural response statistics with the annual probability of exceedance of a target level of spectral acceleration, i.e., with the conventional Probabilistic Seismic Hazard Analysis (PSHA).",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Shome, N. and Cornell, C. A. and Bazzurro, P. and Carballo, J. E.. (1997). Earthquakes, Records and Nonlinear MDOF Responses. Reliability of Marine Structures Program Technical Report RMS-29. Stanford Digital Repository. Available at: http://purl.stanford.edu/yn623sv4192",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "RMS-29",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "PSHA",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "PSDA",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "MDOF",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "DOF",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "5-DOF",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "NHE",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "damage index",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "hysteretic energy",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Shome",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Cornell",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Bazzurro",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Carballo",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "jabeec-email@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/yn623sv4192"
+}

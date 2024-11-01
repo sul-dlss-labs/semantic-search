@@ -4,8 +4,18 @@ Developing semantic search for SUL
 
 ## Goal
 
-We are attempting to create a semantic search prototype. The first step is getting data to index. I've elected to look at self-deposit files:
-https://argo.stanford.edu/report?f%5Bcontent_type_ssim%5D%5B%5D=file&f%5Bnonhydrus_apo_title_ssim%5D%5B%5D=Hydrus+Ur-APO&f%5Breleased_to_searchworks%5D%5B%5D=ever
+We are attempting to create a semantic search prototype.
 
+### Get list of objects
+The first step is getting data to index. I've elected to look at self-deposit files:
+https://argo.stanford.edu/report?f%5Bcontent_type_ssim%5D%5B%5D=file&f%5Bnonhydrus_apo_title_ssim%5D%5B%5D=Hydrus+Ur-APO&f%5Breleased_to_searchworks%5D%5B%5D=ever
+Make sure "Access Rights" and "Pub date" are in the selected columns.
 These have been deposited via Hydrus or H2 and have been released to Searchworks, so the data is already on the public web.
 
+This is saved to this repo as `report.csv`
+
+### Get data for each
+Run the harvest script to pull the data from PURL:
+```
+python download-purls.py
+```

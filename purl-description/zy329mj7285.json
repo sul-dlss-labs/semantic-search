@@ -1,0 +1,242 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Building-Specific Loss Estimation Methods & Tools for Simplified Performance-Based Earthquake Engineering",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Ramirez, CM",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Miranda, E",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2009-05",
+                    "type": "creation",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "technical report",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "The goal of current building codes is to protect life-safety and do not contain provisions that aim to mitigate the amount of damage and economic loss suffered during an earthquake. However, recent earthquakes in California and elsewhere have shown that seismic events may incur large economic losses due to damage in buildings and other structures, which in many cases were unexpected to owners and other stakeholders.\r\n\r\nPerformance-based earthquake engineering is aimed at designing structures that achieve a performance that is acceptable to stakeholders. The approach developed the Pacific Earthquake Engineering Research (PEER) center has showed promise by providing a fully probabilistic framework that accounts for uncertainty from the ground motion hazard, the structural response, and the damage and economic loss sustained. This framework uses building-specific loss estimation methodologies to evaluate structural systems and help stakeholders make better design decisions.\r\n\r\nThe objectives of this report are to improve and simplify the current PEER building-specific loss estimation methodology. A simplified version of PEER’s framework, termed story-based loss estimation, was developed. The approach pre-computes damage to generate functions (EDP-DV functions) that relate structural response directly to loss for each story. As part of the development of these functions the effect of conditional losses of spatially dependent components was investigated to see if it had a large influence on losses.\r\n\r\nThe EDP-DV functions were also developed using generic fragility functions generated using empirical data to compute damage of components that do not currently have component-specific fragilities. To improve the computation of the aleatoric variability of economic loss, approximate analytical and simulation methods of incorporating building level construction cost dispersion and correlations, which are better suited to use construction cost data appropriately, were developed. The overall loss methodology was modified to incorporate the losses due to demolishing a building that has not collapsed but cannot be repaired due to excessive residual drift. Most of these modifications to PEER’s methodology were implemented into computer tool that facilities the computation of seismic-induced economic loss.\r\n\r\nThis tool was then used to compute and benchmark the economic losses of a set of reinforced concrete moment-resisting frame office buildings available in literature that were representative of both modern, ductile structures and older, non-ductile structures. The average normalized economic loss of the ductile frames was determined to be 25% of the building replacement value at the design basis earthquake (DBE) for this set of structures.\r\n\r\nThe non-ductile frames exhibited much larger normalized losses that averaged 61%. Of the structural and architectural design parameters examined in this study, the height of the building demonstrated the largest influence on the normalized economic loss. One of the 4-story ductile structures was analyzed as a case-study to determine the variability of its economic loss. Its mean loss at the DBE was estimated to be 31% of its replacement value with a coefficient of variation of 0.67. To examine the effect of losses due to building demolition, four example buildings (two ductile and two non-ductile frames) were analyzed. It was found that this type of loss had the largest effect on the ductile structures, increasing economic loss estimates by as much as 45%. The economic losses computed in this investigation are large even for the code-conforming buildings. The aleatoric variability of these losses is also large and heavily influenced by construction cost uncertainty and correlations. The story-based loss estimation method provides an alternative way of assessing structural performance that is efficient and less computationally expensive than previous approaches. This allows engineers and analysts to focus on the input – the seismic hazard analysis and the structural analysis – and the output– the design decisions – of loss estimation rather than on the loss estimation procedure itself. Limiting the amount of time and resources spent on the loss estimation process will hopefully facilitate the acceptance of performance-based seismic design methods into the practicing engineering community.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Ramirez, CM and Miranda, E. (2013). Building-Specific Loss Estimation Methods & Tools for Simplified Performance-Based Earthquake Engineering. John A. Blume Earthquake Engineering Center Technical Report 171. Stanford Digital Repository. Available at: http://purl.stanford.edu/zy329mj7285",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "performance-based engineering",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "loss estimation",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "jabeec-email@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [
+        {
+            "title": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "John A. Blume Earthquake Engineering Center",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [],
+            "identifier": [],
+            "subject": [],
+            "access": {
+                "url": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "https://blume.stanford.edu",
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": []
+                    }
+                ],
+                "physicalLocation": [],
+                "digitalLocation": [],
+                "accessContact": [],
+                "digitalRepository": [],
+                "note": []
+            },
+            "relatedResource": []
+        }
+    ],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/zy329mj7285"
+}

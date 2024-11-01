@@ -1,0 +1,212 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "A Generalized Semi-Markov Process for Modeling Spatially and Temporally Dependent Earthquakes",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Lutz, KA",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Kiremidjian, AS",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "1993-07",
+                    "type": "creation",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "technical report",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Site-specific hazard estimation requires the modeling of the occurrences of earthquakes on any faults with the potential to impact the site. Previous earthquake occurrence models have assumed either spatial independence or temporal independence or both. However, for large magnitude earthquakes (approximately moment magnitude 6:5 and above) occurring infrequently on long faults, evidence indicates that the assumptions of temporal and spatial independence are not valid. A new fault behavior model incorporating temporal and spatial dependence is needed to estimate site-specific hazard in areas subject to such earthquakes.\r\n This research develops an earthquake occurrence model that is a generalized semi-Markov process (GSMP) and allows for the simulation of the fault behavior through time. The fault is discretized into short cells; the model traces through time the slip accumulated on each cell and the amount of slip release on each cell due to earthquake occurrences. The size of each simulated earthquake is related to the amount of slip that is released. In order to apply the model to a fault, the following data must be known for each cell along the entire length of the fault: the slip rate, the mean and standard deviation of the earthquake interarrival times, and the time of the last earthquake. Additionally, the time of the last earthquake that ruptured the entire fault must be known. The model can then simulate the sizes and locations of earthquakes occurring along the fault for the time period of interest.\r\n Application of the model to the northern San Andreas fault (the portion of the fault that ruptured in 1906) implies that there are two distinct processes at work. The North Coastsection generates large earthquakes (approximately moment magnitude 7.7 to 8.1), and the South Santa Cruz Mountains segment generates somewhat smaller earthquakes (approximately moment magnitude 6.8 to 7.4). The San Francisco Peninsula segment represents a transition between these two behaviors.\r\n The model is relatively insensitive to the cell size chosen, to the distribution chosen to model the times between earthquakes triggering at a given place on the fault, and to the choice of a segmentation model that subdivided the San Francisco Peninsula segment. The moment magnitude of the largest earthquakes simulated are sensitive to the slip rate. The results for individual segments are highly sensitive to the mean interarrival times, but the aggregate results are much less sensitive.  This research develops an earthquake occurrence model that is appropriate for estimating hazard due to large, spatially and temporally dependent earthquakes. Because smaller magnitude earthquakes can also be important in seismic hazard analysis, however, this model must be combined with another designed to model lower magnitude seismicity (perhaps a Poisson model) in order to estimate the total site-specific hazard.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Lutz, KA and Kiremidjian, AS. (1993). A Generalized Semi-Markov Process for Modeling Spatially and Temporally Dependent Earthquakes . Stanford Digital Repository. Available at: http://purl.stanford.edu/qp711dh1431",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "probabilistic seismic hazard analysis",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "risk assessment",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Markov",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "jabeec-email@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/qp711dh1431"
+}

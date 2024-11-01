@@ -1,0 +1,229 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Uncertainty Assessment on In-Situ Combustion Simulations Using Experimental Design",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Ogunbanwo, Olufolake",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Orr Jr, Franklin M.",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Primary advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Stanford University, Department of Petroleum Engineering",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "organization",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Degree granting institution",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "1999-06",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "thesis",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Experimental design is a widely used approach in statistics for evaluating response variation for a given set of parameter values. The parameters selected are those whose values and definition are subject to uncertainty. The objective of experimental design is to identify the parameters that influence the experiments and to rank the parameters based on the response. For this study specifically, experimental design was applied to understand in-situ combustion of very heavy oil using a commercial thermal simulator. A base case was first simulated using laboratory in-situ combustion runs to certify the adequacy of the simulator for the study. The design parameters investigated include the activation energies of the reaction scheme, oil saturation, air injection rate and the bottomhole pressure control at the producer. A full factorial design was used on the hypothesis that all parameters affect the simulations and the parameters may interact. Their effect on the combustion peak temperature, pressure, combustion front speed, recovery efficiency and coke deposited was evaluated. The degree to which the responses change was used to determine which parameter was the most influential on the responses. The activation energy of the coke deposition reaction was determined to be the most influencing parameter on the combustion process. For the three reaction path assumed for crude oil combustion, a slight increase in this activation energy made the process nonreactive. The pressure of the system was impacted significantly by the oil saturation while the speed at which the front propagated was shown to primarily be a function of the air injection rate. Results also show that for a given saturation, a limiting air flux exists below which oil plugging would occur and the injection pressures of the system become infeasible. Given successful ignition and propagation of the front, optimal recovery was obtained between saturations of 45-70%. Less coke was also required to produce a unit volume of oil within these saturations. We also observed interaction between the parameters on the responses. The effect of the activation energy of the combustion reaction on the recovery was strongly dependent on the amount of oil initially in place. Recovery decreased with increasing activation energy at lower saturations but was independent of activation energy at higher saturations. In addition, the velocity response which increased generally with air flux showed different incremental rates with saturation. Proxy models were then generated using Box-Behnken and Central Composite designs. Response surface models were created using these methods and compared to full factorial models. The computationally efficient proxy designs compared favorably with the full factorial plots, in the absence of abrupt changes in the response profile. This study on uncertainty offers additional insight into the reservoir and operating conditions that affect in-situ combustion. Knowledge of the response of the system to the parameters and interdependence within the parameters allows more reliable predictions of the behavior of an in-situ combustion process.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Ogunbanwo, Olufolake. (1999). Uncertainty Assessment on In-Situ Combustion Simulations Using Experimental Design. Stanford Digital Repository. Available at: https://purl.stanford.edu/mb768dc1016",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "School of Earth Energy & Environmental Sciences",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "brannerlibrary@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/mb768dc1016"
+}

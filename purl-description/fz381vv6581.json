@@ -1,0 +1,229 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Wavelet Analysis for the Generation of Multiple History-Matched Reservoir Models",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Sahni, Isha",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Horne, Roland N.",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Primary advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Stanford University, Department of Petroleum Engineering",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "organization",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Degree granting institution",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2003-06",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "thesis",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Currently, most history matching algorithms yield a single deterministic permeability field. History matching, however, is not a problem that admits only one unique solution. Depending on the algorithm used, it is also possible that the final estimated permeability distribution be geologically unrealistic. Moreover, it is possible that even though the permeability distribution used to initialize the history matching algorithm is a geological realization, the final permeability distribution obtained after history matching is not physically realistic or has artifacts depending on the algorithm employed for history matching. Therefore, there is a need to include other constraints, based on which we can generate multiple, geologically realistic, history-matched realizations. These constraints might, for example, include the variogram, a training image, the distribution of net-to-gross, pore volume or other predetermined geostatistical information about the reservoir. This inclusion is particularly useful as it introduces information about uncertainty in the reservoir description when we have limited history from existing wells in the field and intend to drill infill wells. The algorithm proposed in this work uses multiresolution wavelet analysis to integrate history data with the geostatistical information contained in the variogram. Wavelets allow the representation and manipulation of two-dimensional distributions at different resolutions at the same time. Using wavelets, information from different sources such as production history and seismic surveys, at different resolutions, can be incorporated directly and simultaneously at the appropriate resolution level. The algorithm proceeds in two steps, first integrating and fixing the history data and secondly incorporating geostatistical information in the form of the variogram. In the first step, the wavelet coefficients that are 'sensitive' to the history-match data, are fixed. This has the effect of 'fixing' the history of the field without fixing individual permeabilities. In the second step, the remaining 'free' wavelet coefficients are modified to integrate variogram information into the reservoir description. The optimization routine used for this purpose is simulated annealing and the objective function is the 2-norm of the difference between the variograms of the current distribution and the reference variogram. This routine perturbs the 'free' wavelet coefficients and records the improvement in the variogram match in the permeability field obtained by the inverse wavelet transform at each iteration. The wavelet transform and its inverse involve only linear operations and hence do not lead to a significant computational overhead. Generating multiple realizations only of the second set of wavelet coefficients results in multiple history-matched, variogram-constrained descriptions of the reservoir, without performing any additional history matches. In a number of example cases, different areal Gaussian fields with varying amount of available production history data were studied to test the algorithm. The production history used was the pressure response as well as the watercut at the wells. It was observed that the history of the field is constrained up to some tolerance by a specific set of wavelet coefficients. It was also found that there is a separate set of wavelet coefficients constrained by the variogram. The key observation here is that the set of wavelet coefficients constraining the history can be decoupled from those constraining the variogram to a large degree, depending on the amount of information of either type. The implication of this observation is that the history data and variogram can be integrated sequentially into the reservoir model. History matching is a slow and expensive process since it involves numerous repeated flow simulations. The efficiency of this algorithm for data integration lies in the fact that it performs the history match only once, and iterates only on the variogram match, which is achieved relatively faster. That is, after the initial history match, new information can be added to the model without disturbing the original match to yield multiple, history-matched and geostatistically-constrained realizations.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Sahni, Isha. (2003). Wavelet Analysis for the Generation of Multiple History-Matched Reservoir Models. Stanford Digital Repository. Available at: https://purl.stanford.edu/fz381vv6581",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "School of Earth Energy & Environmental Sciences",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "brannerlibrary@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/fz381vv6581"
+}

@@ -1,0 +1,235 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Determination of the Dynamic Characteristics of Full Scale Structures by the Application of Fourier Analysis",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Kircher, CA",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "1975-11",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "technical report",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Determination  of the dynamic characteristics  of a structure is typically accomplished by modeling the structure's elements (stiffnessses, masses, etc.) and using compufer techniques to solve the model.  This procedure is only as accurate as the model and ignores damping duringthe determination  of the model's dynamic characteristic.     However,  this method can be used without having a real structure available and is therefore used commonly to estimate the frequenc es of structures not yet in existence.\r\nDetermination  of the frequencies of existing structures has been attempted for many years by many researchers using different techniques. Almost all of these techniques required exciting the structure at some particular mode of vibration by imparting energy to the structure. Either snap tests (pulling the structure and letting go) or eccentric motors at­ tached to the structure were common means of creating modal vibrations. In recent years ambient vibration analysis has become popular. Ambient tests eliminated the often difficult manual excitation of the structure. Typical ambient tests have been performed utilizing spectrum analyzers which essentially  scan the frequency domain searching for resonances  of the structure. Spectrum analyzers are not limited to ambient tests and have also been used for nonambient vibration analyses.\r\nWith the advancements in the mathematical calculations related to computer orientated  functions, Fourier analysis has become popular as a means of determining the frequencies of a structure. Fourier analysis is superior to many other methods since it can be used, with certain restrictions, to determine more than one natural frequency simultane­ously. Since Fourier analysis techniques are performed typically on the digital computer, researchers usually record vibration records on magnetic tape and take the recorded vibration to the computer to be analyzed. \r\nIt is recognized that ambient vibration analysis using Fourier transform techniques has been performed and is currently being performed by many different researchers in the Structural Engineering field. However, a somewhat unique approach to the problem has been adopted by taking all the equipment necessary for the analysis to the site of the structure. This means that a small digital computer must be one of the pieces of equipment. On site analysis eliminates the need for recording and storing of large amounts of vibration data necessary for ambient vibration analyses.\r\nWhile Fourier analysis is a somewhat exotic term for civil engi­neers, it is far from uncommon to electrical engineers and people in­volved in communication theory. It is from the researchers in these fields that most of useful mathematical background is obtained. The methods of analyzing a vibration record are identical regardless of whether the vibration is structural, acoustical, or electrical in na­ture. The terminology, however, is different in each field and often makes discussions between the different disciplines difficult.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Kircher, CA. (1975). Determination of the Dynamic Characteristics of Full Scale Structures by the Application of Fourier Analysis. John A. Blume Earthquake Engineering Center Technical Report 20. Stanford Digital Repository. Available at: http://purl.stanford.edu/vx235fx2240",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "vibration",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "structural analysis",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "probabilistic seismic hazard analysis",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "computer modeling",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "jabeec-email@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [
+        {
+            "title": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "John A. Blume Earthquake Engineering Center",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [],
+            "identifier": [],
+            "subject": [],
+            "access": {
+                "url": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "https://blume.stanford.edu",
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": []
+                    }
+                ],
+                "physicalLocation": [],
+                "digitalLocation": [],
+                "accessContact": [],
+                "digitalRepository": [],
+                "note": []
+            },
+            "relatedResource": []
+        }
+    ],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/vx235fx2240"
+}

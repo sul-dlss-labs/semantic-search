@@ -1,0 +1,266 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Data from \"Artistic Vision: Providing Contextual Guidance for Capture-Time Decisions\"",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "E, Jane L",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Landay, James A",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Primary advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Hanrahan, Pat",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "2014",
+                            "type": "start",
+                            "status": "primary",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        },
+                        {
+                            "structuredValue": [],
+                            "parallelValue": [],
+                            "groupedValue": [],
+                            "value": "2021",
+                            "type": "end",
+                            "identifier": [],
+                            "note": [],
+                            "appliesTo": []
+                        }
+                    ],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "type": "creation",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "qualifier": "approximate",
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "dataset",
+            "type": "genre",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "software, multimedia",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "To learn photography is to become more intentional about the creative choices you make with your camera. Many of these creative choices happen in real time during the capture process, as the photographer takes in the scene around them and navigates a space of so many possibilities and uncertainties. However, today's resources for learning photography, such as books, classes, and example photos, are largely disconnected from the capture process. Photographers are therefore faced with the task of navigating, in real-time, a seemingly infinite space of possible creative choices while relying on a disconnected space of learning resources that can feel both inaccessible and overwhelming in the moment. The primary insight of my research is that real-time contextual guidance, embedded directly in the camera, can make accessing relevant parts of this wealth of information more approachable and actionable. The feedback assists in cutting through the noise of endless possibilities and focuses photographers' attention on targeted, meaningful creative choices.\r\n\r\nMy dissertation presents a set of capture-time interfaces that provide real-time contextual guidance. This guidance takes the form of light touch cues presented as automatically generated visual overlays, where each overlay is designed to focus on a specific photographic concept. Each interface's goal is to understand what an expert might be noticing in considering the targeted photographic concept and to, via an annotation overlay, direct a novice user's awareness in a similar manner. In designing this real-time contextual guidance, I take inspiration from photographers' current practice of directing attention through manually drawing annotations onto photos. Today, this practice is mostly restricted to post-hoc feedback used to point out specific decisions or potential mistakes that the artist made. I develop algorithmic approaches designed to understand conceptually relevant aspects of the scene that the photographer is viewing. These algorithms generate annotations that are displayed in the camera in real time. The annotations can move beyond explaining why a specific decision was made, towards helping the photographer become aware of artistic choices that could be made, providing guidance while encouraging creativity and exploration. Through the overlays, we hope to help novices train their eye to see in the way that experts do. \r\n\r\nSpecifically, I present in-camera guidance interfaces tackling three important photographic concepts: portrait lighting, composition, and decluttering. The portrait lighting tool helps users be more aware of the available lighting styles and reorient their subject to best achieve the lighting style of their choice. The composition guidance tool makes users more aware of the current composition by highlighting lines in a composition grid that are most relevant to the camera view. The decluttering tool increases users' awareness of clutter that would draw attention away from the main story of the image by abstracting the camera view to outline edges around the subject(s) or the image borders. For each interface, I describe my process for designing a novice-interpretable visualization and how it captures context relevant to the target concept. I then evaluate each interface by asking novice photographers to take photos with these tools while focusing on their target concept. \r\n\r\nTogether, these tools and their evaluations demonstrate that such awareness-based visual guidance camera interfaces can help people be more intentional about their artistic choices. By making users more aware of possible options and mistakes, the interfaces introduced in this dissertation encourage users to explore the space in a more informed manner. In this way, the tools presented in my dissertation help users become more confident in their ability to achieve their artistic goals.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "E, Jane L and Landay, James A and Hanrahan, Pat. Data from \"Artistic Vision: Providing Contextual Guidance for Capture-Time Decisions\". Stanford Digital Repository. Available at: https://purl.stanford.edu/dg109bb1678",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Computer Science",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "HCI",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Photography Tools",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "ejane@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/dg109bb1678"
+}

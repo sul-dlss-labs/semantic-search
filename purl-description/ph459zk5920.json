@@ -1,0 +1,319 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Dataset: Stanford Streaming Mobile Augmented Reality Dataset",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Makar, Mina",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Araujo, Andre",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Chen, David",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2013-08",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "dataset",
+            "type": "genre",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "software, multimedia",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "We introduce the Stanford Streaming MAR dataset. The dataset contains 23 different objects of interest, divided to four categories: Books, CD covers, DVD covers and Common Objects. We first record one video for each object where the object is in a static position while the camera is moving. These videos are recorded with a hand-held mobile phone with different amounts of camera motion, glare, blur, zoom, rotation and perspective changes. Each video is 100 frames long, recorded at 30 fps with resolution 640 x 480. For each video, we provide a clean database image (no background noise) for the corresponding object of interest.\r\nWe also provide 5 more videos for moving objects recorded with a moving camera. These videos help to study the effect of background clutter when there is a relative motion between the object and the background. Finally, we record 4 videos that contain multiple objects from the dataset. Each video is 200 frames long and contains 3 objects of interest where the camera captures them one after the other. \r\nWe provide the ground-truth localization information for 14 videos, where we manually define a bounding quadrilateral around the object of interest in each video frame. This localization information is used in the calculation of the Jaccard index.\r\n\r\n1. Static single object: \r\n    1.a. Books: Automata Theory, Computer Architecture, OpenCV, Wang Book.\r\n    1.b. CD Covers: Barry White, Chris Brown, Janet Jackson, Rascal Flatts, Sheryl Crow.\r\n    1.c. DVD Covers: Finding Nemo, Monsters Inc, Mummy Returns, Private Ryan, Rush Hour, Shrek, Titanic, Toy Story.\r\n    1.d. Common Objects: Bleach, Glade, Oreo, Polish, Tide, Tuna.\r\n\r\n2. Moving object, moving camera:\r\n    Barry White Moving, Chris Brown Moving, Titanic Moving, Titanic Moving - Second, Toy Story Moving.\r\n\r\n3. Multiple objects:\r\n    3.a. Multiple Objects 1: Polish, Wang Book, Monsters Inc.\r\n    3.b. Multiple Objects 2: OpenCV, Barry White, Titanic.\r\n    3.c. Multiple Objects 3: Monsters Inc, Toy Story, Titanic.\r\n    3.d. Multiple Objects 4: Wang Book, Barry White, OpenCV.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Mina Makar, Sam Tsai, Vijay Chandrasekhar, David Chen and Bernd Girod, \"Interframe Coding of Canonical Patches for Low Bit-Rate Mobile Augmented Reality,\" Special Issue of the International Journal of Semantic Computing, vol. 7, no. 1, pp. 5-24, March 2013. http://dx.doi.org/10.1142/S1793351X13400011. Data available at http://purl.stanford.edu/ph459zk5920.",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Mina Makar, Sam Tsai, Vijay Chandrasekhar, David Chen and Bernd Girod, \"Interframe Coding of Canonical Patches for Low Bit-Rate Mobile Augmented Reality,\" Special Issue of the International Journal of Semantic Computing, vol. 7, no. 1, pp. 5-24, March 2013. http://dx.doi.org/10.1142/S1793351X13400011",
+            "type": "citation/reference",
+            "identifier": [],
+            "displayLabel": "Related Publication",
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Mina Makar, Sam Tsai, Vijay Chandrasekhar, David Chen and Bernd Girod, \"Interframe Coding of Canonical Patches for Mobile Augmented Reality,\" Proc. IEEE International Symposium on Multimedia (ISM 2012), Irvine, CA, USA, December 2012.",
+            "type": "citation/reference",
+            "identifier": [],
+            "displayLabel": "Related Publication",
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Mina Makar, Vijay Chandrasekhar, Sam Tsai, David Chen, and Bernd Girod, \"Interframe Coding of Feature Descriptors for Mobile Augmented Reality,\" IEEE Transactions on Image Processing. (in preparation).",
+            "type": "citation/reference",
+            "identifier": [],
+            "displayLabel": "Related Publication",
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Mina Makar, \"Interframe Compression of Visual Feature Descriptors for Mobile Augmented Reality,\" Ph.D. Dissertation, EE Dept., Stanford University. (in preparation).",
+            "type": "citation/reference",
+            "identifier": [],
+            "displayLabel": "Related Publication",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "mobile augmented reality",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "image retrieval",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "object tracking",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "temporally coherent keypoint detection",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "feature descriptors",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "canonical patches",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "mamakar@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/ph459zk5920"
+}

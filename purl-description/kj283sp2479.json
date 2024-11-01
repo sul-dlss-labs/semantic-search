@@ -1,0 +1,293 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Generation and Application of Voronoi Grid to Model Flow in Heterogeneous Reservoirs",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Palagi, Cesar Luiz",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Aziz, Khalid",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Primary advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Horne, Roland N.",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Journel, Andre G.",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Stanford University, Department of Petroleum Engineering",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "organization",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Degree granting institution",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "1992-05",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "thesis",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "The geometry of the grid system as well as the discretized form of the conservation equations affect the results obtained with numerical simulations of petroleum reservoirs. The regions of the reservoir where the parameters of interest vary significantly with time or space require a higher density of gridblocks than the regions with small variations of these parameters.In this thesis, a new gridding technique is proposed to simulate fluid flow in heterogeneous reservoirs with a flexible grid known as Voronoi grid. Several aspects of the gridding technique are investigated in detail: grid generation, assignment and averaging of physical properties, treatment of wells and practical applications. The grid system is generated in the domain by the combination of modules of simple geometry (Cartesian, cylindrical and hexagonal). Each module can be located, scaled and rotated in the physical domain such that the grid geometry conforms to major directions of flow around wells and geologic features. Because each gridpoint can be located independently, the modules can be used, for instance, to conform exactly and simultaneously to the location of a vertical well and the longitudinal direction of a horizontal well.It is proposed that the specification of the physical properties of the reservoir be decoupled from the specification of the grid geometry. As a consequence, the same description of the reservoir can be simulated easily with different grids. This procedure allowed the development of a technique to compute exact well indices in heterogeneous reservoirs by comparing numerical results obtained with fine and coarse grids. A new simplified well model for heterogeneous reservoirs is also proposed and tested. Homogeneous reservoirs can be treated as a special case of this general well model. Additionally, the decoupling between reservoir description and grid geometry allowed the development of a new upscaling procedure to compute effective permeability of the connections of a flexible grid as the power law average of permeability values at locations close to the connection. The optimum value of the power law coefficient is evaluated by comparing numerical results obtained with fine and coarse grids. It is concluded that the effective permeability of a connection as well as the well index need to be robust quantities, i.e., they should be independent of the flow configuration. If this condition is not satisfied then the grid should be refined.The use of a cylindrical module around a vertical well as well as the use of a Cartesian module that conforms exactly to the longitudinal direction of a horizontal well improve the numerical solution for water coning problems. Further, the use a cylindrical module around the injection well significantly minimizes the grid orientation effect for 'piston-like', unfavorable mobility displacements in a five-spot pattern. Although the results are almost insensitive to the orientation of the grid, they do not converge as the grid is refined.Besides the aspects related to the grid system, a new dual timestepping technique is also presented to simulate flow of tracer components in multipurpose simulators with flexible grids. The main system of equations is solved implicitly with a major timestep, which is automatically divided into smaller and stable minor timesteps to march explicitly the tracer concentration in time. This process is intended to facilitate the use of and to increase the accuracy of the explicit formulation of the discretized equation for the tracer component. The proposed gridding technique and the tracer model were implemented in a three-dimensional, two-phase, immiscible simulator, which was tested extensively. The numerical solutions obtained with the developed simulator were compared with analytical solutions, numerical solutions obtained with other simulators and published data. Based on these comparisons, the simulation approach presented here is considered to be superior to conventional procedures used in existing simulators.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Palagi, Cesar Luiz. (1992). Generation and Application of Voronoi Grid to Model Flow in Heterogeneous Reservoirs. Stanford Digital Repository. Available at: https://purl.stanford.edu/kj283sp2479",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "School of Earth Energy & Environmental Sciences",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "brannerlibrary@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/kj283sp2479"
+}

@@ -1,0 +1,185 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Integrating Subsurface Data and Numerical Methods to Investigate the Fold-Fracture Relationship",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Fiore, Patricia E.",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2003",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "article",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Finite element models are used to investigate the bedding curvature – fracture relationship by solving for the stress field resulting from the bending of a multilayer into a parabolic shape under various layer and boundary conditions. We assume that the deformed surface of bedding is composed of many patches of different fundamental (parabolic, hyperbolic, elliptic) shapes, and that this parabolic shape represents one such patch. For this patch, we are interested in characterizing the folding related fracture pattern. Suites of two dimensional numerical models in which a vertical parabolic displacement profile is imposed upon a multilayer reveal the effects of: (1) the positioning of a soft layer within the stratigraphic column; (2) an imposed zero slope condition versus unrestricted conditions at the lateral extents of the model; and (3) variations in lateral force boundary conditions, which represent differing regional tectonic stress regimes. Results are analyzed in terms of the maximum tensile stress. They indicate that variation in the positioning of a soft layer affects the intensity of fracture spacing; enforcement of zero slope at the lateral boundaries of the model affects the orientation in which fractures form at the lateral extents of the model, and shifts the most intense fracture formation from the anticlinal to the synclinal end of the model; and variations in lateral force boundary conditions affect the intensity of fracturing across the fold. The results of this modeling effort imply that boundary conditions and stratigraphic variation can impact the location, intensity, and orientation of fractures that form within the folding induced fracture network. Thus, when assembling a complete fracture network across a fold, it is not sufficient to consider surface curvature alone. Boundary conditions as well as the stratigraphic properties of the multilayer must also be taken into account.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Fiore, Patricia. (2003). Integrating Subsurface Data and Numerical Methods to Investigate the Fold-Fracture Relationship. Stanford Digital Repository. Available at: http://purl.stanford.edu/vp627qv8367",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "finite element method",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "fold-fracture relationships",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "The Stanford Rock Fracture Project",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "aydin@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/vp627qv8367"
+}

@@ -1,0 +1,229 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Modelling Sub-Core Scale Permeability in Sandstone for Use in Studying Multiphase Flow of CO2 and Brine in Core Flooding Experiments",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Krause, Michael H.",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Benson, Sally M.",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Primary advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Stanford University, Department of Energy Resources Engineering",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "organization",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Degree granting institution",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2009-06",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "thesis",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "As CO2 capture and storage moves closer to commercialization, the ability to make accurate predictions regarding storage capacity in saline aquifers becomes more important. Improving storage capacity estimates can be done by conducting detailed regional studies on saline aquifers, something which the Department of Energy regional Carbon Sequestration Partnerships have been aggressively pursuing. Improving estimates also requires experimental and theoretical work, to develop a better understanding of the impacts of heterogeneity on multi-phase systems with unfavorable mobility ratios. To study these systems, core flood experiments are conducted by injecting CO2 into a brine saturated sandstone core at reservoir conditions, simulating injection conditions for CO2 storage in a saline aquifer. Using an X-ray CT scanner, sub-core scale porosity is mapped in the core prior to experiments, and sub-core scale CO2 saturation is mapped during the experiments. The results of these experiments reveal that small variations in porosity can lead to large spatial variations in CO2 distribution, with a high degree of small scale spatial contrast in CO2 saturation. To understand how such variable CO2 distribution occurs, simulations of the experiment can be conducted to test the sensitivity of CO2 saturation to different fluid parameters from multiphase-flow theory. To perform such sensitivity studies, permeability must first be calculated at the same sub-core scale as porosity and saturation are measured. However, permeability cannot be directly measured at the sub-core scale, therefore it must be calculated using other measured data, which has traditionally been porosity. Methods for calculating permeability from porosity are common, (Nelson, 1994), and straightforward to apply in sub-core scale studies because sub-core scale porosity is measured as part of the experiment. In this study, a specific subset of these porosity-permeability relationships have been systematically tested using numerical simulations of the core flood experiment. Comparing the results of the predicted saturation in the vi simulations to the measured values in the experiment consistently indicate that while these methods are very accurate for estimating core-scale properties, they do not accurately represent the sub-core scale permeability, and the simulations do not replicate the experimental measurements. To improve the estimate of sub-core scale permeability, a new method was developed to take advantage of additional data measured as part of the experiments. The capillary pressure curve for the sandstone core is measured experimentally for use as input in simulations. This capillary pressure data can also be integrated with the core flood experiment saturation measurements to calculate permeability. Using a modified version of the Leverett J-Function, sub-core scale permeability was calculated using the capillary pressure, and sub-core scale saturation and porosity measurements. The results of simulations using this permeability method show a much improved quantitative match to experimental saturation measurements over the porosity-only based permeability models. This new method for calculating permeability shows the potential to greatly advance the study of sub-core scale phenomena in CO2-brine systems by providing an accurate sub-core scale permeability representation. Using this method to calculate permeability, sensitivity studies of other multi-phase flow parameters can be conducted to determine their effect on CO2 saturation in the presence of heterogeneity.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Krause, Michael H. (2009). Modelling Sub-Core Scale Permeability in Sandstone for Use in Studying Multiphase Flow of CO2 and Brine in Core Flooding Experiments. Stanford Digital Repository. Available at: https://purl.stanford.edu/rb087vd6751",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "School of Earth Energy & Environmental Sciences",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "brannerlibrary@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/rb087vd6751"
+}

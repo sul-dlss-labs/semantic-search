@@ -1,0 +1,229 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "New Transfer Functions for Simulation of Naturally Fractured Reservoirs with Dual Porosity Models",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Sarma, Pallav",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Aziz, Khalid",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Primary advisor",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Stanford University, Department of Petroleum Engineering",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "organization",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Degree granting institution",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "2003-05",
+                    "type": "creation",
+                    "status": "primary",
+                    "encoding": {
+                        "code": "w3cdtf",
+                        "note": []
+                    },
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "thesis",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "The most popular and effective technique to model naturally fractured reservoirs has been through a dual porosity approach, where the fracture and matrix systems are separated into two different continuum, each with its own set of properties. They also interact with each other, i.e., fluid transfer takes place between them, governed by a transfer function. Most of the existing dual porosity models idealize matrix-fracture interaction by assuming orthogonal fracture systems (parallelepiped matrix blocks) and pseudo-steady state flow. This is rarely the case in real reservoirs. Further, the transfer function used to represent multiphase flow does not fully account for the main mechanisms governing multiphase flow. This work discusses techniques to remove many of these existing limitations in order to arrive at a transfer function more representative of real reservoirs. Firstly, the mechanisms of single-phase mass transfer are discussed leading to a definition of the differential form of the transfer function. The limitations of current shape factors-a part of the transfer function- for single-phase flow are discussed. Combining the differential form of the single-phase transfer function and the single-phase pressure diffusion equation, an analytical form for a shape factor for transient pressure diffusion is derived. Further, a pseudo-steady shape factor for rhombic fracture systems is also derived. Finally, a general numerical technique to calculate the shape factor for any arbitrary shape of the matrix (i.e. non-orthogonal fractures) is proposed. This technique also accounts for both transient and pseudo-steady state pressure behavior. The results were verified against fine-grid single porosity models and were found to be in excellent agreement. Secondly, mechanisms of two-phase mass transfer are discussed and a complete definition of the transfer function for two-phase/multiphase flow is derived. It is combined with flow governing equations for pressure and saturation diffusion to arrive at a modified form of the transfer function for two-phase flow that accurately takes into account pressure diffusion (fluid expansion) and saturation diffusion (imbibition), which are the two main mechanisms driving multiphase flow. New shape factors for saturation diffusion are defined. Limitations of the current transfer function for multiphase flow are discussed, and it is shown that the prediction of wetting phase imbibition using the current transfer function is quite inaccurate, which might have significant consequences for reservoir management. Fine grid single porosity models are used again to verify the validity of the new transfer function. The results from single block dual porosity models and the corresponding single porosity fine grid models were in good agreement. Thirdly, the proposed transfer function is extended for multiphase compositional flow, taking into account the effects of gravity segregation. The assumptions under which this extension is valid are also discussed.Fourthly, a procedure to implement this complete dual porosity model into the General Purpose Research Simulator (GPRS) developed at Stanford is presented. The implementation's standard form is validated against the ECLIPSE 100 Dual Porosity Model and is found to be in perfect agreement.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Sarma, Pallav. (2003). New Transfer Functions for Simulation of Naturally Fractured Reservoirs with Dual Porosity Models. Stanford Digital Repository. Available at: https://purl.stanford.edu/yy435qt2161",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "School of Earth Energy & Environmental Sciences",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "brannerlibrary@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/yy435qt2161"
+}

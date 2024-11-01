@@ -1,0 +1,262 @@
+{
+    "title": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "A Method for Earthquake Motion-Damage Relationships with Application to Reinforced Concrete Frames",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "contributor": [
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Singhal, A",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        },
+        {
+            "name": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Kiremidjian, AS",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "type": "person",
+            "role": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "Author",
+                    "identifier": [],
+                    "source": {
+                        "code": "marcrelator",
+                        "note": []
+                    },
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+        }
+    ],
+    "event": [
+        {
+            "structuredValue": [],
+            "date": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "1996-10",
+                    "type": "creation",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "location": [],
+            "identifier": [],
+            "note": [],
+            "parallelEvent": []
+        }
+    ],
+    "form": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "technical report",
+            "type": "genre",
+            "identifier": [],
+            "source": {
+                "code": "marcgt",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "text",
+            "type": "resource type",
+            "identifier": [],
+            "source": {
+                "value": "MODS resource types",
+                "note": []
+            },
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Recent earthquakes have shown their devastating effects on structures. Damage to structures has significant socio-economic consequences. Before the occurrence of an earthquake, planners can use estimates of structural damage to predict the likely extent of building damage, economic loss, and number of casualties. Immediately after an earthquake, damage estimates can be used by emergency response planners to assess the vulnerability of a structure to aftershocks and to decide whether the building is safe to enter or not.  Post-earthquake rehabilitation decisions require estimates of structural damage to decide whether to repair or to demolish a damaged structure.\r\n\r\nStructural damage to buildings can be estimated by using seismic site hazard along with relationships between earthquake ground motion severity and structural damage. This dissertation deals only with the latter relationships. These relationships are most frequently described in the form of conditional probability distributions of damage at specified ground motion intensities. These motion-damage relationships are usually expressed in terms of fragility curves and damage probability matrices. The development of fragility curves and damage probability matrices requires the characterization of the ground motion and the identification of the different degrees of structural damage.\r\n\r\nThis study presents a systematic approach for developing motion-damage relationships that does not rely either on heuristics or on empirical data. Instead, the probability of damage is estimated by quantifying the response of a structure subjected to a significant ensemble of ground motions with a wide range of parameter variations. The quantification of the structural response also includes the variability in structural parameters. For this purpose, a Monte Carlo simulation approach is used to determine the probabilities of structural damage, and the ensemble of ground motions is generated using an appropriate model for ground motion simulation. The models for ground motion simulation include the stationary Gaussian model with modulating functions and the autoregressive moving average (ARMA) models. The Latin hypercube technique is used to increase the efficiency of the Monte Carlo simulation.\r\n\r\nThe approach developed in this study is then applied to obtain fragility curves and damage probability matrices for reinforced concrete moment resisting frames. Reinforced concrete frames are divided into three classes based on the number of stories in the frames. These include low rise concrete frames that are 1-3 stories tall.mid rise frames that are 47 stories tall. and high rise frames that are 8 stories or taller. The ground motion for these three classes of frames is characterized by the average spectral acceleration over period bands corresponding to the three classes of frames. Sample structures for the three classes of frames are used to develop the motion-damage relationships. Parametric studies are performed to assess the effect of geometric variations in the performance of concrete frame structures.\r\n\r\nThe Bayesian technique is presented that enables the incorporation of observed damage data with the motion-damage relationships. Using damage data from the Northridge earthquake. the fragility curves for low rise frames are updated. It is found that the synthetic fragility curves. obtained by the Monte Carlo simulation, provide the best estimates of the updated probabilities of the different damage states for these frames. The uncertainty associated with the motion-damage relationships is presented in terms of confidence bounds on the fragility curves.",
+            "type": "abstract",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Singhal, A and Kiremidjian, AS. (1996). A Method for Earthquake Motion-Damage Relationships with Application to Reinforced Concrete Frames. John A. Blume Earthquake Engineering Center Technical Report 119. Stanford Digital Repository. Available at: http://purl.stanford.edu/yb788dd8233",
+            "type": "preferred citation",
+            "identifier": [],
+            "displayLabel": "Preferred Citation",
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "identifier": [],
+    "subject": [
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "reinforced concrete",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "cementitious composites",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "probabilistic seismic hazard analysis",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        },
+        {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "structural analysis",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+        }
+    ],
+    "access": {
+        "url": [],
+        "physicalLocation": [],
+        "digitalLocation": [],
+        "accessContact": [
+            {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "jabeec-email@stanford.edu",
+                "type": "email",
+                "identifier": [],
+                "displayLabel": "Contact",
+                "note": [],
+                "appliesTo": []
+            }
+        ],
+        "digitalRepository": [],
+        "note": []
+    },
+    "relatedResource": [
+        {
+            "title": [
+                {
+                    "structuredValue": [],
+                    "parallelValue": [],
+                    "groupedValue": [],
+                    "value": "John A. Blume Earthquake Engineering Center",
+                    "identifier": [],
+                    "note": [],
+                    "appliesTo": []
+                }
+            ],
+            "contributor": [],
+            "event": [],
+            "form": [],
+            "language": [],
+            "note": [],
+            "identifier": [],
+            "subject": [],
+            "access": {
+                "url": [
+                    {
+                        "structuredValue": [],
+                        "parallelValue": [],
+                        "groupedValue": [],
+                        "value": "https://blume.stanford.edu",
+                        "identifier": [],
+                        "note": [],
+                        "appliesTo": []
+                    }
+                ],
+                "physicalLocation": [],
+                "digitalLocation": [],
+                "accessContact": [],
+                "digitalRepository": [],
+                "note": []
+            },
+            "relatedResource": []
+        }
+    ],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/yb788dd8233"
+}
