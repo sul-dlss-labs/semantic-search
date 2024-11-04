@@ -19,3 +19,9 @@ Run the harvest script to pull the data from PURL:
 ```
 python download-purls.py
 ```
+
+### Extract relevant data
+
+```
+jq -c '{ "id":input_filename | ltrimstr("purl-description/") | rtrimstr(".json"), "title":.title[].value, "abstract":.note | .[] | select(.type == "abstract").value}' purl-description/*.json > dataset.json
+```
