@@ -1,24 +1,9 @@
-# README
+# Semantic search webapp
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Setup credentials
 
-Things you may want to cover:
+See https://cloud.google.com/docs/authentication/provide-credentials-adc#how-to
 
-* Ruby version
+Go to https://console.cloud.google.com/iam-admin/serviceaccounts/details/102998824006089567844/keys and download the json key
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+set GOOGLE_APPLICATION_CREDENTIALS=<path to file.json>
