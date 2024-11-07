@@ -61,4 +61,46 @@ main {
       }
     }
   }
+
+  article {
+    --base: 1.2;
+
+    a {
+      --bs-link-hover-decoration: none;
+      --sul-link-font-weight: 300;
+    }
+
+    a:hover .card-title {
+      text-decoration: underline;
+    }
+
+    .canvas-container {
+      overflow: hidden;
+      background: #fff;
+      border-radius: var(--bs-card-border-radius);
+    }
+    .card-body {
+      border-top: 1px solid var(--bs-card-border-color);
+    }
+    header {
+      font-weight: 500;
+    }
+    .card-text:first-of-type {
+      max-height: calc(
+        4rem * var(--base)
+      ); /* Set a cut-off point for the content */
+      overflow: hidden; /* Cut off the content */
+      position: relative; /* needed for :after */
+    }
+
+    .card-text:first-of-type:after {
+      content: "";
+      background: linear-gradient(to right, transparent, var(--bs-body-bg) 80%);
+      display: block;
+      height: calc(1rem * var(--base) + 1px);
+      inset-block-end: 5px;
+      position: absolute;
+      width: 100%;
+    }
+  }
 }

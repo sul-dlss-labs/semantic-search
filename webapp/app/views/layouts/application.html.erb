@@ -31,6 +31,12 @@
 
     <%= javascript_importmap_tags %>
 
+    <script src="https://unpkg.com/pdfjs-dist@4.0.379/build/pdf.min.mjs" type="module"></script>
+    <script type="module">
+      const { pdfjsLib } = globalThis;
+      pdfjsLib.GlobalWorkerOptions.workerSrc = "https://unpkg.com/pdfjs-dist@4.0.379/build/pdf.worker.min.mjs";
+    </script>
+
     <script
       type="module"
       src="https://unpkg.com/@github/auto-complete-element@latest/dist/bundle.js"
