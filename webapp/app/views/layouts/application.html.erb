@@ -256,9 +256,25 @@
     </header>
 
     <main>
-      <div class="container">
-        <%= yield %>
-      </div>
+      <search>
+        <div class="searchbar py-2">
+          <div class="container">
+            <form class="search-query-form" data-controller="search" method="get">
+              <div class="input-group">
+                <label class="sr-only visually-hidden" for="q">search for</label>
+                <auto-complete src="/catalog/suggest" for="autocomplete-popup" class="search-autocomplete-wrapper">
+                  <input placeholder="Try &quot;groundwater&quot;" class="search-q q form-control rounded-left" aria-label="search for" aria-autocomplete="list" aria-controls="autocomplete-popup" type="search" name="q" id="q" role="combobox" aria-expanded="false" aria-haspopup="listbox" autocomplete="off" spellcheck="false">
+                  <ul id="autocomplete-popup" class="dropdown-menu" role="listbox" aria-label="search for" hidden=""></ul>
+                </auto-complete>
+                <button class="btn btn-primary search-btn" type="submit" id="search"><span class="submit-search-text">Search</span></button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="container my-3">
+          <%= yield %>
+        </div>
+      </search>
     </main>
 
     <footer role="contentinfo">
