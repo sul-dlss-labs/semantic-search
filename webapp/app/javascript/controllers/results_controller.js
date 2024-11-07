@@ -5,7 +5,7 @@ export default class extends Controller {
     druid: String
   }
 
-  static targets = [ "title", "abstract", "canvas" ]
+  static targets = [ "title", "abstract", "canvas", "date" ]
   connect(e) {
     // e.preventDefault()
     console.log('load metadata for ' + this.druidValue)
@@ -17,6 +17,8 @@ export default class extends Controller {
   setJson(json) {
     this.titleTarget.innerHTML = json.label
     this.abstractTarget.innerHTML = json.description.note.find((note) => note.type === "abstract")?.value
+    const date = json.description.event[0].date[0]
+    this.dateTarget.innerHTML = `${date.type} ${date.value}`
     const filename = json.structural.contains[0].structural.contains[0].filename
     const pdf_url = `https://stacks.stanford.edu/file/${json.externalIdentifier}/${filename}`
     this.setPdfImage(pdf_url)

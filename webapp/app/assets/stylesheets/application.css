@@ -102,5 +102,11 @@ main {
       position: absolute;
       width: 100%;
     }
+
+    /* capitalize the date type */
+    .card-text:last-of-type::first-letter {
+          text-transform: capitalize;
+      }
+    }
   }
 }
