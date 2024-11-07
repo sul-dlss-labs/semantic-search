@@ -29,6 +29,9 @@ jq -c '{ "id":input_filename | ltrimstr("purl-description/") | rtrimstr(".json")
 ### Create an index
 On Collab Enterprise, run the python script. <Semantic\ search\ chunking\ and\ embedding.ipynb>
 
+### Download data from google cloud storage
+The index script created this file <https://console.cloud.google.com/storage/browser/_details/cloud-ai-platform-e215f7f7-a526-4a66-902d-eb69384ef0c4/semantic-search/chunk_to_doc.json;tab=live_object?project=sul-ai-sandbox>.  We have downloaded it an put it into the webapp at `semantic-search_chunk_to_doc.json`.  This lets us look up which SDR item a particular text chunk works for.
+
 ### Run the webapp
 ```
 cd webapp

@@ -1,5 +1,5 @@
 <%= turbo_frame_tag 'results' do %>
-  <div class="d-flex gap-3">
+  <div class="d-flex gap-3 flex-wrap">
     <% druids.each do |druid| %>
       <%= render 'result', druid: %>
     <% end %>
