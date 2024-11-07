@@ -25,3 +25,12 @@ python download-purls.py
 ```
 jq -c '{ "id":input_filename | ltrimstr("purl-description/") | rtrimstr(".json"), "title":.title[].value, "abstract":.note | .[] | select(.type == "abstract").value}' purl-description/*.json > dataset.json
 ```
+
+### Create an index
+On Collab Enterprise, run the python script. <Semantic\ search\ chunking\ and\ embedding.ipynb>
+
+### Run the webapp
+```
+cd webapp
+bin/rails dev
+```
