@@ -29,7 +29,7 @@ main {
       padding: 0.5rem;
       border-radius: 0.25rem;
       background-color: white;
-      width: 50vw;
+      width: clamp(400px, 50vw, 800px);
 
       input:focus {
         box-shadow: none;
@@ -40,7 +40,7 @@ main {
         align-items: center;
       }
 
-      .input-group > .search-autocomplete-wrapper {
+      .search-autocomplete-wrapper {
         border: none;
 
         display: inline-block;

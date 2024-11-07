@@ -29,6 +29,8 @@
       crossorigin="anonymous"
     ></script>
 
+    <%= javascript_importmap_tags %>
+
     <script
       type="module"
       src="https://unpkg.com/@github/auto-complete-element@latest/dist/bundle.js"
@@ -36,7 +38,6 @@
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
   </head>
 
   <body>
@@ -121,10 +122,10 @@
       <search>
         <div class="searchbar py-2">
           <div class="container">
-            <form class="search-query-form" data-controller="search" method="get">
+            <form class="search-query-form" action="/search"  method="post">
               <div class="input-group">
                 <label class="sr-only visually-hidden" for="q">search for</label>
-                <auto-complete src="/catalog/suggest" for="autocomplete-popup" class="search-autocomplete-wrapper">
+                <auto-complete src="/suggest" for="autocomplete-popup" class="search-autocomplete-wrapper">
                   <input placeholder="Try &quot;groundwater&quot;" class="search-q q form-control rounded-left" aria-label="search for" aria-autocomplete="list" aria-controls="autocomplete-popup" type="search" name="q" id="q" role="combobox" aria-expanded="false" aria-haspopup="listbox" autocomplete="off" spellcheck="false">
                   <ul id="autocomplete-popup" class="dropdown-menu" role="listbox" aria-label="search for" hidden=""></ul>
                 </auto-complete>
