@@ -16,4 +16,4 @@ set GOOGLE_APPLICATION_CREDENTIALS=<path to file.json>
 1. `export CR_PAT=<token>`
 1. `echo $CR_PAT | docker login ghcr.io -u jcoyne --password-stdin`
 1. `docker pull ghcr.io/sul-dlss-labs/semantic-search:main`
-1. `docker run -e RAILS_MASTER_KEY=<master key> -p 80:80 ghcr.io/sul-dlss-labs/semantic-search:main`
+1. `docker run -e RAILS_MASTER_KEY=<master key> -e GOOGLE_APPLICATION_CREDENTIALS="/app/service-account.json" -v /home/semantic/sul-ai-sandbox-a942355da578.json:/app/service-account.json -p 80:80 ghcr.io/sul-dlss-labs/semantic-search:main`
