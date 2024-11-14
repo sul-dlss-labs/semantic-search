@@ -1,9 +1,5 @@
 class SimilarController < ApplicationController
   def show
-    if request.origin&.match?(/\Ahttps:\/\/[^\\]+\.stanford.edu\//)
-      response.headers['Access-Control-Allow-Origin'] = "*"
-    end
-
     conn = Faraday.new do |f|
        f.request :json
        f.response :json
