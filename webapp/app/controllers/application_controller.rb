@@ -1,12 +1,13 @@
 class ApplicationController < ActionController::Base
   # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
   allow_browser versions: :modern
+  protect_from_forgery unless: -> { request.method == 'OPTIONS' }
 
   def cors_preflight_check
-      if request.method == 'OPTIONS' && request.origin&.match?(/\Ahttps:\/\/[^\\]+\.stanford.edu\//)
+      # if request.method == 'OPTIONS' && request.origin&.match?(/\Ahttps:\/\/[^\\]+\.stanford.edu\//)
         cors_set_access_control_headers
         render text: ''
-      end
+      # end
     end
 
   protected
