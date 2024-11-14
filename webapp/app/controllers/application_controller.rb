@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
       response.headers['Access-Control-Allow-Origin'] = "*"
       # response.headers['Access-Control-Allow-Credentials'] = "true"
       # response.headers['Access-Control-Allow-Methods'] = 'POST, GET, PUT, PATCH, DELETE, OPTIONS'
-      # response.headers['Access-Control-Allow-Headers'] = 'Origin, Content-Type, Accept'
+      response.headers['Access-Control-Allow-Headers'] = 'Origin, Content-Type, Accept, turbo-frame, x-turbo-request-id'
       # response.headers['Access-Control-Max-Age'] = '86400'
   end
 end
