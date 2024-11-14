@@ -9,7 +9,7 @@
     <div class="card-body">
       <ul>
       <% @druids[0..3].each do |druid| %>
-        <li><%= link_to "https://searchworks.stanford.edu/view/#{druid}", druid %></li>
+        <li><%= link_to druid, "https://searchworks.stanford.edu/view/#{druid}" %></li>
       <% end %>
       </ul>
     </div>
