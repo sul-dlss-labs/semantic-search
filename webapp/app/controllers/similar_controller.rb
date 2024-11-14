@@ -8,7 +8,7 @@ class SimilarController < ApplicationController
     res = conn.get("https://purl.stanford.edu/#{params[:id]}.json")
     abstract = res.body.dig('description', 'note').find { |note| note['type'] == 'abstract' }['value']
     @druids = DruidSearch.search(abstract)
+    cors_set_access_control_headers
     render layout: false
-    # render html: "#{druids[0..3]}"
   end
 end
