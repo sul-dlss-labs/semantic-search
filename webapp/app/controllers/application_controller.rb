@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   def cors_preflight_check
       # if request.method == 'OPTIONS' && request.origin&.match?(/\Ahttps:\/\/[^\\]+\.stanford.edu\//)
         cors_set_access_control_headers
-        render text: ''
+        head :ok
       # end
     end
 
