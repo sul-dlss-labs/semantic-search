@@ -1,0 +1,17 @@
+<% # The id used in this turbo-frame must match the one used by searchworks when calling this %>
+<turbo-frame id="similar_holdings">
+  <div class="card mb-3 access-panel">
+    <div class="access-panel-heading card-header">
+      <h3>
+        Similar holdings
+      </h3>
+    </div>
+    <div class="card-body">
+      <ul>
+      <% @druids[0..3].each do |druid| %>
+        <li><%= link_to "https://searchworks.stanford.edu/view/#{druid}", druid %></li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+</turbo-frame>

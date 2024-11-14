@@ -409,6 +409,7 @@ DEPENDENCIES
   brakeman
   capybara
   debug
+  faraday (~> 2.12)
   google-apis-aiplatform_v1
   importmap-rails
   jbuilder
