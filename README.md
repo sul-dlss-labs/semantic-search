@@ -23,10 +23,11 @@ python download-purls.py
 ### Extract relevant data
 
 ```
-jq -c '{ "id":input_filename | ltrimstr("purl-description/") | rtrimstr(".json"), \
-         "title":.title[].value, \
-         "abstract":.note | .[] | select(.type == "abstract").value, \
-         "date":.event |  .[] | select(.type == "deposit").date | .[].value |strptime("%Y-%m-%d") |strftime("%Y")}' purl-description/*.json > dataset.json
+jq -c '{ "id":input_filename | ltrimstr("purl-description/") | rtrimstr(".json"),
+         title:.title[].value,
+         abstract:.note | .[] | select(.type == "abstract").value,
+         date:.event | .[] | select(.type == "deposit").date | .[].value | strptime("%Y-%m-%d") | strftime("%Y"),
+         subject: [.subject | .[].value]}' purl-description/*.json > dataset.json
 ```
 
 ### Create an index
