@@ -30,7 +30,7 @@ class GoogleEmbeddingService
     location = "us-central1" # Change as appropriate
 
     # Resource name for the model
-    model_id = "text-embedding-004"
+    model_id = "text-embedding-005"
     endpoint = "projects/#{project_id}/locations/#{location}/publishers/google/models/#{model_id}"
 
     begin

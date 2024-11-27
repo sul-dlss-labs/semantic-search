@@ -12,16 +12,22 @@ class GoogleSearchService
   attr_reader :feature_vector
 
   def deployed_index_id
-    "open_access_deployed_1732635131814"
+    "open_access_deployed_1732727565391"
   end
 
   def queries
     [Google::Apis::AiplatformV1::GoogleCloudAiplatformV1FindNeighborsRequestQuery.new(
       approximate_neighbor_count: 10,
       datapoint: Google::Apis::AiplatformV1::GoogleCloudAiplatformV1IndexDatapoint.new(
-        feature_vector:
+        feature_vector:,
+        restricts:
       )
     )]
+  end
+
+  # A list of filters to apply to the query
+  def restricts
+    []
   end
 
   def request_body
