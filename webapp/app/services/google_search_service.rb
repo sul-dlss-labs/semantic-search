@@ -20,14 +20,21 @@ class GoogleSearchService
       approximate_neighbor_count: 10,
       datapoint: Google::Apis::AiplatformV1::GoogleCloudAiplatformV1IndexDatapoint.new(
         feature_vector:,
-        restricts:
-      )
+        # restricts:
+      ),
+      per_crowding_attribute_neighbor_count: 1,
     )]
   end
 
   # A list of filters to apply to the query
   def restricts
     []
+    # [
+    #   Google::Apis::AiplatformV1::GoogleCloudAiplatformV1IndexDatapointRestriction.new(
+    #                     namespace: "category",
+    #                     allow_list: ["California"]
+    #   )
+    # ]
   end
 
   def request_body
