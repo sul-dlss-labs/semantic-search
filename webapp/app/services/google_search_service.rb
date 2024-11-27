@@ -1,12 +1,13 @@
 require 'googleauth'
 
 class GoogleSearchService
-  def self.neighbors(feature_vector)
-    new(feature_vector).neighbors
+  def self.neighbors(feature_vector, subjects: [])
+    new(feature_vector, subjects:).neighbors
   end
 
-  def initialize(feature_vector)
+  def initialize(feature_vector, subjects:)
     @feature_vector = feature_vector
+    @subjects = subjects
   end
 
   attr_reader :feature_vector
@@ -20,7 +21,7 @@ class GoogleSearchService
       approximate_neighbor_count: 10,
       datapoint: Google::Apis::AiplatformV1::GoogleCloudAiplatformV1IndexDatapoint.new(
         feature_vector:,
-        # restricts:
+        restricts:
       ),
       per_crowding_attribute_neighbor_count: 1,
     )]
@@ -28,20 +29,21 @@ class GoogleSearchService
 
   # A list of filters to apply to the query
   def restricts
-    []
-    # [
-    #   Google::Apis::AiplatformV1::GoogleCloudAiplatformV1IndexDatapointRestriction.new(
-    #                     namespace: "category",
-    #                     allow_list: ["California"]
-    #   )
-    # ]
+    return [] unless @subjects.present?
+    [
+      Google::Apis::AiplatformV1::GoogleCloudAiplatformV1IndexDatapointRestriction.new(
+                        namespace: "subject",
+                        allow_list: @subjects
+      )
+    ]
   end
 
   def request_body
     Google::Apis::AiplatformV1::GoogleCloudAiplatformV1FindNeighborsRequest.new(
       deployed_index_id:,
       queries:,
-      return_full_datapoint: false
+      return_full_datapoint: true,
+      num_neighbors: 100,
     )
   end
 

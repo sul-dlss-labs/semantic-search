@@ -1,7 +1,31 @@
 <%= turbo_frame_tag 'results' do %>
+  <div class="mb-4">
+    <div class="dropdown d-inline-block">
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Subject:
+      </button>
+      <ul class="dropdown-menu">
+        <% results.flat_map(&:categories).sort.each do |category| %>
+          <li><a class="dropdown-item disabled" aria-disabled="true" href="#"><%= category  %></a></li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="dropdown d-inline-block">
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Year:
+      </button>
+      <ul class="dropdown-menu">
+        <% results.flat_map(&:year).sort.each do |category| %>
+          <li><a class="dropdown-item disabled" aria-disabled="true" href="#"><%= category  %></a></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
   <div class="d-flex gap-3 flex-wrap">
-    <% druids.each do |druid| %>
-      <%= render 'result', druid: %>
+    <% results.each do |result| %>
+      <%= render 'result', result: %>
     <% end %>
   </div>
 <% end %>
