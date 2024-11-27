@@ -55,7 +55,7 @@ class GoogleSearchService
         endpoint,
         request_body
       )
-      response.nearest_neighbors.first.neighbors
+      response.nearest_neighbors.first.neighbors || []
     rescue Google::Apis::Error => e
       puts "Error occurred: #{e.message}"
     end
