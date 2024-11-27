@@ -12,7 +12,7 @@ class GoogleSearchService
   attr_reader :feature_vector
 
   def deployed_index_id
-    "open_access_deploy_1730924393870"
+    "open_access_deployed_1732635131814"
   end
 
   def queries
@@ -57,7 +57,7 @@ class GoogleSearchService
       )
       response.nearest_neighbors.first.neighbors || []
     rescue Google::Apis::Error => e
-      puts "Error occurred: #{e.message}"
+      raise e
     end
   end
 end
