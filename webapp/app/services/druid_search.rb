@@ -1,5 +1,5 @@
 class DruidSearch
-  Result = Data.define(:druid, :categories, :year)
+  Result = Data.define(:druid, :categories, :year, :distance)
 
   def self.search(query)
     embedding = GoogleEmbeddingService.embedding_for(query)
@@ -10,7 +10,7 @@ class DruidSearch
       year = datapoint.numeric_restricts.map(&:value_int)
       chunk_id = datapoint.datapoint_id
       druid = `jq -r '.["#{chunk_id}"].purl' semantic-search_chunk_to_doc.json`.chomp
-      Result.new(druid:, categories:, year:)
+      Result.new(druid:, categories:, year:, distance: neighbor.distance)
     end
   end
 end

@@ -13,12 +13,13 @@ class GoogleSearchService
   attr_reader :feature_vector
 
   def deployed_index_id
-    "open_access_deployed_1732727565391"
+    "open_access_1733157824349"
   end
 
   def queries
     [Google::Apis::AiplatformV1::GoogleCloudAiplatformV1FindNeighborsRequestQuery.new(
-      approximate_neighbor_count: 10,
+      approximate_neighbor_count: 100,
+      neighbor_count: 100,
       datapoint: Google::Apis::AiplatformV1::GoogleCloudAiplatformV1IndexDatapoint.new(
         feature_vector:,
         restricts:
@@ -43,7 +44,6 @@ class GoogleSearchService
       deployed_index_id:,
       queries:,
       return_full_datapoint: true,
-      num_neighbors: 100,
     )
   end
 
