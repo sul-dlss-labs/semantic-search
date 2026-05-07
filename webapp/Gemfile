@@ -64,3 +64,10 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "blacklight", "~> 9.0"
+
+group :development, :test do
+  gem "solr_wrapper", ">= 0.3"
+end
+gem "rsolr", ">= 1.0", "< 3"
