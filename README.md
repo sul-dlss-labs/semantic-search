@@ -41,3 +41,13 @@ The index script created this file <https://console.cloud.google.com/storage/bro
 cd webapp
 bin/rails dev
 ```
+
+## Deployment
+
+The github workflow will build the docker image on each commit.
+
+* SSH to the host.
+* Pull the image:
+```
+docker pull ghcr.io/sul-dlss-labs/semantic-search:main
+```
