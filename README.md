@@ -25,4 +25,4 @@ See https://docs.github.com/en/packages/working-with-a-github-packages-registry/
 ```
 docker pull ghcr.io/sul-dlss-labs/semantic-search:main
 ```
-* `docker run -d -e RAILS_MASTER_KEY=<master key> -p 3000:80 ghcr.io/sul-dlss-labs/semantic-search:main`
+* `docker run -d -e SOLR_URL=https://sul-solr-test.stanford.edu/solr/semantic-search-demo -e RAILS_MASTER_KEY=<master key> -p 3000:80 ghcr.io/sul-dlss-labs/semantic-search:main`
