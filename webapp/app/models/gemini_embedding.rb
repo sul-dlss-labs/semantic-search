@@ -36,7 +36,8 @@ class GeminiEmbedding
       request.body = {
         content: {
           parts: [{ text: content }]
-        }
+        },
+        outputDimensionality: 768
       }.to_json
 
       https = Net::HTTP.new(uri.host, uri.port)
