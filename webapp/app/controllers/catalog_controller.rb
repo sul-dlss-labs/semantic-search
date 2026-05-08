@@ -70,6 +70,7 @@ class CatalogController < ApplicationController
     # Some components can be configured
     # config.index.document_component = MyApp::SearchResultComponent
     # config.index.constraints_component = MyApp::ConstraintsComponent
+    config.header_component = HeaderComponent
     config.index.search_bar_component = SearchBarComponent
     # config.index.search_header_component = MyApp::SearchHeaderComponent
     # config.index.document_actions.delete(:bookmark)
@@ -258,5 +259,9 @@ class CatalogController < ApplicationController
     # if the name of the solr.SuggestComponent provided in your solrconfig.xml is not the
     # default 'mySuggester', uncomment and provide it below
     # config.autocomplete_suggester = 'mySuggester'
+  end
+
+  def layout
+    'application'
   end
 end
