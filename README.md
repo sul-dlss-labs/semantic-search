@@ -20,9 +20,14 @@ The github workflow will build the docker image on each commit.
 
 See https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry
 
-* SSH to the host.
-* Pull the image:
-```
-docker pull ghcr.io/sul-dlss-labs/semantic-search:main
-```
-* `docker run -d -e GEMINI_API_KEY=<key> -e SOLR_URL=https://sul-solr-test.stanford.edu/solr/semantic-search-demo -e RAILS_MASTER_KEY=<master key> -p 3000:80 ghcr.io/sul-dlss-labs/semantic-search:main`
+We deploy with kamal.
+
+  * Get a GitHub token.
+  * cd 'webapp'
+  * Authenticate with kerberos: `kinit`
+  * Get a one time key: `./bin/setup-otk`
+  * Deploy: `KAMAL_REGISTRY_USERNAME=jcoyne \
+    KAMAL_REGISTRY_PASSWORD=<github token> \
+    KAMAL_OTK_KEY=~/.ssh/id_kamal_otk \
+    GEMINI_API_KEY=<gemini api key> \
+    bin/kamal deploy-main`
