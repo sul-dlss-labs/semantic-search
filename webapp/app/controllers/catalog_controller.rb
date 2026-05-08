@@ -43,6 +43,7 @@ class CatalogController < ApplicationController
     ## Default parameters to send to solr for all search-like requests. See also SearchBuilder#processed_parameters
     config.default_solr_params = {
       rows: 10,
+      'facet.mincount': 1,
       'q.alt': "*:*",
       'qf': "all_search_tesi"
     }
@@ -262,6 +263,6 @@ class CatalogController < ApplicationController
   end
 
   def layout
-    'application'
+    "application"
   end
 end
