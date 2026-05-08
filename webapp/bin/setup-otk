@@ -1,0 +1,47 @@
+#!/usr/bin/env ruby
+require 'fileutils'
+require 'securerandom'
+require 'tmpdir'
+
+# This script implements a "One-Time Key" strategy for Kamal in Kerberos environments.
+# It uses the system SSH client (which handles Kerberos) to install a temporary key,
+# then tells Kamal to use that key.
+
+USER = "semantic"
+HOST = "semantic-search-demo.stanford.edu"
+COMMENT = "kamal-otk-#{SecureRandom.hex(6)}"
+
+def setup_otk
+  key_path = File.expand_path("~/.ssh/id_kamal_otk")
+
+  puts "--- Generating temporary SSH key at #{key_path} ---"
+  FileUtils.rm_f(key_path)
+  FileUtils.rm_f("#{key_path}.pub")
+  system("ssh-keygen -t ed25519 -f #{key_path} -N '' -C '#{COMMENT}'")
+
+  pub_key = File.read("#{key_path}.pub").strip
+
+  puts "--- Installing key on remote host via system SSH (Kerberos) ---"
+  # Use -o BatchMode=yes to fail fast if Kerberos isn't working
+  install_cmd = "mkdir -p ~/.ssh && chmod 700 ~/.ssh && touch ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys && echo '#{pub_key}' >> ~/.ssh/authorized_keys"
+
+  if system("ssh -o BatchMode=yes #{USER}@#{HOST} \"#{install_cmd}\"")
+    puts "--- Key installed successfully ---"
+
+    puts "--- Verifying key-based connection (bypassing Kerberos) ---"
+    if system("ssh -i #{key_path} -o PasswordAuthentication=no -o GSSAPIAuthentication=no #{USER}@#{HOST} 'hostname'")
+      puts "--- Verification successful! ---"
+      puts "\nNow run Kamal:"
+      puts "export KAMAL_OTK_KEY=#{key_path}"
+      puts "bin/kamal deploy --skip-push"
+    else
+      puts "--- Verification FAILED. The key was installed but isn't working for login. ---"
+    end
+  else
+    puts "--- Failed to install key via SSH. Is your kinit valid? ---"
+    exit 1
+  end
+
+  key_path
+end
+setup_otk
