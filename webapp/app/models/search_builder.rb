@@ -8,6 +8,7 @@ class SearchBuilder < Blacklight::SearchBuilder
   def add_embedding_to_query(solr_parameters)
     return unless blacklight_params[:q].present?
 
+    solr_parameters[:json] ||= { query: {} }
     solr_parameters[:json][:query][:bool] = {
       should: keyword(solr_parameters) + knn
     }
@@ -20,7 +21,13 @@ class SearchBuilder < Blacklight::SearchBuilder
 
   def keyword(solr_parameters)
     return [] if blacklight_params[:search_type] == "vector"
-    solr_parameters.dig(:json, :query, :bool, :must)
+
+    must_queries = solr_parameters.dig(:json, :query, :bool, :must)
+    return Array.wrap(must_queries) if must_queries.present? # advance search is enabled
+
+    return [] unless solr_parameters[:q].present?
+
+    [ { edismax: { query: solr_parameters[:q] } } ]
   end
 
   def knn

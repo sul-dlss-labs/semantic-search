@@ -30,7 +30,7 @@ class CatalogController < ApplicationController
     # config.raw_endpoint.enabled = false
     #
     ## Should advanced search be enabled
-    # config.advanced_search.enabled = false
+    config.advanced_search.enabled = false
     #
     ## Optional fine-tuning for advanced search, e.g., set different limits for
     ## different facets.
