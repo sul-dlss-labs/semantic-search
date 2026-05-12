@@ -84,9 +84,9 @@ class CatalogController < ApplicationController
     config.add_results_collection_tool(:view_type_group)
 
     config.add_show_tools_partial(:bookmark, component: Blacklight::Document::BookmarkComponent, if: :render_bookmarks_control?)
-    config.add_show_tools_partial(:email, callback: :email_action, validator: :email_params_valid?)
-    config.add_show_tools_partial(:sms, if: :render_sms_action?, callback: :sms_action, validator: :sms_params_valid?)
-    config.add_show_tools_partial(:citation)
+    # config.add_show_tools_partial(:email, callback: :email_action, validator: :email_params_valid?)
+    # config.add_show_tools_partial(:sms, if: :render_sms_action?, callback: :sms_action, validator: :sms_params_valid?)
+    # config.add_show_tools_partial(:citation)
 
     config.add_nav_action(:bookmark, partial: "blacklight/nav/bookmark", if: :render_bookmarks_control?)
     config.add_nav_action(:search_history, partial: "blacklight/nav/search_history")
