@@ -155,11 +155,11 @@ class CatalogController < ApplicationController
     #                        collapsing: true,
     #                        include_in_advanced_search: false
 
-    # config.add_facet_field "example_query_facet_field", label: "Publish Date", query: {
-    #    years_5: { label: "within 5 Years", fq: "pub_date_ssim:[#{Time.zone.now.year - 5 } TO *]" },
-    #    years_10: { label: "within 10 Years", fq: "pub_date_ssim:[#{Time.zone.now.year - 10 } TO *]" },
-    #    years_25: { label: "within 25 Years", fq: "pub_date_ssim:[#{Time.zone.now.year - 25 } TO *]" }
-    # }
+    config.add_facet_field "child_count_i", label: "Text chunks", query: {
+       none: { label: "None", fq: "child_count_i:0" },
+       one: { label: "One", fq: "child_count_i:1" },
+       many: { label: "Present", fq: "child_count_i:[2 TO *]" }
+    }
 
 
     # Have BL send all facet field names to Solr, which has been the default
