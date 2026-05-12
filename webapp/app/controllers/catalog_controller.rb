@@ -45,7 +45,8 @@ class CatalogController < ApplicationController
       rows: 10,
       'facet.mincount': 1,
       'q.alt': "*:*",
-      'qf': "all_search_tesi"
+      'qf': "all_search_tesi",
+      defType: "edismax"
     }
 
     # If you add any inputs to the search form, you must specify them so that they are not stripped out as unpermitted.
