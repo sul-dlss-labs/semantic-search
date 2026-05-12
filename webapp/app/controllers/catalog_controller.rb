@@ -140,6 +140,7 @@ class CatalogController < ApplicationController
     config.add_facet_field "author_other_ssim", label: "Organization (as author)", limit: 6, suggest: true
     config.add_facet_field "topic_ssim", label: "Topic", limit: 6, suggest: true
     config.add_facet_field "format_hsim", label: "Format", sort: :index
+    config.add_facet_field "collection_title_ss", label: "Collection", sort: :index
     # config.add_facet_field "pub_date_ssim", label: "Publication Year", single: true
     # config.add_facet_field "subject_ssim", label: "Topic", limit: 20, index_range: "A".."Z"
     # config.add_facet_field "language_ssim", label: "Language", limit: true
