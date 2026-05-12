@@ -156,8 +156,7 @@ class CatalogController < ApplicationController
     #                        include_in_advanced_search: false
 
     config.add_facet_field "child_count_i", label: "Text chunks", query: {
-       none: { label: "None", fq: "child_count_i:0" },
-       one: { label: "One", fq: "child_count_i:1" },
+       none: { label: "None", fq: "child_count_i:1" },
        many: { label: "Present", fq: "child_count_i:[2 TO *]" }
     }
 
