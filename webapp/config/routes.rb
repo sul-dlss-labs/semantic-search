@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   mount Blacklight::Engine => '/'
   root to: "catalog#index"
+
+  post "/mcp", to: "mcp#index", as: :mcp
+
   concern :searchable, Blacklight::Routes::Searchable.new
 
   resource :catalog, only: [], as: 'catalog', path: '/catalog', controller: 'catalog' do

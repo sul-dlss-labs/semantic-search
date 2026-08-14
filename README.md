@@ -14,6 +14,47 @@ cd webapp
 GEMINI_API_KEY=<key> bin/rails dev
 ```
 
+### MCP server
+
+The Rails application exposes a Model Context Protocol endpoint at:
+
+```text
+POST http://localhost:3000/mcp
+Content-Type: application/json
+```
+
+The `catalog_search_tool` searches the catalog with `keyword`, `vector`, or
+`hybrid` search (the default). It accepts an optional result count and filters
+derived from the catalog's configured facets.
+
+To list the available tools:
+
+```bash
+curl -X POST http://localhost:3000/mcp \
+  -H "Content-Type: application/json" \
+  -d '{"jsonrpc":"2.0","id":"1","method":"tools/list"}'
+```
+
+To search the catalog:
+
+```bash
+curl -X POST http://localhost:3000/mcp \
+  -H "Content-Type: application/json" \
+  -d '{
+    "jsonrpc": "2.0",
+    "id": "2",
+    "method": "tools/call",
+    "params": {
+      "name": "catalog_search_tool",
+      "arguments": {
+        "query": "historic maps",
+        "search_type": "hybrid",
+        "rows": 5
+      }
+    }
+  }'
+```
+
 ## Deployment
 
 The github workflow will build the docker image on each commit.

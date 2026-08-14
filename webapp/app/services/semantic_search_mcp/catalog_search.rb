@@ -1,0 +1,118 @@
+# frozen_string_literal: true
+
+module SemanticSearchMcp
+  # Catalog search functionality exposed through MCP.
+  module CatalogSearch
+    extend self
+
+    SEARCH_TYPES = %w[keyword vector hybrid].freeze
+
+    def build_input_schema
+      properties = {
+        query: {
+          type: "string",
+          description: "The search query to find materials in the catalog"
+        },
+        search_type: {
+          type: "string",
+          description: "The search strategy to use",
+          enum: SEARCH_TYPES,
+          default: "hybrid"
+        },
+        rows: {
+          type: "integer",
+          description: "Number of results to return (max 20)",
+          minimum: 1,
+          maximum: 20,
+          default: 10
+        }
+      }
+      filter_properties = facet_options.transform_values do |options|
+        { type: "string", description: options[:description] }
+      end
+      properties[:filters] = filter_schema(filter_properties) if filter_properties.any?
+
+      { properties: properties, required: [ "query" ] }
+    end
+
+    def search(query:, search_type: "hybrid", rows: 10, filters: {}, controller: nil)
+      config = CatalogController.blacklight_config
+      params = search_params(query, search_type, rows, filters)
+      state = Blacklight::SearchState.new(params, config, controller)
+      response = Blacklight::SearchService.new(config: config, search_state: state).search_results
+
+      CatalogResults.format(
+        response: response,
+        query: query,
+        search_type: search_type,
+        filters: filters || {},
+        config: config,
+        controller: controller
+      )
+    rescue StandardError => e
+      {
+        text: "Error searching catalog: #{e.message}",
+        structured_content: { error: e.message },
+        error: true
+      }
+    end
+
+    private
+
+    def facet_options
+      used_keys = Set.new
+      CatalogController.blacklight_config.facet_fields.each_with_object({}) do |(field_name, config), options|
+        next unless usable_facet?(config)
+
+        key = unique_key(clean_label(config.label), field_name, used_keys)
+        used_keys << key
+        options[key] = {
+          field: config.field || field_name,
+          description: "Filter by #{config.label.downcase}"
+        }
+      end
+    end
+
+    def usable_facet?(config)
+      config.show != false && config.label.present? && config.query.blank? && config.pivot.blank? && config.range != true
+    end
+
+    def unique_key(label_key, field_name, used_keys)
+      return label_key unless used_keys.include?(label_key)
+
+      clean_label(field_name)
+    end
+
+    def clean_label(label)
+      label.downcase.gsub(/[^a-z0-9]+/, "_").gsub(/^_|_$/, "")
+    end
+
+    def filter_schema(properties)
+      {
+        type: "object",
+        description: "Optional filters to narrow search results",
+        properties: properties,
+        additionalProperties: false
+      }
+    end
+
+    def search_params(query, search_type, rows, filters)
+      {
+        q: query,
+        search_field: "all_fields",
+        search_type: SEARCH_TYPES.include?(search_type) ? search_type : "hybrid",
+        rows: [ [ rows, 1 ].max, 20 ].min
+      }.tap do |params|
+        params[:f] = mapped_filters(filters) if filters.present?
+      end
+    end
+
+    def mapped_filters(filters)
+      options = facet_options
+      filters.each_with_object({}) do |(key, value), mapped|
+        field = options.dig(key.to_s, :field)
+        mapped[field] = [ value ] if field
+      end
+    end
+  end
+end
