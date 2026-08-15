@@ -4,7 +4,8 @@ require "net/http"
 require "json"
 
 class GeminiEmbedding
-  DEFAULT_QUERY_INSTRUCTION = "Given a web search query, retrieve relevant passages that answer the query"
+  # See https://ai.google.dev/gemini-api/docs/embeddings
+  DEFAULT_QUERY_INSTRUCTION = "search result"
 
   BASE_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2:embedContent"
 
@@ -28,7 +29,7 @@ class GeminiEmbedding
     input.each do |text|
       content = text
       if instruction
-        content = "Instruct: #{instruction}\nQuery: #{text}"
+        content = "task: #{instruction} | query: #{text}"
       end
 
       uri = URI("#{BASE_URL}?key=#{api_key}")
