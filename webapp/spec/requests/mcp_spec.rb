@@ -162,6 +162,55 @@ RSpec.describe "MCP endpoint", type: :request do
           "url" => "http://www.example.com/catalog/abc123"
         )
       end
+
+      it "returns the vector-matched chunks for each result" do
+        embedding = instance_double(GeminiEmbedding, embedding: [ [ 0.1, 0.2 ] ])
+        allow(GeminiEmbedding).to receive(:new).and_return(embedding)
+        matched_chunk_response = {
+          "responseHeader" => { "status" => 0, "params" => {} },
+          "response" => {
+            "numFound" => 1,
+            "start" => 0,
+            "docs" => [
+              {
+                "id" => "abc123_file_c4",
+                "chunk_text_tesi" => "The passage about frogs and maps.",
+                "filename_ss" => "transcript.pdf",
+                "chunk_index_i" => 4,
+                "score" => 0.91
+              }
+            ]
+          }
+        }
+        allow(solr_connection).to receive(:send_and_receive).and_return(solr_response, matched_chunk_response)
+
+        post_mcp(
+          jsonrpc: "2.0",
+          id: "7",
+          method: "tools/call",
+          params: {
+            name: "catalog_search_tool",
+            arguments: { query: "frogs", search_type: "vector" }
+          }
+        )
+
+        result = response.parsed_body.fetch("result")
+        chunks = result.dig("structuredContent", "results", 0, "matched_chunks")
+        expect(chunks).to eq(
+          [
+            {
+              "text" => "The passage about frogs and maps.",
+              "filename" => "transcript.pdf",
+              "chunk_index" => 4,
+              "score" => 0.91
+            }
+          ]
+        )
+        expect(result.dig("content", 0, "text")).to include(
+          "Matched chunks:",
+          "(transcript.pdf, chunk 4) The passage about frogs and maps."
+        )
+      end
     end
   end
 end

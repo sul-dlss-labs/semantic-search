@@ -5,8 +5,10 @@ module SemanticSearchMcp
   module CatalogResults
     extend self
 
-    def format(response:, query:, search_type:, filters:, config:, controller:)
-      results = Array(response.documents).map { |document| format_document(document, controller) }
+    def format(response:, query:, search_type:, filters:, config:, controller:, matched_chunks: {})
+      results = Array(response.documents).map do |document|
+        format_document(document, controller, matched_chunks)
+      end
       facets = extract_facets(response, config)
 
       {
@@ -24,7 +26,7 @@ module SemanticSearchMcp
 
     private
 
-    def format_document(document, controller)
+    def format_document(document, controller, matched_chunks)
       id = document.id || document["id"]
       {
         id: id,
@@ -34,6 +36,7 @@ module SemanticSearchMcp
         created: field_value(document, [ "creation_date_dtsi" ]),
         collection: field_value(document, [ "collection_title_ss" ]),
         child_count: document["child_count_i"],
+        matched_chunks: matched_chunks[id].presence,
         url: record_url(controller, id)
       }.compact
     end
@@ -127,9 +130,18 @@ module SemanticSearchMcp
         lines << "   Created: #{result[:created]}" if result[:created]
         lines << "   Collection: #{result[:collection]}" if result[:collection]
         lines << "   Child count: #{result[:child_count]}" if result[:child_count]
+        lines.concat(formatted_chunks(result[:matched_chunks])) if result[:matched_chunks]
         lines << "   URL: #{result[:url]}"
         lines.join("\n")
       end.join("\n\n")
+    end
+
+    def formatted_chunks(chunks)
+      [ "   Matched chunks:" ] + chunks.map do |chunk|
+        source = [ chunk[:filename], chunk[:chunk_index] && "chunk #{chunk[:chunk_index]}" ].compact.join(", ")
+        label = source.present? ? " (#{source})" : ""
+        "   -#{label} #{chunk[:text]}"
+      end
     end
 
     def facet_text(facets)

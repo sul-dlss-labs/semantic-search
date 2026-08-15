@@ -6,6 +6,7 @@ module SemanticSearchMcp
     extend self
 
     SEARCH_TYPES = %w[keyword vector hybrid].freeze
+    MATCHED_CHUNKS_PER_DOCUMENT = 3
 
     def build_input_schema
       properties = {
@@ -39,7 +40,11 @@ module SemanticSearchMcp
       config = CatalogController.blacklight_config
       params = search_params(query, search_type, rows, filters)
       state = Blacklight::SearchState.new(params, config, controller)
-      response = Blacklight::SearchService.new(config: config, search_state: state).search_results
+      search_builder = nil
+      response = Blacklight::SearchService.new(config: config, search_state: state).search_results do |builder|
+        search_builder = builder
+      end
+      matched_chunks = matched_chunks(response.documents, search_builder&.query_embedding, config)
 
       CatalogResults.format(
         response: response,
@@ -47,7 +52,8 @@ module SemanticSearchMcp
         search_type: search_type,
         filters: filters || {},
         config: config,
-        controller: controller
+        controller: controller,
+        matched_chunks: matched_chunks
       )
     rescue StandardError => e
       {
@@ -58,6 +64,50 @@ module SemanticSearchMcp
     end
 
     private
+
+    def matched_chunks(documents, embedding, config)
+      parent_ids = Array(documents).filter_map { |document| document.id || document["id"] }.to_set
+      return {} if embedding.blank? || parent_ids.empty?
+
+      response = config.repository.search(params: matched_chunk_query(embedding))
+      response.documents.each_with_object(Hash.new { |hash, key| hash[key] = [] }) do |chunk, matches|
+        parent_id = parent_id_for(chunk, parent_ids)
+        next unless parent_id
+        next if matches[parent_id].length >= MATCHED_CHUNKS_PER_DOCUMENT
+
+        matches[parent_id] << {
+          text: chunk["chunk_text_tesi"],
+          filename: chunk["filename_ss"],
+          chunk_index: chunk["chunk_index_i"],
+          score: chunk["score"]
+        }.compact
+      end
+    end
+
+    def parent_id_for(chunk, parent_ids)
+      stored_root = chunk["_root_"]
+      return stored_root if parent_ids.include?(stored_root)
+
+      child_id = chunk.id || chunk["id"]
+      parent_ids.find { |parent_id| child_id&.start_with?("#{parent_id}_") }
+    end
+
+    def matched_chunk_query(embedding)
+      {
+        facet: false,
+        json: {
+          query: {
+            knn: {
+              f: "vector",
+              topK: SearchBuilder::VECTOR_TOP_K,
+              query: "[#{embedding.join(', ')}]"
+            }
+          },
+          fields: %w[id chunk_text_tesi filename_ss chunk_index_i score],
+          limit: SearchBuilder::VECTOR_TOP_K
+        }
+      }
+    end
 
     def facet_options
       used_keys = Set.new
