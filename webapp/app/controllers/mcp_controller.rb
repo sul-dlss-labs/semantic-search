@@ -34,8 +34,10 @@ class McpController < ApplicationController
     MCP::Server.new(
       name: "semantic-search",
       version: "1.0.0",
-      instructions: "Use this tool to search Stanford Libraries digital collections using keyword, vector, or hybrid search.",
-      tools: [ catalog_tool ],
+      instructions: "Search Stanford Libraries digital collections. Use catalog_search_tool to find documents, " \
+                    "get_document_chunks to read a known document (following cursors until complete when an exhaustive scan is required), " \
+                    "and search_passages to find semantically relevant passages across documents.",
+      tools: SemanticSearchMcp::Tools::ALL.map { |definition| mcp_tool(definition) },
       server_context: {
         controller: self,
         request_id: request.uuid
@@ -44,17 +46,18 @@ class McpController < ApplicationController
     )
   end
 
-  def catalog_tool
-    definition = SemanticSearchMcp::Tools::CATALOG_SEARCH
+  def mcp_tool(definition)
     schema = definition[:input_schema]
 
     Class.new(MCP::Tool).tap do |tool|
       tool.tool_name definition[:name]
       tool.description definition[:description]
       tool.input_schema(schema.is_a?(Proc) ? schema.call : schema)
+      tool.annotations(read_only_hint: true, destructive_hint: false, idempotent_hint: true, open_world_hint: false)
       tool.define_singleton_method(:call) do |**arguments|
         context = arguments.delete(:server_context)
-        result = SemanticSearchMcp::CatalogSearch.search(controller: context&.dig(:controller), **arguments)
+        handler = definition[:handler] || ->(**options) { SemanticSearchMcp::CatalogSearch.search(**options) }
+        result = handler.call(controller: context&.dig(:controller), **arguments)
         MCP::Tool::Response.new(
           [ { type: "text", text: result[:text] } ],
           structured_content: result[:structured_content],

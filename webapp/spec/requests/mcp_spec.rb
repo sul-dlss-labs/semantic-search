@@ -22,18 +22,20 @@ RSpec.describe "MCP endpoint", type: :request do
       post "/mcp", params: body.to_json, headers: { "Content-Type" => "application/json" }
     end
 
-    it "lists the catalog search tool and supported search types" do
+    it "lists the search and document-reading tools" do
       post_mcp(jsonrpc: "2.0", id: "1", method: "tools/list")
 
       expect(response).to have_http_status(:ok)
       tools = response.parsed_body.dig("result", "tools")
-      expect(tools.pluck("name")).to eq([ "catalog_search_tool" ])
-      expect(tools.first.dig("inputSchema", "properties", "search_type", "enum"))
+      expect(tools.pluck("name")).to eq(%w[catalog_search_tool get_document_chunks search_passages])
+      catalog_tool = tools.find { |tool| tool["name"] == "catalog_search_tool" }
+      expect(catalog_tool.dig("inputSchema", "properties", "search_type", "enum"))
         .to eq(%w[keyword vector hybrid])
-      expect(tools.first.dig("inputSchema", "properties", "filters", "properties")).to include(
+      expect(catalog_tool.dig("inputSchema", "properties", "filters", "properties")).to include(
         "format",
         "format_hsim"
       )
+      expect(tools).to all(include("annotations" => include("readOnlyHint" => true, "destructiveHint" => false)))
     end
 
     it "performs a keyword search" do
@@ -209,6 +211,152 @@ RSpec.describe "MCP endpoint", type: :request do
         expect(result.dig("content", 0, "text")).to include(
           "Matched chunks:",
           "(transcript.pdf, chunk 4) The passage about frogs and maps."
+        )
+      end
+    end
+
+    describe "get_document_chunks" do
+      let(:solr_response) do
+        {
+          "responseHeader" => { "status" => 0, "params" => {} },
+          "response" => {
+            "numFound" => 2,
+            "start" => 0,
+            "docs" => [
+              {
+                "id" => "abc123_transcript_c0",
+                "chunk_text_tesi" => "The first passage.",
+                "filename_ss" => "transcript.pdf",
+                "chunk_index_i" => 0
+              }
+            ]
+          }
+        }
+      end
+
+      it "returns ordered chunks and a continuation cursor" do
+        post_mcp(
+          jsonrpc: "2.0",
+          id: "8",
+          method: "tools/call",
+          params: {
+            name: "get_document_chunks",
+            arguments: { document_id: "abc123", limit: 1 }
+          }
+        )
+
+        result = response.parsed_body.fetch("result")
+        structured = result.fetch("structuredContent")
+        expect(structured).to include(
+          "document_id" => "abc123",
+          "total_chunks" => 2,
+          "returned_chunks" => 1,
+          "complete" => false,
+          "url" => "http://www.example.com/catalog/abc123"
+        )
+        expect(structured.fetch("next_cursor")).to be_present
+        expect(structured.fetch("chunks")).to eq(
+          [
+            {
+              "id" => "abc123_transcript_c0",
+              "text" => "The first passage.",
+              "filename" => "transcript.pdf",
+              "chunk_index" => 0
+            }
+          ]
+        )
+        expect(result.dig("content", 0, "text")).to include("1 of 2 chunks", "Continue with cursor:")
+      end
+
+      it "rejects a cursor issued for another document" do
+        cursor = Base64.urlsafe_encode64(
+          { version: 1, document_id: "another-document", offset: 1 }.to_json,
+          padding: false
+        )
+
+        post_mcp(
+          jsonrpc: "2.0",
+          id: "9",
+          method: "tools/call",
+          params: {
+            name: "get_document_chunks",
+            arguments: { document_id: "abc123", cursor: cursor }
+          }
+        )
+
+        result = response.parsed_body.fetch("result")
+        expect(result["isError"]).to be true
+        expect(result.dig("structuredContent", "error")).to include("Invalid cursor for document abc123")
+      end
+    end
+
+    describe "search_passages" do
+      it "returns vector-ranked passages with parent source metadata" do
+        embedding = instance_double(GeminiEmbedding, embedding: [ [ 0.1, 0.2 ] ])
+        allow(GeminiEmbedding).to receive(:new).and_return(embedding)
+        passage_response = {
+          "responseHeader" => { "status" => 0, "params" => {} },
+          "response" => {
+            "numFound" => 1,
+            "start" => 0,
+            "docs" => [
+              {
+                "id" => "abc123_transcript_c4",
+                "chunk_text_tesi" => "A compelling story about Professor X.",
+                "filename_ss" => "transcript.pdf",
+                "chunk_index_i" => 4,
+                "score" => 0.93
+              }
+            ]
+          }
+        }
+        parent_response = {
+          "responseHeader" => { "status" => 0, "params" => {} },
+          "response" => {
+            "numFound" => 1,
+            "start" => 0,
+            "docs" => [
+              {
+                "id" => "abc123",
+                "title_display_tesi" => "Oral history with Professor X",
+                "collection_title_ss" => "Oral History Collection"
+              }
+            ]
+          }
+        }
+        allow(solr_connection).to receive(:send_and_receive).and_return(passage_response, parent_response)
+
+        post_mcp(
+          jsonrpc: "2.0",
+          id: "10",
+          method: "tools/call",
+          params: {
+            name: "search_passages",
+            arguments: {
+              query: "Professor X career milestones",
+              document_ids: [ "abc123" ],
+              limit: 5
+            }
+          }
+        )
+
+        result = response.parsed_body.fetch("result")
+        expect(result["isError"]).not_to be true
+        expect(result.dig("structuredContent", "search_type")).to eq("vector")
+        expect(result.dig("structuredContent", "passages", 0)).to include(
+          "rank" => 1,
+          "text" => "A compelling story about Professor X.",
+          "score" => 0.93,
+          "chunk_index" => 4,
+          "filename" => "transcript.pdf",
+          "document_id" => "abc123",
+          "document_title" => "Oral history with Professor X",
+          "collection" => "Oral History Collection",
+          "url" => "http://www.example.com/catalog/abc123"
+        )
+        expect(embedding).to have_received(:embedding).with(
+          input: [ "Professor X career milestones" ],
+          instruction: GeminiEmbedding::DEFAULT_QUERY_INSTRUCTION
         )
       end
     end
