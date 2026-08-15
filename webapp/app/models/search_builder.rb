@@ -38,7 +38,12 @@ class SearchBuilder < Blacklight::SearchBuilder
         query: {
           knn: {
             f: "vector",
-            topK: 10,
+             # note that topK is referring to the number of child documents.
+             # The index averages ~29 chunks per parent.
+             # Increasing topK mitigates the long-document bias, but setting top-K too high can slow down the query.
+             # We want this high enough such that "the baseball player who threw the first pitch in Florida Marlins organization history"
+             # returns both zv638jb7154 and bb051hp9404
+            topK: 250,
             query:  "[#{retrieve_embedding(blacklight_params[:q]).join(', ')}]"
           }
         },
