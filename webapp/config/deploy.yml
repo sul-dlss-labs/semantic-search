@@ -43,9 +43,12 @@ registry:
 env:
   secret:
     - RAILS_MASTER_KEY
-    - GEMINI_API_KEY
+    - LITELLM_API_KEY
     - SOLR_URL
   clear:
+    LITELLM_API_BASE: https://dlss-aigateway-prod.stanford.edu/v1/
+    LITELLM_EMBEDDING_MODEL: gemini-embedding-2
+
     # Run the Solid Queue Supervisor inside the web server's Puma process to do jobs.
     # When you start using multiple servers, you should split out job processing to a dedicated machine.
     SOLID_QUEUE_IN_PUMA: true
