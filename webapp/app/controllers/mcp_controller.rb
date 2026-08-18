@@ -57,12 +57,25 @@ class McpController < ApplicationController
       tool.define_singleton_method(:call) do |**arguments|
         context = arguments.delete(:server_context)
         handler = definition[:handler] || ->(**options) { SemanticSearchMcp::CatalogSearch.search(**options) }
-        result = handler.call(controller: context&.dig(:controller), **arguments)
-        MCP::Tool::Response.new(
-          [ { type: "text", text: result[:text] } ],
-          structured_content: result[:structured_content],
-          error: result[:error] || false
-        )
+        ActiveSupport::Notifications.instrument(
+          SemanticSearchMcp::Tools::INSTRUMENTATION_EVENT,
+          tool_name: definition[:name],
+          input: arguments.deep_dup,
+          request_id: context&.dig(:request_id)
+        ) do |payload|
+          result = handler.call(controller: context&.dig(:controller), **arguments)
+          result_key = definition[:logged_result_key]
+          payload[:results] = Array(result.dig(:structured_content, result_key)).first(
+            SemanticSearchMcp::Tools::LOGGED_RESULT_LIMIT
+          ) if result_key
+          payload[:tool_error] = true if result[:error]
+
+          MCP::Tool::Response.new(
+            [ { type: "text", text: result[:text] } ],
+            structured_content: result[:structured_content],
+            error: result[:error] || false
+          )
+        end
       end
     end
   end
