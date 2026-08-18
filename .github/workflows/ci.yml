@@ -17,11 +17,14 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+          working-directory: webapp
 
       - name: Scan for common Rails security vulnerabilities using static analysis
+        working-directory: webapp
         run: bin/brakeman --no-pager
 
       - name: Scan for known security vulnerabilities in gems used
+        working-directory: webapp
         run: bin/bundler-audit
 
   scan_js:
@@ -35,14 +38,16 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+          working-directory: webapp
 
       - name: Scan for security vulnerabilities in JavaScript dependencies
+        working-directory: webapp
         run: bin/importmap audit
 
   lint:
     runs-on: ubuntu-latest
     env:
-      RUBOCOP_CACHE_ROOT: tmp/rubocop
+      RUBOCOP_CACHE_ROOT: webapp/tmp/rubocop
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
@@ -51,11 +56,12 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+          working-directory: webapp
 
       - name: Prepare RuboCop cache
         uses: actions/cache@v5
         env:
-          DEPENDENCIES_HASH: ${{ hashFiles('.ruby-version', '**/.rubocop.yml', '**/.rubocop_todo.yml', 'Gemfile.lock') }}
+          DEPENDENCIES_HASH: ${{ hashFiles('webapp/.ruby-version', 'webapp/**/.rubocop.yml', 'webapp/**/.rubocop_todo.yml', 'webapp/Gemfile.lock') }}
         with:
           path: ${{ env.RUBOCOP_CACHE_ROOT }}
           key: rubocop-${{ runner.os }}-${{ env.DEPENDENCIES_HASH }}-${{ github.ref_name == github.event.repository.default_branch && github.run_id || 'default' }}
@@ -63,6 +69,7 @@ jobs:
             rubocop-${{ runner.os }}-${{ env.DEPENDENCIES_HASH }}-
 
       - name: Lint code for consistent style
+        working-directory: webapp
         run: bin/rubocop -f github
 
   test:
@@ -85,8 +92,10 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+          working-directory: webapp
 
       - name: Run tests
+        working-directory: webapp
         env:
           RAILS_ENV: test
           # RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
