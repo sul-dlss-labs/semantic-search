@@ -5,23 +5,29 @@ on:
   push:
     branches: [main]
 
+permissions:
+  contents: read
+
 jobs:
   scan_ruby:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+          working-directory: webapp
 
       - name: Scan for common Rails security vulnerabilities using static analysis
+        working-directory: webapp
         run: bin/brakeman --no-pager
 
       - name: Scan for known security vulnerabilities in gems used
+        working-directory: webapp
         run: bin/bundler-audit
 
   scan_js:
@@ -29,33 +35,36 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+          working-directory: webapp
 
       - name: Scan for security vulnerabilities in JavaScript dependencies
+        working-directory: webapp
         run: bin/importmap audit
 
   lint:
     runs-on: ubuntu-latest
     env:
-      RUBOCOP_CACHE_ROOT: tmp/rubocop
+      RUBOCOP_CACHE_ROOT: webapp/tmp/rubocop
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+          working-directory: webapp
 
       - name: Prepare RuboCop cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         env:
-          DEPENDENCIES_HASH: ${{ hashFiles('.ruby-version', '**/.rubocop.yml', '**/.rubocop_todo.yml', 'Gemfile.lock') }}
+          DEPENDENCIES_HASH: ${{ hashFiles('webapp/.ruby-version', 'webapp/**/.rubocop.yml', 'webapp/**/.rubocop_todo.yml', 'webapp/Gemfile.lock') }}
         with:
           path: ${{ env.RUBOCOP_CACHE_ROOT }}
           key: rubocop-${{ runner.os }}-${{ env.DEPENDENCIES_HASH }}-${{ github.ref_name == github.event.repository.default_branch && github.run_id || 'default' }}
@@ -63,32 +72,42 @@ jobs:
             rubocop-${{ runner.os }}-${{ env.DEPENDENCIES_HASH }}-
 
       - name: Lint code for consistent style
+        working-directory: webapp
         run: bin/rubocop -f github
 
-  test:
+  rspec:
     runs-on: ubuntu-latest
 
-    # services:
-    #  redis:
-    #    image: valkey/valkey:8
-    #    ports:
-    #      - 6379:6379
-    #    options: --health-cmd "redis-cli ping" --health-interval 10s --health-timeout 5s --health-retries 5
     steps:
-      - name: Install packages
-        run: sudo apt-get update && sudo apt-get install --no-install-recommends -y libvips
+      - name: Check out repository
+        uses: actions/checkout@v7
 
-      - name: Checkout code
-        uses: actions/checkout@v6
+      - name: Check out Solr configuration
+        uses: actions/checkout@v7
+        with:
+          repository: sul-dlss-labs/sdr-harvest
+          path: sdr-harvest
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+          working-directory: webapp
 
-      - name: Run tests
+      - name: Start Solr
+        run: |
+          docker run --detach --name solr --publish 8983:8983 \
+            --volume "${{ github.workspace }}/sdr-harvest/solr_configs:/opt/solr-config:ro" \
+            solr:10 solr-precreate sdr-search /opt/solr-config
+          if ! curl --retry 30 --retry-delay 2 --retry-all-errors \
+            --fail --silent --show-error \
+            http://127.0.0.1:8983/solr/sdr-search/admin/ping; then
+            docker logs solr
+            exit 1
+          fi
+
+      - name: Run RSpec
+        working-directory: webapp
         env:
           RAILS_ENV: test
-          # RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
-          # REDIS_URL: redis://localhost:6379/0
-        run: bin/rails db:test:prepare test
+        run: bundle exec rspec
