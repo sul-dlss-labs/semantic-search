@@ -4,6 +4,7 @@ class SearchBuilder < Blacklight::SearchBuilder
   include Blacklight::Solr::SearchBuilderBehavior
 
   VECTOR_TOP_K = 250
+  VECTOR_BOOST = 100.0
 
   self.default_processor_chain += [ :add_embedding_to_query ]
 
@@ -37,21 +38,29 @@ class SearchBuilder < Blacklight::SearchBuilder
   def knn
     return [] if blacklight_params[:search_type] == "keyword"
     @knn ||= [
-      parent: {
-        which: "doc_type_ssi:parent",
-        query: {
-          knn: {
-            f: "vector",
-            # note that topK is referring to the number of child documents.
-            # The index averages ~29 chunks per parent.
-            # Increasing topK mitigates the long-document bias, but setting top-K too high can slow down the query.
-            # We want this high enough such that "the baseball player who threw the first pitch in Florida Marlins organization history"
-            # returns both zv638jb7154 and bb051hp9404
-            topK: VECTOR_TOP_K,
-            query:  "[#{retrieve_embedding(blacklight_params[:q]).join(', ')}]"
+      {
+        boost: {
+          b: VECTOR_BOOST,
+          query: {
+            parent: {
+              which: "doc_type_ssi:parent",
+              # Without this the parent parser defaults to score=none and every match scores 0.
+              score: "max",
+              query: {
+                knn: {
+                  f: "vector",
+                  # note that topK is referring to the number of child documents.
+                  # The index averages ~29 chunks per parent.
+                  # Increasing topK mitigates the long-document bias, but setting top-K too high can slow down the query.
+                  # We want this high enough such that "the baseball player who threw the first pitch in Florida Marlins organization history"
+                  # returns both zv638jb7154 and bb051hp9404
+                  topK: VECTOR_TOP_K,
+                  query:  "[#{retrieve_embedding(blacklight_params[:q]).join(', ')}]"
+                }
+              }
+            }
           }
-        },
-        boost: 100.0
+        }
       }
     ]
   end
