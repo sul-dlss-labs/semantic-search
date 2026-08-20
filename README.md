@@ -67,8 +67,8 @@ We deploy with kamal.
   * cd 'webapp'
   * Authenticate with kerberos: `kinit`
   * Get a one time key: `./bin/setup-otk`
+  * Login to vault (use SSO): `vault login -method oidc`
   * Deploy: `KAMAL_REGISTRY_USERNAME=jcoyne \
     KAMAL_REGISTRY_PASSWORD=<github token> \
     KAMAL_OTK_KEY=~/.ssh/id_kamal_otk \
-    GEMINI_API_KEY=<gemini api key> \
     bin/kamal deploy-main`
