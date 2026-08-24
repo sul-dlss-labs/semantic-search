@@ -66,7 +66,4 @@ end
 gem "blacklight", "~> 9.0"
 gem "mcp", "~> 1.3"
 
-group :development, :test do
-  gem "solr_wrapper", ">= 0.3"
-end
 gem "rsolr", ">= 1.0", "< 3"
