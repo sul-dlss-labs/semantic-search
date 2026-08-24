@@ -12,6 +12,7 @@ module SemanticSearchMcp
 
     def build_input_schema
       {
+        type: "object",
         properties: {
           query: {
             type: "string",
@@ -38,7 +39,41 @@ module SemanticSearchMcp
             default: DEFAULT_LIMIT
           }
         },
-        required: [ "query" ]
+        required: [ "query" ],
+        additionalProperties: false
+      }
+    end
+
+    def build_output_schema
+      {
+        type: "object",
+        properties: {
+          query: { type: "string" },
+          search_type: { const: "vector" },
+          returned_passages: { type: "integer", minimum: 0 },
+          passages: {
+            type: "array",
+            items: {
+              type: "object",
+              properties: {
+                rank: { type: "integer", minimum: 1 },
+                text: { type: "string" },
+                score: { type: "number" },
+                chunk_id: { type: "string" },
+                chunk_index: { type: "integer", minimum: 0 },
+                filename: { type: "string" },
+                document_id: { type: "string" },
+                document_title: { type: "string" },
+                collection: { type: "string" },
+                url: { type: "string" }
+              },
+              required: [ "rank" ],
+              additionalProperties: false
+            }
+          }
+        },
+        required: %w[query search_type returned_passages passages],
+        additionalProperties: false
       }
     end
 
@@ -67,7 +102,7 @@ module SemanticSearchMcp
         structured_content: structured_content
       }
     rescue StandardError => e
-      error_result("Error searching passages: #{e.message}")
+      SemanticSearchMcp.internal_error("Passage search failed.", e)
     end
 
     private

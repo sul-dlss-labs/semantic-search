@@ -11,6 +11,7 @@ module SemanticSearchMcp
       description: "Search Stanford Libraries digital collections. Supports keyword, vector, and hybrid semantic search. " \
                    "Returns descriptive metadata, matched text chunks for semantic searches, and facet suggestions for refining results.",
       input_schema: -> { CatalogSearch.build_input_schema },
+      output_schema: -> { CatalogSearch.build_output_schema },
       logged_result_key: :results
     }.freeze
 
@@ -19,6 +20,7 @@ module SemanticSearchMcp
       description: "Retrieve a catalog document's text chunks in stable order. Follow next_cursor until complete is true " \
                    "when the task requires scanning the entire document.",
       input_schema: -> { DocumentChunks.build_input_schema },
+      output_schema: -> { DocumentChunks.build_output_schema },
       handler: ->(**arguments) { DocumentChunks.retrieve(**arguments) }
     }.freeze
 
@@ -27,6 +29,7 @@ module SemanticSearchMcp
       description: "Search text passages directly using vector similarity. Returns ranked passage text and parent-document " \
                    "source information. This is relevance-ranked and not an exhaustive document scan.",
       input_schema: -> { PassageSearch.build_input_schema },
+      output_schema: -> { PassageSearch.build_output_schema },
       handler: ->(**arguments) { PassageSearch.search(**arguments) },
       logged_result_key: :passages
     }.freeze

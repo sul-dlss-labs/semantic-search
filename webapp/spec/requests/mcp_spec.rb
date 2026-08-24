@@ -109,6 +109,12 @@ RSpec.describe "MCP endpoint", type: :request do
         "format",
         "format_hsim"
       )
+      expect(tools).to all(
+        include(
+          "inputSchema" => include("additionalProperties" => false),
+          "outputSchema" => include("type" => "object", "additionalProperties" => false)
+        )
+      )
       expect(tools).to all(include("annotations" => include("readOnlyHint" => true, "destructiveHint" => false)))
       expect(response.parsed_body.fetch("result")).to include(
         "ttlMs" => 300_000,
@@ -290,6 +296,60 @@ RSpec.describe "MCP endpoint", type: :request do
       expect(result.dig("content", 0, "text")).to include("No results found for query: frogs")
       expect(result.dig("structuredContent", "search_type")).to eq("keyword")
       expect(result["resultType"]).to eq("complete")
+    end
+
+    it "rejects undeclared tool arguments" do
+      post_mcp(
+        jsonrpc: "2.0",
+        id: "undeclared-argument",
+        method: "tools/call",
+        params: {
+          name: "catalog_search_tool",
+          arguments: { query: "frogs", unexpected: true }
+        }
+      )
+
+      expect(response).to have_http_status(:ok)
+      result = response.parsed_body.fetch("result")
+      expect(result["isError"]).to be true
+      expect(result.dig("content", 0, "text")).to include("disallowed additional property")
+    end
+
+    it "validates successful structured tool results against their output schema" do
+      allow(SemanticSearchMcp::CatalogSearch).to receive(:search).and_return(
+        text: "Malformed result",
+        structured_content: { unexpected: true }
+      )
+
+      post_mcp(
+        jsonrpc: "2.0",
+        id: "invalid-output",
+        method: "tools/call",
+        params: { name: "catalog_search_tool", arguments: { query: "frogs" } }
+      )
+
+      expect(response).to have_http_status(:ok)
+      expect(response.parsed_body.dig("error", "code")).to eq(-32_603)
+      expect(response.parsed_body.dig("error", "message")).to eq("Internal error")
+    end
+
+    it "does not expose catalog backend exception details" do
+      allow(solr_connection).to receive(:send_and_receive).and_raise(StandardError, "secret backend detail")
+
+      post_mcp(
+        jsonrpc: "2.0",
+        id: "catalog-error",
+        method: "tools/call",
+        params: {
+          name: "catalog_search_tool",
+          arguments: { query: "frogs", search_type: "keyword" }
+        }
+      )
+
+      result = response.parsed_body.fetch("result")
+      expect(result["isError"]).to be true
+      expect(result.dig("content", 0, "text")).to eq("Catalog search failed.")
+      expect(result.to_json).not_to include("secret backend detail")
     end
 
     it "defaults to hybrid search" do

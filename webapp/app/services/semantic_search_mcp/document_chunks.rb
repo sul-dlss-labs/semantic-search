@@ -14,6 +14,7 @@ module SemanticSearchMcp
 
     def build_input_schema
       {
+        type: "object",
         properties: {
           document_id: {
             type: "string",
@@ -32,7 +33,38 @@ module SemanticSearchMcp
             description: "Opaque continuation cursor returned by a previous call for this document"
           }
         },
-        required: [ "document_id" ]
+        required: [ "document_id" ],
+        additionalProperties: false
+      }
+    end
+
+    def build_output_schema
+      {
+        type: "object",
+        properties: {
+          document_id: { type: "string" },
+          url: { type: "string" },
+          total_chunks: { type: "integer", minimum: 0 },
+          returned_chunks: { type: "integer", minimum: 0 },
+          chunks: {
+            type: "array",
+            items: {
+              type: "object",
+              properties: {
+                id: { type: "string" },
+                text: { type: "string" },
+                filename: { type: "string" },
+                chunk_index: { type: "integer", minimum: 0 }
+              },
+              required: [ "id" ],
+              additionalProperties: false
+            }
+          },
+          next_cursor: { type: [ "string", "null" ] },
+          complete: { type: "boolean" }
+        },
+        required: %w[document_id url total_chunks returned_chunks chunks next_cursor complete],
+        additionalProperties: false
       }
     end
 
@@ -60,8 +92,10 @@ module SemanticSearchMcp
         text: result_text(structured_content),
         structured_content: structured_content
       }
+    rescue ArgumentError => e
+      error_result(e.message)
     rescue StandardError => e
-      error_result("Error retrieving document chunks: #{e.message}")
+      SemanticSearchMcp.internal_error("Document chunks could not be retrieved.", e)
     end
 
     private

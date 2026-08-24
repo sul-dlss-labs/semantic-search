@@ -33,7 +33,28 @@ module SemanticSearchMcp
       end
       properties[:filters] = filter_schema(filter_properties) if filter_properties.any?
 
-      { properties: properties, required: [ "query" ] }
+      {
+        type: "object",
+        properties: properties,
+        required: [ "query" ],
+        additionalProperties: false
+      }
+    end
+
+    def build_output_schema
+      {
+        type: "object",
+        properties: {
+          query: { type: "string" },
+          search_type: { type: "string", enum: SEARCH_TYPES },
+          filters: { type: "object", additionalProperties: { type: "string" } },
+          total: { type: "integer", minimum: 0 },
+          results: { type: "array", items: catalog_result_schema },
+          facets: { type: "object", additionalProperties: facet_schema }
+        },
+        required: %w[query search_type filters total results facets],
+        additionalProperties: false
+      }
     end
 
     def search(query:, search_type: "hybrid", rows: 10, filters: {}, controller: nil)
@@ -56,14 +77,65 @@ module SemanticSearchMcp
         matched_chunks: matched_chunks
       )
     rescue StandardError => e
-      {
-        text: "Error searching catalog: #{e.message}",
-        structured_content: { error: e.message },
-        error: true
-      }
+      SemanticSearchMcp.internal_error("Catalog search failed.", e)
     end
 
     private
+
+    def catalog_result_schema
+      {
+        type: "object",
+        properties: {
+          id: { type: "string" },
+          title: { type: "string" },
+          authors: { type: "array", items: { type: "string" } },
+          format: { type: "string" },
+          created: { type: "string" },
+          collection: { type: "string" },
+          child_count: { type: "integer", minimum: 0 },
+          matched_chunks: { type: "array", items: matched_chunk_schema },
+          url: { type: "string" }
+        },
+        required: %w[id title url],
+        additionalProperties: false
+      }
+    end
+
+    def matched_chunk_schema
+      {
+        type: "object",
+        properties: {
+          text: { type: "string" },
+          filename: { type: "string" },
+          chunk_index: { type: "integer", minimum: 0 },
+          score: { type: "number" }
+        },
+        additionalProperties: false
+      }
+    end
+
+    def facet_schema
+      {
+        type: "object",
+        properties: {
+          label: { type: "string" },
+          values: {
+            type: "array",
+            items: {
+              type: "object",
+              properties: {
+                value: { type: "string" },
+                count: { type: "integer", minimum: 0 }
+              },
+              required: %w[value count],
+              additionalProperties: false
+            }
+          }
+        },
+        required: %w[label values],
+        additionalProperties: false
+      }
+    end
 
     def matched_chunks(documents, embedding, config)
       parent_ids = Array(documents).filter_map { |document| document.id || document["id"] }.to_set

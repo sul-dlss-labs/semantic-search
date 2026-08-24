@@ -27,6 +27,7 @@ class McpController < ApplicationController
 
   def mcp_server
     capabilities = MCP::Server::Capabilities.new.tap(&:support_tools)
+    configuration = MCP::Configuration.new(validate_tool_call_results: true)
     MCP::Server.new(
       name: "semantic-search",
       version: "1.0.0",
@@ -39,18 +40,21 @@ class McpController < ApplicationController
         request_id: request.uuid
       },
       capabilities: capabilities,
+      configuration: configuration,
       ttl_ms: TOOL_LIST_TTL_MS,
       cache_scope: "public"
     )
   end
 
   def mcp_tool(definition)
-    schema = definition[:input_schema]
+    input_schema = definition[:input_schema]
+    output_schema = definition[:output_schema]
 
     Class.new(MCP::Tool).tap do |tool|
       tool.tool_name definition[:name]
       tool.description definition[:description]
-      tool.input_schema(schema.is_a?(Proc) ? schema.call : schema)
+      tool.input_schema(input_schema.is_a?(Proc) ? input_schema.call : input_schema)
+      tool.output_schema(output_schema.is_a?(Proc) ? output_schema.call : output_schema) if output_schema
       tool.annotations(read_only_hint: true, destructive_hint: false, idempotent_hint: true, open_world_hint: false)
       tool.define_singleton_method(:call) do |**arguments|
         context = arguments.delete(:server_context)
