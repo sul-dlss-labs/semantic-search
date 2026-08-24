@@ -3,6 +3,13 @@
 require "rails_helper"
 
 RSpec.describe "MCP endpoint", type: :request do
+  let(:modern_meta) do
+    {
+      "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+      "io.modelcontextprotocol/clientInfo": { name: "semantic-search-spec", version: "1.0.0" },
+      "io.modelcontextprotocol/clientCapabilities": {}
+    }
+  end
   let(:solr_connection) { instance_double(RSolr::Client) }
   let(:empty_solr_response) do
     {
@@ -18,8 +25,23 @@ RSpec.describe "MCP endpoint", type: :request do
   end
 
   describe "POST /mcp" do
-    def post_mcp(body)
-      post "/mcp", params: body.to_json, headers: { "Content-Type" => "application/json" }
+    def post_mcp(body = nil, headers: {}, **request_body)
+      body ||= request_body
+      body = body.deep_dup
+      params = body[:params] ||= {}
+      params[:_meta] = modern_meta
+
+      protocol_headers = {
+        "Content-Type" => "application/json",
+        "Accept" => "application/json, text/event-stream",
+        "Host" => "localhost",
+        "MCP-Protocol-Version" => "2026-07-28",
+        "Mcp-Method" => body.fetch(:method)
+      }
+      name = params[:name] || params[:uri]
+      protocol_headers["Mcp-Name"] = name if name
+
+      post "/mcp", params: body.to_json, headers: protocol_headers.merge(headers)
     end
 
     def capture_mcp_events
@@ -31,6 +53,47 @@ RSpec.describe "MCP endpoint", type: :request do
       events
     ensure
       ActiveSupport::Notifications.unsubscribe(subscriber) if subscriber
+    end
+
+    it "discovers the stateless 2026 protocol and only the tools capability" do
+      post_mcp(jsonrpc: "2.0", id: "discover", method: "server/discover")
+
+      expect(response).to have_http_status(:ok)
+      result = response.parsed_body.fetch("result")
+      expect(result).to include(
+        "supportedVersions" => [ "2026-07-28" ],
+        "capabilities" => { "tools" => {} },
+        "ttlMs" => 300_000,
+        "cacheScope" => "public",
+        "resultType" => "complete"
+      )
+      expect(result.dig("_meta", "io.modelcontextprotocol/serverInfo")).to include(
+        "name" => "semantic-search",
+        "version" => "1.0.0"
+      )
+      expect(response.headers).not_to include("Mcp-Session-Id")
+    end
+
+    it "retains stateless fallback for the latest handshake protocol" do
+      body = {
+        jsonrpc: "2.0",
+        id: "legacy-initialize",
+        method: "initialize",
+        params: {
+          protocolVersion: "2025-11-25",
+          capabilities: {},
+          clientInfo: { name: "legacy-spec", version: "1.0.0" }
+        }
+      }
+      post "/mcp", params: body.to_json, headers: {
+        "Content-Type" => "application/json",
+        "Accept" => "application/json, text/event-stream",
+        "Host" => "localhost"
+      }
+
+      expect(response).to have_http_status(:ok)
+      expect(response.parsed_body.dig("result", "protocolVersion")).to eq("2025-11-25")
+      expect(response.headers).not_to include("Mcp-Session-Id")
     end
 
     it "lists the search and document-reading tools" do
@@ -47,6 +110,167 @@ RSpec.describe "MCP endpoint", type: :request do
         "format_hsim"
       )
       expect(tools).to all(include("annotations" => include("readOnlyHint" => true, "destructiveHint" => false)))
+      expect(response.parsed_body.fetch("result")).to include(
+        "ttlMs" => 300_000,
+        "cacheScope" => "public",
+        "resultType" => "complete"
+      )
+      expect(response.headers).not_to include("Mcp-Session-Id")
+    end
+
+    it "rejects a missing routing method header" do
+      body = {
+        jsonrpc: "2.0",
+        id: "missing-method-header",
+        method: "tools/list",
+        params: { _meta: modern_meta }
+      }
+      post "/mcp", params: body.to_json, headers: {
+        "Content-Type" => "application/json",
+        "Accept" => "application/json, text/event-stream",
+        "Host" => "localhost",
+        "MCP-Protocol-Version" => "2026-07-28"
+      }
+
+      expect(response).to have_http_status(:bad_request)
+      expect(response.parsed_body.dig("error", "message")).to include("Mcp-Method header is required")
+    end
+
+    it "rejects routing headers that disagree with the request body" do
+      post_mcp(
+        { jsonrpc: "2.0", id: "mismatched-method-header", method: "tools/list" },
+        headers: { "Mcp-Method" => "tools/call" }
+      )
+
+      expect(response).to have_http_status(:bad_request)
+      expect(response.parsed_body.dig("error", "message")).to include("does not match body value 'tools/list'")
+    end
+
+    it "rejects session identifiers on the modern protocol" do
+      post_mcp(
+        { jsonrpc: "2.0", id: "session-header", method: "tools/list" },
+        headers: { "Mcp-Session-Id" => "obsolete-session" }
+      )
+
+      expect(response).to have_http_status(:bad_request)
+      expect(response.parsed_body.dig("error", "message")).to include("lifecycle")
+    end
+
+    it "acknowledges notifications without a JSON-RPC response" do
+      body = { jsonrpc: "2.0", method: "notifications/cancelled", params: { requestId: "missing" } }
+      post "/mcp", params: body.to_json, headers: {
+        "Content-Type" => "application/json",
+        "Accept" => "application/json, text/event-stream",
+        "Host" => "localhost",
+        "MCP-Protocol-Version" => "2026-07-28",
+        "Mcp-Method" => "notifications/cancelled"
+      }
+
+      expect(response).to have_http_status(:accepted)
+      expect(response.body).to be_empty
+    end
+
+    it "returns an MCP parse error for malformed JSON" do
+      post "/mcp", params: "{", headers: {
+        "Content-Type" => "application/json",
+        "Accept" => "application/json, text/event-stream",
+        "Host" => "localhost",
+        "MCP-Protocol-Version" => "2026-07-28",
+        "Mcp-Method" => "tools/list"
+      }
+
+      expect(response).to have_http_status(:bad_request)
+      expect(response.parsed_body).to include(
+        "jsonrpc" => "2.0",
+        "id" => nil,
+        "error" => include("code" => -32_700)
+      )
+    end
+
+    it "requires the modern per-request metadata envelope" do
+      body = { jsonrpc: "2.0", id: "missing-envelope", method: "tools/list", params: {} }
+      post "/mcp", params: body.to_json, headers: {
+        "Content-Type" => "application/json",
+        "Accept" => "application/json, text/event-stream",
+        "Host" => "localhost",
+        "MCP-Protocol-Version" => "2026-07-28",
+        "Mcp-Method" => "tools/list"
+      }
+
+      expect(response).to have_http_status(:bad_request)
+      expect(response.parsed_body.dig("error", "message")).to include(
+        "io.modelcontextprotocol/protocolVersion",
+        "io.modelcontextprotocol/clientCapabilities"
+      )
+    end
+
+    it "rejects unsupported protocol versions with the supported versions" do
+      body = {
+        jsonrpc: "2.0",
+        id: "unsupported-version",
+        method: "tools/list",
+        params: {
+          _meta: modern_meta.merge("io.modelcontextprotocol/protocolVersion": "2027-01-01")
+        }
+      }
+      post "/mcp", params: body.to_json, headers: {
+        "Content-Type" => "application/json",
+        "Accept" => "application/json, text/event-stream",
+        "Host" => "localhost",
+        "MCP-Protocol-Version" => "2027-01-01",
+        "Mcp-Method" => "tools/list"
+      }
+
+      expect(response).to have_http_status(:bad_request)
+      expect(response.parsed_body.dig("error", "data")).to include(
+        "requested" => "2027-01-01",
+        "supported" => [ "2026-07-28" ]
+      )
+    end
+
+    it "rejects JSON-RPC batches" do
+      post "/mcp", params: [ { jsonrpc: "2.0", id: "batched", method: "tools/list" } ].to_json, headers: {
+        "Content-Type" => "application/json",
+        "Accept" => "application/json, text/event-stream",
+        "Host" => "localhost",
+        "MCP-Protocol-Version" => "2026-07-28",
+        "Mcp-Method" => "tools/list"
+      }
+
+      expect(response).to have_http_status(:bad_request)
+      expect(response.parsed_body.dig("error", "message")).to include("single request object")
+    end
+
+    it "requires a JSON request content type" do
+      post "/mcp", params: "not-json", headers: {
+        "Content-Type" => "text/plain",
+        "Accept" => "application/json, text/event-stream",
+        "Host" => "localhost",
+        "MCP-Protocol-Version" => "2026-07-28",
+        "Mcp-Method" => "tools/list"
+      }
+
+      expect(response).to have_http_status(:unsupported_media_type)
+    end
+
+    it "requires clients to accept JSON and event streams" do
+      body = { jsonrpc: "2.0", id: "bad-accept", method: "tools/list", params: { _meta: modern_meta } }
+      post "/mcp", params: body.to_json, headers: {
+        "Content-Type" => "application/json",
+        "Accept" => "application/json",
+        "Host" => "localhost",
+        "MCP-Protocol-Version" => "2026-07-28",
+        "Mcp-Method" => "tools/list"
+      }
+
+      expect(response).to have_http_status(:not_acceptable)
+    end
+
+    it "uses HTTP 404 for unknown modern methods" do
+      post_mcp(jsonrpc: "2.0", id: "unknown-method", method: "unknown/method")
+
+      expect(response).to have_http_status(:not_found)
+      expect(response.parsed_body.dig("error", "code")).to eq(-32_601)
     end
 
     it "performs a keyword search" do
@@ -65,6 +289,7 @@ RSpec.describe "MCP endpoint", type: :request do
       expect(result["isError"]).not_to be true
       expect(result.dig("content", 0, "text")).to include("No results found for query: frogs")
       expect(result.dig("structuredContent", "search_type")).to eq("keyword")
+      expect(result["resultType"]).to eq("complete")
     end
 
     it "defaults to hybrid search" do
@@ -200,7 +425,7 @@ RSpec.describe "MCP endpoint", type: :request do
           "format" => "Image",
           "collection" => "Map Collection",
           "child_count" => 2,
-          "url" => "http://www.example.com/catalog/abc123"
+          "url" => "http://localhost/catalog/abc123"
         )
       end
 
@@ -293,7 +518,7 @@ RSpec.describe "MCP endpoint", type: :request do
           "total_chunks" => 2,
           "returned_chunks" => 1,
           "complete" => false,
-          "url" => "http://www.example.com/catalog/abc123"
+          "url" => "http://localhost/catalog/abc123"
         )
         expect(structured.fetch("next_cursor")).to be_present
         expect(structured.fetch("chunks")).to eq(
@@ -426,7 +651,7 @@ RSpec.describe "MCP endpoint", type: :request do
           "document_id" => "abc123",
           "document_title" => "Oral history with Professor X",
           "collection" => "Oral History Collection",
-          "url" => "http://www.example.com/catalog/abc123"
+          "url" => "http://localhost/catalog/abc123"
         )
         expect(embedding).to have_received(:embedding).with(
           input: [ "Professor X career milestones" ],

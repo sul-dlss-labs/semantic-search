@@ -5,32 +5,28 @@ require "mcp"
 # HTTP interface for Model Context Protocol functionality.
 class McpController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :set_default_response_format
+
+  TOOL_LIST_TTL_MS = 5.minutes.in_milliseconds
 
   def index
-    render json: mcp_server.handle_json(request.body.read)
-  rescue StandardError => e
-    Rails.logger.error "MCP Error: #{e.class} - #{e.message}"
-    Rails.logger.error e.backtrace.join("\n")
-
-    render json: {
-      jsonrpc: "2.0",
-      id: nil,
-      error: {
-        code: -32603,
-        message: "Internal error: #{e.message}"
-      }
-    }, status: :internal_server_error
+    status, headers, body = mcp_transport.handle_request(request)
+    headers.each { |name, value| response.set_header(name, value) }
+    self.status = status
+    self.response_body = body
   end
 
   private
 
-  def set_default_response_format
-    request.format = :json unless params[:format]
+  def mcp_transport
+    MCP::Server::Transports::StreamableHTTPTransport.new(
+      mcp_server,
+      stateless: true,
+      allowed_hosts: ENV.fetch("MCP_ALLOWED_HOSTS", "").split(",").map(&:strip).compact_blank
+    )
   end
 
   def mcp_server
-    configuration = MCP::Configuration.new(protocol_version: "2025-03-26")
+    capabilities = MCP::Server::Capabilities.new.tap(&:support_tools)
     MCP::Server.new(
       name: "semantic-search",
       version: "1.0.0",
@@ -42,7 +38,9 @@ class McpController < ApplicationController
         controller: self,
         request_id: request.uuid
       },
-      configuration: configuration
+      capabilities: capabilities,
+      ttl_ms: TOOL_LIST_TTL_MS,
+      cache_scope: "public"
     )
   end
 
