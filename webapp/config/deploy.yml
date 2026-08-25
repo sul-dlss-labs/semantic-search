@@ -48,6 +48,7 @@ env:
   clear:
     LITELLM_API_BASE: https://dlss-aigateway-prod.stanford.edu/v1/
     LITELLM_EMBEDDING_MODEL: gemini-embedding-2
+    LITELLM_CHAT_MODEL: gemini-3.7-flash
     MCP_ALLOWED_HOSTS: semantic-search-demo.stanford.edu
 
     # Run the Solid Queue Supervisor inside the web server's Puma process to do jobs.
