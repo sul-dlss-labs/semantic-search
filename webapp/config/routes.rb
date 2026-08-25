@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "catalog#index"
 
   post "/mcp", to: "mcp#index", as: :mcp
+  resource :chat, only: %i[show create], controller: "chats"
 
   concern :searchable, Blacklight::Routes::Searchable.new
 

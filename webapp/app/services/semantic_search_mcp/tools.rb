@@ -3,6 +3,7 @@
 module SemanticSearchMcp
   # MCP tool metadata.
   module Tools
+    START_INSTRUMENTATION_EVENT = "start.mcp_tool"
     INSTRUMENTATION_EVENT = "call.mcp_tool"
     LOGGED_RESULT_LIMIT = 10
 

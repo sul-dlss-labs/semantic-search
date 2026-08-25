@@ -1,5 +1,17 @@
 # frozen_string_literal: true
 
+ActiveSupport::Notifications.subscribe("start.mcp_tool") do |event|
+  payload = event.payload
+  Rails.logger.info(
+    {
+      event: event.name,
+      tool_name: payload[:tool_name],
+      input: payload[:input],
+      request_id: payload[:request_id]
+    }.compact.to_json
+  )
+end
+
 ActiveSupport::Notifications.subscribe("call.mcp_tool") do |event|
   payload = event.payload
   error_class = payload[:exception]&.first

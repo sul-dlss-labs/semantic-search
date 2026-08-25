@@ -16,7 +16,8 @@ module SemanticSearchMcp
         properties: {
           query: {
             type: "string",
-            description: "Natural-language description of passages to find",
+            description: "Natural-language description of passages to find. On the first passage search, pass the user's " \
+                         "current question verbatim; only rephrase it on a later fallback attempt.",
             minLength: 1
           },
           document_ids: {

@@ -12,11 +12,13 @@ module SemanticSearchMcp
       properties = {
         query: {
           type: "string",
-          description: "The search query to find materials in the catalog"
+          description: "The search query to find materials in the catalog. For the first vector or hybrid search, pass the " \
+                       "user's current natural-language question verbatim; only rephrase it on a later fallback attempt."
         },
         search_type: {
           type: "string",
-          description: "The search strategy to use",
+          description: "The search strategy to use. Chat clients should explicitly use vector for most discovery questions; " \
+                       "use keyword only for exact terms and hybrid only when both strategies are intentionally needed.",
           enum: SEARCH_TYPES,
           default: "hybrid"
         },

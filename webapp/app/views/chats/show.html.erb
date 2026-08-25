@@ -1,0 +1,44 @@
+<% content_for :page_title, "Chat with the collections — #{application_name}" %>
+<% content_for :head do %>
+  <%= stylesheet_link_tag "chat", "data-turbo-track": "reload" %>
+<% end %>
+
+<div class="chat-page py-4" data-controller="chat">
+  <div class="mx-auto chat-shell">
+    <header class="mb-4">
+      <h1>Chat with the collections</h1>
+      <p class="lead mb-2">Ask questions about material in the Stanford Libraries digital corpus.</p>
+      <p class="text-body-secondary mb-0">
+        The assistant searches this site’s catalog and document text. It will decline requests outside that scope.
+      </p>
+    </header>
+
+    <div class="card shadow-sm">
+      <div class="card-body chat-messages" role="log" aria-live="polite" aria-relevant="additions text"
+           data-chat-target="messages">
+        <article class="chat-message chat-message-assistant">
+          <div class="chat-message-label">Collections assistant</div>
+          <div class="chat-message-content">What would you like to learn from the corpus?</div>
+        </article>
+      </div>
+
+      <div class="card-footer bg-body p-3">
+        <div class="alert alert-danger d-none mb-3" role="alert" data-chat-target="error"></div>
+        <%= form_with url: chat_path, method: :post, html: { data: { action: "submit->chat#submit", chat_target: "form" } } do |form| %>
+          <%= form.label :message, "Your question", class: "form-label visually-hidden" %>
+          <div class="input-group">
+            <%= form.text_area :message,
+                               rows: 2,
+                               required: true,
+                               maxlength: Rails.configuration.x.chat.max_message_characters,
+                               placeholder: "Ask about people, places, themes, or documents in the corpus…",
+                               class: "form-control",
+                               data: { chat_target: "input", action: "keydown->chat#keydown" } %>
+            <%= form.submit "Send", class: "btn btn-primary px-4", data: { chat_target: "submit" } %>
+          </div>
+          <div class="form-text">Responses are generated with AI. Verify important details using the cited sources.</div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

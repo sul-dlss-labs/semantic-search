@@ -60,6 +60,12 @@ class McpController < ApplicationController
         context = arguments.delete(:server_context)
         handler = definition[:handler] || ->(**options) { SemanticSearchMcp::CatalogSearch.search(**options) }
         ActiveSupport::Notifications.instrument(
+          SemanticSearchMcp::Tools::START_INSTRUMENTATION_EVENT,
+          tool_name: definition[:name],
+          input: arguments.deep_dup,
+          request_id: context&.dig(:request_id)
+        )
+        ActiveSupport::Notifications.instrument(
           SemanticSearchMcp::Tools::INSTRUMENTATION_EVENT,
           tool_name: definition[:name],
           input: arguments.deep_dup,

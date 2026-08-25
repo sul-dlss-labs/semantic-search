@@ -17,6 +17,7 @@ ActiveSupport::Notifications.subscribe("request.litellm") do |event|
     request_id: payload[:request_id],
     response_id: payload[:response_id],
     prompt_tokens: payload[:prompt_tokens],
+    completion_tokens: payload[:completion_tokens],
     total_tokens: payload[:total_tokens],
     error_class: error_class
   }.compact

@@ -1,0 +1,158 @@
+# frozen_string_literal: true
+
+module Chat
+  # Runs the model/tool loop and emits browser-facing server-sent events.
+  class Conversation
+    class InvalidMessages < StandardError; end
+
+    def self.normalize_messages(value)
+      messages = Array(value).map do |message|
+        raise InvalidMessages, "Each message must have a valid role and content." unless message.respond_to?(:to_h)
+
+        message = message.to_h.stringify_keys
+        role = message["role"]
+        content = message["content"]
+        raise InvalidMessages, "Each message must have a valid role and content." unless %w[user assistant].include?(role)
+        raise InvalidMessages, "Each message must have a valid role and content." unless content.is_a?(String) && content.present?
+
+        { "role" => role, "content" => content.first(max_message_characters) }
+      end
+      raise InvalidMessages, "Enter a message to start chatting." if messages.empty?
+      raise InvalidMessages, "The last message must be from the user." unless messages.last["role"] == "user"
+
+      messages = messages.last(max_history_messages)
+      trim_to_character_limit(messages)
+    end
+
+    def self.max_message_characters
+      Rails.configuration.x.chat.max_message_characters
+    end
+
+    def self.max_history_messages
+      Rails.configuration.x.chat.max_history_messages
+    end
+
+    def self.trim_to_character_limit(messages)
+      limit = Rails.configuration.x.chat.max_history_characters
+      kept = []
+      characters = 0
+      messages.reverse_each do |message|
+        break if characters + message["content"].length > limit && kept.any?
+
+        kept << message
+        characters += message["content"].length
+      end
+      kept.reverse
+    end
+
+    def initialize(messages:, controller: nil, client: LiteLlmClient.new, tool_runner: nil)
+      @history = self.class.normalize_messages(messages)
+      @client = client
+      @tool_runner = tool_runner || ToolRunner.new(controller: controller)
+      @sources = []
+      @tool_call_count = 0
+    end
+
+    def each_event
+      Enumerator.new do |stream|
+        run { |event, data| stream << encode_event(event, data) }
+      rescue StandardError => e
+        Rails.logger.error("Chat request failed: #{e.class}: #{e.message}")
+        stream << encode_event("error", message: "The chat service could not complete that request. Please try again.")
+      end
+    end
+
+    private
+
+    def run
+      messages = [ { "role" => "system", "content" => Rails.configuration.x.chat.system_prompt } ] + @history
+
+      Rails.configuration.x.chat.max_tool_rounds.times do
+        completion, streamed_content = stream_completion(messages, tools: @tool_runner.definitions) do |event, data|
+          yield event, data
+        end
+        return finish(completion, yield_event: ->(event, data) { yield event, data }) if completion.tool_calls.empty?
+
+        yield "reset", {} if streamed_content.present?
+        messages << completion.message
+        execute_tool_calls(completion.tool_calls, messages) { |event, data| yield event, data }
+        break if @tool_call_count >= Rails.configuration.x.chat.max_tool_calls
+      end
+
+      messages << {
+        "role" => "system",
+        "content" => "Stop searching and answer now using only the evidence already returned. If it is insufficient, say so."
+      }
+      completion, = stream_completion(messages, tools: nil) { |event, data| yield event, data }
+      finish(completion, yield_event: ->(event, data) { yield event, data })
+    end
+
+    def stream_completion(messages, tools:)
+      streamed_content = +""
+      completion = @client.stream_completion(messages:, tools:) do |delta|
+        streamed_content << delta
+        yield "delta", content: delta
+      end
+      [ completion, streamed_content ]
+    end
+
+    def execute_tool_calls(tool_calls, messages)
+      tool_calls.each do |tool_call|
+        if @tool_call_count >= Rails.configuration.x.chat.max_tool_calls
+          messages << {
+            "role" => "tool",
+            "tool_call_id" => tool_call["id"],
+            "content" => "The tool-call limit has been reached. Use the evidence already returned."
+          }
+          next
+        end
+
+        @tool_call_count += 1
+        name = tool_call.dig("function", "name")
+        yield "status", message: "Searching the corpus…"
+        result = call_tool(name, tool_call.dig("function", "arguments"))
+        collect_sources(result[:structured_content]) unless result[:error]
+        messages << {
+          "role" => "tool",
+          "tool_call_id" => tool_call["id"],
+          "content" => result[:text]
+        }
+      end
+    end
+
+    def call_tool(name, raw_arguments)
+      arguments = JSON.parse(raw_arguments.presence || "{}")
+      @tool_runner.call(name:, arguments:)
+    rescue JSON::ParserError => e
+      { text: "Invalid tool arguments: #{e.message}", structured_content: { error: e.message }, error: true }
+    end
+
+    def collect_sources(content)
+      return unless content.is_a?(Hash)
+
+      content = content.deep_symbolize_keys
+      candidates = Array(content[:results]).map { |result| [ result[:title], result[:url] ] }
+      candidates.concat(
+        Array(content[:passages]).map do |passage|
+          [ passage[:document_title] || passage[:document_id] || "Catalog record", passage[:url] ]
+        end
+      )
+      candidates << [ "Document #{content[:document_id]}", content[:url] ] if content[:document_id] && content[:url]
+
+      candidates.each do |title, url|
+        next if title.blank? || url.blank? || @sources.any? { |source| source[:url] == url }
+
+        @sources << { title:, url: }
+      end
+    end
+
+    def finish(_completion, yield_event:)
+      yield_event.call("sources", sources: @sources.first(10)) if @sources.any?
+      yield_event.call("done", {})
+    end
+
+    def encode_event(event, data)
+      "event: #{event}\ndata: #{JSON.generate(data)}\n\n"
+    end
+  end
+end
