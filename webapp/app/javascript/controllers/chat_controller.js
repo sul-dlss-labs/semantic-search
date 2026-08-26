@@ -1,4 +1,11 @@
 import { Controller } from "@hotwired/stimulus"
+import DOMPurify from "dompurify"
+import { marked } from "marked"
+
+const markdownTags = [
+  "a", "blockquote", "br", "code", "del", "em", "h1", "h2", "h3", "h4", "h5", "h6", "hr",
+  "li", "ol", "p", "pre", "strong", "table", "tbody", "td", "th", "thead", "tr", "ul"
+]
 
 export default class extends Controller {
   static targets = ["messages", "form", "input", "submit", "error"]
@@ -52,7 +59,7 @@ export default class extends Controller {
         if (type === "delta") {
           status.remove()
           responseText += data.content
-          assistantContent.textContent = responseText
+          this.renderMarkdown(assistantContent, responseText, verifiedSources)
         } else if (type === "reset") {
           responseText = ""
           assistantContent.textContent = ""
@@ -61,6 +68,7 @@ export default class extends Controller {
           if (!status.isConnected) assistant.append(status)
         } else if (type === "sources") {
           verifiedSources = data.sources
+          this.renderMarkdown(assistantContent, responseText, verifiedSources)
           this.appendSources(assistant, verifiedSources)
         } else if (type === "error") {
           throw new Error(data.message)
@@ -70,7 +78,7 @@ export default class extends Controller {
 
       if (!responseText) responseText = "I couldn’t produce an answer from the available corpus."
       status.remove()
-      this.renderVerifiedLinks(assistantContent, responseText, verifiedSources)
+      this.renderMarkdown(assistantContent, responseText, verifiedSources)
       this.history.push({ role: "assistant", content: responseText })
     } catch (error) {
       assistant.remove()
@@ -160,26 +168,24 @@ export default class extends Controller {
     message.append(title, list)
   }
 
-  renderVerifiedLinks(container, text, sources) {
+  renderMarkdown(container, text, sources) {
     const allowedUrls = new Set(sources.map((source) => source.url))
-    const linkPattern = /\[([^\]]+)\]\(([^)\s]+)\)/g
-    let lastIndex = 0
-    let match
-    container.replaceChildren()
+    const html = marked.parse(text, { breaks: true, gfm: true })
+    const sanitizedHtml = DOMPurify.sanitize(html, {
+      ALLOWED_TAGS: markdownTags,
+      ALLOWED_ATTR: ["href"]
+    })
+    const template = document.createElement("template")
+    template.innerHTML = sanitizedHtml
 
-    while ((match = linkPattern.exec(text)) !== null) {
-      container.append(document.createTextNode(text.slice(lastIndex, match.index)))
-      if (allowedUrls.has(match[2])) {
-        const link = document.createElement("a")
-        link.href = match[2]
-        link.textContent = match[1]
-        container.append(link)
-      } else {
-        container.append(document.createTextNode(match[0]))
-      }
-      lastIndex = linkPattern.lastIndex
-    }
-    container.append(document.createTextNode(text.slice(lastIndex)))
+    template.content.querySelectorAll("a").forEach((link) => {
+      const href = link.getAttribute("href")
+      if (allowedUrls.has(href)) return
+
+      link.replaceWith(document.createTextNode(link.textContent))
+    })
+
+    container.replaceChildren(template.content)
   }
 
   setBusy(busy) {

@@ -33,12 +33,24 @@
   border-radius: 1rem;
   background: var(--bs-tertiary-bg);
   padding: 0.8rem 1rem;
-  white-space: pre-wrap;
 }
 
 .chat-message-user .chat-message-content {
   background: var(--stanford-cardinal, #8c1515);
   color: #fff;
+  white-space: pre-wrap;
+}
+
+.chat-message-assistant .chat-message-content > :last-child {
+  margin-bottom: 0;
+}
+
+.chat-message-assistant .chat-message-content pre {
+  overflow-x: auto;
+  border-radius: 0.375rem;
+  background: var(--bs-secondary-bg);
+  padding: 0.75rem;
+  white-space: pre-wrap;
 }
 
 .chat-status {
