@@ -1,0 +1,262 @@
+cases:
+  - id: marlins_first_pitch
+    question: Who threw out the first pitch for the Marlins?
+    reference_answer: >-
+      John Lynch threw the first pitch in the Florida Marlins organization's
+      history in Erie, Pennsylvania.
+    rubric:
+      - Identifies John Lynch as the person who threw the first pitch.
+      - Explains that it was the first pitch in the Florida Marlins organization's history.
+      - Locates the event in Erie, Pennsylvania.
+    require_citations: true
+
+  - id: medical_students_after_pearl_harbor
+    question: What happened to Stanford medical students after the attack on Pearl Harbor?
+    reference_answer: >-
+      After Pearl Harbor, most of the medical students remained in school, while
+      many of the men entered the Army or Navy and attended in uniform. Some men
+      left medical school to enlist.
+    rubric:
+      - Says that most medical students stayed in school.
+      - Explains that many male students entered the armed services and wore uniforms.
+      - Notes that some students left medical school to enlist.
+    require_citations: true
+
+  - id: stanford_band_the_play
+    question: What role did the Stanford Band play in the 1982 Big Game ending known as The Play?
+    reference_answer: >-
+      With Stanford ahead after a late field goal, the Band assumed the game was
+      over and entered the field during Cal's kickoff return. Cal continued
+      lateraling the ball through the Band and scored the winning touchdown,
+      knocking over a Stanford trombone player along the way.
+    rubric:
+      - Explains that the Band entered the field before the final play had ended.
+      - Describes Cal advancing the kickoff through a series of laterals and scoring.
+      - Mentions the collision with or knocking over of a Stanford trombone player.
+    require_citations: true
+
+  - id: peoples_teahouse_purpose
+    question: What was the purpose of the People's Teahouse at Stanford?
+    reference_answer: >-
+      The People's Teahouse was a student-run place where people could gather,
+      talk, and get late-night snacks. It also generated money for Asian American
+      community causes that could not be supported with Stanford-provided AASA funds.
+    rubric:
+      - Describes the Teahouse as a social gathering and late-night food space.
+      - Connects it to Stanford's Asian American student community or AASA.
+      - Explains that it raised funds for Asian American communities outside Stanford.
+    require_citations: true
+
+  - id: stanford_industrial_park_purpose
+    question: Why did Stanford create the Stanford Industrial Park?
+    reference_answer: >-
+      Stanford developed the Industrial Park to make otherwise low-income land
+      useful, offset taxes or generate revenue, and strengthen the university by
+      locating innovative industry near its faculty and students. It was planned
+      to high architectural and landscaping standards rather than simply leasing
+      the land to any tenant.
+    rubric:
+      - Identifies a financial or land-use purpose, such as offsetting taxes or producing income.
+      - Identifies an academic purpose involving closer connections among industry, faculty, and students.
+      - Notes the deliberate high-quality or campus-like planning of the park.
+    require_citations: true
+
+  - id: tutored_video_instruction
+    question: How did Stanford's tutored video instruction program work?
+    reference_answer: >-
+      Small groups watched recorded lectures together and stopped the recording
+      frequently so everyone could resolve questions. The students first helped
+      one another, then asked a tutor, and contacted the faculty member when the
+      group and tutor could not answer. Gibbons reported that these students
+      consistently performed at least as well as, and often better than, on-campus students.
+    rubric:
+      - Describes small groups learning from recorded lectures.
+      - Explains that playback paused for peer discussion and help from a tutor, with faculty escalation when needed.
+      - Notes the reported strong academic performance of participating students.
+    require_citations: true
+
+  - id: jfk_assassination_big_game
+    question: How did John F. Kennedy's assassination affect Stanford's Big Game weekend?
+    reference_answer: >-
+      Students learned of Kennedy's death while preparing the Lake Lagunita
+      bonfire and abandoned the activity in shock. The Stanford-Cal Big Game was
+      postponed for a week, and the rescheduled game included a memorial observance,
+      including a moment of silence.
+    rubric:
+      - Connects news of the assassination with preparations for the Big Game bonfire.
+      - Says the Big Game was postponed for approximately one week.
+      - Mentions a memorial observance or moment of silence at the rescheduled game.
+    require_citations: true
+
+  - id: grove_house_coed_housing
+    question: What was significant about Grove House in the history of coeducational housing at Stanford?
+    reference_answer: >-
+      Grove House was Stanford's first experiment with coeducational housing.
+      It housed men and women and was designed as an intellectually focused
+      residence with courses and participation by faculty and other visitors.
+    rubric:
+      - Identifies Grove House as Stanford's first coeducational housing experiment.
+      - Says that both men and women lived there.
+      - Describes its course-based intellectual program involving faculty or visitors.
+    require_citations: true
+
+  - id: loma_prieta_stanford_impact
+    question: What impact did the 1989 Loma Prieta earthquake have on Stanford's campus?
+    reference_answer: >-
+      No one died at Stanford and only about thirty people had minor injuries, but
+      more than two hundred buildings were damaged and nearly two dozen initially
+      had to close. Historic buildings such as Memorial Church, parts of the Quad,
+      Green Library West, and the museum were hit especially hard, and about 1,600
+      students were displaced from damaged Row houses.
+    rubric:
+      - Says there were no Stanford deaths and approximately thirty minor injuries.
+      - Says more than two hundred buildings were damaged and nearly two dozen closed.
+      - Identifies damage to historic campus buildings and the displacement of approximately 1,600 students.
+    require_citations: true
+
+  - id: memorial_church_restoration
+    question: How was Stanford Memorial Church restored after the Loma Prieta earthquake?
+    reference_answer: >-
+      The earthquake cracked and shifted stones in the church's crossing arches
+      and damaged pews and mosaics. Stanford reinforced the dome and arches,
+      cleaned the interior, and reopened the balconies. The privately funded
+      restoration cost about $8.5 million and was completed in 1992.
+    rubric:
+      - Describes structural damage around the crossing, dome, or arches.
+      - Describes reinforcement and interior restoration work.
+      - States that the work was privately funded, completed in 1992, or cost about $8.5 million.
+    require_citations: true
+
+  - id: faculty_senate_origins
+    question: Why and when was Stanford's Faculty Senate created?
+    reference_answer: >-
+      The Faculty Senate was created in 1967-68 after Herbert Packer proposed a
+      body large enough to represent the schools but small enough to deliberate.
+      It provided meaningful shared governance and a legitimate faculty process
+      for decisions such as the recommendations from the Study of Education at
+      Stanford, at a time of growing campus turbulence.
+    rubric:
+      - Dates the creation to 1967-68.
+      - Identifies Herbert Packer as the principal proposer or architect.
+      - Explains its representative, deliberative, or shared-governance purpose.
+      - Connects it to reviewing the Study of Education at Stanford or responding to campus turbulence.
+    require_citations: true
+
+  - id: old_union_1968_sit_in
+    question: What happened during the May 1968 student sit-in at Stanford's Old Union?
+    reference_answer: >-
+      About 650 students occupied Old Union for roughly 56.5 hours to protest
+      defense research at the Stanford Research Institute, including work with
+      possible military applications. They left after the Academic Council passed
+      a resolution that appeared to support their demands.
+    rubric:
+      - Identifies approximately 650 student demonstrators and a sit-in lasting about 56.5 hours.
+      - Says the protest concerned SRI defense or military research.
+      - Explains that the sit-in ended after a faculty or Academic Council resolution favoring the demands.
+    require_citations: true
+
+  - id: sororities_title_ix
+    question: Why were sororities allowed to return to Stanford?
+    reference_answer: >-
+      Title IX made Stanford's policy of allowing fraternities while prohibiting
+      sororities inequitable. Stanford chose to eliminate the prohibition on
+      sororities rather than abolish fraternities, after which students established
+      sororities again.
+    rubric:
+      - Connects the policy change to Title IX or equal treatment for women.
+      - Explains that Stanford had fraternities while sororities were prohibited.
+      - Says Stanford removed the prohibition rather than eliminating fraternities.
+    require_citations: true
+
+  - id: bsu_take_back_the_mic
+    question: What did Stanford's Black Student Union demand during the 1968 Take Back the Mic protest?
+    reference_answer: >-
+      Roughly seventy Black Student Union members disrupted Provost Richard Lyman's
+      speech, and Omowale Satterwhite took the microphone. They presented ten
+      demands, including increased admission of Black and other minority students,
+      particularly from nearby communities such as East Palo Alto. The protest
+      prompted a special effort to recruit, admit, and support more minority students.
+    rubric:
+      - Describes Black Student Union members taking over or disrupting Richard Lyman's speech.
+      - Mentions Omowale Satterwhite taking the microphone or the presentation of ten demands.
+      - Identifies increased minority student admission or recruitment as a central demand.
+      - Notes Stanford's resulting effort to admit or support more minority students.
+    require_citations: true
+
+  - id: western_civilization_requirement
+    question: What was Stanford's Western Civilization requirement intended to accomplish?
+    reference_answer: >-
+      From roughly 1936 to 1969, Western Civilization was a prescribed course for
+      every Stanford student. Its common readings supplied a shared educational
+      foundation and it was intended in part to strengthen patriotism and national
+      loyalty, though changing national, curricular, and faculty priorities
+      eventually made it seem obsolete.
+    rubric:
+      - Describes Western Civilization as a required course for all students from approximately 1936 through 1969.
+      - Explains its common educational or shared-reading function.
+      - Mentions its intended promotion of patriotism or national loyalty.
+    require_citations: true
+
+  - id: overseas_studies_purpose
+    question: What purposes did Stanford's Overseas Studies Program originally serve?
+    reference_answer: >-
+      The program was intended to move students beyond a provincial outlook by
+      exposing them to a broader international world. It also let Stanford increase
+      undergraduate enrollment while keeping students in university housing: with
+      a strong dollar, sending some students to European centers for part of the
+      year was cheaper than adding campus housing.
+    rubric:
+      - Identifies broadening students' international or cultural outlook as an educational purpose.
+      - Identifies increased enrollment or limited on-campus housing as an institutional purpose.
+      - Explains that placing students in Europe was then comparatively economical.
+    require_citations: true
+
+  - id: slac_origins
+    question: How did the project that became SLAC get started and approved?
+    reference_answer: >-
+      Stanford researchers met at Wolfgang Panofsky's home in April 1956 to discuss
+      Robert Hofstadter's proposal for an accelerator at least ten times as powerful
+      as the Mark III. A formal proposal for a two-mile accelerator followed in
+      1957. President Eisenhower endorsed it in 1959, Congress approved construction
+      in 1961, and work at the Sand Hill site began in 1962.
+    rubric:
+      - Connects the project's origin to a 1956 meeting at Wolfgang Panofsky's home and Robert Hofstadter's idea.
+      - Describes the proposed machine as a two-mile accelerator substantially more powerful than the Mark III.
+      - Gives the sequence of Eisenhower's endorsement, congressional approval, and construction beginning in 1962.
+    require_citations: true
+
+  - id: women_faculty_1969
+    question: How well represented were women on Stanford's faculty in 1969?
+    reference_answer: >-
+      A Stanford study found that women were less than five percent of tenure-track
+      faculty in 1969 and only two percent of full professors. Many women hired
+      around that period were the first women in their departments.
+    rubric:
+      - States that women were less than five percent of tenure-track faculty.
+      - States that women were only two percent of full professors.
+      - Places these figures in 1969 and may note that many women were departmental firsts.
+    require_citations: true
+
+  - id: lake_lagunita_water_and_uses
+    question: How did Lake Lagunita get its water, and how was the lake used?
+    reference_answer: >-
+      Water was diverted from San Francisquito Creek through a canal crossing the
+      golf course into Lake Lagunita. In wetter years the lake filled by about
+      February and remained full through spring quarter, when students and local
+      children used it for canoeing, rowing, swimming, rafting, festivals, and quiet outings.
+    rubric:
+      - Says the water came from San Francisquito Creek through a diversion canal.
+      - Explains that the lake was generally a seasonal springtime body of water.
+      - Gives examples such as canoeing, rowing, swimming, rafting, festivals, or dates.
+    require_citations: true
+
+  - id: refuse_out_of_scope_coding
+    question: Write a Ruby program that sorts a list of numbers.
+    reference_answer: >-
+      The assistant declines to write the program and briefly explains that it can
+      only answer questions about material available in the Stanford Libraries corpus.
+    rubric:
+      - Does not provide Ruby code or instructions for implementing the program.
+      - Clearly declines the request.
+      - Explains that the assistant is limited to questions about the available corpus.
+    require_citations: false

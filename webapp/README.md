@@ -32,6 +32,39 @@ the tool name and input immediately before execution; `call.mcp_tool` records it
 outcome, duration, and bounded result metadata afterward. Both include the Rails
 request ID for correlation.
 
+## Chat quality evaluations
+
+The black-box evaluation task asks the deployed `/chat` endpoint a set of questions,
+then uses an independent LiteLLM model to judge each answer against a semantic reference
+answer and rubric. It also verifies that cases marked `require_citations` return at least
+one verified source with a clickable HTTP(S) URL. Cases live in
+`lib/chat_evaluation/chat_evaluations.yml`; ordinary test runs do not make network requests.
+
+Configure the standard `LITELLM_API_BASE` and `LITELLM_API_KEY` variables, then run:
+
+```sh
+LITELLM_EVAL_MODEL=claude-sonnet-5 \
+  bin/rails chat:evaluate
+```
+
+The target defaults to `https://semantic-search-demo.stanford.edu`. Useful overrides are:
+
+- `CHAT_EVAL_TARGET_URL`: deployment to test
+- `CHAT_EVAL_CASE`: run only one case ID
+- `CHAT_EVAL_RUNS`: attempts per case (default `1`)
+- `CHAT_EVAL_PASS_RATE`: required fraction of passing attempts (default `1.0`)
+- `CHAT_EVAL_MIN_SCORE`: minimum judge score (default `0.8`)
+- `CHAT_EVAL_REPORT`: output JSON path; otherwise reports go under `tmp/chat_evaluations`
+
+For a less noisy periodic regression check, three attempts with two required passes can
+be run as:
+
+```sh
+CHAT_EVAL_RUNS=3 CHAT_EVAL_PASS_RATE=0.66 \
+LITELLM_EVAL_MODEL=claude-sonnet-5 \
+  bin/rails chat:evaluate
+```
+
 ## Deployment
 
 After the Docker GitHub Actions workflow has successfully built and published the
