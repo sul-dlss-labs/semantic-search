@@ -31,3 +31,13 @@ Each MCP tool invocation writes two structured log events. `start.mcp_tool` reco
 the tool name and input immediately before execution; `call.mcp_tool` records its
 outcome, duration, and bounded result metadata afterward. Both include the Rails
 request ID for correlation.
+
+## Deployment
+
+After the Docker GitHub Actions workflow has successfully built and published the
+current commit using its short SHA tag, deploy that CI-built image with:
+
+```sh
+VERSION="$(git rev-parse --short=7 HEAD)" \
+  bin/kamal deploy --skip-push
+```
