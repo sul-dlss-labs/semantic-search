@@ -35,9 +35,23 @@ request ID for correlation.
 ## Deployment
 
 After the Docker GitHub Actions workflow has successfully built and published the
-current commit using its short SHA tag, deploy that CI-built image with:
+current commit using its short SHA tag, deploy that CI-built image with the following process.
 
+Get a one-time-key
+```sh
+./bin/setup-otk
+```
+
+Sign into vault
+```sh
+vault login -method oidc
+```
+
+Then run kamal deploy
 ```sh
 VERSION="$(git rev-parse --short=7 HEAD)" \
+KAMAL_REGISTRY_USERNAME=<github user> \
+KAMAL_REGISTRY_PASSWORD=<github token> \
+KAMAL_OTK_KEY=~/.ssh/id_kamal_otk \
   bin/kamal deploy --skip-push
 ```
