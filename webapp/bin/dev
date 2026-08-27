@@ -1,2 +1,4 @@
 #!/usr/bin/env ruby
+ENV["LITELLM_CHAT_MODEL"] = "gemini-3.7-flash"
+ENV["LITELLM_API_BASE"] = "https://dlss-aigateway-prod.stanford.edu/v1/"
 exec "./bin/rails", "server", *ARGV
