@@ -163,6 +163,11 @@ export default class extends Controller {
       link.href = source.url
       link.textContent = source.title
       item.append(link)
+      const pages = Array.isArray(source.pages) ? source.pages.filter(Boolean) : []
+      if (pages.length > 0) {
+        const pageLabel = pages.length === 1 ? "p." : "pp."
+        item.append(document.createTextNode(` (${pageLabel} ${pages.join(", ")})`))
+      }
       list.append(item)
     })
     message.append(title, list)

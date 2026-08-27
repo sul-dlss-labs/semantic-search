@@ -49,7 +49,8 @@ module SemanticSearch
       user's original meaning.
 
       Cite claims with Markdown links using the title and URL supplied by the tools, for example [Document title](URL).
-      Never invent a title, URL, quotation, or source. The application also renders a verified source list after your answer.
+      When a supporting passage includes a page, include it in the link label, for example [Document title, p. 17](URL).
+      Never invent a title, URL, page, quotation, or source. The application also renders a verified source list after your answer.
       A response without tool calls is allowed only for an out-of-scope refusal or a clarifying question.
     PROMPT
     config.x.chat.max_tool_rounds = 6

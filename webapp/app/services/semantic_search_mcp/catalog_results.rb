@@ -138,7 +138,11 @@ module SemanticSearchMcp
 
     def formatted_chunks(chunks)
       [ "   Matched chunks:" ] + chunks.map do |chunk|
-        source = [ chunk[:filename], chunk[:chunk_index] && "chunk #{chunk[:chunk_index]}" ].compact.join(", ")
+        source = [
+          chunk[:filename],
+          chunk[:page] && "page #{chunk[:page]}",
+          chunk[:chunk_index] && "chunk #{chunk[:chunk_index]}"
+        ].compact.join(", ")
         label = source.present? ? " (#{source})" : ""
         "   -#{label} #{chunk[:text]}"
       end

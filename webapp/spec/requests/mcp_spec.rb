@@ -503,6 +503,7 @@ RSpec.describe "MCP endpoint", type: :request do
                 "chunk_text_tesi" => "The passage about frogs and maps.",
                 "filename_ss" => "transcript.pdf",
                 "chunk_index_i" => 4,
+                "page_ss" => "17",
                 "score" => 0.91
               }
             ]
@@ -528,13 +529,14 @@ RSpec.describe "MCP endpoint", type: :request do
               "text" => "The passage about frogs and maps.",
               "filename" => "transcript.pdf",
               "chunk_index" => 4,
+              "page" => "17",
               "score" => 0.91
             }
           ]
         )
         expect(result.dig("content", 0, "text")).to include(
           "Matched chunks:",
-          "(transcript.pdf, chunk 4) The passage about frogs and maps."
+          "(transcript.pdf, page 17, chunk 4) The passage about frogs and maps."
         )
       end
     end
@@ -551,7 +553,8 @@ RSpec.describe "MCP endpoint", type: :request do
                 "id" => "abc123_transcript_c0",
                 "chunk_text_tesi" => "The first passage.",
                 "filename_ss" => "transcript.pdf",
-                "chunk_index_i" => 0
+                "chunk_index_i" => 0,
+                "page_ss" => "3"
               }
             ]
           }
@@ -587,7 +590,8 @@ RSpec.describe "MCP endpoint", type: :request do
               "id" => "abc123_transcript_c0",
               "text" => "The first passage.",
               "filename" => "transcript.pdf",
-              "chunk_index" => 0
+              "chunk_index" => 0,
+              "page" => "3"
             }
           ]
         )
@@ -664,6 +668,7 @@ RSpec.describe "MCP endpoint", type: :request do
                 "chunk_text_tesi" => "A compelling story about Professor X.",
                 "filename_ss" => "transcript.pdf",
                 "chunk_index_i" => 4,
+                "page_ss" => "28",
                 "score" => 0.93
               }
             ]
@@ -708,6 +713,7 @@ RSpec.describe "MCP endpoint", type: :request do
           "score" => 0.93,
           "chunk_index" => 4,
           "filename" => "transcript.pdf",
+          "page" => "28",
           "document_id" => "abc123",
           "document_title" => "Oral history with Professor X",
           "collection" => "Oral History Collection",

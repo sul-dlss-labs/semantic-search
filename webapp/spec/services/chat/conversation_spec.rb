@@ -81,6 +81,40 @@ RSpec.describe Chat::Conversation do
     expect(stream).to include("event: done")
   end
 
+  it "includes available page numbers with verified sources" do
+    client.enqueue(tool_calls: [ tool_call("call-1", "Professor X") ])
+    client.enqueue(content: "Professor X discussed a milestone.", deltas: [ "Professor X discussed a milestone." ])
+    allow(tool_runner).to receive(:call).and_return(
+      text: "Passage results",
+      structured_content: {
+        passages: [
+          {
+            document_title: "Oral history with Professor X",
+            url: "http://example.test/catalog/abc123",
+            page: "28"
+          },
+          {
+            document_title: "Oral history with Professor X",
+            url: "http://example.test/catalog/abc123",
+            page: "31"
+          }
+        ]
+      }
+    )
+
+    stream = described_class.new(
+      messages: [ { role: "user", content: "What milestone did Professor X discuss?" } ],
+      client:,
+      tool_runner:
+    ).each_event.to_a.join
+
+    expect(stream).to include(
+      '"title":"Oral history with Professor X"',
+      '"url":"http://example.test/catalog/abc123"',
+      '"pages":["28","31"]'
+    )
+  end
+
   it "answers every requested tool call when the execution limit is reached" do
     allow(Rails.configuration.x.chat).to receive(:max_tool_calls).and_return(1)
     client.enqueue(tool_calls: [ tool_call("call-1", "frogs"), tool_call("call-2", "toads") ])

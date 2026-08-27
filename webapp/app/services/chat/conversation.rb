@@ -131,19 +131,49 @@ module Chat
       return unless content.is_a?(Hash)
 
       content = content.deep_symbolize_keys
-      candidates = Array(content[:results]).map { |result| [ result[:title], result[:url] ] }
+      candidates = Array(content[:results]).map do |result|
+        { title: result[:title], url: result[:url], pages: pages_from(result[:matched_chunks]) }
+      end
       candidates.concat(
         Array(content[:passages]).map do |passage|
-          [ passage[:document_title] || passage[:document_id] || "Catalog record", passage[:url] ]
+          {
+            title: passage[:document_title] || passage[:document_id] || "Catalog record",
+            url: passage[:url],
+            pages: pages_from([ passage ])
+          }
         end
       )
-      candidates << [ "Document #{content[:document_id]}", content[:url] ] if content[:document_id] && content[:url]
-
-      candidates.each do |title, url|
-        next if title.blank? || url.blank? || @sources.any? { |source| source[:url] == url }
-
-        @sources << { title:, url: }
+      if content[:document_id] && content[:url]
+        candidates << {
+          title: "Document #{content[:document_id]}",
+          url: content[:url],
+          pages: pages_from(content[:chunks])
+        }
       end
+
+      candidates.each do |candidate|
+        next if candidate[:title].blank? || candidate[:url].blank?
+
+        existing_source = @sources.find { |source| source[:url] == candidate[:url] }
+        if existing_source
+          merge_pages(existing_source, candidate[:pages])
+          next
+        end
+
+        source = { title: candidate[:title], url: candidate[:url] }
+        source[:pages] = candidate[:pages] if candidate[:pages].any?
+        @sources << source
+      end
+    end
+
+    def pages_from(chunks)
+      Array(chunks).flat_map { |chunk| Array(chunk[:page]) }.compact_blank.map(&:to_s).uniq
+    end
+
+    def merge_pages(source, pages)
+      return if pages.empty?
+
+      source[:pages] = (Array(source[:pages]) + pages).uniq
     end
 
     def finish(_completion, yield_event:)
