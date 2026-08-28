@@ -36,8 +36,8 @@ request ID for correlation.
 
 The black-box evaluation task asks the deployed `/chat` endpoint a set of questions,
 then uses an independent LiteLLM model to judge each answer against a semantic reference
-answer and rubric. It also verifies that cases marked `require_citations` return at least
-one verified source with a clickable HTTP(S) URL. Cases live in
+answer and rubric. It also verifies that cases marked `require_citations` include a
+Markdown link whose HTTP(S) URL matches a verified source returned by the application. Cases live in
 `lib/chat_evaluation/chat_evaluations.yml`; ordinary test runs do not make network requests.
 
 Configure the standard `LITELLM_API_BASE` and `LITELLM_API_KEY` variables, then run:

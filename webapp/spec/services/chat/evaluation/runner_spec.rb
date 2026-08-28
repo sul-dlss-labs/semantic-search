@@ -10,7 +10,8 @@ RSpec.describe Chat::Evaluation::Runner do
   let(:output) { StringIO.new }
   let(:chat_result) do
     Chat::Evaluation::RemoteChatClient::Result.new(
-      answer: "John Lynch threw the first pitch in Marlins history in Erie, Pennsylvania.",
+      answer: "John Lynch threw the first pitch in Marlins history in Erie, Pennsylvania " \
+        "[Marlins history](https://example.test/marlins).",
       sources: [ { "title" => "Marlins history", "url" => "https://example.test/marlins" } ]
     )
   end
@@ -88,6 +89,20 @@ RSpec.describe Chat::Evaluation::Runner do
     expect(result.passed).to be(false)
     expect(result.report.dig(:cases, 0, :attempts, 0)).to include(citations_passed: false, passed: false)
     expect(output.string).to include("citations missing", "Chat evaluation FAILED")
+  end
+
+  it "fails a response whose verified source is only bare text" do
+    allow(chat_client).to receive(:ask).and_return(
+      Chat::Evaluation::RemoteChatClient::Result.new(
+        answer: "John Lynch threw the first pitch. Marlins history.",
+        sources: chat_result.sources
+      )
+    )
+
+    result = build_runner.run
+
+    expect(result.passed).to be(false)
+    expect(result.report.dig(:cases, 0, :attempts, 0)).to include(citations_passed: false, passed: false)
   end
 
   def build_runner

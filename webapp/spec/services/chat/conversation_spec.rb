@@ -172,6 +172,33 @@ RSpec.describe Chat::Conversation do
     )
   end
 
+  it "replaces a verified bare citation with a Markdown link" do
+    title = "Stanford report. Volume 36, 2003-2004"
+    url = "http://example.test/catalog/vm857hw3603"
+    bare_answer = "Kathleen Namphy died after the fall #{title}, p. 571."
+    client.enqueue(tool_calls: [ tool_call("call-1", "mountain fall") ])
+    client.enqueue(content: bare_answer, deltas: [ bare_answer ])
+    allow(tool_runner).to receive(:call).and_return(
+      text: "Kathleen Namphy result",
+      structured_content: {
+        passages: [ { document_title: title, url:, page: "571" } ]
+      }
+    )
+
+    stream = described_class.new(
+      messages: [ { role: "user", content: "Who fell while descending Mount Damavand?" } ],
+      client:,
+      tool_runner:
+    ).each_event.to_a.join
+
+    expect(stream).to include("event: reset")
+    expect(stream).to include(
+      JSON.generate(content: "Kathleen Namphy died after the fall [#{title}, p. 571](<#{url}>).")
+    )
+    expect(stream.index("event: sources")).to be < stream.index("event: delta", stream.index("event: reset"))
+    expect(stream).to end_with("event: done\ndata: {}\n\n")
+  end
+
   it "answers every requested tool call when the execution limit is reached" do
     allow(Rails.configuration.x.chat).to receive(:max_tool_calls).and_return(1)
     client.enqueue(tool_calls: [ tool_call("call-1", "frogs"), tool_call("call-2", "toads") ])

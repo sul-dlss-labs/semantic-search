@@ -233,8 +233,17 @@ module Chat
       source[:pages] = (Array(source[:pages]) + pages).uniq
     end
 
-    def finish(_completion, yield_event:)
-      yield_event.call("sources", sources: @sources.first(10)) if @sources.any?
+    def finish(completion, yield_event:)
+      sources = @sources.first(10)
+      answer = completion.message["content"].to_s
+      linked_answer = CitationLinker.new(sources:).call(answer)
+      if linked_answer != answer
+        yield_event.call("reset", {})
+        yield_event.call("sources", sources:)
+        yield_event.call("delta", content: linked_answer)
+      elsif sources.any?
+        yield_event.call("sources", sources:)
+      end
       yield_event.call("done", {})
     end
 

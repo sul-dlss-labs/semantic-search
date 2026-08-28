@@ -117,7 +117,8 @@ module Chat
           answer: chat_result.answer,
           sources: chat_result.sources
         )
-        citations_passed = !evaluation_case.fetch(:require_citations, false) || valid_citations?(chat_result.sources)
+        citations_passed = !evaluation_case.fetch(:require_citations, false) ||
+          valid_citations?(chat_result.answer, chat_result.sources)
         passed = verdict.pass && verdict.score >= @minimum_score && citations_passed
         @output.puts(
           "  attempt #{attempt_number}: #{passed ? 'PASS' : 'FAIL'} " \
@@ -145,13 +146,16 @@ module Chat
         }
       end
 
-      def valid_citations?(sources)
-        sources.any? do |source|
+      def valid_citations?(answer, sources)
+        verified_urls = sources.filter_map do |source|
           uri = URI(source["url"].to_s)
-          source["title"].present? && %w[http https].include?(uri.scheme) && uri.host.present?
+          uri.to_s if source["title"].present? && %w[http https].include?(uri.scheme) && uri.host.present?
         rescue URI::InvalidURIError
-          false
+          nil
         end
+        cited_urls = answer.scan(/\[[^\]\n]+\]\((?:<([^>\n]+)>|([^)\s]+))\)/).map { |match| match.compact.first }
+
+        (verified_urls & cited_urls).any?
       end
 
       def write_report(report)
