@@ -57,7 +57,7 @@ RSpec.describe Chat::Conversation do
     ).and_return(text: "No passages", structured_content: { passages: [] })
     allow(tool_runner).to receive(:call).with(
       name: "catalog_search_tool",
-      arguments: { "query" => "Compare frogs and toads", "search_type" => "vector", "rows" => 20 }
+      arguments: { "query" => "Compare frogs and toads", "search_type" => "vector", "rows" => 10 }
     ).and_return(text: "No catalog results", structured_content: { results: [] })
 
     stream = described_class.new(
@@ -102,7 +102,7 @@ RSpec.describe Chat::Conversation do
     ).ordered
     expect(tool_runner).to have_received(:call).with(
       name: "catalog_search_tool",
-      arguments: { "query" => question, "search_type" => "vector", "rows" => 20 }
+      arguments: { "query" => question, "search_type" => "vector", "rows" => 10 }
     ).ordered
     expect(tool_runner).to have_received(:call).with(
       name: "catalog_search_tool",

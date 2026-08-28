@@ -55,7 +55,9 @@ module Chat
       @sources = []
       @tool_call_count = 0
       @discovery_performed = false
-      @tool_result_compactor = ToolResultCompactor.new
+      @tool_result_compactor = ToolResultCompactor.new(
+        character_budget: Rails.configuration.x.chat.max_evidence_characters
+      )
     end
 
     def each_event
@@ -183,7 +185,7 @@ module Chat
       query = @history.last.fetch("content")
       searches = [
         [ "search_passages", { "query" => query } ],
-        [ "catalog_search_tool", { "query" => query, "search_type" => "vector", "rows" => 20 } ]
+        [ "catalog_search_tool", { "query" => query, "search_type" => "vector", "rows" => 10 } ]
       ]
       requested_search = [ requested_name, requested_arguments ]
       searches << requested_search unless searches.include?(requested_search)

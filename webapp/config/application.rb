@@ -62,6 +62,7 @@ module SemanticSearch
     config.x.chat.max_history_messages = 20
     config.x.chat.max_message_characters = 8_000
     config.x.chat.max_history_characters = 40_000
+    config.x.chat.max_evidence_characters = 40_000
     config.x.chat.max_output_tokens = 4_000
   end
 end
