@@ -54,8 +54,35 @@
 }
 
 .chat-status {
+  width: fit-content;
+  animation: chat-status-shimmer 2s linear infinite;
+  background: linear-gradient(
+    100deg,
+    currentColor 35%,
+    var(--bs-body-color) 50%,
+    currentColor 65%
+  );
+  background-position: 100% 50%;
+  background-size: 250% 100%;
+  background-clip: text;
   color: var(--bs-secondary-color);
   font-style: italic;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes chat-status-shimmer {
+  to {
+    background-position: -100% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chat-status {
+    animation: none;
+    background: none;
+    -webkit-text-fill-color: currentColor;
+  }
 }
 
 @media (max-width: 576px) {
