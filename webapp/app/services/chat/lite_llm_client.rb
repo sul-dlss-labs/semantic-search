@@ -21,8 +21,8 @@ module Chat
       end
     end
 
-    def stream_completion(messages:, tools: nil)
-      uri, model, request = build_request(messages, tools)
+    def stream_completion(messages:, tools: nil, tool_choice: nil)
+      uri, model, request = build_request(messages, tools, tool_choice)
       http = Net::HTTP.new(uri.host, uri.port)
       http.use_ssl = uri.scheme == "https"
       http.open_timeout = 10
@@ -37,7 +37,7 @@ module Chat
 
     private
 
-    def build_request(messages, tools)
+    def build_request(messages, tools, tool_choice)
       api_base = ENV["LITELLM_API_BASE"]
       api_key = ENV["LITELLM_API_KEY"]
       model = ENV["LITELLM_CHAT_MODEL"]
@@ -58,7 +58,7 @@ module Chat
         model: model,
         messages: messages,
         tools: tools.presence,
-        tool_choice: tools.present? ? "auto" : nil,
+        tool_choice: tool_choice || (tools.present? ? "auto" : nil),
         max_tokens: Rails.configuration.x.chat.max_output_tokens,
         stream: true,
         stream_options: { include_usage: true }

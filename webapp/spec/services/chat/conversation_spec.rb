@@ -18,8 +18,8 @@ RSpec.describe Chat::Conversation do
       @responses << { content:, tool_calls:, deltas:, finish_reason: }
     end
 
-    def stream_completion(messages:, tools:)
-      @requests << { messages:, tools: }
+    def stream_completion(messages:, tools:, tool_choice: nil)
+      @requests << { messages:, tools:, tool_choice: }
       response = @responses.shift
       response.fetch(:deltas).each { |delta| yield delta }
       message = { "role" => "assistant", "content" => response[:content] }
@@ -156,6 +156,43 @@ RSpec.describe Chat::Conversation do
       "tool_call_id" => "call-2",
       "content" => "The tool-call limit has been reached. Use the evidence already returned."
     )
+  end
+
+  it "forces a text response and retries a tool-only final completion" do
+    allow(Rails.configuration.x.chat).to receive(:max_tool_rounds).and_return(1)
+    client.enqueue(tool_calls: [ tool_call("call-1", "frogs") ])
+    client.enqueue(tool_calls: [ tool_call("call-2", "more frogs") ], finish_reason: "tool_calls")
+    client.enqueue(content: "The evidence identifies a frog.", deltas: [ "The evidence identifies a frog." ])
+    allow(tool_runner).to receive(:call).and_return(
+      text: "Frog result",
+      structured_content: { results: [ { title: "Frog papers", url: "http://example.test/catalog/frogs" } ] }
+    )
+
+    stream = described_class.new(
+      messages: [ { role: "user", content: "Which frog?" } ],
+      client:,
+      tool_runner:
+    ).each_event.to_a.join
+
+    expect(client.requests.last(2)).to all(include(tools: tool_runner.definitions, tool_choice: "none"))
+    expect(stream).to include("The evidence identifies a frog.", "event: done")
+  end
+
+  it "reports an error when both forced final completions contain no text" do
+    allow(Rails.configuration.x.chat).to receive(:max_tool_rounds).and_return(1)
+    client.enqueue(tool_calls: [ tool_call("call-1", "frogs") ])
+    client.enqueue(tool_calls: [ tool_call("call-2", "more frogs") ], finish_reason: "tool_calls")
+    client.enqueue(finish_reason: "stop")
+    allow(tool_runner).to receive(:call).and_return(text: "No result", structured_content: { results: [] })
+
+    stream = described_class.new(
+      messages: [ { role: "user", content: "Which frog?" } ],
+      client:,
+      tool_runner:
+    ).each_event.to_a.join
+
+    expect(stream).to include("event: error", "could not produce an answer")
+    expect(stream).not_to include("event: done")
   end
 
   it "rejects a transcript whose last message is not from the user" do

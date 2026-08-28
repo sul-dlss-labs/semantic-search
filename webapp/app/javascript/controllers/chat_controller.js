@@ -75,7 +75,7 @@ export default class extends Controller {
         this.scrollToLatest()
       })
 
-      if (!responseText) responseText = "I couldn’t produce an answer from the available corpus."
+      if (!responseText) throw new Error("The chat service did not return an answer. Please try again.")
       status.remove()
       this.renderMarkdown(assistantContent, responseText, this.verifiedSources)
       this.history.push({ role: "assistant", content: responseText })

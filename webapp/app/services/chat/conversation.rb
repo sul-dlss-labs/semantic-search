@@ -84,15 +84,30 @@ module Chat
         "role" => "system",
         "content" => "Stop searching and answer now using only the evidence already returned. If it is insufficient, say so."
       }
-      completion, = stream_completion(messages, tools: nil) { |event, data| yield event, data }
-      return incomplete(completion) { |event, data| yield event, data } unless completion.complete?
+      2.times do |attempt|
+        messages << {
+          "role" => "system",
+          "content" => "Return a final answer as plain response text now. Do not call a tool."
+        } if attempt.positive?
+        completion, streamed_content = stream_completion(
+          messages,
+          tools: @tool_runner.definitions,
+          tool_choice: "none"
+        ) { |event, data| yield event, data }
+        return incomplete(completion) { |event, data| yield event, data } unless completion.complete?
+        if completion.tool_calls.empty? && streamed_content.present?
+          return finish(completion, yield_event: ->(event, data) { yield event, data })
+        end
 
-      finish(completion, yield_event: ->(event, data) { yield event, data })
+        yield "reset", {} if streamed_content.present?
+      end
+
+      empty_answer { |event, data| yield event, data }
     end
 
-    def stream_completion(messages, tools:)
+    def stream_completion(messages, tools:, tool_choice: nil)
       streamed_content = +""
-      completion = @client.stream_completion(messages:, tools:) do |delta|
+      completion = @client.stream_completion(messages:, tools:, tool_choice:) do |delta|
         streamed_content << delta
         yield "delta", content: delta
       end
@@ -192,6 +207,11 @@ module Chat
         "The response could not be completed. Please try again."
       end
       yield "error", message: message
+    end
+
+    def empty_answer
+      Rails.logger.warn("Chat response contained no final answer text")
+      yield "error", message: "The chat service could not produce an answer. Please try again."
     end
 
     def encode_event(event, data)

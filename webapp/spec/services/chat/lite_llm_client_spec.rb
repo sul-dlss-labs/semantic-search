@@ -80,6 +80,29 @@ RSpec.describe Chat::LiteLlmClient do
     expect(completion).to be_complete
   end
 
+  it "can explicitly disable tool calls for a forced final response" do
+    chunks = [
+      %(data: {"choices":[{"delta":{"content":"Final answer."},"finish_reason":"stop"}]}\n\n),
+      "data: [DONE]\n\n"
+    ]
+    allow(response).to receive(:read_body) { |&block| chunks.each(&block) }
+    allow(http).to receive(:request) do |request, &block|
+      expect(JSON.parse(request.body)).to include(
+        "tools" => [ { "type" => "function" } ],
+        "tool_choice" => "none"
+      )
+      block.call(response)
+    end
+
+    completion = client.stream_completion(
+      messages:,
+      tools: [ { type: "function" } ],
+      tool_choice: "none"
+    )
+
+    expect(completion.message["content"]).to eq("Final answer.")
+  end
+
   it "rejects a stream that ends without its done event" do
     chunks = [ %(data: {"choices":[{"delta":{"content":"An incomplete answer"}}]}\n\n) ]
     allow(response).to receive(:read_body) { |&block| chunks.each(&block) }
