@@ -97,10 +97,14 @@ export default class extends Controller {
     let buffer = ""
     let eventName = "message"
     let dataLines = []
+    let completed = false
 
     const processLine = (line) => {
       if (line === "") {
-        if (dataLines.length > 0) callback(eventName, JSON.parse(dataLines.join("\n")))
+        if (dataLines.length > 0) {
+          if (eventName === "done") completed = true
+          callback(eventName, JSON.parse(dataLines.join("\n")))
+        }
         eventName = "message"
         dataLines = []
       } else if (line.startsWith("event:")) {
@@ -120,6 +124,7 @@ export default class extends Controller {
     }
     if (buffer) processLine(buffer)
     processLine("")
+    if (!completed) throw new Error("The response stream ended before it finished. Please try again.")
   }
 
   appendMessage(label, content, role) {

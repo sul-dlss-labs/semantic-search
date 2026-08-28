@@ -29,6 +29,7 @@ RSpec.describe Chat::LiteLlmClient do
     chunks = [
       %(data: {"id":"chat-123","choices":[{"delta":{"content":"Frogs "}}]}\n\n),
       %(data: {"choices":[{"delta":{"content":"appear."}}]}\n\n),
+      %(data: {"choices":[{"delta":{},"finish_reason":"stop"}]}\n\n),
       %(data: {"choices":[],"usage":{"prompt_tokens":10,"completion_tokens":3,"total_tokens":13}}\n\n),
       "data: [DONE]\n\n"
     ]
@@ -39,7 +40,7 @@ RSpec.describe Chat::LiteLlmClient do
       expect(JSON.parse(request.body)).to include(
         "model" => "chat-alias",
         "messages" => messages,
-        "max_tokens" => 2_000,
+        "max_tokens" => 4_000,
         "stream" => true,
         "stream_options" => { "include_usage" => true }
       )
@@ -52,12 +53,14 @@ RSpec.describe Chat::LiteLlmClient do
     expect(deltas).to eq([ "Frogs ", "appear." ])
     expect(completion.message).to eq("role" => "assistant", "content" => "Frogs appear.")
     expect(completion.tool_calls).to be_empty
+    expect(completion.finish_reason).to eq("stop")
   end
 
   it "assembles streamed tool-call fragments" do
     chunks = [
       %(data: {"choices":[{"delta":{"tool_calls":[{"index":0,"id":"call-1","type":"function","function":{"name":"catalog_","arguments":"{\\"query\\":"}}]}}]}\n\n),
       %(data: {"choices":[{"delta":{"tool_calls":[{"index":0,"function":{"name":"search_tool","arguments":"\\"frogs\\"}"}}]}}]}\n\n),
+      %(data: {"choices":[{"delta":{},"finish_reason":"tool_calls"}]}\n\n),
       "data: [DONE]\n\n"
     ]
     allow(response).to receive(:read_body) { |&block| chunks.each(&block) }
@@ -74,6 +77,16 @@ RSpec.describe Chat::LiteLlmClient do
         }
       ]
     )
+    expect(completion).to be_complete
+  end
+
+  it "rejects a stream that ends without its done event" do
+    chunks = [ %(data: {"choices":[{"delta":{"content":"An incomplete answer"}}]}\n\n) ]
+    allow(response).to receive(:read_body) { |&block| chunks.each(&block) }
+    allow(http).to receive(:request) { |_request, &block| block.call(response) }
+
+    expect { client.stream_completion(messages:) }
+      .to raise_error(described_class::RequestError, "LiteLLM stream ended before its done event")
   end
 
   it "requires a configured chat model" do

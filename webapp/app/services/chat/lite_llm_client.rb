@@ -11,7 +11,15 @@ module Chat
 
     class RequestError < StandardError; end
 
-    Completion = Data.define(:message, :tool_calls)
+    Completion = Data.define(:message, :tool_calls, :finish_reason) do
+      def complete?
+        finish_reason.blank? || %w[stop tool_calls function_call].include?(finish_reason.downcase)
+      end
+
+      def length_limited?
+        %w[length max_tokens].include?(finish_reason.to_s.downcase)
+      end
+    end
 
     def stream_completion(messages:, tools: nil)
       uri, model, request = build_request(messages, tools)
@@ -78,6 +86,7 @@ module Chat
           process_event(event_data, content, tool_calls, payload) { |delta| yield delta }
         end
       end
+      raise RequestError, "LiteLLM stream ended before its done event" unless payload[:stream_complete]
 
       calls = tool_calls.sort_by { |index, _call| index }.map do |index, call|
         call["id"] ||= "call_#{index}"
@@ -85,7 +94,7 @@ module Chat
       end
       message = { "role" => "assistant", "content" => content.presence }
       message["tool_calls"] = calls if calls.any?
-      Completion.new(message:, tool_calls: calls)
+      Completion.new(message:, tool_calls: calls, finish_reason: payload[:finish_reason])
     end
 
     def raise_request_error(response)
@@ -101,11 +110,15 @@ module Chat
     end
 
     def process_event(event_data, content, tool_calls, payload)
-      return if event_data == "[DONE]"
+      if event_data == "[DONE]"
+        payload[:stream_complete] = true
+        return
+      end
 
       event = JSON.parse(event_data)
       payload[:response_id] ||= event["id"]
       add_usage(payload, event["usage"])
+      payload[:finish_reason] = event.dig("choices", 0, "finish_reason") || payload[:finish_reason]
       delta = event.dig("choices", 0, "delta") || {}
 
       if delta["content"].present?

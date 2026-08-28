@@ -14,8 +14,8 @@ RSpec.describe Chat::Conversation do
       @requests = []
     end
 
-    def enqueue(content: nil, tool_calls: [], deltas: [])
-      @responses << { content:, tool_calls:, deltas: }
+    def enqueue(content: nil, tool_calls: [], deltas: [], finish_reason: "stop")
+      @responses << { content:, tool_calls:, deltas:, finish_reason: }
     end
 
     def stream_completion(messages:, tools:)
@@ -24,7 +24,11 @@ RSpec.describe Chat::Conversation do
       response.fetch(:deltas).each { |delta| yield delta }
       message = { "role" => "assistant", "content" => response[:content] }
       message["tool_calls"] = response[:tool_calls] if response[:tool_calls].any?
-      Chat::LiteLlmClient::Completion.new(message:, tool_calls: response[:tool_calls])
+      Chat::LiteLlmClient::Completion.new(
+        message:,
+        tool_calls: response[:tool_calls],
+        finish_reason: response[:finish_reason]
+      )
     end
   end
 
@@ -80,6 +84,19 @@ RSpec.describe Chat::Conversation do
     expect(tool_runner).not_to have_received(:call)
     expect(stream).not_to include("event: sources")
     expect(stream).to include("event: done")
+  end
+
+  it "reports a length-limited response as incomplete" do
+    client.enqueue(content: "An unfinished answer", deltas: [ "An unfinished answer" ], finish_reason: "length")
+
+    stream = described_class.new(
+      messages: [ { role: "user", content: "Give me a long answer" } ],
+      client:,
+      tool_runner:
+    ).each_event.to_a.join
+
+    expect(stream).to include("event: delta", "An unfinished answer", "event: error", "length limit")
+    expect(stream).not_to include("event: done")
   end
 
   it "includes available page numbers with verified sources" do

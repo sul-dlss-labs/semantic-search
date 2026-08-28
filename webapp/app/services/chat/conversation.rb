@@ -71,6 +71,7 @@ module Chat
         completion, streamed_content = stream_completion(messages, tools: @tool_runner.definitions) do |event, data|
           yield event, data
         end
+        return incomplete(completion) { |event, data| yield event, data } unless completion.complete?
         return finish(completion, yield_event: ->(event, data) { yield event, data }) if completion.tool_calls.empty?
 
         yield "reset", {} if streamed_content.present?
@@ -84,6 +85,8 @@ module Chat
         "content" => "Stop searching and answer now using only the evidence already returned. If it is insufficient, say so."
       }
       completion, = stream_completion(messages, tools: nil) { |event, data| yield event, data }
+      return incomplete(completion) { |event, data| yield event, data } unless completion.complete?
+
       finish(completion, yield_event: ->(event, data) { yield event, data })
     end
 
@@ -179,6 +182,16 @@ module Chat
     def finish(_completion, yield_event:)
       yield_event.call("sources", sources: @sources.first(10)) if @sources.any?
       yield_event.call("done", {})
+    end
+
+    def incomplete(completion)
+      Rails.logger.warn("Chat response incomplete: finish_reason=#{completion.finish_reason.inspect}")
+      message = if completion.length_limited?
+        "The response reached its length limit before it finished. Please retry or ask a narrower question."
+      else
+        "The response could not be completed. Please try again."
+      end
+      yield "error", message: message
     end
 
     def encode_event(event, data)
