@@ -264,6 +264,34 @@ RSpec.describe Chat::Conversation do
     expect(stream).not_to include("event: done")
   end
 
+  it "stops quietly when the browser hangs up mid-stream" do
+    allow(Rails.logger).to receive(:info)
+    allow(client).to receive(:stream_completion).and_raise(Errno::EPIPE)
+
+    stream = described_class.new(
+      messages: [ { role: "user", content: "Which frog?" } ],
+      client:,
+      tool_runner:
+    ).each_event.to_a.join
+
+    expect(stream).to be_empty
+    expect(Rails.logger).to have_received(:info).with(/Chat client disconnected mid-stream: Errno::EPIPE/)
+  end
+
+  it "does not raise when the browser hangs up while the error event is being sent" do
+    allow(Rails.logger).to receive(:info)
+    allow(client).to receive(:stream_completion).and_raise(StandardError, "LiteLLM is down")
+    events = described_class.new(
+      messages: [ { role: "user", content: "Which frog?" } ],
+      client:,
+      tool_runner:
+    ).each_event
+
+    expect { events.each { raise Errno::ECONNRESET } }.not_to raise_error
+    expect(Rails.logger).to have_received(:info)
+      .with(/Chat client disconnected before the error event was sent: Errno::ECONNRESET/)
+  end
+
   it "rejects a transcript whose last message is not from the user" do
     expect do
       described_class.normalize_messages([ { role: "assistant", content: "Hello" } ])

@@ -15,6 +15,10 @@ proxy:
     http_port: 3000
     https_port: 4443
 
+  # Chat answers stream for as long as the model and its tool calls take. kamal-proxy defaults to
+  # 30 seconds, which cuts the SSE connection mid-answer and shows the browser a network error.
+  response_timeout: 300
+
 # Enable SSL auto certification via Let's Encrypt and allow for multiple apps on a single web server.
 # If used with Cloudflare, set encryption mode in SSL/TLS setting to "Full" to enable CF-to-app encryption.
 #

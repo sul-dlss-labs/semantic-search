@@ -4,6 +4,7 @@ module Chat
   # Runs the model/tool loop and emits browser-facing server-sent events.
   class Conversation
     DISCOVERY_TOOL_NAMES = %w[catalog_search_tool search_passages].freeze
+    DISCONNECT_ERRORS = [ IOError, Errno::EPIPE, Errno::ECONNRESET ].freeze
 
     class InvalidMessages < StandardError; end
 
@@ -61,12 +62,34 @@ module Chat
       Enumerator.new do |stream|
         run { |event, data| stream << encode_event(event, data) }
       rescue StandardError => e
-        Rails.logger.error("Chat request failed: #{e.class}: #{e.message}")
-        stream << encode_event("error", message: "The chat service could not complete that request. Please try again.")
+        report_failure(stream, e)
       end
     end
 
     private
+
+    # The browser is written to from inside this enumerator, so a hangup surfaces as an exception
+    # from whatever the loop happened to be doing. There is nobody left to tell in that case, and
+    # writing the error event would just raise again.
+    def report_failure(stream, error)
+      if client_disconnected?(error)
+        Rails.logger.info("Chat client disconnected mid-stream: #{error.class}: #{error.message}")
+        return
+      end
+
+      Rails.logger.error("Chat request failed: #{error.class}: #{error.message}")
+      stream << encode_event("error", message: "The chat service could not complete that request. Please try again.")
+    rescue StandardError => e
+      Rails.logger.info("Chat client disconnected before the error event was sent: #{e.class}: #{e.message}")
+    end
+
+    def client_disconnected?(error)
+      # Puma reports its own disconnects as Puma::ConnectionError, which is not necessarily loaded
+      # when this class is, so it is resolved here rather than in a constant.
+      return true if defined?(Puma::ConnectionError) && error.is_a?(Puma::ConnectionError)
+
+      DISCONNECT_ERRORS.any? { |disconnect_error| error.is_a?(disconnect_error) }
+    end
 
     def run
       messages = [ { "role" => "system", "content" => Rails.configuration.x.chat.system_prompt } ] + @history
