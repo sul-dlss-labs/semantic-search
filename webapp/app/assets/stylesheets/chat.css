@@ -58,17 +58,6 @@
   font-style: italic;
 }
 
-.chat-sources {
-  margin-top: 0.75rem;
-  padding-left: 1.25rem;
-  font-size: 0.925rem;
-}
-
-.chat-sources-title {
-  margin-top: 1rem;
-  font-weight: 700;
-}
-
 @media (max-width: 576px) {
   .chat-message {
     max-width: 95%;

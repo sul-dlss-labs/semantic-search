@@ -69,7 +69,6 @@ export default class extends Controller {
         } else if (type === "sources") {
           verifiedSources = data.sources
           this.renderMarkdown(assistantContent, responseText, verifiedSources)
-          this.appendSources(assistant, verifiedSources)
         } else if (type === "error") {
           throw new Error(data.message)
         }
@@ -147,30 +146,6 @@ export default class extends Controller {
     status.textContent = "Thinking…"
     message.append(status)
     return status
-  }
-
-  appendSources(message, sources) {
-    if (!Array.isArray(sources) || sources.length === 0) return
-
-    const title = document.createElement("div")
-    title.className = "chat-sources-title"
-    title.textContent = "Sources"
-    const list = document.createElement("ul")
-    list.className = "chat-sources"
-    sources.forEach((source) => {
-      const item = document.createElement("li")
-      const link = document.createElement("a")
-      link.href = source.url
-      link.textContent = source.title
-      item.append(link)
-      const pages = Array.isArray(source.pages) ? source.pages.filter(Boolean) : []
-      if (pages.length > 0) {
-        const pageLabel = pages.length === 1 ? "p." : "pp."
-        item.append(document.createTextNode(` (${pageLabel} ${pages.join(", ")})`))
-      }
-      list.append(item)
-    })
-    message.append(title, list)
   }
 
   renderMarkdown(container, text, sources) {
