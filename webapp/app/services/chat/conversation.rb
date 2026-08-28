@@ -3,6 +3,8 @@
 module Chat
   # Runs the model/tool loop and emits browser-facing server-sent events.
   class Conversation
+    DISCOVERY_TOOL_NAMES = %w[catalog_search_tool search_passages].freeze
+
     class InvalidMessages < StandardError; end
 
     def self.normalize_messages(value)
@@ -51,6 +53,7 @@ module Chat
       @tool_runner = tool_runner || ToolRunner.new(controller: controller)
       @sources = []
       @tool_call_count = 0
+      @discovery_performed = false
     end
 
     def each_event
@@ -140,9 +143,44 @@ module Chat
 
     def call_tool(name, raw_arguments)
       arguments = JSON.parse(raw_arguments.presence || "{}")
+      return deterministic_discovery(name, arguments) if initial_discovery?(name)
+
       @tool_runner.call(name:, arguments:)
     rescue JSON::ParserError => e
       { text: "Invalid tool arguments: #{e.message}", structured_content: { error: e.message }, error: true }
+    end
+
+    def initial_discovery?(name)
+      !@discovery_performed && DISCOVERY_TOOL_NAMES.include?(name)
+    end
+
+    def deterministic_discovery(requested_name, requested_arguments)
+      @discovery_performed = true
+      query = @history.last.fetch("content")
+      searches = [
+        [ "search_passages", { "query" => query } ],
+        [ "catalog_search_tool", { "query" => query, "search_type" => "vector", "rows" => 20 } ]
+      ]
+      requested_search = [ requested_name, requested_arguments ]
+      searches << requested_search unless searches.include?(requested_search)
+
+      combine_discovery_results(searches.map do |name, arguments|
+        [ name, @tool_runner.call(name:, arguments:) ]
+      end)
+    end
+
+    def combine_discovery_results(searches)
+      successful = searches.reject { |_name, result| result[:error] }
+      structured_content = successful.each_with_object({ passages: [], results: [] }) do |(_name, result), content|
+        result_content = result[:structured_content].to_h.deep_symbolize_keys
+        content[:passages].concat(Array(result_content[:passages]))
+        content[:results].concat(Array(result_content[:results]))
+      end
+      text = searches.map do |name, result|
+        "#{name}:\n#{result[:text]}"
+      end.join("\n\n")
+
+      { text:, structured_content:, error: successful.empty? }
     end
 
     def collect_sources(content)

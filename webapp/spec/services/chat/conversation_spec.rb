@@ -51,6 +51,14 @@ RSpec.describe Chat::Conversation do
       text: "Toad result",
       structured_content: { results: [ { title: "Toad papers", url: "http://example.test/catalog/toads" } ] }
     )
+    allow(tool_runner).to receive(:call).with(
+      name: "search_passages",
+      arguments: { "query" => "Compare frogs and toads" }
+    ).and_return(text: "No passages", structured_content: { passages: [] })
+    allow(tool_runner).to receive(:call).with(
+      name: "catalog_search_tool",
+      arguments: { "query" => "Compare frogs and toads", "search_type" => "vector", "rows" => 20 }
+    ).and_return(text: "No catalog results", structured_content: { results: [] })
 
     stream = described_class.new(
       messages: [ { role: "user", content: "Compare frogs and toads" } ],
@@ -58,11 +66,12 @@ RSpec.describe Chat::Conversation do
       tool_runner:
     ).each_event.to_a.join
 
-    expect(tool_runner).to have_received(:call).twice
+    expect(tool_runner).to have_received(:call).exactly(4).times
     expect(client.requests.length).to eq(2)
     expect(client.requests.first.dig(:messages, 0, "content")).to include(
       "Prefer vector search for most discovery and research questions",
       "copy the user's current question verbatim into the query argument",
+      "automatically pairs the first discovery call",
       "Use the supplied page value exactly",
       "Every citation must be a Markdown link"
     )
@@ -70,6 +79,35 @@ RSpec.describe Chat::Conversation do
     expect(stream).to include("Frog papers", "http://example.test/catalog/frogs")
     expect(stream).to include("Toad papers", "http://example.test/catalog/toads")
     expect(stream).to end_with("event: done\ndata: {}\n\n")
+  end
+
+  it "pairs the first discovery call with verbatim passage and catalog vector searches" do
+    question = "Who died after a fall while descending a mountain in Iran?"
+    client.enqueue(tool_calls: [ tool_call("call-1", "mountain death") ])
+    client.enqueue(content: "Kathleen Namphy died after the fall.", deltas: [ "Kathleen Namphy died after the fall." ])
+    allow(tool_runner).to receive(:call).and_return(
+      text: "No results",
+      structured_content: { results: [], passages: [] }
+    )
+
+    described_class.new(
+      messages: [ { role: "user", content: question } ],
+      client:,
+      tool_runner:
+    ).each_event.to_a
+
+    expect(tool_runner).to have_received(:call).with(
+      name: "search_passages",
+      arguments: { "query" => question }
+    ).ordered
+    expect(tool_runner).to have_received(:call).with(
+      name: "catalog_search_tool",
+      arguments: { "query" => question, "search_type" => "vector", "rows" => 20 }
+    ).ordered
+    expect(tool_runner).to have_received(:call).with(
+      name: "catalog_search_tool",
+      arguments: { "query" => "mountain death" }
+    ).ordered
   end
 
   it "allows a refusal without making up a source" do
@@ -149,7 +187,11 @@ RSpec.describe Chat::Conversation do
       tool_runner:
     ).each_event.to_a
 
-    expect(tool_runner).to have_received(:call).once
+    expect(tool_runner).to have_received(:call).exactly(3).times
+    expect(tool_runner).not_to have_received(:call).with(
+      name: "catalog_search_tool",
+      arguments: { "query" => "toads" }
+    )
     final_request_messages = client.requests.last.fetch(:messages)
     expect(final_request_messages).to include(
       "role" => "tool",
