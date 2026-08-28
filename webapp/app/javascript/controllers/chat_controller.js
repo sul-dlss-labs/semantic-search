@@ -167,7 +167,7 @@ export default class extends Controller {
       const href = link.getAttribute("href")
       const source = sourcesByUrl.get(href)
       if (source) {
-        link.setAttribute("href", this.citationUrl(source.url, link.textContent))
+        link.setAttribute("href", this.citationUrl(source, link.textContent))
         return
       }
 
@@ -223,7 +223,7 @@ export default class extends Controller {
         replacement.append(document.createTextNode(textNode.data.slice(previousIndex, match.index)))
         const link = document.createElement("a")
         const source = sourcesByTitle.get(match[1])
-        link.href = this.citationUrl(source.url, match[0])
+        link.href = this.citationUrl(source, match[0])
         link.textContent = match[0]
         replacement.append(link)
         previousIndex = match.index + match[0].length
@@ -233,11 +233,12 @@ export default class extends Controller {
     })
   }
 
-  citationUrl(sourceUrl, citationText) {
+  citationUrl(source, citationText) {
     const page = citationText.match(/,\s+pp?\.\s+(\d+)/)?.[1]
-    if (!page) return sourceUrl
+    const verifiedPages = Array.isArray(source.pages) ? source.pages.map(String) : []
+    if (!page || !verifiedPages.includes(page)) return source.url
 
-    const url = new URL(sourceUrl, document.baseURI)
+    const url = new URL(source.url, document.baseURI)
     url.searchParams.set("canvas_index", Number.parseInt(page, 10) - 1)
     return url.toString()
   }

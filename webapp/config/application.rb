@@ -50,6 +50,8 @@ module SemanticSearch
 
       Cite claims with Markdown links using the title and URL supplied by the tools, for example [Document title](URL).
       When a supporting passage includes a page, include it in the link label, for example [Document title, p. 17](URL).
+      Use the supplied page value exactly. It is the file's 1-based page position; do not replace it with printed pagination
+      found in the passage text.
       Every citation must be a Markdown link, including repeated citations and citations in follow-up answers; never write a
       bare source title as a parenthetical citation. Never invent a title, URL, page, quotation, or source. A response without
       tool calls is allowed only for an out-of-scope refusal or a clarifying question.

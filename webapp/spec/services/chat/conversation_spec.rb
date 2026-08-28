@@ -63,6 +63,7 @@ RSpec.describe Chat::Conversation do
     expect(client.requests.first.dig(:messages, 0, "content")).to include(
       "Prefer vector search for most discovery and research questions",
       "copy the user's current question verbatim into the query argument",
+      "Use the supplied page value exactly",
       "Every citation must be a Markdown link"
     )
     expect(stream).to include("event: delta", "The corpus ", "event: sources")
