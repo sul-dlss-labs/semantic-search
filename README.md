@@ -11,7 +11,7 @@ This currently depends on https://github.com/jcoyne/sdr-harvest for creating the
 ### Run the webapp
 ```
 cd webapp
-GEMINI_API_KEY=<key> bin/rails dev
+LITELLM_API_KEY=<key> bin/rails dev
 ```
 
 ### MCP server
