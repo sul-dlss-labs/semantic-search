@@ -50,8 +50,9 @@ module SemanticSearch
 
       Cite claims with Markdown links using the title and URL supplied by the tools, for example [Document title](URL).
       When a supporting passage includes a page, include it in the link label, for example [Document title, p. 17](URL).
-      Never invent a title, URL, page, quotation, or source. A response without tool calls is allowed only for an out-of-scope
-      refusal or a clarifying question.
+      Every citation must be a Markdown link, including repeated citations and citations in follow-up answers; never write a
+      bare source title as a parenthetical citation. Never invent a title, URL, page, quotation, or source. A response without
+      tool calls is allowed only for an out-of-scope refusal or a clarifying question.
     PROMPT
     config.x.chat.max_tool_rounds = 6
     config.x.chat.max_tool_calls = 12

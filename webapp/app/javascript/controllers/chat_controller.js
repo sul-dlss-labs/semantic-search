@@ -12,6 +12,7 @@ export default class extends Controller {
 
   connect() {
     this.history = []
+    this.verifiedSources = []
   }
 
   keydown(event) {
@@ -36,7 +37,6 @@ export default class extends Controller {
     const assistantContent = assistant.querySelector(".chat-message-content")
     const status = this.appendStatus(assistant)
     let responseText = ""
-    let verifiedSources = []
 
     try {
       const response = await fetch(this.formTarget.action, {
@@ -59,7 +59,7 @@ export default class extends Controller {
         if (type === "delta") {
           status.remove()
           responseText += data.content
-          this.renderMarkdown(assistantContent, responseText, verifiedSources)
+          this.renderMarkdown(assistantContent, responseText, this.verifiedSources)
         } else if (type === "reset") {
           responseText = ""
           assistantContent.textContent = ""
@@ -67,8 +67,8 @@ export default class extends Controller {
           status.textContent = data.message
           if (!status.isConnected) assistant.append(status)
         } else if (type === "sources") {
-          verifiedSources = data.sources
-          this.renderMarkdown(assistantContent, responseText, verifiedSources)
+          this.verifiedSources = this.mergeVerifiedSources(data.sources)
+          this.renderMarkdown(assistantContent, responseText, this.verifiedSources)
         } else if (type === "error") {
           throw new Error(data.message)
         }
@@ -77,7 +77,7 @@ export default class extends Controller {
 
       if (!responseText) responseText = "I couldn’t produce an answer from the available corpus."
       status.remove()
-      this.renderMarkdown(assistantContent, responseText, verifiedSources)
+      this.renderMarkdown(assistantContent, responseText, this.verifiedSources)
       this.history.push({ role: "assistant", content: responseText })
     } catch (error) {
       assistant.remove()
@@ -165,7 +165,74 @@ export default class extends Controller {
       link.replaceWith(document.createTextNode(link.textContent))
     })
 
+    this.linkSourceReferences(template.content, sources)
     container.replaceChildren(template.content)
+  }
+
+  mergeVerifiedSources(sources) {
+    const sourcesByUrl = new Map(this.verifiedSources.map((source) => [source.url, source]))
+
+    if (!Array.isArray(sources)) return Array.from(sourcesByUrl.values())
+
+    sources.forEach((source) => {
+      if (!source?.title || !source?.url) return
+
+      sourcesByUrl.set(source.url, { ...sourcesByUrl.get(source.url), ...source })
+    })
+
+    return Array.from(sourcesByUrl.values())
+  }
+
+  linkSourceReferences(fragment, sources) {
+    const sourcesByTitle = new Map(
+      sources
+        .filter((source) => source.title && this.safeSourceUrl(source.url))
+        .map((source) => [source.title, source])
+    )
+    const titles = Array.from(sourcesByTitle.keys()).sort((a, b) => b.length - a.length)
+    if (titles.length === 0) return
+
+    const titlePattern = new RegExp(
+      `(${titles.map(this.escapeRegExp).join("|")})(,\\s+pp?\\.\\s+\\d+(?:\\s*(?:[-–—]|,\\s*)\\s*\\d+)*)?`,
+      "g"
+    )
+    const walker = document.createTreeWalker(fragment, NodeFilter.SHOW_TEXT)
+    const textNodes = []
+
+    while (walker.nextNode()) {
+      const textNode = walker.currentNode
+      if (!textNode.parentElement?.closest("a, code, pre")) textNodes.push(textNode)
+    }
+
+    textNodes.forEach((textNode) => {
+      const matches = Array.from(textNode.data.matchAll(titlePattern))
+      if (matches.length === 0) return
+
+      const replacement = document.createDocumentFragment()
+      let previousIndex = 0
+      matches.forEach((match) => {
+        replacement.append(document.createTextNode(textNode.data.slice(previousIndex, match.index)))
+        const link = document.createElement("a")
+        link.href = sourcesByTitle.get(match[1]).url
+        link.textContent = match[0]
+        replacement.append(link)
+        previousIndex = match.index + match[0].length
+      })
+      replacement.append(document.createTextNode(textNode.data.slice(previousIndex)))
+      textNode.replaceWith(replacement)
+    })
+  }
+
+  escapeRegExp(text) {
+    return text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
+  }
+
+  safeSourceUrl(url) {
+    try {
+      return ["http:", "https:"].includes(new URL(url, document.baseURI).protocol)
+    } catch {
+      return false
+    }
   }
 
   setBusy(busy) {
