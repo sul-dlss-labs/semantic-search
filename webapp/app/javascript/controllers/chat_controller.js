@@ -154,7 +154,7 @@ export default class extends Controller {
   }
 
   renderMarkdown(container, text, sources) {
-    const allowedUrls = new Set(sources.map((source) => source.url))
+    const sourcesByUrl = new Map(sources.map((source) => [source.url, source]))
     const html = marked.parse(text, { breaks: true, gfm: true })
     const sanitizedHtml = DOMPurify.sanitize(html, {
       ALLOWED_TAGS: markdownTags,
@@ -165,7 +165,11 @@ export default class extends Controller {
 
     template.content.querySelectorAll("a").forEach((link) => {
       const href = link.getAttribute("href")
-      if (allowedUrls.has(href)) return
+      const source = sourcesByUrl.get(href)
+      if (source) {
+        link.setAttribute("href", this.citationUrl(source.url, link.textContent))
+        return
+      }
 
       link.replaceWith(document.createTextNode(link.textContent))
     })
@@ -218,7 +222,8 @@ export default class extends Controller {
       matches.forEach((match) => {
         replacement.append(document.createTextNode(textNode.data.slice(previousIndex, match.index)))
         const link = document.createElement("a")
-        link.href = sourcesByTitle.get(match[1]).url
+        const source = sourcesByTitle.get(match[1])
+        link.href = this.citationUrl(source.url, match[0])
         link.textContent = match[0]
         replacement.append(link)
         previousIndex = match.index + match[0].length
@@ -226,6 +231,15 @@ export default class extends Controller {
       replacement.append(document.createTextNode(textNode.data.slice(previousIndex)))
       textNode.replaceWith(replacement)
     })
+  }
+
+  citationUrl(sourceUrl, citationText) {
+    const page = citationText.match(/,\s+pp?\.\s+(\d+)/)?.[1]
+    if (!page) return sourceUrl
+
+    const url = new URL(sourceUrl, document.baseURI)
+    url.searchParams.set("canvas_index", Number.parseInt(page, 10) - 1)
+    return url.toString()
   }
 
   escapeRegExp(text) {
