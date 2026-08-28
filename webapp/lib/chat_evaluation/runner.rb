@@ -79,6 +79,13 @@ module Chat
         %i[id question reference_answer rubric].each do |key|
           raise ArgumentError, "Chat evaluation case is missing #{key}" if evaluation_case[key].blank?
         end
+        Array(evaluation_case[:history]).each do |message|
+          role = message[:role].to_s
+          content = message[:content]
+          next if %w[user assistant].include?(role) && content.is_a?(String) && content.present?
+
+          raise ArgumentError, "Chat evaluation case #{evaluation_case[:id]} has an invalid history message"
+        end
       end
 
       def evaluate_case(evaluation_case)
@@ -90,6 +97,7 @@ module Chat
           question: evaluation_case.fetch(:question),
           reference_answer: evaluation_case.fetch(:reference_answer),
           rubric: evaluation_case.fetch(:rubric),
+          history: evaluation_case.fetch(:history, []),
           require_citations: evaluation_case.fetch(:require_citations, false),
           pass_rate:,
           passed: pass_rate >= @required_pass_rate,
@@ -98,7 +106,10 @@ module Chat
       end
 
       def evaluate_attempt(evaluation_case, attempt_number)
-        chat_result = @chat_client.ask(evaluation_case.fetch(:question))
+        chat_result = @chat_client.ask(
+          evaluation_case.fetch(:question),
+          history: evaluation_case.fetch(:history, [])
+        )
         verdict = @judge.evaluate(
           question: evaluation_case.fetch(:question),
           reference_answer: evaluation_case.fetch(:reference_answer),

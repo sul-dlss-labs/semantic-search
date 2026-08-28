@@ -19,7 +19,7 @@ module Chat
         @base_uri.path = "/" if @base_uri.path.blank?
       end
 
-      def ask(question)
+      def ask(question, history: [])
         csrf_token, cookies = fetch_session
         accumulator = StreamAccumulator.new
         uri = endpoint_uri
@@ -30,7 +30,9 @@ module Chat
           "Cookie" => cookies,
           "X-CSRF-Token" => csrf_token
         )
-        request.body = { messages: [ { role: "user", content: question } ] }.to_json
+        messages = Array(history).map { |message| message.to_h.stringify_keys }
+        messages << { "role" => "user", "content" => question }
+        request.body = { messages: }.to_json
 
         perform(uri, request) do |response|
           raise_request_error(response) unless response.is_a?(Net::HTTPSuccess)

@@ -65,6 +65,17 @@ LITELLM_EVAL_MODEL=claude-sonnet-5 \
   bin/rails chat:evaluate
 ```
 
+To exercise the Mount Damavand retrieval regression repeatedly in both fresh and retry
+contexts, run:
+
+```sh
+CHAT_EVAL_CASE=kathleen_namphy_mount_damavand CHAT_EVAL_RUNS=5 \
+LITELLM_EVAL_MODEL=claude-sonnet-5 bin/rails chat:evaluate
+
+CHAT_EVAL_CASE=kathleen_namphy_retry_after_miss CHAT_EVAL_RUNS=5 \
+LITELLM_EVAL_MODEL=claude-sonnet-5 bin/rails chat:evaluate
+```
+
 ## Deployment
 
 After the Docker GitHub Actions workflow has successfully built and published the

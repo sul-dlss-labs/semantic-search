@@ -32,6 +32,11 @@ RSpec.describe Chat::Evaluation::Runner do
         cases:
           - id: marlins_first_pitch
             question: Who threw out the first pitch for the Marlins?
+            history:
+              - role: user
+                content: Who threw it?
+              - role: assistant
+                content: I could not find it.
             reference_answer: John Lynch threw the first pitch in Marlins history in Erie, Pennsylvania.
             rubric:
               - Identifies John Lynch.
@@ -50,12 +55,25 @@ RSpec.describe Chat::Evaluation::Runner do
     result = build_runner.run
 
     expect(result.passed).to be(true)
+    expect(chat_client).to have_received(:ask).with(
+      "Who threw out the first pitch for the Marlins?",
+      history: [
+        { role: "user", content: "Who threw it?" },
+        { role: "assistant", content: "I could not find it." }
+      ]
+    )
     report = JSON.parse(@report_path.read)
     expect(report).to include("passed" => true, "evaluation_model" => "judge-model")
     expect(report.dig("cases", 0, "attempts", 0)).to include(
       "answer" => chat_result.answer,
       "citations_passed" => true,
       "passed" => true
+    )
+    expect(report.dig("cases", 0, "history")).to eq(
+      [
+        { "role" => "user", "content" => "Who threw it?" },
+        { "role" => "assistant", "content" => "I could not find it." }
+      ]
     )
     expect(output.string).to include("attempt 1: PASS", "Chat evaluation PASSED")
   end

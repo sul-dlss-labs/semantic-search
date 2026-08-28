@@ -43,12 +43,22 @@ RSpec.describe Chat::Evaluation::RemoteChatClient do
         expect(request["X-CSRF-Token"]).to eq("token&value")
         expect(request["Cookie"]).to eq("session=abc123; preference=compact")
         expect(JSON.parse(request.body)).to eq(
-          "messages" => [ { "role" => "user", "content" => "Who threw it?" } ]
+          "messages" => [
+            { "role" => "user", "content" => "Who threw the first pitch?" },
+            { "role" => "assistant", "content" => "I could not find it." },
+            { "role" => "user", "content" => "Who threw it?" }
+          ]
         )
         block.call(post_response)
       end
 
-      result = described_class.new(base_url: "https://chat.example").ask("Who threw it?")
+      result = described_class.new(base_url: "https://chat.example").ask(
+        "Who threw it?",
+        history: [
+          { role: "user", content: "Who threw the first pitch?" },
+          { role: "assistant", content: "I could not find it." }
+        ]
+      )
 
       expect(result.answer).to eq("John Lynch threw the first pitch.")
       expect(result.sources).to eq(
