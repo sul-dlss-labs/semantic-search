@@ -55,7 +55,7 @@
 
 .chat-status {
   --chat-shimmer-base: gray;
-  --chat-shimmer-highlight: var(--bs-emphasis-color);
+  --chat-shimmer-highlight: lightgray;
 
   width: fit-content;
   animation: chat-status-shimmer 2s linear infinite;
