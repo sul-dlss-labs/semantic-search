@@ -54,6 +54,7 @@ module Chat
       @sources = []
       @tool_call_count = 0
       @discovery_performed = false
+      @tool_result_compactor = ToolResultCompactor.new
     end
 
     def each_event
@@ -136,7 +137,7 @@ module Chat
         messages << {
           "role" => "tool",
           "tool_call_id" => tool_call["id"],
-          "content" => result[:text]
+          "content" => @tool_result_compactor.call(result)
         }
       end
     end
