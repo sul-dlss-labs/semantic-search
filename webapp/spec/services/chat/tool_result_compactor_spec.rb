@@ -25,7 +25,8 @@ RSpec.describe Chat::ToolResultCompactor do
     )
 
     expect(text).to start_with("Passage evidence:\n1. Stanford report. Volume 36, 2003-2004")
-    expect(text).to include("page 571", "chunk 4", "Source: /catalog/vm857hw3603")
+    expect(text).to include("page 571", "Source: /catalog/vm857hw3603")
+    expect(text).not_to include("chunk 4")
     expect(text.length).to be < 1_300
   end
 

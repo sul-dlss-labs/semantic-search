@@ -162,8 +162,7 @@ module Chat
     def location_text(item)
       values = [
         item[:filename],
-        item[:page] && "page #{item[:page]}",
-        item[:chunk_index] && "chunk #{item[:chunk_index]}"
+        item[:page] && "page #{item[:page]}"
       ].compact
       values.any? ? " (#{values.join(', ')})" : ""
     end
