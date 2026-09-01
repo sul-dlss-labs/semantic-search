@@ -6,7 +6,7 @@ Developing semantic search for SUL
 
 We are attempting to create a semantic search prototype.
 
-This currently depends on https://github.com/jcoyne/sdr-harvest for creating the index (and the solr config)
+This currently depends on https://github.com/sul-dlss-labs/sdr-harvest for creating the index (and the solr config)
 
 ### Run the webapp
 ```
