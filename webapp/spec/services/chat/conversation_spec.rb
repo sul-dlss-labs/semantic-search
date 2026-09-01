@@ -199,6 +199,35 @@ RSpec.describe Chat::Conversation do
     expect(stream).to end_with("event: done\ndata: {}\n\n")
   end
 
+  it "links a cited source collected after the first ten sources" do
+    sources = 11.times.map do |index|
+      {
+        title: "Source #{index + 1}",
+        url: "http://example.test/catalog/source-#{index + 1}"
+      }
+    end
+    cited_source = sources.last
+    bare_answer = "The decisive evidence appears in #{cited_source[:title]}, p. 29."
+    client.enqueue(tool_calls: [ tool_call("call-1", "decisive evidence") ])
+    client.enqueue(content: bare_answer, deltas: [ bare_answer ])
+    allow(tool_runner).to receive(:call).and_return(
+      text: "Search results",
+      structured_content: { results: sources }
+    )
+
+    stream = described_class.new(
+      messages: [ { role: "user", content: "Where does the decisive evidence appear?" } ],
+      client:,
+      tool_runner:
+    ).each_event.to_a.join
+
+    expect(stream).to include(
+      JSON.generate(content: "The decisive evidence appears in " \
+                             "[#{cited_source[:title]}, p. 29](<#{cited_source[:url]}>).")
+    )
+    expect(stream).to include(JSON.generate(cited_source))
+  end
+
   it "answers every requested tool call when the execution limit is reached" do
     allow(Rails.configuration.x.chat).to receive(:max_tool_calls).and_return(1)
     client.enqueue(tool_calls: [ tool_call("call-1", "frogs"), tool_call("call-2", "toads") ])

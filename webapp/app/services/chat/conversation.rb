@@ -259,8 +259,8 @@ module Chat
     end
 
     def finish(completion, yield_event:)
-      sources = @sources.first(10)
       answer = completion.message["content"].to_s
+      sources = sources_for(answer)
       linked_answer = CitationLinker.new(sources:).call(answer)
       if linked_answer != answer
         yield_event.call("reset", {})
@@ -270,6 +270,14 @@ module Chat
         yield_event.call("sources", sources:)
       end
       yield_event.call("done", {})
+    end
+
+    def sources_for(answer)
+      cited_sources = @sources.select do |source|
+        answer.include?(source.fetch(:title)) || answer.include?(source.fetch(:url))
+      end
+
+      (cited_sources + @sources.first(10)).uniq { |source| source.fetch(:url) }
     end
 
     def incomplete(completion)
