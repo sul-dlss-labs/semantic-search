@@ -6,6 +6,11 @@ class SearchBuilder < Blacklight::SearchBuilder
   VECTOR_TOP_K = 250
   VECTOR_BOOST = 100.0
 
+  # Lexical chunk matches are scored per chunk and rolled up to the parent with
+  # score=max, so this is comparable with one strong chunk rather than with a
+  # whole-document field. Tune against VECTOR_BOOST when balancing hybrid.
+  CHUNK_BOOST = 1.0
+
   self.default_processor_chain += [ :add_embedding_to_query ]
 
   attr_reader :query_embedding
@@ -15,7 +20,7 @@ class SearchBuilder < Blacklight::SearchBuilder
 
     solr_parameters[:json] ||= { query: {} }
     solr_parameters[:json][:query][:bool] = {
-      should: keyword(solr_parameters) + knn
+      should: keyword(solr_parameters) + keyword_chunks + knn
     }
     return unless knn.present?
 
@@ -33,6 +38,36 @@ class SearchBuilder < Blacklight::SearchBuilder
     return [] unless solr_parameters[:q].present?
 
     [ { edismax: { query: solr_parameters[:q] } } ]
+  end
+
+  # Lexical search over the extracted chunk text. Mirrors #knn: the match is
+  # made against child documents and rolled up to the parent with score=max, so
+  # a phrase occurring in one chunk of a 1,000-chunk volume is not diluted by
+  # document length.
+  def keyword_chunks
+    return [] if blacklight_params[:search_type] == "vector"
+    return [] unless blacklight_params[:q].present?
+
+    [
+      {
+        boost: {
+          b: CHUNK_BOOST,
+          query: {
+            parent: {
+              which: "doc_type_ssi:parent",
+              # Without this the parent parser defaults to score=none and every match scores 0.
+              score: "max",
+              query: {
+                edismax: {
+                  query: blacklight_params[:q],
+                  qf: "chunk_text_tesi"
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
   end
 
   def knn
