@@ -28,6 +28,13 @@
 threads_count = ENV.fetch("RAILS_MAX_THREADS", 3)
 threads threads_count, threads_count
 
+# Puma's response socket write timeout is a constant rather than a DSL option.
+# Keep a stalled streaming client from failing too aggressively, while allowing
+# deployments to tune the value without changing the application code.
+puma_write_timeout = Integer(ENV.fetch("PUMA_WRITE_TIMEOUT", 30))
+Puma::Const.send(:remove_const, :WRITE_TIMEOUT)
+Puma::Const.const_set(:WRITE_TIMEOUT, puma_write_timeout)
+
 # Specifies the `port` that Puma will listen on to receive requests; default is 3000.
 port ENV.fetch("PORT", 3000)
 
