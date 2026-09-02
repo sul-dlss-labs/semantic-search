@@ -172,6 +172,31 @@ RSpec.describe Chat::Conversation do
     )
   end
 
+  it "notifies the user when the source event is capped" do
+    allow(Rails.configuration.x.chat).to receive(:max_sources).and_return(1)
+    allow(Rails.configuration.x.chat).to receive(:max_source_event_characters).and_return(64_000)
+    client.enqueue(tool_calls: [ tool_call("call-1", "frogs") ])
+    client.enqueue(content: "The evidence supports the answer.", deltas: [ "The evidence supports the answer." ])
+    allow(tool_runner).to receive(:call).and_return(
+      text: "Results",
+      structured_content: {
+        results: [
+          { title: "Frog papers", url: "http://example.test/catalog/frogs" },
+          { title: "Frog history", url: "http://example.test/catalog/history" }
+        ]
+      }
+    )
+
+    stream = described_class.new(
+      messages: [ { role: "user", content: "Which frog?" } ],
+      client:,
+      tool_runner:
+    ).each_event.to_a.join
+
+    expect(stream).to include("event: notice", "Your query returned more research than can be displayed")
+    expect(stream.scan('"url":"http://example.test/catalog/').length).to eq(1)
+  end
+
   it "replaces a verified bare citation with a Markdown link" do
     title = "Stanford report. Volume 36, 2003-2004"
     url = "http://example.test/catalog/vm857hw3603"

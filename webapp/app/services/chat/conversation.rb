@@ -260,15 +260,16 @@ module Chat
 
     def finish(completion, yield_event:)
       answer = completion.message["content"].to_s
-      sources = sources_for(answer)
+      sources, emitted_sources, sources_truncated = sources_for(answer)
       linked_answer = CitationLinker.new(sources:).call(answer)
       if linked_answer != answer
         yield_event.call("reset", {})
-        yield_event.call("sources", sources:)
+        yield_event.call("sources", sources: emitted_sources, truncated: sources_truncated)
         yield_event.call("delta", content: linked_answer)
-      elsif sources.any?
-        yield_event.call("sources", sources:)
+      elsif emitted_sources.any?
+        yield_event.call("sources", sources: emitted_sources, truncated: sources_truncated)
       end
+      yield_event.call("notice", message: source_limit_message) if sources_truncated
       yield_event.call("done", {})
     end
 
@@ -277,7 +278,25 @@ module Chat
         answer.include?(source.fetch(:title)) || answer.include?(source.fetch(:url))
       end
 
-      (cited_sources + @sources.first(10)).uniq { |source| source.fetch(:url) }
+      sources = (cited_sources + @sources.first(10)).uniq { |source| source.fetch(:url) }
+      emitted_sources = []
+      emitted_characters = 0
+      max_sources = Rails.configuration.x.chat.max_sources
+      max_characters = Rails.configuration.x.chat.max_source_event_characters
+      sources.each do |source|
+        break if emitted_sources.length >= max_sources
+
+        source_characters = JSON.generate(source).bytesize
+        break if emitted_sources.any? && emitted_characters + source_characters > max_characters
+
+        emitted_sources << source
+        emitted_characters += source_characters
+      end
+      [ sources, emitted_sources, emitted_sources.length < sources.length ]
+    end
+
+    def source_limit_message
+      "Your query returned more research than can be displayed at once. Some sources were omitted from the source list; the answer uses the retrieved evidence."
     end
 
     def incomplete(completion)

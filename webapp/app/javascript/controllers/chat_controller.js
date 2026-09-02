@@ -71,6 +71,8 @@ export default class extends Controller {
         } else if (type === "sources") {
           this.verifiedSources = this.mergeVerifiedSources(data.sources)
           this.renderMarkdown(assistantContent, responseText, this.verifiedSources)
+        } else if (type === "notice") {
+          this.appendNotice(assistant, data.message)
         } else if (type === "error") {
           throw new Error(data.message)
         }
@@ -161,6 +163,15 @@ export default class extends Controller {
     status.textContent = "Thinking…"
     message.append(status)
     return status
+  }
+
+  appendNotice(message, content) {
+    const notice = document.createElement("div")
+    notice.className = "chat-source-notice alert alert-warning mt-2 mb-0"
+    notice.textContent = content
+    message.append(notice)
+    this.scrollToLatest()
+    return notice
   }
 
   renderMarkdown(container, text, sources) {

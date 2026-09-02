@@ -63,6 +63,8 @@ module SemanticSearch
     config.x.chat.max_message_characters = 8_000
     config.x.chat.max_history_characters = 40_000
     config.x.chat.max_evidence_characters = 40_000
+    config.x.chat.max_sources = 50
+    config.x.chat.max_source_event_characters = 64_000
     config.x.chat.max_output_tokens = 4_000
   end
 end
