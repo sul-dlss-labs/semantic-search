@@ -10,6 +10,8 @@ const markdownTags = [
 export default class extends Controller {
   static targets = ["messages", "form", "input", "submit", "error"]
 
+  static streamInterruptedMessage = "The answer stream was interrupted before it finished. The response may have been too large or the connection may have timed out. Please try again, or ask a narrower question."
+
   connect() {
     this.history = []
     this.verifiedSources = []
@@ -114,17 +116,25 @@ export default class extends Controller {
       }
     }
 
-    while (true) {
-      const { value, done } = await reader.read()
-      buffer += decoder.decode(value || new Uint8Array(), { stream: !done })
-      const lines = buffer.split(/\r?\n/)
-      buffer = lines.pop()
-      lines.forEach(processLine)
-      if (done) break
+    try {
+      while (true) {
+        const { value, done } = await reader.read()
+        buffer += decoder.decode(value || new Uint8Array(), { stream: !done })
+        const lines = buffer.split(/\r?\n/)
+        buffer = lines.pop()
+        lines.forEach(processLine)
+        if (done) break
+      }
+    } catch (error) {
+      console.error("Chat response stream interrupted:", error)
+      throw new Error(this.constructor.streamInterruptedMessage)
     }
     if (buffer) processLine(buffer)
     processLine("")
-    if (!completed) throw new Error("The response stream ended before it finished. Please try again.")
+    if (!completed) {
+      console.error("Chat response stream ended before the done event was received")
+      throw new Error(this.constructor.streamInterruptedMessage)
+    }
   }
 
   appendMessage(label, content, role) {
