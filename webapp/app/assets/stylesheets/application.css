@@ -8,3 +8,15 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+ 
+.navbar-logo {
+    background-size: contain;
+}
+
+.navbar-search .search-query-form {
+    max-width: 40rem;
+    
+    .search-field {
+        width: 1rem;
+    }
+}
