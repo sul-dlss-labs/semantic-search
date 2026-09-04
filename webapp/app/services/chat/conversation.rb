@@ -5,57 +5,20 @@ module Chat
   class Conversation
     DISCONNECT_ERRORS = [ IOError, Errno::EPIPE, Errno::ECONNRESET ].freeze
 
-    class InvalidMessages < StandardError; end
+    InvalidMessages = MessageHistory::InvalidMessages
 
     def self.normalize_messages(value)
-      messages = Array(value).map do |message|
-        raise InvalidMessages, "Each message must have a valid role and content." unless message.respond_to?(:to_h)
-
-        message = message.to_h.stringify_keys
-        role = message["role"]
-        content = message["content"]
-        raise InvalidMessages, "Each message must have a valid role and content." unless %w[user assistant].include?(role)
-        raise InvalidMessages, "Each message must have a valid role and content." unless content.is_a?(String) && content.present?
-
-        { "role" => role, "content" => content.first(max_message_characters) }
-      end
-      raise InvalidMessages, "Enter a message to start chatting." if messages.empty?
-      raise InvalidMessages, "The last message must be from the user." unless messages.last["role"] == "user"
-
-      messages = messages.last(max_history_messages)
-      trim_to_character_limit(messages)
+      MessageHistory.normalize(value)
     end
 
-    def self.max_message_characters
-      Rails.configuration.x.chat.max_message_characters
-    end
-
-    def self.max_history_messages
-      Rails.configuration.x.chat.max_history_messages
-    end
-
-    def self.trim_to_character_limit(messages)
-      limit = Rails.configuration.x.chat.max_history_characters
-      kept = []
-      characters = 0
-      messages.reverse_each do |message|
-        break if characters + message["content"].length > limit && kept.any?
-
-        kept << message
-        characters += message["content"].length
-      end
-      kept.reverse
-    end
-
-    def initialize(messages:, controller: nil, client: LiteLlmClient.new, tool_runner: nil)
-      @history = self.class.normalize_messages(messages)
-      @client = client
-      @tool_runner = tool_runner || ToolRunner.new(controller: controller)
-      @sources = []
-      @tool_call_count = 0
-      @discovery_performed = false
-      @tool_result_compactor = ToolResultCompactor.new(
-        character_budget: Rails.configuration.x.chat.max_evidence_characters
+    def initialize(messages:, controller: nil, completion_request_factory: nil, tool_runner: nil)
+      @history = MessageHistory.new(messages)
+      @completion_request_factory = completion_request_factory || LiteLlmCompletionRequest.method(:new)
+      @sources = SourceCollection.new
+      @tool_call_executor = ToolCallExecutor.new(
+        tool_runner: tool_runner || ToolRunner.new(controller: controller),
+        source_collection: @sources,
+        question: @history.last_user_content
       )
     end
 
@@ -107,10 +70,10 @@ module Chat
     end
 
     def run
-      messages = [ { "role" => "system", "content" => Rails.configuration.x.chat.system_prompt } ] + @history
+      messages = @history.with_system_prompt
 
       Rails.configuration.x.chat.max_tool_rounds.times do
-        completion, streamed_content = stream_completion(messages, tools: @tool_runner.definitions) do |event, data|
+        completion, streamed_content = stream_completion(messages, tools: @tool_call_executor.definitions) do |event, data|
           yield event, data
         end
         return incomplete(completion, streamed_content:) { |event, data| yield event, data } unless completion.complete?
@@ -118,8 +81,8 @@ module Chat
 
         yield "reset", {} if streamed_content.present?
         messages << completion.message
-        execute_tool_calls(completion.tool_calls, messages) { |event, data| yield event, data }
-        break if @tool_call_count >= Rails.configuration.x.chat.max_tool_calls
+        messages.concat(@tool_call_executor.execute(completion.tool_calls) { |event, data| yield event, data })
+        break if @tool_call_executor.limit_reached?
       end
 
       messages << {
@@ -133,7 +96,7 @@ module Chat
         } if attempt.positive?
         completion, streamed_content = stream_completion(
           messages,
-          tools: @tool_runner.definitions,
+          tools: @tool_call_executor.definitions,
           tool_choice: "none"
         ) { |event, data| yield event, data }
         return incomplete(completion, streamed_content:) { |event, data| yield event, data } unless completion.complete?
@@ -149,147 +112,35 @@ module Chat
 
     def stream_completion(messages, tools:, tool_choice: nil)
       streamed_content = +""
-      completion = @client.stream_completion(messages:, tools:, tool_choice:) do |delta|
+      request = @completion_request_factory.call(messages:, tools:, tool_choice:)
+      completion = request.stream_completion do |delta|
         streamed_content << delta
         yield "delta", content: delta
       end
       [ completion, streamed_content ]
     end
 
-    def execute_tool_calls(tool_calls, messages)
-      tool_calls.each do |tool_call|
-        if @tool_call_count >= Rails.configuration.x.chat.max_tool_calls
-          messages << {
-            "role" => "tool",
-            "tool_call_id" => tool_call["id"],
-            "content" => "The tool-call limit has been reached. Use the evidence already returned."
-          }
-          next
-        end
-
-        @tool_call_count += 1
-        name = tool_call.dig("function", "name")
-        yield "status", message: "Searching the corpus…"
-        result = call_tool(name, tool_call.dig("function", "arguments"))
-        collect_sources(result[:structured_content]) unless result[:error]
-        messages << {
-          "role" => "tool",
-          "tool_call_id" => tool_call["id"],
-          "content" => @tool_result_compactor.call(result)
-        }
-      end
-    end
-
-    def call_tool(name, raw_arguments)
-      arguments = JSON.parse(raw_arguments.presence || "{}")
-      return deterministic_discovery(name, arguments) if initial_discovery?(name)
-
-      @tool_runner.call(name:, arguments:)
-    rescue JSON::ParserError => e
-      { text: "Invalid tool arguments: #{e.message}", structured_content: { error: e.message }, error: true }
-    end
-
-    def initial_discovery?(name)
-      !@discovery_performed && DeterministicDiscovery.handles?(name)
-    end
-
-    def deterministic_discovery(requested_name, requested_arguments)
-      @discovery_performed = true
-      DeterministicDiscovery.new(tool_runner: @tool_runner).call(
-        query: @history.last.fetch("content"),
-        requested_name:,
-        requested_arguments:
-      )
-    end
-
-    def collect_sources(content)
-      return unless content.is_a?(Hash)
-
-      content = content.deep_symbolize_keys
-      candidates = Array(content[:results]).map do |result|
-        { title: result[:title], url: result[:url], pages: pages_from(result[:matched_chunks]) }
-      end
-      candidates.concat(
-        Array(content[:passages]).map do |passage|
-          {
-            title: passage[:document_title] || passage[:document_id] || "Catalog record",
-            url: passage[:url],
-            pages: pages_from([ passage ])
-          }
-        end
-      )
-      if content[:document_id] && content[:url]
-        candidates << {
-          title: "Document #{content[:document_id]}",
-          url: content[:url],
-          pages: pages_from(content[:chunks])
-        }
-      end
-
-      candidates.each do |candidate|
-        next if candidate[:title].blank? || candidate[:url].blank?
-
-        existing_source = @sources.find { |source| source[:url] == candidate[:url] }
-        if existing_source
-          merge_pages(existing_source, candidate[:pages])
-          next
-        end
-
-        source = { title: candidate[:title], url: candidate[:url] }
-        source[:pages] = candidate[:pages] if candidate[:pages].any?
-        @sources << source
-      end
-    end
-
-    def pages_from(chunks)
-      Array(chunks).flat_map { |chunk| Array(chunk[:page]) }.compact_blank.map(&:to_s).uniq
-    end
-
-    def merge_pages(source, pages)
-      return if pages.empty?
-
-      source[:pages] = (Array(source[:pages]) + pages).uniq
-    end
-
     def finish(completion, yield_event:)
       answer = completion.message["content"].to_s
-      sources, emitted_sources, sources_truncated = sources_for(answer)
-      linked_answer = CitationLinker.new(sources:).call(answer)
+      source_selection = @sources.for_answer(answer)
+      linked_answer = CitationLinker.new(sources: source_selection.sources).call(answer)
       if linked_answer != answer
         yield_event.call("reset", {})
-        yield_event.call("sources", sources: emitted_sources, truncated: sources_truncated)
+        yield_event.call(
+          "sources",
+          sources: source_selection.emitted_sources,
+          truncated: source_selection.truncated
+        )
         yield_event.call("delta", content: linked_answer)
-      elsif emitted_sources.any?
-        yield_event.call("sources", sources: emitted_sources, truncated: sources_truncated)
+      elsif source_selection.emitted_sources.any?
+        yield_event.call(
+          "sources",
+          sources: source_selection.emitted_sources,
+          truncated: source_selection.truncated
+        )
       end
-      yield_event.call("notice", message: source_limit_message) if sources_truncated
+      yield_event.call("notice", message: SourceCollection::LIMIT_MESSAGE) if source_selection.truncated
       yield_event.call("done", {})
-    end
-
-    def sources_for(answer)
-      cited_sources = @sources.select do |source|
-        answer.include?(source.fetch(:title)) || answer.include?(source.fetch(:url))
-      end
-
-      sources = (cited_sources + @sources.first(10)).uniq { |source| source.fetch(:url) }
-      emitted_sources = []
-      emitted_characters = 0
-      max_sources = Rails.configuration.x.chat.max_sources
-      max_characters = Rails.configuration.x.chat.max_source_event_characters
-      sources.each do |source|
-        break if emitted_sources.length >= max_sources
-
-        source_characters = JSON.generate(source).bytesize
-        break if emitted_sources.any? && emitted_characters + source_characters > max_characters
-
-        emitted_sources << source
-        emitted_characters += source_characters
-      end
-      [ sources, emitted_sources, emitted_sources.length < sources.length ]
-    end
-
-    def source_limit_message
-      "Your query returned more research than can be displayed at once. Some sources were omitted from the source list; the answer uses the retrieved evidence."
     end
 
     def incomplete(completion, streamed_content:)

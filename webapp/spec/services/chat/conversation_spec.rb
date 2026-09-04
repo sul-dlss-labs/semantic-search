@@ -18,13 +18,17 @@ RSpec.describe Chat::Conversation do
       @responses << { content:, tool_calls:, deltas:, finish_reason: }
     end
 
-    def stream_completion(messages:, tools:, tool_choice: nil)
+    def call(messages:, tools:, tool_choice: nil)
       @requests << { messages:, tools:, tool_choice: }
+      self
+    end
+
+    def stream_completion
       response = @responses.shift
       response.fetch(:deltas).each { |delta| yield delta }
       message = { "role" => "assistant", "content" => response[:content] }
       message["tool_calls"] = response[:tool_calls] if response[:tool_calls].any?
-      Chat::LiteLlmClient::Completion.new(
+      Chat::LiteLlmCompletionRequest::Completion.new(
         message:,
         tool_calls: response[:tool_calls],
         finish_reason: response[:finish_reason]
@@ -62,7 +66,7 @@ RSpec.describe Chat::Conversation do
 
     stream = described_class.new(
       messages: [ { role: "user", content: "Compare frogs and toads" } ],
-      client:,
+      completion_request_factory: client,
       tool_runner:
     ).each_event.to_a.join
 
@@ -138,7 +142,7 @@ RSpec.describe Chat::Conversation do
 
     described_class.new(
       messages: [ { role: "user", content: question } ],
-      client:,
+      completion_request_factory: client,
       tool_runner:
     ).each_event.to_a
 
@@ -172,7 +176,7 @@ RSpec.describe Chat::Conversation do
 
     described_class.new(
       messages: [ { role: "user", content: question } ],
-      client:,
+      completion_request_factory: client,
       tool_runner:
     ).each_event.to_a
 
@@ -189,7 +193,7 @@ RSpec.describe Chat::Conversation do
 
     stream = described_class.new(
       messages: [ { role: "user", content: "Write application code" } ],
-      client:,
+      completion_request_factory: client,
       tool_runner:
     ).each_event.to_a.join
 
@@ -203,7 +207,7 @@ RSpec.describe Chat::Conversation do
 
     stream = described_class.new(
       messages: [ { role: "user", content: "Give me a long answer" } ],
-      client:,
+      completion_request_factory: client,
       tool_runner:
     ).each_event.to_a.join
 
@@ -217,7 +221,7 @@ RSpec.describe Chat::Conversation do
 
     stream = described_class.new(
       messages: [ { role: "user", content: "Give me a long answer" } ],
-      client:,
+      completion_request_factory: client,
       tool_runner:
     ).each_event.to_a.join
 
@@ -234,7 +238,7 @@ RSpec.describe Chat::Conversation do
 
     stream = described_class.new(
       messages: [ { role: "user", content: "Which frog?" } ],
-      client:,
+      completion_request_factory: client,
       tool_runner:
     ).each_event.to_a.join
 
@@ -269,7 +273,7 @@ RSpec.describe Chat::Conversation do
 
     stream = described_class.new(
       messages: [ { role: "user", content: "What milestone did Professor X discuss?" } ],
-      client:,
+      completion_request_factory: client,
       tool_runner:
     ).each_event.to_a.join
 
@@ -297,7 +301,7 @@ RSpec.describe Chat::Conversation do
 
     stream = described_class.new(
       messages: [ { role: "user", content: "Which frog?" } ],
-      client:,
+      completion_request_factory: client,
       tool_runner:
     ).each_event.to_a.join
 
@@ -320,7 +324,7 @@ RSpec.describe Chat::Conversation do
 
     stream = described_class.new(
       messages: [ { role: "user", content: "Who fell while descending Mount Damavand?" } ],
-      client:,
+      completion_request_factory: client,
       tool_runner:
     ).each_event.to_a.join
 
@@ -350,7 +354,7 @@ RSpec.describe Chat::Conversation do
 
     stream = described_class.new(
       messages: [ { role: "user", content: "Where does the decisive evidence appear?" } ],
-      client:,
+      completion_request_factory: client,
       tool_runner:
     ).each_event.to_a.join
 
@@ -372,7 +376,7 @@ RSpec.describe Chat::Conversation do
 
     described_class.new(
       messages: [ { role: "user", content: "Compare frogs and toads" } ],
-      client:,
+      completion_request_factory: client,
       tool_runner:
     ).each_event.to_a
 
@@ -401,7 +405,7 @@ RSpec.describe Chat::Conversation do
 
     stream = described_class.new(
       messages: [ { role: "user", content: "Which frog?" } ],
-      client:,
+      completion_request_factory: client,
       tool_runner:
     ).each_event.to_a.join
 
@@ -418,7 +422,7 @@ RSpec.describe Chat::Conversation do
 
     stream = described_class.new(
       messages: [ { role: "user", content: "Which frog?" } ],
-      client:,
+      completion_request_factory: client,
       tool_runner:
     ).each_event.to_a.join
 
@@ -432,7 +436,7 @@ RSpec.describe Chat::Conversation do
 
     stream = described_class.new(
       messages: [ { role: "user", content: "Which frog?" } ],
-      client:,
+      completion_request_factory: client,
       tool_runner:
     ).each_event.to_a.join
 
@@ -445,7 +449,7 @@ RSpec.describe Chat::Conversation do
     allow(client).to receive(:stream_completion).and_raise(StandardError, "LiteLLM is down")
     events = described_class.new(
       messages: [ { role: "user", content: "Which frog?" } ],
-      client:,
+      completion_request_factory: client,
       tool_runner:
     ).each_event
 
