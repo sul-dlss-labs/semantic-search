@@ -122,6 +122,13 @@ module Chat
 
     def finish(completion, yield_event:)
       answer = completion.message["content"].to_s
+      finalize_answer(answer, yield_event:)
+      yield_event.call("done", {})
+    end
+
+    # Reconciles the streamed answer with verified sources, adding citation links and source metadata.
+    # This runs for both complete and length-limited answers so the browser can render their links.
+    def finalize_answer(answer, yield_event:)
       source_selection = @sources.for_answer(answer)
       linked_answer = CitationLinker.new(sources: source_selection.sources).call(answer)
       if linked_answer != answer
@@ -140,12 +147,12 @@ module Chat
         )
       end
       yield_event.call("notice", message: SourceCollection::LIMIT_MESSAGE) if source_selection.truncated
-      yield_event.call("done", {})
     end
 
     def incomplete(completion, streamed_content:)
       Rails.logger.warn("Chat response incomplete: finish_reason=#{completion.finish_reason.inspect}")
       if completion.length_limited? && streamed_content.present?
+        finalize_answer(streamed_content, yield_event: ->(event, data) { yield event, data })
         yield "notice", message: "This response reached its length limit and may be incomplete. Please retry or ask a narrower question."
         yield "done", {}
         return
