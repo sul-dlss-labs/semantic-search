@@ -198,7 +198,7 @@ RSpec.describe Chat::Conversation do
     expect(stream).to include("event: done")
   end
 
-  it "reports a length-limited response as incomplete" do
+  it "preserves a length-limited partial response and displays a notice" do
     client.enqueue(content: "An unfinished answer", deltas: [ "An unfinished answer" ], finish_reason: "length")
 
     stream = described_class.new(
@@ -207,14 +207,26 @@ RSpec.describe Chat::Conversation do
       tool_runner:
     ).each_event.to_a.join
 
+    expect(stream).to include("event: delta", "An unfinished answer", "event: notice", "length limit")
+    expect(stream).not_to include("event: error")
+    expect(stream).to end_with("event: done\ndata: {}\n\n")
+  end
+
+  it "reports a length-limited response with no displayed content as an error" do
+    client.enqueue(finish_reason: "length")
+
+    stream = described_class.new(
+      messages: [ { role: "user", content: "Give me a long answer" } ],
+      client:,
+      tool_runner:
+    ).each_event.to_a.join
+
     expect(stream).to include(
-      "event: delta",
-      "An unfinished answer",
       "event: error",
       '"reason":"output_length_limit"',
       "length limit"
     )
-    expect(stream).not_to include("event: done")
+    expect(stream).not_to include("event: notice", "event: done")
   end
 
   it "reports an upstream timeout distinctly" do

@@ -113,7 +113,7 @@ module Chat
         completion, streamed_content = stream_completion(messages, tools: @tool_runner.definitions) do |event, data|
           yield event, data
         end
-        return incomplete(completion) { |event, data| yield event, data } unless completion.complete?
+        return incomplete(completion, streamed_content:) { |event, data| yield event, data } unless completion.complete?
         return finish(completion, yield_event: ->(event, data) { yield event, data }) if completion.tool_calls.empty?
 
         yield "reset", {} if streamed_content.present?
@@ -136,7 +136,7 @@ module Chat
           tools: @tool_runner.definitions,
           tool_choice: "none"
         ) { |event, data| yield event, data }
-        return incomplete(completion) { |event, data| yield event, data } unless completion.complete?
+        return incomplete(completion, streamed_content:) { |event, data| yield event, data } unless completion.complete?
         if completion.tool_calls.empty? && streamed_content.present?
           return finish(completion, yield_event: ->(event, data) { yield event, data })
         end
@@ -292,8 +292,13 @@ module Chat
       "Your query returned more research than can be displayed at once. Some sources were omitted from the source list; the answer uses the retrieved evidence."
     end
 
-    def incomplete(completion)
+    def incomplete(completion, streamed_content:)
       Rails.logger.warn("Chat response incomplete: finish_reason=#{completion.finish_reason.inspect}")
+      if completion.length_limited? && streamed_content.present?
+        yield "notice", message: "This response reached its length limit and may be incomplete. Please retry or ask a narrower question."
+        yield "done", {}
+        return
+      end
       message = if completion.length_limited?
         "The response reached its length limit before it finished. Please retry or ask a narrower question."
       else
