@@ -15,8 +15,12 @@
 
 .navbar-search .search-query-form {
     max-width: 40rem;
-    
+
     .search-field {
         width: 1rem;
     }
+}
+
+.constraints-label {
+    --sul-header-font-size: 1rem;
 }
