@@ -3,7 +3,10 @@
 class SearchBuilder < Blacklight::SearchBuilder
   include Blacklight::Solr::SearchBuilderBehavior
 
-  VECTOR_TOP_K = 250
+  # Solr normalizes cosine similarity scores to the range [0, 1]. The retrieval
+  # evaluation baseline has relevant results down to 0.84, so this leaves some
+  # recall headroom while excluding weak semantic matches.
+  VECTOR_MIN_RETURN = 0.8
   VECTOR_BOOST = 100.0
 
   # Lexical chunk matches are scored per chunk and rolled up to the parent with
@@ -20,12 +23,12 @@ class SearchBuilder < Blacklight::SearchBuilder
 
     solr_parameters[:json] ||= { query: {} }
     solr_parameters[:json][:query][:bool] = {
-      should: keyword(solr_parameters) + keyword_chunks + knn
+      should: keyword(solr_parameters) + keyword_chunks + vector_similarity
     }
-    return unless knn.present?
+    return unless vector_similarity.present?
 
     solr_parameters[:json][:params] ||= {}
-    solr_parameters[:json][:params][:reRankQuery] = knn
+    solr_parameters[:json][:params][:reRankQuery] = vector_similarity
     solr_parameters[:json][:params][:reRankDocs] = 100
   end
 
@@ -40,7 +43,7 @@ class SearchBuilder < Blacklight::SearchBuilder
     [ { edismax: { query: solr_parameters[:q] } } ]
   end
 
-  # Lexical search over the extracted chunk text. Mirrors #knn: the match is
+  # Lexical search over the extracted chunk text. Mirrors #vector_similarity: the match is
   # made against child documents and rolled up to the parent with score=max, so
   # a phrase occurring in one chunk of a 1,000-chunk volume is not diluted by
   # document length.
@@ -70,9 +73,9 @@ class SearchBuilder < Blacklight::SearchBuilder
     ]
   end
 
-  def knn
+  def vector_similarity
     return [] if blacklight_params[:search_type] == "keyword"
-    @knn ||= [
+    @vector_similarity ||= [
       {
         boost: {
           b: VECTOR_BOOST,
@@ -82,14 +85,12 @@ class SearchBuilder < Blacklight::SearchBuilder
               # Without this the parent parser defaults to score=none and every match scores 0.
               score: "max",
               query: {
-                knn: {
+                vectorSimilarity: {
                   f: "vector",
-                  # note that topK is referring to the number of child documents.
-                  # The index averages ~29 chunks per parent.
-                  # Increasing topK mitigates the long-document bias, but setting top-K too high can slow down the query.
-                  # We want this high enough such that "the baseball player who threw the first pitch in Florida Marlins organization history"
-                  # returns both zv638jb7154 and bb051hp9404
-                  topK: VECTOR_TOP_K,
+                  # Apply the threshold to child chunks before rolling their best score up
+                  # to the parent. Unlike topK, this does not make documents compete for a
+                  # fixed global child-chunk budget.
+                  minReturn: VECTOR_MIN_RETURN,
                   query:  "[#{retrieve_embedding(blacklight_params[:q]).join(', ')}]"
                 }
               }

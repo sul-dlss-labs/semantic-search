@@ -7,6 +7,7 @@ module SemanticSearchMcp
 
     SEARCH_TYPES = %w[keyword vector hybrid].freeze
     MATCHED_CHUNKS_PER_DOCUMENT = 3
+    MATCHED_CHUNK_TOP_K = 250
 
     def build_input_schema
       properties = {
@@ -175,12 +176,12 @@ module SemanticSearchMcp
           query: {
             knn: {
               f: "vector",
-              topK: SearchBuilder::VECTOR_TOP_K,
+              topK: MATCHED_CHUNK_TOP_K,
               query: "[#{embedding.join(', ')}]"
             }
           },
           fields: %w[id chunk_text_tesi filename_ss chunk_index_i page_ss score],
-          limit: SearchBuilder::VECTOR_TOP_K
+          limit: MATCHED_CHUNK_TOP_K
         }
       }
     end
