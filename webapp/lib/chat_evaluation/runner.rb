@@ -8,6 +8,20 @@ module Chat
   module Evaluation
     # Runs configured questions against a deployment and writes an auditable JSON report.
     class Runner
+      RETRY_DELAYS = [ 0.5, 1.0 ].freeze
+      RETRYABLE_HTTP_CODES = %w[408 429 502 503 504].freeze
+      RETRYABLE_NETWORK_ERRORS = [
+        EOFError,
+        Net::OpenTimeout,
+        Net::ReadTimeout,
+        SocketError,
+        Errno::ECONNREFUSED,
+        Errno::ECONNRESET,
+        Errno::EHOSTUNREACH,
+        Errno::EPIPE,
+        Errno::ETIMEDOUT
+      ].freeze
+
       RunResult = Data.define(:passed, :report_path, :report)
 
       def initialize(
@@ -40,6 +54,12 @@ module Chat
         cases = load_cases
         results = cases.map { |evaluation_case| evaluate_case(evaluation_case) }
         passed = results.all? { |result| result.fetch(:passed) }
+        retried_attempts = results.sum do |result|
+          result.fetch(:attempts).count { |attempt| attempt.fetch(:retry_count).positive? }
+        end
+        retry_count = results.sum do |result|
+          result.fetch(:attempts).sum { |attempt| attempt.fetch(:retry_count) }
+        end
         report = {
           target_url: @target_url,
           evaluation_model: @judge.model,
@@ -48,10 +68,13 @@ module Chat
           minimum_score: @minimum_score,
           runs_per_case: @runs,
           required_pass_rate: @required_pass_rate,
+          retried_attempts:,
+          retry_count:,
           passed:,
           cases: results
         }
         report_path = write_report(report)
+        @output.puts("Transport retries: #{retry_count} across #{retried_attempts} evaluation attempts")
         @output.puts("Chat evaluation #{passed ? 'PASSED' : 'FAILED'}; report: #{report_path}")
         RunResult.new(passed:, report_path:, report:)
       end
@@ -106,26 +129,41 @@ module Chat
       end
 
       def evaluate_attempt(evaluation_case, attempt_number)
-        chat_result = @chat_client.ask(
-          evaluation_case.fetch(:question),
-          history: evaluation_case.fetch(:history, [])
-        )
-        verdict = @judge.evaluate(
-          question: evaluation_case.fetch(:question),
-          reference_answer: evaluation_case.fetch(:reference_answer),
-          rubric: evaluation_case.fetch(:rubric),
-          answer: chat_result.answer,
-          sources: chat_result.sources
-        )
+        retry_count = 0
+        phase = :chat
+        response_started_at = monotonic_time
+        response_elapsed_seconds = nil
+        on_retry = -> { retry_count += 1 }
+
+        chat_result = with_transient_retries(on_retry:) do
+          @chat_client.ask(
+            evaluation_case.fetch(:question),
+            history: evaluation_case.fetch(:history, [])
+          )
+        end
+        response_elapsed_seconds = elapsed_since(response_started_at)
+        phase = :judge
+        verdict = with_transient_retries(on_retry:) do
+          @judge.evaluate(
+            question: evaluation_case.fetch(:question),
+            reference_answer: evaluation_case.fetch(:reference_answer),
+            rubric: evaluation_case.fetch(:rubric),
+            answer: chat_result.answer,
+            sources: chat_result.sources
+          )
+        end
         citations_passed = !evaluation_case.fetch(:require_citations, false) ||
           valid_citations?(chat_result.answer, chat_result.sources)
         passed = verdict.pass && verdict.score >= @minimum_score && citations_passed
         @output.puts(
           "  attempt #{attempt_number}: #{passed ? 'PASS' : 'FAIL'} " \
-          "(score #{format('%.2f', verdict.score)}, citations #{citations_passed ? 'present' : 'missing'})"
+          "(score #{format('%.2f', verdict.score)}, citations #{citations_passed ? 'present' : 'missing'}, " \
+          "response #{format_duration(response_elapsed_seconds)}, retries #{retry_count})"
         )
         {
           attempt: attempt_number,
+          response_elapsed_seconds:,
+          retry_count:,
           answer: chat_result.answer,
           sources: chat_result.sources,
           citations_passed:,
@@ -138,12 +176,51 @@ module Chat
           passed:
         }
       rescue StandardError => e
-        @output.puts("  attempt #{attempt_number}: ERROR (#{e.class}: #{e.message})")
+        response_elapsed_seconds ||= elapsed_since(response_started_at)
+        @output.puts(
+          "  attempt #{attempt_number}: ERROR (#{e.class}: #{e.message}; phase #{phase}; " \
+          "response #{format_duration(response_elapsed_seconds)}; retries #{retry_count})"
+        )
         {
           attempt: attempt_number,
+          response_elapsed_seconds:,
+          retry_count:,
           passed: false,
-          error: { class: e.class.name, message: e.message }
+          error: { class: e.class.name, message: e.message, phase: }
         }
+      end
+
+      def with_transient_retries(on_retry:)
+        retries = 0
+        begin
+          yield
+        rescue StandardError => e
+          raise unless transient_error?(e) && retries < RETRY_DELAYS.length
+
+          sleep(RETRY_DELAYS.fetch(retries))
+          retries += 1
+          on_retry.call
+          retry
+        end
+      end
+
+      def transient_error?(error)
+        return true if RETRYABLE_NETWORK_ERRORS.any? { |error_class| error.is_a?(error_class) }
+
+        retryable_status = RETRYABLE_HTTP_CODES.any? { |code| error.message.match?(/HTTP?\s*#{code}\b|\(#{code}\)/) }
+        retryable_status || error.message.include?("stream ended without a done event")
+      end
+
+      def monotonic_time
+        Process.clock_gettime(Process::CLOCK_MONOTONIC)
+      end
+
+      def elapsed_since(started_at)
+        (monotonic_time - started_at).round(3)
+      end
+
+      def format_duration(seconds)
+        format("%.3fs", seconds)
       end
 
       def valid_citations?(answer, sources)
