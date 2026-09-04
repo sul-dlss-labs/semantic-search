@@ -289,3 +289,48 @@ cases:
       - Says that she was injured in a fall while descending Mount Damavand in Iran.
       - Does not repeat the claim that the corpus contains no answer.
     require_citations: true
+
+  - id: financial_report_2004_total_liabilities
+    question: In Stanford's 2004 annual financial report, what were total liabilities for the University alone, for the Hospitals, and on a consolidated basis?
+    reference_answer: >-
+      Total liabilities as of August 31, 2004 were $3,001,980,000 for the
+      University, $992,664,000 for the Hospitals, and $3,994,644,000
+      consolidated.
+    rubric:
+      - Converts all figures to their full monetary values instead of listing them in thousands.
+      - Attributes each figure to its own column rather than reporting the numbers as an undifferentiated list, and places them at August 31, 2004.
+    require_citations: true
+
+  - id: financial_report_2004_notes_and_bonds_payable
+    question: How much did Stanford report as notes and bonds payable in 2004, and how was that split between the University and the Hospitals?
+    reference_answer: >-
+      Notes and bonds payable as of August 31, 2004 were $1,288,242,000 for the
+      University and $586,949,000 for the Hospitals, for a total of $1,875,191,000
+      consolidated.
+    rubric:
+      - Converts all figures to their full monetary values instead of listing them in thousands.
+      - Assigns each figure to the correct entity and to fiscal year 2004 rather than reporting bare numbers.
+    require_citations: true
+
+  - id: fy03_health_care_services_other_services
+    question: In Stanford's FY03 health care services revenue, how much covered other services provided by the School of Medicine and other University departments to the Hospitals?
+    reference_answer: >-
+      An additional $22 million covered other services provided by the School of
+      Medicine and other University departments to the Hospitals.
+    rubric:
+      - Correctly interprets "FY03" as corresponding to the 2003 fiscal year and financial report.
+      - Fetches the correct figure across both pages of the 2003 financial report (one page has "$22").
+    require_citations: true
+
+  - id: computing_machines_course_mid_1950s
+    question: In Stanford's course listings of the mid-1950s, who taught Theory and Operation of Computing Machines, in which quarter, and for how many units?
+    reference_answer: >-
+      Mathematics 139, Theory and Operation of Computing Machines, was taught by
+      Herriot (John H. Herriot) for 3 units in spring quarter, for 1954-1955. 
+      In Courses and degrees 1957-1958 the same course is listed for autumn quarter.
+    rubric:
+      - Identifies Herriot (John H. Herriot) as the instructor.
+      - States that the course carried 3 units, and may identify it as Mathematics 139 meeting MWF at 11.
+      - Says the course was listed for spring quarter and ties that quarter to the Announcement of courses 1954-1955 rather than leaving the year unstated.
+      - Keeps instructor, quarter, and unit count as distinct values, and may note that the course moved to autumn quarter by Courses and degrees 1957-1958.
+    require_citations: true
