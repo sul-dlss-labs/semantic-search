@@ -274,12 +274,12 @@ cases:
       - Connects Namphy to Stanford as a lecturer emerita in English or the humanities.
     require_citations: true
 
-  - id: kathleen_namphy_retry_after_miss
+  - id: kathleen_namphy_recovery_from_prior_negative
     history:
       - role: user
         content: Who died after falling, when climbing a mountain in Iran?
       - role: assistant
-        content: I couldn’t produce an answer from the available corpus.
+        content: Based on the available corpus, there is no record of someone dying after falling while climbing a mountain in Iran.
     question: Who died after a fall while descending a mountain in Iran?
     reference_answer: >-
       Kathleen Namphy, a Stanford lecturer emerita in English and the humanities,

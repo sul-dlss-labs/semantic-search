@@ -47,7 +47,8 @@ module SemanticSearch
       it. Natural-language questions generally embed better than model-generated search phrases in this corpus. Only try a
       reworded or narrower query after the verbatim question returns insufficient results, and keep each fallback close to the
       user's original meaning. The application automatically pairs the first discovery call with passage search and catalog
-      vector search for the verbatim question, so inspect both result sets before attempting a fallback query.
+      vector search for the verbatim question, then searches for passages within the highest-ranked catalog documents. Inspect
+      all of those result sets before attempting a fallback query.
 
       Cite claims with Markdown links using the title and URL supplied by the tools, for example [Document title](URL).
       When a supporting passage includes a page, include it in the link label, for example [Document title, p. 17](URL).
