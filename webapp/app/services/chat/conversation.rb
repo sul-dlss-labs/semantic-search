@@ -3,7 +3,6 @@
 module Chat
   # Runs the model/tool loop and emits browser-facing server-sent events.
   class Conversation
-    DISCOVERY_TOOL_NAMES = %w[catalog_search_tool search_passages].freeze
     DISCONNECT_ERRORS = [ IOError, Errno::EPIPE, Errno::ECONNRESET ].freeze
 
     class InvalidMessages < StandardError; end
@@ -177,36 +176,16 @@ module Chat
     end
 
     def initial_discovery?(name)
-      !@discovery_performed && DISCOVERY_TOOL_NAMES.include?(name)
+      !@discovery_performed && DeterministicDiscovery.handles?(name)
     end
 
     def deterministic_discovery(requested_name, requested_arguments)
       @discovery_performed = true
-      query = @history.last.fetch("content")
-      searches = [
-        [ "search_passages", { "query" => query } ],
-        [ "catalog_search_tool", { "query" => query, "search_type" => "vector", "rows" => 10 } ]
-      ]
-      requested_search = [ requested_name, requested_arguments ]
-      searches << requested_search unless searches.include?(requested_search)
-
-      combine_discovery_results(searches.map do |name, arguments|
-        [ name, @tool_runner.call(name:, arguments:) ]
-      end)
-    end
-
-    def combine_discovery_results(searches)
-      successful = searches.reject { |_name, result| result[:error] }
-      structured_content = successful.each_with_object({ passages: [], results: [] }) do |(_name, result), content|
-        result_content = result[:structured_content].to_h.deep_symbolize_keys
-        content[:passages].concat(Array(result_content[:passages]))
-        content[:results].concat(Array(result_content[:results]))
-      end
-      text = searches.map do |name, result|
-        "#{name}:\n#{result[:text]}"
-      end.join("\n\n")
-
-      { text:, structured_content:, error: successful.empty? }
+      DeterministicDiscovery.new(tool_runner: @tool_runner).call(
+        query: @history.last.fetch("content"),
+        requested_name:,
+        requested_arguments:
+      )
     end
 
     def collect_sources(content)

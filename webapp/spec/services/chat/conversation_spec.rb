@@ -81,13 +81,59 @@ RSpec.describe Chat::Conversation do
     expect(stream).to end_with("event: done\ndata: {}\n\n")
   end
 
-  it "pairs the first discovery call with verbatim passage and catalog vector searches" do
+  it "pairs the first discovery call with verbatim global, catalog, and document-constrained searches" do
     question = "Who died after a fall while descending a mountain in Iran?"
     client.enqueue(tool_calls: [ tool_call("call-1", "mountain death") ])
     client.enqueue(content: "Kathleen Namphy died after the fall.", deltas: [ "Kathleen Namphy died after the fall." ])
-    allow(tool_runner).to receive(:call).and_return(
-      text: "No results",
-      structured_content: { results: [], passages: [] }
+    allow(tool_runner).to receive(:call).with(
+      name: "search_passages",
+      arguments: { "query" => question }
+    ).and_return(
+      text: "Found an unrelated death",
+      structured_content: {
+        passages: [
+          {
+            rank: 1,
+            text: "An unrelated person died elsewhere.",
+            document_id: "unrelated",
+            document_title: "Unrelated source",
+            url: "/catalog/unrelated"
+          }
+        ]
+      }
+    )
+    allow(tool_runner).to receive(:call).with(
+      name: "catalog_search_tool",
+      arguments: { "query" => question, "search_type" => "vector", "rows" => 10 }
+    ).and_return(
+      text: "Found the volume",
+      structured_content: {
+        results: [ { id: "vm857hw3603", title: "Stanford report", url: "/catalog/vm857hw3603" } ]
+      }
+    )
+    allow(tool_runner).to receive(:call).with(
+      name: "search_passages",
+      arguments: { "query" => question, "document_ids" => [ "vm857hw3603" ] }
+    ).and_return(
+      text: "Found Kathleen Namphy",
+      structured_content: {
+        passages: [
+          {
+            rank: 1,
+            text: "Kathleen Namphy was injured while descending Mount Damavand.",
+            document_id: "vm857hw3603",
+            document_title: "Stanford report",
+            url: "/catalog/vm857hw3603"
+          }
+        ]
+      }
+    )
+    allow(tool_runner).to receive(:call).with(
+      name: "catalog_search_tool",
+      arguments: { "query" => "mountain death" }
+    ).and_return(
+      text: "No fallback results",
+      structured_content: { results: [] }
     )
 
     described_class.new(
@@ -105,9 +151,36 @@ RSpec.describe Chat::Conversation do
       arguments: { "query" => question, "search_type" => "vector", "rows" => 10 }
     ).ordered
     expect(tool_runner).to have_received(:call).with(
+      name: "search_passages",
+      arguments: { "query" => question, "document_ids" => [ "vm857hw3603" ] }
+    ).ordered
+    expect(tool_runner).to have_received(:call).with(
       name: "catalog_search_tool",
       arguments: { "query" => "mountain death" }
     ).ordered
+    tool_message = client.requests.last.fetch(:messages).find { |message| message["role"] == "tool" }
+    expect(tool_message.fetch("content")).to match(
+      /Kathleen Namphy.*An unrelated person/m
+    )
+  end
+
+  it "skips document-constrained discovery when catalog search has no usable document ids" do
+    question = "Which frog?"
+    client.enqueue(tool_calls: [ tool_call("call-1", question) ])
+    client.enqueue(content: "No frog was identified.", deltas: [ "No frog was identified." ])
+    allow(tool_runner).to receive(:call).and_return(text: "No results", structured_content: { results: [], passages: [] })
+
+    described_class.new(
+      messages: [ { role: "user", content: question } ],
+      client:,
+      tool_runner:
+    ).each_event.to_a
+
+    expect(tool_runner).to have_received(:call).exactly(3).times
+    expect(tool_runner).not_to have_received(:call).with(
+      name: "search_passages",
+      arguments: hash_including("document_ids")
+    )
   end
 
   it "allows a refusal without making up a source" do

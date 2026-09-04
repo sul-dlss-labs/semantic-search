@@ -72,7 +72,7 @@ contexts, run:
 CHAT_EVAL_CASE=kathleen_namphy_mount_damavand CHAT_EVAL_RUNS=5 \
 LITELLM_EVAL_MODEL=claude-sonnet-5 bin/rails chat:evaluate
 
-CHAT_EVAL_CASE=kathleen_namphy_retry_after_miss CHAT_EVAL_RUNS=5 \
+CHAT_EVAL_CASE=kathleen_namphy_recovery_from_prior_negative CHAT_EVAL_RUNS=5 \
 LITELLM_EVAL_MODEL=claude-sonnet-5 bin/rails chat:evaluate
 ```
 
