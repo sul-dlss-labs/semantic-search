@@ -134,7 +134,30 @@ RSpec.describe Chat::Conversation do
       tool_runner:
     ).each_event.to_a.join
 
-    expect(stream).to include("event: delta", "An unfinished answer", "event: error", "length limit")
+    expect(stream).to include(
+      "event: delta",
+      "An unfinished answer",
+      "event: error",
+      '"reason":"output_length_limit"',
+      "length limit"
+    )
+    expect(stream).not_to include("event: done")
+  end
+
+  it "reports an upstream timeout distinctly" do
+    allow(client).to receive(:stream_completion).and_raise(Net::ReadTimeout)
+
+    stream = described_class.new(
+      messages: [ { role: "user", content: "Which frog?" } ],
+      client:,
+      tool_runner:
+    ).each_event.to_a.join
+
+    expect(stream).to include(
+      "event: error",
+      '"reason":"timeout"',
+      "chat service timed out"
+    )
     expect(stream).not_to include("event: done")
   end
 

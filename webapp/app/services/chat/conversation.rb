@@ -80,7 +80,7 @@ module Chat
       end
 
       Rails.logger.error("Chat request failed: #{error.class}: #{error.message}")
-      stream << encode_event("error", message: "The chat service could not complete that request. Please try again.")
+      stream << encode_event("error", failure_for(error))
     rescue StandardError => e
       Rails.logger.info("Chat client disconnected before the error event was sent: #{e.class}: #{e.message}")
     end
@@ -91,6 +91,20 @@ module Chat
       return true if defined?(Puma::ConnectionError) && error.is_a?(Puma::ConnectionError)
 
       DISCONNECT_ERRORS.any? { |disconnect_error| error.is_a?(disconnect_error) }
+    end
+
+    def failure_for(error)
+      if error.is_a?(Net::OpenTimeout) || error.is_a?(Net::ReadTimeout)
+        {
+          reason: "timeout",
+          message: "The chat service timed out before it could finish. Please try again, or ask a narrower question."
+        }
+      else
+        {
+          reason: "service_error",
+          message: "The chat service could not complete that request. Please try again."
+        }
+      end
     end
 
     def run
@@ -306,12 +320,13 @@ module Chat
       else
         "The response could not be completed. Please try again."
       end
-      yield "error", message: message
+      reason = completion.length_limited? ? "output_length_limit" : "incomplete_response"
+      yield "error", reason:, message:
     end
 
     def empty_answer
       Rails.logger.warn("Chat response contained no final answer text")
-      yield "error", message: "The chat service could not produce an answer. Please try again."
+      yield "error", reason: "empty_response", message: "The chat service could not produce an answer. Please try again."
     end
 
     def encode_event(event, data)
