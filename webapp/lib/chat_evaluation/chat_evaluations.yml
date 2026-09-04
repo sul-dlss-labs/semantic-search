@@ -145,14 +145,15 @@ cases:
   - id: old_union_1968_sit_in
     question: What happened during the May 1968 student sit-in at Stanford's Old Union?
     reference_answer: >-
-      About 650 students occupied Old Union for roughly 56.5 hours to protest
-      defense research at the Stanford Research Institute, including work with
-      possible military applications. They left after the Academic Council passed
-      a resolution that appeared to support their demands.
+      More than 200 students began a roughly 57-hour occupation of Old Union to
+      protest the proposed suspension of seven students who had demonstrated
+      against CIA recruiting the previous November. The sit-in ended after the
+      Academic Council recommended setting aside the suspensions and granting
+      amnesty to the Old Union protesters, recommendations President Sterling accepted.
     rubric:
-      - Identifies approximately 650 student demonstrators and a sit-in lasting about 56.5 hours.
-      - Says the protest concerned SRI defense or military research.
-      - Explains that the sit-in ended after a faculty or Academic Council resolution favoring the demands.
+      - Identifies hundreds of student demonstrators and a sit-in lasting about 57 hours or three days.
+      - Says the protest concerned the proposed suspension of students who had demonstrated against CIA recruiting.
+      - Explains that the sit-in ended after the Academic Council recommended setting aside the suspensions and granting amnesty.
     require_citations: true
 
   - id: sororities_title_ix
