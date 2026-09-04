@@ -24,6 +24,8 @@ module SemanticSearch
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
 
+    # Instructions included with every model request to define the assistant's scope,
+    # search behavior, evidence requirements, and citation format.
     config.x.chat.system_prompt = <<~PROMPT
       You are a research assistant for the Stanford Libraries digital corpus exposed by the tools in this application.
 
@@ -57,14 +59,33 @@ module SemanticSearch
       bare source title as a parenthetical citation. Never invent a title, URL, page, quotation, or source. A response without
       tool calls is allowed only for an out-of-scope refusal or a clarifying question.
     PROMPT
+
+    # Maximum number of model/tool iterations before the conversation forces the
+    # model to answer using the evidence already gathered.
     config.x.chat.max_tool_rounds = 6
+
+    # Maximum number of model-requested tool calls processed during one chat request.
     config.x.chat.max_tool_calls = 12
+
+    # Maximum number of recent user and assistant messages retained as conversation history.
     config.x.chat.max_history_messages = 20
+
+    # Maximum characters retained from any single user or assistant message.
     config.x.chat.max_message_characters = 8_000
+
+    # Maximum combined characters retained across the conversation history.
     config.x.chat.max_history_characters = 40_000
+
+    # Maximum combined characters of tool evidence sent back to the model.
     config.x.chat.max_evidence_characters = 40_000
+
+    # Maximum number of verified sources sent to and displayed by the browser.
     config.x.chat.max_sources = 50
+
+    # Maximum approximate JSON payload size, in bytes, for sources sent to the browser.
     config.x.chat.max_source_event_characters = 64_000
+
+    # Maximum output tokens requested for each model completion.
     config.x.chat.max_output_tokens = 4_000
   end
 end
