@@ -216,6 +216,27 @@ RSpec.describe Chat::Conversation do
     expect(stream).to end_with("event: done\ndata: {}\n\n")
   end
 
+  it "emits verified sources for links in a length-limited partial response" do
+    url = "http://example.test/catalog/frogs"
+    partial_answer = "See [Frog papers](#{url}) for details that continue"
+    client.enqueue(tool_calls: [ tool_call("call-1", "frogs") ])
+    client.enqueue(content: partial_answer, deltas: [ partial_answer ], finish_reason: "length")
+    allow(tool_runner).to receive(:call).and_return(
+      text: "Frog result",
+      structured_content: { results: [ { title: "Frog papers", url: } ] }
+    )
+
+    stream = described_class.new(
+      messages: [ { role: "user", content: "Tell me everything about frogs" } ],
+      completion_request_factory: client,
+      tool_runner:
+    ).each_event.to_a.join
+
+    expect(stream).to include("event: sources", JSON.generate(title: "Frog papers", url:))
+    expect(stream.index("event: sources")).to be < stream.index("event: notice")
+    expect(stream).to end_with("event: done\ndata: {}\n\n")
+  end
+
   it "reports a length-limited response with no displayed content as an error" do
     client.enqueue(finish_reason: "length")
 
