@@ -35,4 +35,12 @@ RSpec.describe Chat::CitationLinker do
 
     expect(linker.call(answer)).to eq(answer)
   end
+
+  it "leaves a link carrying a highlight phrase in its Markdown title untouched" do
+    answer = "She died after the fall " \
+             "[Stanford report. Volume 36, 2003-2004, p. 571](<https://example.test/catalog/vm857hw3603> " \
+             '"leading tackler").'
+
+    expect(linker.call(answer)).to eq(answer)
+  end
 end

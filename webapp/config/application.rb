@@ -88,5 +88,15 @@ module SemanticSearch
 
     # Maximum output tokens requested for each model completion.
     config.x.chat.max_output_tokens = 4_000
+
+    # Whether to confirm citation highlight phrases against IIIF Content Search before sending them to
+    # the browser. Disabled in test, where the lookup would be a network call.
+    config.x.chat.highlight_verification = true
+
+    # How many candidate phrases to try per cited page before giving up on a highlight. The ALTO
+    # extractor merges OCR lines at hyphenation points, and Content Search indexes the unmerged lines,
+    # so a candidate can span a join that is invisible in the chunk text. Later candidates are shorter
+    # and recover most of those misses. Total lookups per answer stay bounded by HighlightResolver.
+    config.x.chat.highlight_attempts_per_page = 3
   end
 end

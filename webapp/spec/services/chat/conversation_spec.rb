@@ -463,4 +463,72 @@ RSpec.describe Chat::Conversation do
       described_class.normalize_messages([ { role: "assistant", content: "Hello" } ])
     end.to raise_error(described_class::InvalidMessages, "The last message must be from the user.")
   end
+
+  it "emits confirmed citation highlights as a second sources event, before done" do
+    answer = "The center opened that spring (Cantor Arts Center, p. 124)."
+    canvas = "https://purl.stanford.edu/fr576hr0294/iiif/canvas/one"
+    client.enqueue(tool_calls: [ tool_call("call-1", "Cantor Arts Center") ])
+    client.enqueue(content: answer, deltas: [ answer ])
+    allow(tool_runner).to receive(:call).and_return(
+      text: "Passage results",
+      structured_content: {
+        passages: [
+          {
+            document_id: "fr576hr0294",
+            document_title: "Cantor Arts Center",
+            url: "http://example.test/catalog/fr576hr0294",
+            page: "124",
+            text: "special exhibitions are on view every Wednesday\nand the center opened that spring season\n"
+          }
+        ]
+      }
+    )
+    allow(Rails.configuration.x.chat).to receive(:highlight_verification).and_return(true)
+    allow(Chat::ContentSearchClient).to receive(:new).and_return(
+      instance_double(Chat::ContentSearchClient, canvas_ids: [ canvas ])
+    )
+
+    stream = described_class.new(
+      messages: [ { role: "user", content: "When did the center open?" } ],
+      completion_request_factory: client,
+      tool_runner:
+    ).each_event.to_a.join
+
+    expect(stream.scan("event: sources").length).to eq(2)
+    expect(stream).to include(%("highlights":{"124":), %("canvas_id":"#{canvas}"))
+    expect(stream).to end_with("event: done\ndata: {}\n\n")
+  end
+
+  it "emits a single sources event when no highlight can be confirmed" do
+    answer = "The center opened that spring (Cantor Arts Center, p. 124)."
+    client.enqueue(tool_calls: [ tool_call("call-1", "Cantor Arts Center") ])
+    client.enqueue(content: answer, deltas: [ answer ])
+    allow(tool_runner).to receive(:call).and_return(
+      text: "Passage results",
+      structured_content: {
+        passages: [
+          {
+            document_id: "fr576hr0294",
+            document_title: "Cantor Arts Center",
+            url: "http://example.test/catalog/fr576hr0294",
+            page: "124",
+            text: "special exhibitions are on view every Wednesday\n"
+          }
+        ]
+      }
+    )
+    allow(Rails.configuration.x.chat).to receive(:highlight_verification).and_return(true)
+    allow(Chat::ContentSearchClient).to receive(:new).and_return(
+      instance_double(Chat::ContentSearchClient, canvas_ids: [])
+    )
+
+    stream = described_class.new(
+      messages: [ { role: "user", content: "When did the center open?" } ],
+      completion_request_factory: client,
+      tool_runner:
+    ).each_event.to_a.join
+
+    expect(stream.scan("event: sources").length).to eq(1)
+    expect(stream).not_to include("highlights")
+  end
 end

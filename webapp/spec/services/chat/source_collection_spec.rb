@@ -49,4 +49,48 @@ RSpec.describe Chat::SourceCollection do
     expect(selection.emitted_sources).to eq([ sources.last ])
     expect(selection).to be_truncated
   end
+
+  it "retains bounded chunk text for highlight selection without emitting it" do
+    collection.add(
+      passages: [
+        {
+          document_id: "fr576hr0294",
+          document_title: "Frog papers",
+          url: "http://example.test/frogs",
+          page: "4",
+          text: "a" * 2_000
+        }
+      ]
+    )
+
+    evidence = collection.evidence_for("http://example.test/frogs")
+    selection = collection.for_answer("Frog papers has it.")
+
+    expect(evidence[:document_id]).to eq("fr576hr0294")
+    expect(evidence[:pages]["4"].first.length).to eq(described_class::MAX_EVIDENCE_CHARACTERS)
+    expect(JSON.generate(selection.emitted_sources)).not_to include("aaaa")
+  end
+
+  it "bounds how many excerpts it keeps for one page" do
+    3.times do |index|
+      collection.add(
+        passages: [
+          {
+            document_id: "fr576hr0294",
+            document_title: "Frog papers",
+            url: "http://example.test/frogs",
+            page: "4",
+            text: "excerpt number #{index}"
+          }
+        ]
+      )
+    end
+
+    expect(collection.evidence_for("http://example.test/frogs")[:pages]["4"].length)
+      .to eq(described_class::MAX_EVIDENCE_TEXTS_PER_PAGE)
+  end
+
+  it "has no evidence for a source it never saw" do
+    expect(collection.evidence_for("http://example.test/missing")).to be_nil
+  end
 end

@@ -261,6 +261,13 @@ export default class extends Controller {
 
     const url = new URL(source.url, document.baseURI)
     url.searchParams.set("canvas_index", Number.parseInt(page, 10) - 1)
+
+    // Highlights arrive in a second sources event, after the answer text has rendered, so they may be
+    // absent on the first pass. The quotes are load-bearing: an unquoted multi-word search is an OR query.
+    const highlight = source.highlights?.[page]
+    if (highlight?.phrase) url.searchParams.set("search", `"${highlight.phrase}"`)
+    if (highlight?.canvas_id) url.searchParams.set("canvas_id", highlight.canvas_id)
+
     return url.toString()
   }
 

@@ -11,10 +11,12 @@ module Chat
       MessageHistory.normalize(value)
     end
 
-    def initialize(messages:, controller: nil, completion_request_factory: nil, tool_runner: nil)
+    def initialize(messages:, controller: nil, completion_request_factory: nil, tool_runner: nil,
+                   highlight_resolver: nil)
       @history = MessageHistory.new(messages)
       @completion_request_factory = completion_request_factory || LiteLlmCompletionRequest.method(:new)
       @sources = SourceCollection.new
+      @highlight_resolver = highlight_resolver || HighlightResolver.new(source_collection: @sources)
       @tool_call_executor = ToolCallExecutor.new(
         tool_runner: tool_runner || ToolRunner.new(controller: controller),
         source_collection: @sources,
@@ -140,7 +142,27 @@ module Chat
         )
       end
       yield_event.call("notice", message: SourceCollection::LIMIT_MESSAGE) if source_selection.truncated
+      emit_highlights(source_selection, answer, yield_event)
       yield_event.call("done", {})
+    end
+
+    # Highlights need a Content Search lookup per cited page, so they are resolved after the answer text
+    # is already on screen and sent as a second sources event. The browser re-renders links on every
+    # sources event, so the citations gain their highlight in place.
+    def emit_highlights(source_selection, answer, yield_event)
+      highlights = @highlight_resolver.call(source_selection.emitted_sources, answer)
+      return if highlights.empty?
+
+      sources = source_selection.emitted_sources.filter_map do |source|
+        source_highlights = highlights[source[:url]]
+        # title is required: the browser drops any source entry that arrives without one.
+        { title: source[:title], url: source[:url], highlights: source_highlights } if source_highlights
+      end
+      return if sources.empty?
+
+      yield_event.call("sources", sources:, truncated: source_selection.truncated)
+    rescue StandardError => e
+      Rails.logger.warn("Citation highlights failed: #{e.class}: #{e.message}")
     end
 
     def incomplete(completion, streamed_content:)

@@ -230,7 +230,10 @@ module Chat
         rescue URI::InvalidURIError
           nil
         end
-        cited_urls = answer.scan(/\[[^\]\n]+\]\((?:<([^>\n]+)>|([^)\s]+))\)/).map { |match| match.compact.first }
+        # A citation may carry a Markdown title holding the phrase to highlight in the viewer.
+        cited_urls = answer
+          .scan(/\[[^\]\n]+\]\((?:<([^>\n]+)>|([^)\s]+))(?:\s+"[^"\n]*")?\)/)
+          .map { |match| match.compact.first }
 
         (verified_urls & cited_urls).any?
       end
