@@ -11,10 +11,17 @@ class DocumentComponent < ViewComponent::Base
 
   def embed_url
     url = "https://embed.stanford.edu/embed.json?hide_title=true&url=https://purl.stanford.edu/#{id}"
-    query_parameters = controller.request.query_parameters
+    return url unless canvas_index
 
-    return url unless query_parameters.key?("canvas_index")
+    "#{url}&canvas_index=#{canvas_index}"
+  end
 
-    "#{url}&canvas_index=#{ERB::Util.url_encode(query_parameters["canvas_index"].to_s)}"
+  private
+
+  # The page comes off the query string, so anything that is not a page position is dropped rather than
+  # handed on to the embed service.
+  def canvas_index
+    value = controller.request.query_parameters["canvas_index"].to_s
+    value if /\A\d+\z/.match?(value)
   end
 end

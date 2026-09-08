@@ -230,7 +230,11 @@ module Chat
         rescue URI::InvalidURIError
           nil
         end
-        cited_urls = answer.scan(/\[[^\]\n]+\]\((?:<([^>\n]+)>|([^)\s]+))\)/).map { |match| match.compact.first }
+        # A Markdown link may carry a title; without allowing for one this captures nothing and every
+        # case fails for want of citations.
+        cited_urls = answer
+          .scan(/\[[^\]\n]+\]\((?:<([^>\n]+)>|([^)\s]+))(?:\s+"[^"\n]*")?\)/)
+          .map { |match| match.compact.first }
 
         (verified_urls & cited_urls).any?
       end

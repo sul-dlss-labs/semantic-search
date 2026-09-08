@@ -25,4 +25,14 @@ RSpec.describe DocumentComponent, type: :component do
       )
     end
   end
+
+  it "drops a canvas index that is not a page position" do
+    with_request_url("/catalog/fr576hr0294?canvas_index=nonsense") do
+      element = render_inline(described_class.new(presenter: presenter)).at_css('[data-controller="purl-embed"]')
+
+      expect(element["data-purl-embed-url-value"]).to eq(
+        "https://embed.stanford.edu/embed.json?hide_title=true&url=https://purl.stanford.edu/fr576hr0294"
+      )
+    end
+  end
 end
