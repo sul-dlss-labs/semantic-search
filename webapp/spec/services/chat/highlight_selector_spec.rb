@@ -66,4 +66,30 @@ RSpec.describe Chat::HighlightSelector do
   it "returns nothing when there is no chunk text at all" do
     expect(selector.call(chunk_texts: [])).to eq([])
   end
+
+  describe "lines the extractor ran together" do
+    # Every line is a normal column width except one, which is two lines joined. Content Search sees the
+    # break inside it, so phrases from it are offered last.
+    let(:chunk) do
+      <<~TEXT
+        the committee approved the new laboratory
+        building on the western edge of campus
+        and construction began the following spring semester after the trustees gave their final approval
+        with funding from the anonymous donor
+      TEXT
+    end
+
+    it "offers phrases from normal lines before phrases from the joined line" do
+      phrases = selector.call(chunk_texts: [ chunk ])
+
+      expect(phrases.first).not_to include("trustees")
+      expect(phrases.first).not_to include("semester")
+    end
+
+    it "still offers the joined line when it is the only thing available" do
+      long_line = "and construction began the following spring semester after the trustees gave approval\n"
+
+      expect(selector.call(chunk_texts: [ long_line ])).to be_present
+    end
+  end
 end
