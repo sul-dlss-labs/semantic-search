@@ -63,7 +63,7 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem "blacklight", "~> 9.0"
+gem "blacklight", "~> 9.1"
 gem "mcp", "~> 1.5"
 
 gem "rsolr", ">= 1.0", "< 3"
