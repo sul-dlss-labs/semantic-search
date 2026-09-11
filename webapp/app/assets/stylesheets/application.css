@@ -24,3 +24,48 @@
 .constraints-label {
     --sul-header-font-size: 1rem;
 }
+
+.ai-summary {
+    background: #f5f8fd;
+    border: 1px solid #527fa5;
+    border-radius: 1rem;
+    box-shadow: 0 2px 2px #0002;
+    color: #2e2d29;
+    margin-block: 1.5rem 2rem;
+    padding: 1.25rem 1.5rem;
+}
+
+.ai-summary-heading {
+    color: #315f86;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.ai-summary-content {
+    line-height: 1.5;
+    max-height: 7.5em;
+    overflow: hidden;
+    white-space: pre-wrap;
+}
+
+.ai-summary-content.is-expanded {
+    max-height: none;
+}
+
+.ai-summary-toggle {
+    width: 100%;
+    border: 1px solid #527fa5;
+    border-radius: 2rem;
+    background: #fff;
+    color: #315f86;
+}
+
+.ai-summary-toggle:hover,
+.ai-summary-toggle:focus-visible {
+    background: #e5eff8;
+    border-color: #315f86;
+}
+
+.no-js .ai-summary {
+    display: none;
+}

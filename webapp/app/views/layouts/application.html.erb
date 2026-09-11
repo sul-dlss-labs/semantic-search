@@ -47,6 +47,10 @@
     <main id="main-container" class="<%= container_classes %>" aria-label="<%= t('blacklight.main.aria.main_container') %>">
       <%= content_for(:container_header) %>
 
+      <% if controller_name == "catalog" && action_name == "index" && params[:q].present? && @response&.documents.present? %>
+        <%= render "catalog/ai_summary", documents: @response.documents %>
+      <% end %>
+
       <%= render 'shared/flash_msg', layout: 'shared/flash_messages' if flash.any? %>
 
       <div class="row">
