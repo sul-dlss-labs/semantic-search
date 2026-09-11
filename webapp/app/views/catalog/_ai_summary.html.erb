@@ -1,0 +1,15 @@
+<section class="alert alert-info ai-summary" aria-labelledby="ai-summary-heading"
+         data-controller="ai-summary"
+         data-ai-summary-url-value="<%= search_summary_path %>"
+         data-ai-summary-token-value="<%= SearchSummary.token(query: params[:q], documents: documents) %>">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 id="ai-summary-heading" class="ai-summary-heading"><span aria-hidden="true">✦</span> AI SUMMARY</h2>
+    <button type="button" class="btn-close" aria-label="Dismiss AI summary" data-action="ai-summary#dismiss"></button>
+  </div>
+  <p role="status" data-ai-summary-target="status">Loading AI summary…</p>
+  <div id="ai-summary-content" class="ai-summary-content" data-ai-summary-target="content" hidden></div>
+  <button type="button" class="btn ai-summary-toggle mt-3" data-ai-summary-target="toggle"
+          data-action="ai-summary#toggle" aria-expanded="false" aria-controls="ai-summary-content" hidden>Show more</button>
+  <button type="button" class="btn btn-outline-primary mt-3" data-ai-summary-target="retry" data-action="ai-summary#load" hidden>Try again</button>
+  <noscript>Enable JavaScript to load the AI summary.</noscript>
+</section>
