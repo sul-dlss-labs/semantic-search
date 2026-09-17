@@ -3,11 +3,11 @@ module ApplicationHelper
     link_to value.first, "https://purl.stanford.edu/#{document[:collection_id_ss]}"
   end
 
-  def pub_date_str(document:, value:, **)
+  def pub_date_str(document:, **)
     document.pub_date_str
   end
 
-  def abstracts(document:, value:, **)
-    document.abstracts
+  def abstracts(document:, **)
+    document.abstracts.presence || "no abstract provided"
   end
 end
