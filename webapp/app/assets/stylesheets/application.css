@@ -26,13 +26,20 @@
 }
 
 .ai-summary {
-    background: #f5f8fd;
+    background: linear-gradient(135deg, #f1f7fe 0%, #fff 100%);
     border: 1px solid #527fa5;
     border-radius: 1rem;
     box-shadow: 0 2px 2px #0002;
     color: #2e2d29;
     margin-block: 1.5rem 2rem;
     padding: 1.25rem 1.5rem;
+}
+
+.ai-summary-title {
+    display: inline-flex;
+    align-items: center;
+    column-gap: 0.625rem;
+    flex-wrap: wrap;
 }
 
 .ai-summary-heading {
@@ -45,11 +52,26 @@
     line-height: 1.5;
     max-height: 7.5em;
     overflow: hidden;
-    white-space: pre-wrap;
 }
 
 .ai-summary-content.is-expanded {
     max-height: none;
+}
+
+/* Keep the rendered Markdown flush with the clamp, so the height measured for the toggle is the
+   text itself rather than a leading or trailing paragraph margin. */
+.ai-summary-content > :first-child {
+    margin-top: 0;
+}
+
+.ai-summary-content > :last-child {
+    margin-bottom: 0;
+}
+
+.ai-summary-content ul,
+.ai-summary-content ol {
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
 }
 
 .ai-summary-toggle {
