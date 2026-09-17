@@ -8,7 +8,7 @@ const markdownTags = [
 ]
 
 export default class extends Controller {
-  static targets = ["messages", "form", "input", "submit", "error"]
+  static targets = ["messages", "form", "input", "submit", "submitLabel", "error"]
 
   static streamInterruptedMessage = "The answer stream was interrupted before it finished. The response may have been too large or the connection may have timed out. Please try again, or ask a narrower question."
 
@@ -277,9 +277,11 @@ export default class extends Controller {
   }
 
   setBusy(busy) {
+    const label = busy ? "Searching…" : "Send"
     this.submitTarget.disabled = busy
     this.inputTarget.disabled = busy
-    this.submitTarget.value = busy ? "Searching…" : "Send"
+    this.submitTarget.setAttribute("aria-label", label)
+    this.submitLabelTarget.textContent = label
     this.messagesTarget.setAttribute("aria-busy", busy.toString())
   }
 

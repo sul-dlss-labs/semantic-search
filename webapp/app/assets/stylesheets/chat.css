@@ -1,5 +1,5 @@
 .chat-shell {
-  max-width: 58rem;
+  max-width: 70rem;
 }
 
 .chat-messages {
@@ -30,19 +30,29 @@
 }
 
 .chat-message-content {
+  width: fit-content;
+  max-width: 100%;
   border-radius: 1rem;
-  background: var(--bs-tertiary-bg);
-  padding: 0.8rem 1rem;
+  padding: 1rem 1rem;
 }
 
 .chat-message-user .chat-message-content {
-  background: var(--stanford-cardinal, #8c1515);
-  color: #fff;
+  margin-left: auto;
+  background: rgb(from var(--stanford-digital-blue) r g b / 8%);
+  border: 1px solid var(--stanford-digital-blue);
+  color: var(--stanford-digital-blue-dark);
+  border-bottom-right-radius: 0.25rem;
   white-space: pre-wrap;
 }
 
 .chat-message-assistant .chat-message-content > :last-child {
   margin-bottom: 0;
+}
+
+.chat-message-assistant .chat-message-content {
+  background: rgb(from var(--stanford-fog-light) r g b / 40%);
+  border: 1px solid var(--stanford-40-black);
+  border-bottom-left-radius: 0.25rem;
 }
 
 .chat-message-assistant .chat-message-content pre {
@@ -90,6 +100,16 @@
     color: var(--chat-shimmer-base);
     -webkit-text-fill-color: currentColor;
   }
+}
+
+.chat-page textarea {
+  border-radius: 0;
+  margin-left: 0.8rem;
+}
+
+.chat-page .search-btn {
+  height: 38px;
+  margin-left: 0.8rem;
 }
 
 @media (max-width: 576px) {

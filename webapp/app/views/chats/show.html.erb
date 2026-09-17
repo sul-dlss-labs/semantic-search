@@ -26,15 +26,21 @@
         <div class="alert alert-danger d-none mb-3" role="alert" data-chat-target="error"></div>
         <%= form_with url: chat_path, method: :post, html: { data: { action: "submit->chat#submit", chat_target: "form" } } do |form| %>
           <%= form.label :message, "Your question", class: "form-label visually-hidden" %>
-          <div class="input-group">
-            <%= form.text_area :message,
-                               rows: 2,
-                               required: true,
-                               maxlength: Rails.configuration.x.chat.max_message_characters,
-                               placeholder: "Ask about people, places, themes, or documents in the corpus…",
-                               class: "form-control",
-                               data: { chat_target: "input", action: "keydown->chat#keydown" } %>
-            <%= form.submit "Send", class: "btn btn-primary px-4", data: { chat_target: "submit" } %>
+          <div class="search-query-form">
+            <div class="input-group">
+              <%= form.text_area :message,
+                                 rows: 1,
+                                 required: true,
+                                 maxlength: Rails.configuration.x.chat.max_message_characters,
+                                 placeholder: "Ask about people, places, themes, or documents in the corpus…",
+                                 class: "form-control search-q",
+                                 data: { chat_target: "input", action: "keydown->chat#keydown" } %>
+              <%= tag.button class: "btn btn-primary search-btn", type: "submit",
+                             aria: { label: "Send" },
+                             data: { chat_target: "submit" } do %>
+                <span class="submit-search-text" aria-hidden="true" data-chat-target="submitLabel">Send</span>
+              <% end %>
+            </div>
           </div>
           <div class="form-text">Responses are generated with AI. Verify important details using the cited sources.</div>
         <% end %>
