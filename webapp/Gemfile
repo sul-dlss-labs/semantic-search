@@ -64,6 +64,8 @@ group :test do
 end
 
 gem "blacklight", "~> 9.1"
+# Helpers for rendering Cocina metadata [https://sul-dlss.github.io/cocina_display/]
+gem "cocina_display", "~> 2.13"
 gem "mcp", "~> 1.5"
 
 gem "rsolr", ">= 1.0", "< 3"

@@ -12,4 +12,15 @@ class SolrDocument
   # and Blacklight::Document::SemanticFields#to_semantic_values
   # Recommendation: Use field names from Dublin Core
   use_extension(Blacklight::Document::DublinCore)
+
+  # The Cocina metadata for this object, as indexed in Solr.
+  # @return [CocinaDisplay::CocinaRecord, nil] nil if the document has no Cocina
+  def cocina_display
+    @cocina_display ||= begin
+      cocina_json = Array.wrap(self["cocina_ss"]).first
+      CocinaDisplay::CocinaRecord.from_json(cocina_json) if cocina_json.present?
+    end
+  end
+
+  delegate :abstracts, :pub_date_str, to: :cocina_display
 end
