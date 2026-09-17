@@ -1,4 +1,10 @@
 import { Controller } from "@hotwired/stimulus"
+import DOMPurify from "dompurify"
+import { marked } from "marked"
+
+// Deliberately narrower than the chat controller's allowlist: the summary has no verified sources
+// to validate hrefs against, so links are unwrapped to text rather than rendered.
+const summaryTags = ["p", "br", "strong", "em", "del", "code", "ul", "ol", "li"]
 
 export default class extends Controller {
   static targets = ["content", "status", "toggle", "retry"]
@@ -36,7 +42,7 @@ export default class extends Controller {
       })
       const data = await response.json()
       if (!response.ok) throw new Error(data.error || "The AI summary is unavailable. Please try again.")
-      this.contentTarget.textContent = data.summary
+      this.renderSummary(data.summary)
       this.contentTarget.hidden = false
       this.statusTarget.textContent = "AI summary loaded."
       this.statusTarget.classList.add("visually-hidden")
@@ -46,6 +52,14 @@ export default class extends Controller {
       this.statusTarget.textContent = error.message
       this.retryTarget.hidden = false
     }
+  }
+
+  renderSummary(text) {
+    const html = marked.parse(text, { breaks: true, gfm: true })
+    const sanitizedHtml = DOMPurify.sanitize(html, { ALLOWED_TAGS: summaryTags, ALLOWED_ATTR: [] })
+    const template = document.createElement("template")
+    template.innerHTML = sanitizedHtml
+    this.contentTarget.replaceChildren(template.content)
   }
 
   updateToggle() {
