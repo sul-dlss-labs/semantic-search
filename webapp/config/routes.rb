@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   post "/mcp", to: "mcp#index", as: :mcp
   resource :chat, only: %i[show create], controller: "chats"
+  resource :search_summary, only: :create
 
   concern :searchable, Blacklight::Routes::Searchable.new
 

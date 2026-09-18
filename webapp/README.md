@@ -32,6 +32,11 @@ the tool name and input immediately before execution; `call.mcp_tool` records it
 outcome, duration, and bounded result metadata afterward. Both include the Rails
 request ID for correlation.
 
+Search results also load an AI summary asynchronously using the same LiteLLM configuration.
+The summary uses metadata from up to 20 results on the displayed page, respecting the
+current search and filters. It does not retrieve full document text. Long summaries
+initially show five lines and can be expanded or dismissed.
+
 ## Chat quality evaluations
 
 The black-box evaluation task asks the deployed `/chat` endpoint a set of questions,
