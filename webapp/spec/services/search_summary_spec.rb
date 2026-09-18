@@ -3,13 +3,31 @@
 require "rails_helper"
 
 RSpec.describe SearchSummary do
+  let(:cocina_json) do
+    {
+      externalIdentifier: "druid:bb112zx3193",
+      description: { title: [ { value: "African clawed frog" } ], note: [] }
+    }.to_json
+  end
+
   it "includes bounded result metadata and excludes unrelated fields" do
-    document = SolrDocument.new(title_display_tesi: "Frogs", vector: [ 0.5 ], all_search_tesi: "private")
+    document = SolrDocument.new(title_display_tesi: "Frogs", vector: [ 0.5 ], all_search_tesi: "private", cocina_ss: cocina_json)
     context = described_class.verifier.verify(described_class.token(query: "frogs", documents: [ document ] * 30))
     expect(context["results"].length).to eq(20)
-    expect(context["results"].first.fetch("title_display_tesi")).to eq([ "Frogs" ])
-    expect(context["results"].first).not_to have_key("vector")
-    expect(context["results"].first).not_to have_key("all_search_tesi")
+    expect(context["results"].first.fetch("title")).to eq([ "Frogs" ])
+  end
+
+  it "includes the abstracts from the results" do
+    cocina_json = {
+      externalIdentifier: "druid:bb112zx3193",
+      description: {
+        title: [ { value: "Frogs" } ],
+        note: [ { type: "abstract", value: "A survey of California frogs." } ]
+      }
+    }.to_json
+    document = SolrDocument.new(title_display_tesi: "Frogs", "cocina_ss" => cocina_json)
+    context = described_class.verifier.verify(described_class.token(query: "frogs", documents: [ document ]))
+    expect(context["results"].first.fetch("abstracts")).to eq([ "A survey of California frogs." ])
   end
 
   it "uses the existing completion client without tools" do

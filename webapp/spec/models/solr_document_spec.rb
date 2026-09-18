@@ -36,7 +36,7 @@ RSpec.describe SolrDocument do
     end
   end
 
-  describe "#pub_date_str" do
+  describe "#publication_date" do
     let(:cocina_json) do
       {
         externalIdentifier: "druid:bb112zx3193",
@@ -48,7 +48,7 @@ RSpec.describe SolrDocument do
     end
 
     it "returns the publication date" do
-      expect(document.pub_date_str).to eq "1957"
+      expect(document.publication_date).to eq "1957"
     end
 
     context "when there is only a creation date" do
@@ -63,7 +63,7 @@ RSpec.describe SolrDocument do
       end
 
       it "falls back to the creation date" do
-        expect(document.pub_date_str).to eq "1887"
+        expect(document.publication_date).to eq "1887"
       end
     end
   end

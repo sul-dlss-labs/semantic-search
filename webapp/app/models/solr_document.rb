@@ -5,6 +5,10 @@ class SolrDocument
   include Blacklight::Solr::Document
 
   # self.unique_key = 'id'
+  attribute :title, :string, :title_display_tesi
+  attribute :author, :array, :author_person_ssim
+  attribute :collection_title, :string, :collection_title_ss
+  attribute :topic, :array, :topic_ssim
 
   # DublinCore uses the semantic field mappings below to assemble an OAI-compliant Dublin Core document
   # Semantic mappings of solr stored fields. Fields may be multi or
@@ -22,5 +26,9 @@ class SolrDocument
     end
   end
 
-  delegate :abstracts, :pub_date_str, to: :cocina_display
+  def publication_date
+    cocina_display.pub_date_str
+  end
+
+  delegate :abstracts, to: :cocina_display
 end
