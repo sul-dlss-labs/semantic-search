@@ -42,7 +42,7 @@ class CatalogController < ApplicationController
 
     ## Default parameters to send to solr for all search-like requests. See also SearchBuilder#processed_parameters
     config.default_solr_params = {
-      rows: 10,
+      rows: 20,
       'facet.mincount': 1,
       'q.alt': "*:*",
       'qf': "all_search_tesi",
@@ -59,7 +59,8 @@ class CatalogController < ApplicationController
     # config.json_solr_path = 'select'
 
     # items to show per page, each number in the array represent another option to choose from.
-    # config.per_page = [10,20,50,100]
+    config.per_page = [ 10, 20, 50, 100 ]
+    config.default_per_page = 20
 
     # solr field configuration for search results/index views
     config.index.title_field = "title_display_tesi"
