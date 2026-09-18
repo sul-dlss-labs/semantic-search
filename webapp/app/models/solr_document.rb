@@ -22,5 +22,5 @@ class SolrDocument
     end
   end
 
-  delegate :abstracts, :pub_date_str, to: :cocina_display
+  delegate :abstracts, :pub_date_str, to: :cocina_display, allow_nil: true
 end

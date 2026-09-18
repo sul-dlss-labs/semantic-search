@@ -36,6 +36,28 @@ RSpec.describe SolrDocument do
     end
   end
 
+  describe "#abstracts" do
+    let(:cocina_json) do
+      {
+        externalIdentifier: "druid:bb112zx3193",
+        description: {
+          title: [ { value: "Bugatti Type 51A" } ],
+          note: [ { type: "abstract", value: "A racing car." } ]
+        }
+      }.to_json
+    end
+
+    it "returns the abstract note text" do
+      expect(document.abstracts).to eq [ "A racing car." ]
+    end
+
+    context "when the document has no Cocina" do
+      let(:cocina_json) { nil }
+
+      it { expect(document.abstracts).to be_nil }
+    end
+  end
+
   describe "#pub_date_str" do
     let(:cocina_json) do
       {
