@@ -4,7 +4,8 @@ RSpec.describe SearchBuilder do
   subject(:builder) { described_class.allocate }
 
   before do
-    allow(builder).to receive(:blacklight_params).and_return({ q: "first Marlins pitch", search_type: "vector" })
+    allow(builder).to receive(:search_state)
+      .and_return(instance_double(Blacklight::SearchState, params: { q: "first Marlins pitch", search_type: "vector" }))
     allow(builder).to receive(:retrieve_embedding).with("first Marlins pitch").and_return([ 0.1, 0.2 ])
   end
 
