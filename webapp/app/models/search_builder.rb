@@ -19,7 +19,7 @@ class SearchBuilder < Blacklight::SearchBuilder
   attr_reader :query_embedding
 
   def add_embedding_to_query(solr_parameters)
-    return unless blacklight_params[:q].present?
+    return unless search_state.params[:q].present?
 
     solr_parameters[:json] ||= { query: {} }
     solr_parameters[:json][:query][:bool] = {
@@ -33,7 +33,7 @@ class SearchBuilder < Blacklight::SearchBuilder
   end
 
   def keyword(solr_parameters)
-    return [] if blacklight_params[:search_type] == "vector"
+    return [] if search_state.params[:search_type] == "vector"
 
     must_queries = solr_parameters.dig(:json, :query, :bool, :must)
     return Array.wrap(must_queries) if must_queries.present? # advance search is enabled
@@ -48,8 +48,8 @@ class SearchBuilder < Blacklight::SearchBuilder
   # a phrase occurring in one chunk of a 1,000-chunk volume is not diluted by
   # document length.
   def keyword_chunks
-    return [] if blacklight_params[:search_type] == "vector"
-    return [] unless blacklight_params[:q].present?
+    return [] if search_state.params[:search_type] == "vector"
+    return [] unless search_state.params[:q].present?
 
     [
       {
@@ -62,7 +62,7 @@ class SearchBuilder < Blacklight::SearchBuilder
               score: "max",
               query: {
                 edismax: {
-                  query: blacklight_params[:q],
+                  query: search_state.params[:q],
                   qf: "chunk_text_tesi"
                 }
               }
@@ -74,7 +74,7 @@ class SearchBuilder < Blacklight::SearchBuilder
   end
 
   def vector_similarity
-    return [] if blacklight_params[:search_type] == "keyword"
+    return [] if search_state.params[:search_type] == "keyword"
     @vector_similarity ||= [
       {
         boost: {
@@ -91,7 +91,7 @@ class SearchBuilder < Blacklight::SearchBuilder
                   # to the parent. Unlike topK, this does not make documents compete for a
                   # fixed global child-chunk budget.
                   minReturn: VECTOR_MIN_RETURN,
-                  query:  "[#{retrieve_embedding(blacklight_params[:q]).join(', ')}]"
+                  query:  "[#{retrieve_embedding(search_state.params[:q]).join(', ')}]"
                 }
               }
             }
