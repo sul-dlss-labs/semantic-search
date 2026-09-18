@@ -15,6 +15,7 @@ export default class extends Controller {
   connect() {
     this.history = []
     this.verifiedSources = []
+    this.copyFeedbackTimeouts = new WeakMap()
   }
 
   keydown(event) {
@@ -82,6 +83,7 @@ export default class extends Controller {
       if (!responseText) throw new Error("The chat service did not return an answer. Please try again.")
       status.remove()
       this.renderMarkdown(assistantContent, responseText, this.verifiedSources)
+      this.appendCopyButton(assistant, assistantContent, responseText)
       this.history.push({ role: "assistant", content: responseText })
     } catch (error) {
       assistant.remove()
@@ -172,6 +174,80 @@ export default class extends Controller {
     message.append(notice)
     this.scrollToLatest()
     return notice
+  }
+
+  appendCopyButton(message, content, markdown) {
+    const actions = document.createElement("div")
+    actions.className = "chat-message-actions mt-2"
+
+    const button = document.createElement("button")
+    button.type = "button"
+    button.className = "chat-copy btn btn-sm btn-link"
+    button.setAttribute("aria-label", "Copy response")
+    button.title = "Copy response"
+
+    const icon = document.createElement("i")
+    icon.className = "bi bi-clipboard"
+    icon.setAttribute("aria-hidden", "true")
+    button.append(icon)
+
+    const feedback = document.createElement("span")
+    feedback.className = "chat-copy-feedback"
+    feedback.setAttribute("role", "status")
+
+    button.addEventListener("click", () => this.copyResponse(icon, feedback, content, markdown))
+
+    actions.append(button, feedback)
+    message.append(actions)
+    return actions
+  }
+
+  async copyResponse(icon, feedback, content, markdown) {
+    try {
+      await this.writeToClipboard(this.formattedHtml(content), markdown)
+      this.showCopyFeedback(icon, feedback, "bi-check2", "Copied")
+    } catch (error) {
+      console.error("Copying the chat response failed:", error)
+      this.showCopyFeedback(icon, feedback, "bi-exclamation-triangle", "Copy failed")
+    }
+  }
+
+  // Writes both the formatted and plain text flavors so pasting into a rich text
+  // editor keeps the formatting and pasting into a plain text field keeps the markdown.
+  async writeToClipboard(html, markdown) {
+    if (!navigator.clipboard?.write || typeof ClipboardItem === "undefined") {
+      return navigator.clipboard.writeText(markdown)
+    }
+
+    return navigator.clipboard.write([
+      new ClipboardItem({
+        "text/html": new Blob([html], { type: "text/html" }),
+        "text/plain": new Blob([markdown], { type: "text/plain" })
+      })
+    ])
+  }
+
+  // Citation links are relative to this site, so they need to be absolute to survive the paste.
+  formattedHtml(content) {
+    const copy = content.cloneNode(true)
+    copy.querySelectorAll("a[href]").forEach((link) => {
+      try {
+        link.setAttribute("href", new URL(link.getAttribute("href"), document.baseURI).toString())
+      } catch {
+        link.removeAttribute("href")
+      }
+    })
+    return copy.innerHTML
+  }
+
+  showCopyFeedback(icon, feedback, iconClass, message) {
+    clearTimeout(this.copyFeedbackTimeouts.get(icon))
+    icon.className = `bi ${iconClass}`
+    feedback.textContent = message
+    this.copyFeedbackTimeouts.set(icon, setTimeout(() => {
+      icon.className = "bi bi-clipboard"
+      feedback.textContent = ""
+    }, 3000))
   }
 
   renderMarkdown(container, text, sources) {
