@@ -3,8 +3,8 @@ module ApplicationHelper
     link_to value.first, "https://purl.stanford.edu/#{document[:collection_id_ss]}"
   end
 
-  def pub_date_str(document:, **)
-    document.pub_date_str
+  def publication_date(document:, **)
+    document.publication_date
   end
 
   def abstracts(document:, **)

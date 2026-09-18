@@ -172,7 +172,7 @@ class CatalogController < ApplicationController
     #   The ordering of the field names is the order of the display
     config.add_index_field "title_tsim", label: "Title"
     config.add_index_field "doc_type_ssi", label: "Format"
-    config.add_index_field "created", field: "cocina_ss", label: "Created", helper_method: :pub_date_str
+    config.add_index_field "created", field: "cocina_ss", label: "Created", helper_method: :publication_date
     config.add_index_field "collection_title_ss", label: "Collection Title", helper_method: :link_to_collection
     config.add_index_field "abstracts", field: "cocina_ss", label: "Abstract", helper_method: :abstracts
     config.add_index_field "child_count_i", label: "Child count"

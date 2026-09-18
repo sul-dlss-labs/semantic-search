@@ -3,11 +3,19 @@
 require "rails_helper"
 
 RSpec.describe "Search summaries", type: :request do
-  let(:token) { SearchSummary.token(query: "frogs", documents: [ SolrDocument.new(title_display_tesi: "Frogs of California") ]) }
+  let(:token) { SearchSummary.token(query: "frogs", documents: [ document ]) }
+  let(:document) { SolrDocument.new(title_display_tesi: "Frogs of California", id: "bb112zx3193", cocina_ss: cocina_json) }
+
+  let(:cocina_json) do
+    {
+      externalIdentifier: "druid:bb112zx3193",
+      description: { title: [ { value: "African clawed frog" } ], note: [] }
+    }.to_json
+  end
 
   it "renders the summary above results without calling the AI service during page load" do
     solr_response = Blacklight::Solr::Response.new(
-      { "response" => { "numFound" => 1, "start" => 0, "docs" => [ { "id" => "abc", "title_display_tesi" => "Frogs" } ] } },
+      { "response" => { "numFound" => 1, "start" => 0, "docs" => [ { id: "abc", title_display_tesi: "Frogs", cocina_ss: cocina_json } ] } },
       { rows: 10 }, blacklight_config: CatalogController.blacklight_config
     )
     allow_any_instance_of(Blacklight::Solr::Repository).to receive(:search).and_return(solr_response)
