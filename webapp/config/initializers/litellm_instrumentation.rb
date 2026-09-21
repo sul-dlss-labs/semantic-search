@@ -7,6 +7,7 @@ ActiveSupport::Notifications.subscribe("request.litellm") do |event|
     event: event.name,
     outcome: error_class ? "error" : "success",
     duration_ms: event.duration.round(1),
+    first_content_token_ms: payload[:first_content_token_ms],
     model: payload[:model],
     operation: payload[:operation],
     input_count: payload[:input_count],

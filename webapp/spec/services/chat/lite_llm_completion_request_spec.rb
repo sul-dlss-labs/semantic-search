@@ -35,13 +35,15 @@ RSpec.describe Chat::LiteLlmCompletionRequest do
     allow(http).to receive(:request) do |request, &block|
       expect(request.uri.to_s).to eq("https://litellm.example/v1/chat/completions")
       expect(request["Authorization"]).to eq("Bearer proxy-key")
-      expect(JSON.parse(request.body)).to include(
+      body = JSON.parse(request.body)
+      expect(body).to include(
         "model" => "chat-alias",
         "messages" => messages,
         "max_tokens" => 4_000,
         "stream" => true,
         "stream_options" => { "include_usage" => true }
       )
+      expect(body).not_to have_key("reasoning_effort")
       block.call(response)
     end
 
@@ -99,6 +101,56 @@ RSpec.describe Chat::LiteLlmCompletionRequest do
     ).stream_completion
 
     expect(completion.message["content"]).to eq("Final answer.")
+  end
+
+  it "sends a caller-supplied reasoning budget and output limit" do
+    chunks = [
+      %(data: {"choices":[{"delta":{"content":"These results"},"finish_reason":"stop"}]}\n\n),
+      "data: [DONE]\n\n"
+    ]
+    allow(response).to receive(:read_body) { |&block| chunks.each(&block) }
+    allow(http).to receive(:request) do |request, &block|
+      expect(JSON.parse(request.body)).to include("reasoning_effort" => "none", "max_tokens" => 800)
+      block.call(response)
+    end
+
+    described_class.new(messages:, reasoning_effort: "none", max_tokens: 800).stream_completion
+  end
+
+  it "records how long the model took to emit its first content token" do
+    chunks = [
+      %(data: {"choices":[{"delta":{"role":"assistant"}}]}\n\n),
+      %(data: {"choices":[{"delta":{"content":"Frogs "}}]}\n\n),
+      %(data: {"choices":[{"delta":{"content":"appear."},"finish_reason":"stop"}]}\n\n),
+      "data: [DONE]\n\n"
+    ]
+    allow(response).to receive(:read_body) { |&block| chunks.each(&block) }
+    allow(http).to receive(:request) { |_request, &block| block.call(response) }
+
+    payload = nil
+    callback = ->(_name, _start, _finish, _id, event_payload) { payload = event_payload }
+    ActiveSupport::Notifications.subscribed(callback, described_class::INSTRUMENTATION_EVENT) do
+      described_class.new(messages:).stream_completion
+    end
+
+    expect(payload[:first_content_token_ms]).to be_a(Float).and be >= 0
+  end
+
+  it "omits the first content token timing when the model only returns tool calls" do
+    chunks = [
+      %(data: {"choices":[{"delta":{"tool_calls":[{"index":0,"id":"call-1","function":{"name":"search","arguments":"{}"}}]},"finish_reason":"tool_calls"}]}\n\n),
+      "data: [DONE]\n\n"
+    ]
+    allow(response).to receive(:read_body) { |&block| chunks.each(&block) }
+    allow(http).to receive(:request) { |_request, &block| block.call(response) }
+
+    payload = nil
+    callback = ->(_name, _start, _finish, _id, event_payload) { payload = event_payload }
+    ActiveSupport::Notifications.subscribed(callback, described_class::INSTRUMENTATION_EVENT) do
+      described_class.new(messages:).stream_completion
+    end
+
+    expect(payload).not_to have_key(:first_content_token_ms)
   end
 
   it "rejects a stream that ends without its done event" do
