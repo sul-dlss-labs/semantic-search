@@ -2,7 +2,7 @@
 
 ActiveSupport::Notifications.subscribe("request.litellm") do |event|
   payload = event.payload
-  error_class = payload[:exception]&.first
+  error_class, error_message = payload[:exception]
   log_data = {
     event: event.name,
     outcome: error_class ? "error" : "success",
@@ -22,7 +22,8 @@ ActiveSupport::Notifications.subscribe("request.litellm") do |event|
     total_tokens: payload[:total_tokens],
     finish_reason: payload[:finish_reason],
     stream_complete: payload[:stream_complete],
-    error_class: error_class
+    error_class: error_class,
+    error_message: error_message
   }.compact
 
   level = error_class ? :warn : :info

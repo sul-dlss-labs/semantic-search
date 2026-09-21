@@ -95,9 +95,9 @@ module SemanticSearch
     config.x.chat.summary_max_output_tokens = 800
 
     # Reasoning budget requested for the search result summary. Summarizing supplied metadata needs
-    # little deliberation, and reasoning tokens are the dominant cost in its latency. Override to
-    # "low" or "medium" to trade latency back for quality; proxies that reject the parameter, or
-    # models that ignore it, can set it to an empty string to omit it entirely.
-    config.x.chat.summary_reasoning_effort = "none"
+    # little deliberation, and reasoning tokens are the dominant cost in its latency. "low" is the
+    # floor: LiteLLM maps "none" to THINKING_LEVEL_MINIMAL, which Vertex AI's Gemini models reject
+    # with a 400. Raise to "medium" or "high" to trade latency back for quality.
+    config.x.chat.summary_reasoning_effort = "low"
   end
 end

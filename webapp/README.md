@@ -34,9 +34,10 @@ request ID for correlation.
 
 Search results also load an AI summary asynchronously using the same LiteLLM configuration.
 Because that summary only rewrites metadata it was handed, it asks for a smaller output budget
-and no reasoning budget; both are set under `config.x.chat` in `config/application.rb`. Set
-`LITELLM_SUMMARY_REASONING_EFFORT` to `low`/`medium` to trade summary latency back for quality,
-or to an empty string on proxies that reject the `reasoning_effort` parameter.
+and a low reasoning budget; both are set under `config.x.chat` in `config/application.rb`. Raise
+`summary_reasoning_effort` to `medium` or `high` there to trade summary latency back for quality.
+Do not set it to `none` — LiteLLM maps that to `THINKING_LEVEL_MINIMAL`, which Vertex AI's Gemini
+models reject with a 400.
 
 Every `request.litellm` log event records `first_content_token_ms` alongside `duration_ms`.
 The gap between them is time the model spent before producing prose — connecting, queueing, or
