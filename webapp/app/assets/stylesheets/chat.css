@@ -3,9 +3,7 @@
 }
 
 .chat-messages {
-  min-height: 24rem;
-  max-height: min(62vh, 44rem);
-  overflow-y: auto;
+  min-height: 15rem;
   padding: 1.5rem;
 }
 
