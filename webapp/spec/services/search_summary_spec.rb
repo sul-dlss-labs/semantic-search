@@ -43,7 +43,7 @@ RSpec.describe SearchSummary do
         hash_including("role" => "system", "content" => /Format the response as Markdown/),
         { "role" => "user", "content" => { query: "frogs", results: [] }.to_json }
       ],
-      reasoning_effort: "none",
+      reasoning_effort: "low",
       max_tokens: 800
     )
   end

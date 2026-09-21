@@ -8,7 +8,7 @@ class SearchSummariesController < ApplicationController
   rescue ActiveSupport::MessageVerifier::InvalidSignature, ActionController::ParameterMissing
     render json: { error: "This search summary has expired. Reload the page to try again." }, status: :unprocessable_content
   rescue StandardError => e
-    Rails.logger.error("Search summary failed: #{e.class}")
+    Rails.logger.error("Search summary failed: #{e.class}: #{e.message}")
     render json: { error: "The AI summary is unavailable. Please try again." }, status: :service_unavailable
   end
 end
