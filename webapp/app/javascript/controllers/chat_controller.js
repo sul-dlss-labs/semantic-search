@@ -77,7 +77,6 @@ export default class extends Controller {
         } else if (type === "error") {
           throw new Error(data.message)
         }
-        this.scrollToLatest()
       })
 
       if (!responseText) throw new Error("The chat service did not return an answer. Please try again.")
@@ -155,7 +154,6 @@ export default class extends Controller {
 
     article.append(messageLabel, messageContent)
     this.messagesTarget.append(article)
-    this.scrollToLatest()
     return article
   }
 
@@ -172,7 +170,6 @@ export default class extends Controller {
     notice.className = "chat-source-notice alert alert-warning mt-2 mb-0"
     notice.textContent = content
     message.append(notice)
-    this.scrollToLatest()
     return notice
   }
 
@@ -359,10 +356,6 @@ export default class extends Controller {
     this.submitTarget.setAttribute("aria-label", label)
     this.submitLabelTarget.textContent = label
     this.messagesTarget.setAttribute("aria-busy", busy.toString())
-  }
-
-  scrollToLatest() {
-    this.messagesTarget.scrollTop = this.messagesTarget.scrollHeight
   }
 
   showError(message) {
