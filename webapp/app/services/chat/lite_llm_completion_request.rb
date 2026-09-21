@@ -21,10 +21,13 @@ module Chat
       end
     end
 
-    def initialize(messages:, tools: nil, tool_choice: nil, client: LiteLlmClient.new)
+    def initialize(messages:, tools: nil, tool_choice: nil, reasoning_effort: nil, max_tokens: nil,
+                   client: LiteLlmClient.new)
       @messages = messages
       @tools = tools
       @tool_choice = tool_choice
+      @reasoning_effort = reasoning_effort
+      @max_tokens = max_tokens
       @client = client
     end
 
@@ -53,13 +56,15 @@ module Chat
         messages: @messages,
         tools: @tools.presence,
         tool_choice: @tool_choice || (@tools.present? ? "auto" : nil),
-        max_tokens: Rails.configuration.x.chat.max_output_tokens,
+        reasoning_effort: @reasoning_effort,
+        max_tokens: @max_tokens || Rails.configuration.x.chat.max_output_tokens,
         stream: true,
         stream_options: { include_usage: true }
       }.compact.to_json
     end
 
     def perform_request(model, payload)
+      @started_at = Process.clock_gettime(Process::CLOCK_MONOTONIC)
       content = +""
       tool_calls = {}
       parser = EventStreamParser.new
@@ -118,6 +123,7 @@ module Chat
       delta = event.dig("choices", 0, "delta") || {}
 
       if delta["content"].present?
+        payload[:first_content_token_ms] ||= elapsed_ms
         content << delta["content"]
         yield delta["content"]
       end
@@ -135,6 +141,13 @@ module Chat
       end
     rescue JSON::ParserError => e
       raise "LiteLLM returned an invalid streaming event: #{e.message}"
+    end
+
+    # Milliseconds since the HTTP request began. Compared against the event's total duration this
+    # separates time the model spent before emitting prose (connection, queueing, reasoning tokens)
+    # from time spent streaming it.
+    def elapsed_ms
+      ((Process.clock_gettime(Process::CLOCK_MONOTONIC) - @started_at) * 1_000).round(1)
     end
 
     def add_usage(payload, usage)

@@ -33,6 +33,14 @@ outcome, duration, and bounded result metadata afterward. Both include the Rails
 request ID for correlation.
 
 Search results also load an AI summary asynchronously using the same LiteLLM configuration.
+Because that summary only rewrites metadata it was handed, it asks for a smaller output budget
+and no reasoning budget; both are set under `config.x.chat` in `config/application.rb`. Set
+`LITELLM_SUMMARY_REASONING_EFFORT` to `low`/`medium` to trade summary latency back for quality,
+or to an empty string on proxies that reject the `reasoning_effort` parameter.
+
+Every `request.litellm` log event records `first_content_token_ms` alongside `duration_ms`.
+The gap between them is time the model spent before producing prose — connecting, queueing, or
+generating reasoning tokens.
 The summary uses metadata from up to 20 results on the displayed page, respecting the
 current search and filters. It does not retrieve full document text. Long summaries
 initially show five lines and can be expanded or dismissed.

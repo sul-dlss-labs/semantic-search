@@ -88,5 +88,16 @@ module SemanticSearch
 
     # Maximum output tokens requested for each model completion.
     config.x.chat.max_output_tokens = 4_000
+
+    # The search result summary is a few paragraphs of prose with no tool calls, so it needs far
+    # less room than the agent loop. On models that bill thinking against the output budget this
+    # also caps how long the model can deliberate before answering.
+    config.x.chat.summary_max_output_tokens = 800
+
+    # Reasoning budget requested for the search result summary. Summarizing supplied metadata needs
+    # little deliberation, and reasoning tokens are the dominant cost in its latency. Override to
+    # "low" or "medium" to trade latency back for quality; proxies that reject the parameter, or
+    # models that ignore it, can set it to an empty string to omit it entirely.
+    config.x.chat.summary_reasoning_effort = "none"
   end
 end

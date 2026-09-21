@@ -38,10 +38,14 @@ RSpec.describe SearchSummary do
     allow(Chat::LiteLlmCompletionRequest).to receive(:new).and_return(request)
 
     expect(described_class.new({ query: "frogs", results: [] }).call).to eq("These results concern frogs.")
-    expect(Chat::LiteLlmCompletionRequest).to have_received(:new).with(messages: [
-      hash_including("role" => "system", "content" => /Format the response as Markdown/),
-      { "role" => "user", "content" => { query: "frogs", results: [] }.to_json }
-    ])
+    expect(Chat::LiteLlmCompletionRequest).to have_received(:new).with(
+      messages: [
+        hash_including("role" => "system", "content" => /Format the response as Markdown/),
+        { "role" => "user", "content" => { query: "frogs", results: [] }.to_json }
+      ],
+      reasoning_effort: "none",
+      max_tokens: 800
+    )
   end
 
   it "rejects an incomplete answer" do
