@@ -1,0 +1,3 @@
+<%# Overrides Blacklight to skip the sidebar, which has no content in this app
+    (no show tools or more-like-this), so the document fills the row. %>
+<%= render 'show_main_content', presenter: document_presenter(@document) %>
