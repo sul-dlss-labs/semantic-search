@@ -1,0 +1,29 @@
+<%# The skip link lands here rather than on the query input, which Ask AI hides. tabindex="-1"
+    makes this programmatically focusable so the link actually moves focus, while keeping the
+    container out of the tab order; the role and label mean a screen reader announces
+    "Search, navigation" on arrival instead of dropping the user on an anonymous div. %>
+<%= tag.div id: "search-bar", tabindex: -1, class: "navbar navbar-search bg-body-tertiary border-bottom", role: "navigation", aria: { label: t("blacklight.search.header") } do %>
+  <div class="<%= container_classes %>">
+    <div class="search-modes">
+      <%# The radios sit outside both forms so neither one submits them. autocomplete=off stops
+          Firefox restoring a checked state that contradicts the server-rendered one. %>
+      <fieldset class="toggle-radio search-mode-toggle">
+        <legend class="visually-hidden">Search mode</legend>
+        <div class="btn-group">
+          <%= radio_button_tag :search_mode, "search", !ai_mode?, id: "search-mode-search", class: "btn-check search-mode-input-search", autocomplete: "off" %>
+          <%= label_tag "search-mode-search", "Search", class: "btn btn-primary" %>
+          <%= radio_button_tag :search_mode, "ai", ai_mode?, id: "search-mode-ai", class: "btn-check search-mode-input-ai", autocomplete: "off" %>
+          <%= label_tag "search-mode-ai", "Ask AI", class: "btn btn-primary" %>
+        </div>
+      </fieldset>
+
+      <%# search_bar brings its own <search> landmark from Blacklight's template. %>
+      <div class="search-mode-panel" data-search-mode-panel="search">
+        <%= search_bar %>
+      </div>
+      <div class="search-mode-panel" data-search-mode-panel="ai">
+        <%= render AiSearchBarComponent.new(q: params[:q]) %>
+      </div>
+    </div>
+  </div>
+<% end %>

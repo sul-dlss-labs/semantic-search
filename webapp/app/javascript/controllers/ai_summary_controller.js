@@ -41,7 +41,7 @@ export default class extends Controller {
         body: JSON.stringify({ token: this.tokenValue })
       })
       const data = await response.json()
-      if (!response.ok) throw new Error(data.error || "The AI summary is unavailable. Please try again.")
+      if (!response.ok) throw new Error(data.error || "The AI summary is unavailable. Please try again later.")
       this.renderSummary(data.summary)
       this.contentTarget.hidden = false
       this.statusTarget.textContent = "AI summary loaded."

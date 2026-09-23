@@ -1,0 +1,23 @@
+<%# Mirrors the .search-query-form skeleton so it picks up the component library's framing, but with
+    no search-type select and a Send button. Ids are prefixed to avoid colliding with the keyword
+    form, which is rendered alongside this one. %>
+<search>
+  <%= form_with url: chat_path, method: :get, class: "search-query-form ai-search-query-form",
+                role: "search", aria: { label: AiSearchBarComponent::PLACEHOLDER } do |f| %>
+    <%= f.label :q, AiSearchBarComponent::PLACEHOLDER, class: "visually-hidden", for: "ai-question" %>
+    <div class="input-group">
+      <%= f.search_field :q,
+                         id: "ai-question",
+                         value: q,
+                         required: true,
+                         maxlength: AiSearchBarComponent::MAX_CHARACTERS,
+                         size: nil,
+                         placeholder: AiSearchBarComponent::PLACEHOLDER,
+                         class: "search-q q form-control rounded-0" %>
+      <%= tag.button class: "btn btn-primary search-btn", type: "submit", id: "ai-question-submit",
+                     aria: { label: "Send" } do %>
+        <span class="submit-search-text">Send</span>
+      <% end %>
+    </div>
+  <% end %>
+</search>

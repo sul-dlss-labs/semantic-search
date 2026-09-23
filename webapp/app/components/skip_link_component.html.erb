@@ -1,0 +1,8 @@
+<nav id="skip-link" class="visually-hidden-focusable" aria-label="<%= t('blacklight.skip_links.label') %>">
+  <div class="container-xl">
+    <%= link_to_search %>
+    <%= link_to_main %>
+    <%= render skip_link_item_component.new(text: "Skip to first result", href: "#documents") %>
+    <%= content %>
+  </div>
+</nav>

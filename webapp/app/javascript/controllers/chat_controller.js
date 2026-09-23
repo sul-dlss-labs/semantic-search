@@ -10,12 +10,27 @@ const markdownTags = [
 export default class extends Controller {
   static targets = ["messages", "form", "input", "submit", "submitLabel", "error"]
 
+  static values = { autostart: Boolean }
+
   static streamInterruptedMessage = "The answer stream was interrupted before it finished. The response may have been too large or the connection may have timed out. Please try again, or ask a narrower question."
 
   connect() {
     this.history = []
     this.verifiedSources = []
     this.copyFeedbackTimeouts = new WeakMap()
+    this.autostart()
+  }
+
+  // Arriving from the navbar's Ask AI form, the question is already in the textarea; ask it
+  // without making the user press Send again. Clearing the flag before submitting matters: a
+  // back-navigation restores Turbo's cached snapshot as a final render (no data-turbo-preview),
+  // so without this the restored page would ask the same question a second time.
+  autostart() {
+    if (!this.autostartValue) return
+    if (document.documentElement.hasAttribute("data-turbo-preview")) return
+
+    this.autostartValue = false
+    if (this.inputTarget.value.trim()) this.formTarget.requestSubmit()
   }
 
   keydown(event) {

@@ -15,10 +15,45 @@
 
 .navbar-search .search-query-form {
     max-width: 40rem;
-    
+
     .search-field {
         width: 1rem;
     }
+}
+
+/* .navbar > .container is already a wrapping flex row that spaces its children apart, so this row
+   has to claim the free space itself. */
+.navbar-search .search-modes {
+    display: flex;
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1rem;
+    min-width: 0;
+}
+
+.navbar-search .search-mode-toggle {
+    flex: 0 0 auto;
+    min-width: 0;
+}
+
+.navbar-search .search-mode-panel {
+    flex: 1 1 20rem;
+    min-width: 0;
+}
+
+/* The checked radio decides which form is shown, so the toggle needs no JavaScript at all: it
+   works with JS disabled and cannot flash the wrong panel during a Turbo restore. Matching on a
+   class rather than an id keeps these selectors cheap enough to override later. */
+.search-modes:has(.search-mode-input-ai:checked) [data-search-mode-panel="search"],
+.search-modes:has(.search-mode-input-search:checked) [data-search-mode-panel="ai"] {
+    display: none;
+}
+
+/* In Search mode the input's leading border separates it from the search-type select. The Ask AI
+   panel has no select, so that border would render as a stray rule next to the magnifier. */
+.navbar-search [data-search-mode-panel="ai"] .search-q {
+    border-inline-start: none;
 }
 
 .constraints-label {

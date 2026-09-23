@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
 class ChatsController < ApplicationController
-  def show; end
+  # The navbar's Ask AI form arrives here as GET /chat?q=…. Clamp it here rather than relying on
+  # the textarea's maxlength, which only constrains what the user types, not a server-set value.
+  def show
+    @question = params[:q].to_s.strip.first(Rails.configuration.x.chat.max_message_characters).presence
+  end
 
   def create
     submitted_messages = params.require(:messages)

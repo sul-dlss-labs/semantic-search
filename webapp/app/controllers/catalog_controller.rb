@@ -74,6 +74,7 @@ class CatalogController < ApplicationController
     # config.index.document_component = MyApp::SearchResultComponent
     # config.index.constraints_component = MyApp::ConstraintsComponent
     config.header_component = HeaderComponent
+    config.skip_link_component = SkipLinkComponent
     config.index.search_bar_component = SearchBarComponent
     config.index.document_title_component = DocumentTitleComponent
     # config.index.search_header_component = MyApp::SearchHeaderComponent

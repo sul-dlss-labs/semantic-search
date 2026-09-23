@@ -1,12 +1,12 @@
-<% content_for :page_title, "Chat with the collections — #{application_name}" %>
+<% content_for :page_title, "Ask AI about the collections — #{application_name}" %>
 <% content_for :head do %>
   <%= stylesheet_link_tag "chat", "data-turbo-track": "dynamic" %>
 <% end %>
 
-<div class="chat-page py-4" data-controller="chat">
+<div class="chat-page py-4" data-controller="chat" data-chat-autostart-value="<%= @question.present? %>">
   <div class="mx-auto chat-shell">
     <header class="mb-4">
-      <h1>Chat with the collections</h1>
+      <h1>Ask AI about the collections</h1>
       <p class="lead mb-2">Ask questions about material in the Stanford Libraries digital corpus.</p>
       <p class="text-body-secondary mb-0">
         The assistant searches this site’s catalog and document text. It will decline requests outside that scope.
@@ -31,6 +31,7 @@
               <%= form.text_area :message,
                                  rows: 1,
                                  required: true,
+                                 value: @question,
                                  maxlength: Rails.configuration.x.chat.max_message_characters,
                                  placeholder: "Ask about people, places, themes, or documents in the corpus…",
                                  class: "form-control search-q",
