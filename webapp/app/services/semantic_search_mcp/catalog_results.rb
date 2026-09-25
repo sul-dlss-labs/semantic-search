@@ -32,7 +32,7 @@ module SemanticSearchMcp
         id: id,
         title: field_value(document, %w[title_display_tesi title_tesi title_tsim]) || "Untitled",
         authors: array_value(document, %w[author_person_ssim author_other_ssim]),
-        format: field_value(document, %w[doc_type_ssi format_hsim]),
+        format: field_value(document, [ "format_hsim" ]),
         created: field_value(document, [ "creation_date_dtsi" ]),
         collection: field_value(document, [ "collection_title_ss" ]),
         child_count: document["child_count_i"],
