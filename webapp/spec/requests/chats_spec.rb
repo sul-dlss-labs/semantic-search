@@ -11,7 +11,7 @@ RSpec.describe "Chat", type: :request do
       expect(response.body).to include("Chat with the collections", "data-controller=\"chat\"")
       expect(response.body).to match(%r{/assets/chat-[^\"]+\.css})
       expect(response.body).to include('data-turbo-track="dynamic"')
-      expect(response.body).to include("Chat with collections")
+      expect(response.body).to include("Ask AI")
     end
   end
 

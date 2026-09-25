@@ -36,7 +36,7 @@ export default class extends Controller {
     this.inputTarget.value = ""
     this.setBusy(true)
 
-    const assistant = this.appendMessage("Collections assistant", "", "assistant")
+    const assistant = this.appendMessage("Collections Assistant", "", "assistant")
     const assistantContent = assistant.querySelector(".chat-message-content")
     const status = this.appendStatus(assistant)
     let responseText = ""

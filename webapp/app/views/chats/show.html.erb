@@ -6,10 +6,10 @@
 <div class="chat-page py-4" data-controller="chat">
   <div class="mx-auto chat-shell">
     <header class="mb-4">
-      <h1>Chat with the collections</h1>
-      <p class="lead mb-2">Ask questions about material in the Stanford Libraries digital corpus.</p>
+      <h1>Ask AI</h1>
+      <p class="lead mb-2">Chat with the AI Collections Assistant about material in our digital collections.</p>
       <p class="text-body-secondary mb-0">
-        The assistant searches this site’s catalog and document text. It will decline requests outside that scope.
+        This experimental system covers only part of our collections. The assistant searches this site’s catalog and document text, and will decline requests outside that scope.
       </p>
     </header>
 
@@ -17,8 +17,8 @@
       <div class="card-body chat-messages" role="log" aria-live="polite" aria-relevant="additions text"
            data-chat-target="messages">
         <article class="chat-message chat-message-assistant">
-          <div class="chat-message-label">Collections assistant</div>
-          <div class="chat-message-content">What would you like to learn from the corpus?</div>
+          <div class="chat-message-label">Collections Assistant</div>
+          <div class="chat-message-content">What would you like to learn from the collections?</div>
         </article>
       </div>
 
@@ -32,7 +32,7 @@
                                  rows: 1,
                                  required: true,
                                  maxlength: Rails.configuration.x.chat.max_message_characters,
-                                 placeholder: "Ask about people, places, themes, or documents in the corpus…",
+                                 placeholder: "Ask a question about people, places, themes, or documents...",
                                  class: "form-control search-q",
                                  data: { chat_target: "input", action: "keydown->chat#keydown" } %>
               <%= tag.button class: "btn btn-primary search-btn", type: "submit",
@@ -42,7 +42,7 @@
               <% end %>
             </div>
           </div>
-          <div class="form-text">Responses are generated with AI. Verify important details using the cited sources.</div>
+          <div class="form-text">This is an experimental system with limited data. AI may be inaccurate. Please verify important details against the cited sources.</div>
         <% end %>
       </div>
     </div>

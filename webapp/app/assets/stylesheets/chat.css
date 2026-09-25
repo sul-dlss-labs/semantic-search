@@ -36,7 +36,7 @@
 
 .chat-message-user .chat-message-content {
   margin-left: auto;
-  background: rgb(from var(--stanford-digital-blue) r g b / 8%);
+  background: rgb(var(--stanford-digital-blue-rgb), 8%);
   border: 1px solid var(--stanford-digital-blue);
   color: var(--stanford-digital-blue-dark);
   border-bottom-right-radius: 0.25rem;
@@ -48,7 +48,7 @@
 }
 
 .chat-message-assistant .chat-message-content {
-  background: rgb(from var(--stanford-fog-light) r g b / 40%);
+  background: rgb(var(--stanford-fog-light-rgb), 40%);
   border: 1px solid var(--stanford-40-black);
   border-bottom-left-radius: 0.25rem;
 }
@@ -134,4 +134,11 @@
   .chat-message {
     max-width: 95%;
   }
+}
+
+.chat-page .form-text {
+  background-color: rgb(var(--stanford-illuminating-dark-rgb), 15%);
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.375rem;
+  margin-top: 0.5rem;
 }
