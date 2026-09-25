@@ -91,3 +91,19 @@
 .no-js .ai-summary {
     display: none;
 }
+
+.expandable-content {
+    line-height: 1.5;
+    max-height: calc(var(--expandable-lines, 4) * 1.5em);
+    overflow: hidden;
+}
+
+.expandable-content.is-expanded {
+    max-height: none;
+}
+
+/* Without JS the toggle never unhides, so the clamp must not apply or the text is unreadable.
+   Unlike .ai-summary, the abstract is real record metadata and has to degrade to plain text. */
+.no-js .expandable-content {
+    max-height: none;
+}

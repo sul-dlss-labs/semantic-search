@@ -174,7 +174,9 @@ class CatalogController < ApplicationController
     config.add_index_field "doc_type_ssi", label: "Format"
     config.add_index_field "created", field: "cocina_ss", label: "Created", helper_method: :publication_date
     config.add_index_field "collection_title_ss", label: "Collection Title", helper_method: :link_to_collection
-    config.add_index_field "abstracts", field: "cocina_ss", label: "Abstract", helper_method: :abstracts
+    config.add_index_field "abstracts", field: "cocina_ss", label: "Abstract",
+                           helper_method: :abstracts,
+                           component: ExpandableMetadataFieldComponent, expandable_lines: 4
     config.add_index_field "child_count_i", label: "Child count"
 
     # solr fields to be displayed in the show (single result) view

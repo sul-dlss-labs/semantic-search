@@ -1,0 +1,18 @@
+<%= render(@layout.new(field: @field)) do |component| %>
+  <% component.with_label do %>
+    <%= label %>
+  <% end %>
+  <% render_field_values.each_with_index do |value, index| %>
+    <% component.with_value(index: index) do %>
+      <div data-controller="expandable">
+        <div id="<%= value_id(index) %>" class="expandable-content" data-expandable-target="content"
+             style="--expandable-lines: <%= clamp_lines %>"><%= value %></div>
+        <button type="button" class="btn btn-link btn-sm p-0 expandable-toggle"
+                data-expandable-target="toggle" data-action="expandable#toggle"
+                aria-expanded="false" aria-controls="<%= value_id(index) %>" hidden>
+          <span data-expandable-target="label">Show more</span><span class="visually-hidden"><%= toggle_description %></span>
+        </button>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
