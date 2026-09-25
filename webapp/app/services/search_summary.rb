@@ -9,7 +9,7 @@ class SearchSummary
   end
 
   def self.token(query:, documents:)
-    results = documents.first(20).map do |document|
+    results = documents.map do |document|
       FIELDS.to_h { |field| [ field, Array(document.public_send(field)).first(10).map { |value| value.to_s.truncate(1_000) } ] }
     end
     verifier.generate({ query: query.to_s.truncate(2_000), results: }, expires_in: 1.hour)
