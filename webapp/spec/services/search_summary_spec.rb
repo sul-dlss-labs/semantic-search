@@ -10,11 +10,28 @@ RSpec.describe SearchSummary do
     }.to_json
   end
 
-  it "includes bounded result metadata and excludes unrelated fields" do
+  it "includes every supplied result and excludes unrelated fields" do
     document = SolrDocument.new(title_display_tesi: "Frogs", vector: [ 0.5 ], all_search_tesi: "private", cocina_ss: cocina_json)
     context = described_class.verifier.verify(described_class.token(query: "frogs", documents: [ document ] * 30))
-    expect(context["results"].length).to eq(20)
+    expect(context["results"].length).to eq(30)
     expect(context["results"].first.fetch("title")).to eq([ "Frogs" ])
+    expect(context["results"].first.keys).to match_array(described_class::FIELDS.map(&:to_s))
+  end
+
+  it "bounds the number of values and their length within each field" do
+    cocina_json = {
+      externalIdentifier: "druid:bb112zx3193",
+      description: {
+        title: [ { value: "Frogs" } ],
+        note: Array.new(12) { |index| { type: "abstract", value: "#{index} #{'a' * 2_000}" } }
+      }
+    }.to_json
+    document = SolrDocument.new(title_display_tesi: "Frogs", "cocina_ss" => cocina_json)
+    context = described_class.verifier.verify(described_class.token(query: "frogs", documents: [ document ]))
+
+    abstracts = context["results"].first.fetch("abstracts")
+    expect(abstracts.length).to eq(10)
+    expect(abstracts.map(&:length)).to all(eq(1_000))
   end
 
   it "includes the abstracts from the results" do
