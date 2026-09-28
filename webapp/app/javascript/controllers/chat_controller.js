@@ -16,6 +16,7 @@ export default class extends Controller {
     this.history = []
     this.verifiedSources = []
     this.copyFeedbackTimeouts = new WeakMap()
+    this.debugPanelSequence = this.messagesTarget.querySelectorAll(".chat-debug-panel").length
   }
 
   keydown(event) {
@@ -40,6 +41,7 @@ export default class extends Controller {
     const assistantContent = assistant.querySelector(".chat-message-content")
     const status = this.appendStatus(assistant)
     let responseText = ""
+    let toolCallCount = 0
 
     try {
       const response = await fetch(this.formTarget.action, {
@@ -74,6 +76,9 @@ export default class extends Controller {
           this.renderMarkdown(assistantContent, responseText, this.verifiedSources)
         } else if (type === "notice") {
           this.appendNotice(assistant, data.message)
+        } else if (type === "tool_call") {
+          toolCallCount += 1
+          this.appendToolCall(assistant, data, toolCallCount)
         } else if (type === "error") {
           throw new Error(data.message)
         }
@@ -171,6 +176,64 @@ export default class extends Controller {
     notice.textContent = content
     message.append(notice)
     return notice
+  }
+
+  appendToolCall(message, call, count) {
+    let debug = message.querySelector(".chat-debug")
+    if (!debug) {
+      debug = document.createElement("div")
+      debug.className = "chat-debug mt-2"
+
+      const button = document.createElement("button")
+      button.type = "button"
+      button.className = "btn btn-sm btn-outline-secondary chat-debug-toggle"
+      button.setAttribute("aria-expanded", "false")
+      button.textContent = "Show tool calls (0)"
+
+      const panel = document.createElement("div")
+      panel.className = "chat-debug-panel mt-2"
+      panel.hidden = true
+      panel.id = `chat-debug-${++this.debugPanelSequence}`
+      button.setAttribute("aria-controls", panel.id)
+      button.addEventListener("click", () => {
+        panel.hidden = !panel.hidden
+        button.setAttribute("aria-expanded", String(!panel.hidden))
+        button.textContent = `${panel.hidden ? "Show" : "Hide"} tool calls (${panel.childElementCount})`
+      })
+
+      debug.append(button, panel)
+      message.append(debug)
+    }
+
+    const entry = document.createElement("section")
+    entry.className = "chat-debug-entry"
+    const heading = document.createElement("div")
+    heading.className = "chat-debug-heading"
+    heading.textContent = `${count}. ${call.name || "Unknown tool"}`
+    entry.append(heading)
+
+    for (const [label, value] of [["Arguments", call.arguments], ["Result", call.result]]) {
+      const title = document.createElement("div")
+      title.className = "chat-debug-label"
+      title.textContent = label
+      const body = document.createElement("pre")
+      body.textContent = this.formatToolValue(value)
+      entry.append(title, body)
+    }
+
+    const panel = debug.querySelector(".chat-debug-panel")
+    panel.append(entry)
+    const button = debug.querySelector(".chat-debug-toggle")
+    button.textContent = `${panel.hidden ? "Show" : "Hide"} tool calls (${count})`
+  }
+
+  formatToolValue(value) {
+    if (typeof value !== "string") return JSON.stringify(value ?? {}, null, 2)
+    try {
+      return JSON.stringify(JSON.parse(value), null, 2)
+    } catch {
+      return value
+    }
   }
 
   appendCopyButton(message, content, markdown) {

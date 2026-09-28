@@ -81,6 +81,43 @@
   font-size: 0.8rem;
 }
 
+.chat-debug {
+  max-width: 100%;
+}
+
+.chat-debug-panel {
+  border: 1px solid var(--bs-border-color);
+  border-radius: 0.375rem;
+  background: var(--bs-tertiary-bg);
+  padding: 0.75rem;
+}
+
+.chat-debug-entry + .chat-debug-entry {
+  border-top: 1px solid var(--bs-border-color);
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+}
+
+.chat-debug-heading {
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.chat-debug-label {
+  color: var(--bs-secondary-color);
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+
+.chat-debug pre {
+  margin: 0;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 0.8rem;
+}
+
 .chat-status {
   --chat-shimmer-base: gray;
   --chat-shimmer-highlight: lightgray;
