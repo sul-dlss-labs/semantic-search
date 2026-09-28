@@ -204,6 +204,32 @@ RSpec.describe Chat::Conversation do
     expect(stream).to include("event: done")
   end
 
+  [ "stop", "length" ].each do |finish_reason|
+    it "keeps the exhaustive coverage caveat in the answer for a #{finish_reason} response" do
+      question = "Show me a list of all the people who mentioned auditioning in the Stanford band."
+      answer = "I cannot guarantee an exhaustive answer. One interview mentions an audition."
+      client.enqueue(tool_calls: [ tool_call("call-1", question) ])
+      client.enqueue(content: answer, deltas: [ answer ], finish_reason:)
+      allow(tool_runner).to receive(:call).and_return(text: "An audition", structured_content: { results: [] })
+
+      stream = described_class.new(
+        messages: [ { role: "user", content: question } ],
+        completion_request_factory: client,
+        tool_runner:
+      ).each_event.to_a.join
+
+      expect(tool_runner).to have_received(:call).at_least(:once)
+      expect(stream).to include(answer)
+      notices = stream.split("\n\n").select { |event| event.start_with?("event: notice\n") }
+      expect(notices.size).to eq(finish_reason == "length" ? 1 : 0)
+      expect(notices.join).to include("length limit") if finish_reason == "length"
+      expect(stream).to end_with("event: done\ndata: {}\n\n")
+      expect(client.requests.first.dig(:messages, 0, "content")).to include(
+        "cannot", "guarantee an exhaustive answer", "never as complete", "corpus-wide total"
+      )
+    end
+  end
+
   it "preserves a length-limited partial response and displays a notice" do
     client.enqueue(content: "An unfinished answer", deltas: [ "An unfinished answer" ], finish_reason: "length")
 
