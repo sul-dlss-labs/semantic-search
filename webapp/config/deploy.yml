@@ -50,6 +50,8 @@ env:
     - LITELLM_API_KEY
     - SOLR_URL
   clear:
+    # Allow streamed chat responses to outlast Thruster's 30-second write deadline.
+    THRUSTER_HTTP_WRITE_TIMEOUT: 360
     LITELLM_API_BASE: https://dlss-aigateway-prod.stanford.edu/v1/
     LITELLM_EMBEDDING_MODEL: gemini-embedding-2
     LITELLM_CHAT_MODEL: gemini-3.7-flash
