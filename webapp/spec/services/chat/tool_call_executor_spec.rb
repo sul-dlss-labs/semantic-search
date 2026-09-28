@@ -116,6 +116,9 @@ RSpec.describe Chat::ToolCallExecutor do
 
     executor.execute(calls) { |event, data| events << [ event, data ] }
 
+    expect(events.select { |event, _| event == "status" }).to eq([
+      [ "status", { message: "Searching the collections…" } ]
+    ])
     expect(events.select { |event, _| event == "tool_call" }).to eq([
       [ "tool_call", { id: "call-1", name: "get_document_chunks", arguments: '{"query":"frog"}', result: "compacted result" } ],
       [ "tool_call", { id: "call-2", name: "get_document_chunks", arguments: '{"query":"frog"}',

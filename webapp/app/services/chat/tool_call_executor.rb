@@ -40,7 +40,7 @@ module Chat
     def execute_tool_call(tool_call)
       @call_count += 1
       name = tool_call.dig("function", "name")
-      yield "status", message: "Searching the corpus…"
+      yield "status", message: "Searching the collections…"
       result = call_tool(name, tool_call.dig("function", "arguments"))
       @source_collection.add(result[:structured_content]) unless result[:error]
       {
