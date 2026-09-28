@@ -57,6 +57,41 @@ RSpec.describe Chat::ToolCallExecutor do
     )
   end
 
+  it "uses the requested research query for a directive and carries its collection filter into catalog discovery" do
+    directive = "Please limit your response to Stanford Oral History collections. " \
+                "Please list passages where people talk about auditioning for the band."
+    executor = described_class.new(tool_runner:, source_collection:, question: directive, result_compactor:)
+    allow(tool_runner).to receive(:call).and_return(text: "No results", structured_content: {})
+    query = "People talking about auditioning for the band"
+    arguments = { query:, search_type: "vector", filters: { collection: "Stanford Oral History" } }
+
+    executor.execute([ tool_call("call-1", arguments: arguments.to_json) ]) { }
+
+    expect(tool_runner).to have_received(:call).with(
+      name: "search_passages", arguments: { "query" => query }
+    )
+    expect(tool_runner).to have_received(:call).with(
+      name: "catalog_search_tool",
+      arguments: { "query" => query, "search_type" => "vector", "rows" => 10,
+                   "filters" => { "collection" => "Stanford Oral History" } }
+    )
+  end
+
+  it "uses the research query when a directive contains a question" do
+    executor = described_class.new(
+      tool_runner:, source_collection:,
+      question: "Please limit your response to Stanford Oral History. Where do people discuss band auditions?",
+      result_compactor:
+    )
+    allow(tool_runner).to receive(:call).and_return(text: "No results", structured_content: {})
+
+    executor.execute([ tool_call("call-1", arguments: { query: "Where do people discuss band auditions?" }.to_json) ]) { }
+
+    expect(tool_runner).to have_received(:call).with(
+      name: "search_passages", arguments: { "query" => "Where do people discuss band auditions?" }
+    )
+  end
+
   it "returns a tool response for every call when the execution limit is reached" do
     allow(Rails.configuration.x.chat).to receive(:max_tool_calls).and_return(1)
     allow(tool_runner).to receive(:call).and_return(text: "Result", structured_content: {})

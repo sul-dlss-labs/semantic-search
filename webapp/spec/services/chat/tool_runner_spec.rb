@@ -22,9 +22,10 @@ RSpec.describe Chat::ToolRunner do
     )
     expect(runner.definitions.first.dig(:function, :parameters, :properties)).to include(:query, :search_type)
     expect(runner.definitions.first.dig(:function, :parameters, :properties, :query, :description))
-      .to include("question verbatim")
+      .to include("question verbatim", "user directive")
     passage_tool = runner.definitions.find { |definition| definition.dig(:function, :name) == "search_passages" }
-    expect(passage_tool.dig(:function, :parameters, :properties, :query, :description)).to include("question verbatim")
+    expect(passage_tool.dig(:function, :parameters, :properties, :query, :description))
+      .to include("question verbatim", "user directive")
   end
 
   it "validates arguments and executes an allowlisted handler" do
