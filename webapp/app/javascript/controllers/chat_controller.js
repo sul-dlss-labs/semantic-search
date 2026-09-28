@@ -9,6 +9,7 @@ const markdownTags = [
 
 export default class extends Controller {
   static targets = ["messages", "form", "input", "submit", "submitLabel", "error"]
+  static values = { autostart: Boolean }
 
   static streamInterruptedMessage = "The answer stream was interrupted before it finished. The response may have been too large or the connection may have timed out. Please try again, or ask a narrower question."
 
@@ -17,6 +18,16 @@ export default class extends Controller {
     this.verifiedSources = []
     this.copyFeedbackTimeouts = new WeakMap()
     this.debugPanelSequence = this.messagesTarget.querySelectorAll(".chat-debug-panel").length
+    this.autostart()
+  }
+
+  autostart() {
+    if (!this.autostartValue || document.documentElement.hasAttribute("data-turbo-preview")) return
+
+    // Turbo can restore this page from its cache. Clear the flag before submitting so the
+    // restored page does not send the same question again.
+    this.autostartValue = false
+    if (this.inputTarget.value.trim()) this.formTarget.requestSubmit()
   }
 
   keydown(event) {

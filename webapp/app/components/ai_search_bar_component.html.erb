@@ -1,0 +1,20 @@
+<search>
+  <%= form_with url: chat_path, method: :get, class: "search-query-form ai-search-query-form", role: "search", aria: { label: "Ask AI" } do |form| %>
+    <%= form.label :q, "Your question", class: "visually-hidden", for: "ai-question" %>
+    <div class="input-group">
+      <%= render "shared/ai_icon", class_name: "ai-prompt-icon" %>
+      <%= form.search_field :q,
+                            id: "ai-question",
+                            value: q,
+                            required: true,
+                            maxlength: AiSearchBarComponent::MAX_CHARACTERS,
+                            size: nil,
+                            placeholder: AiSearchBarComponent::PLACEHOLDER,
+                            class: "search-q q form-control rounded-0" %>
+      <%= tag.button class: "btn btn-primary search-btn", type: "submit", id: "ai-question-submit", aria: { label: "Send" } do %>
+        <%= render "shared/ai_icon", class_name: "ai-submit-icon" %>
+        <span class="submit-search-text">Send</span>
+      <% end %>
+    </div>
+  <% end %>
+</search>
