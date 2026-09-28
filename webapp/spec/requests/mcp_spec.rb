@@ -107,7 +107,7 @@ RSpec.describe "MCP endpoint", type: :request do
         .to eq(%w[keyword vector hybrid])
       expect(catalog_tool.dig("inputSchema", "properties", "filters", "properties")).to include(
         "format",
-        "format_hsim"
+        "type"
       )
       expect(tools).to all(
         include(
@@ -457,7 +457,8 @@ RSpec.describe "MCP endpoint", type: :request do
                 "id" => "abc123",
                 "title_display_tesi" => "A frog map",
                 "author_person_ssim" => [ "Jane Stanford" ],
-                "doc_type_ssi" => "Image",
+                "doc_type_ssi" => "parent",
+                "format_hsim" => [ "Map" ],
                 "collection_title_ss" => "Map Collection",
                 "child_count_i" => 2
               }
@@ -482,7 +483,7 @@ RSpec.describe "MCP endpoint", type: :request do
           "id" => "abc123",
           "title" => "A frog map",
           "authors" => [ "Jane Stanford" ],
-          "format" => "Image",
+          "format" => "Map",
           "collection" => "Map Collection",
           "child_count" => 2,
           "url" => "http://localhost/catalog/abc123"

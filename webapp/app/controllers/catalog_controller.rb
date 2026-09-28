@@ -137,13 +137,11 @@ class CatalogController < ApplicationController
     # :index_range can be an array or range of prefixes that will be used to create the navigation (note: It is case sensitive when searching values)
     # This control only displays when the user has selected "A-Z Sort" (You make make this the default by setting "sort: 'index'"
     # in the facet config)
-
-    config.add_facet_field "doc_type_ssi", label: "Format"
-    config.add_facet_field "author_person_ssim", label: "Author", limit: 6, suggest: true
-    config.add_facet_field "author_other_ssim", label: "Organization (as author)", limit: 6, suggest: true
+    config.add_facet_field "format_hsim", label: "Format"
+    config.add_facet_field "author_person_ssim", label: "Author", limit: 6, suggest: true, index_range: "A".."Z"
+    config.add_facet_field "author_other_ssim", label: "Organization (as author)", limit: 6, suggest: true, index_range: "A".."Z"
     config.add_facet_field "topic_ssim", label: "Topic", limit: 6, suggest: true
-    config.add_facet_field "format_hsim", label: "Format", sort: :index
-    config.add_facet_field "collection_title_ss", label: "Collection", sort: :index
+    config.add_facet_field "collection_title_ss", label: "Collection", limit: 6, index_range: "A".."Z"
     # config.add_facet_field "pub_date_ssim", label: "Publication Year", single: true
     # config.add_facet_field "subject_ssim", label: "Topic", limit: 20, index_range: "A".."Z"
     # config.add_facet_field "language_ssim", label: "Language", limit: true
@@ -157,6 +155,9 @@ class CatalogController < ApplicationController
     #                        collapsing: true,
     #                        include_in_advanced_search: false
 
+    # Text chunk fields for debugging: type is "child" (chunk) vs "parent";
+    # Text chunks is whether there are any chunks present at all.
+    config.add_facet_field "doc_type_ssi", label: "Type"
     config.add_facet_field "child_count_i", label: "Text chunks", query: {
        none: { label: "None", fq: "child_count_i:1" },
        many: { label: "Present", fq: "child_count_i:[2 TO *]" }
@@ -171,10 +172,11 @@ class CatalogController < ApplicationController
     # solr fields to be displayed in the index (search results) view
     #   The ordering of the field names is the order of the display
     config.add_index_field "title_tsim", label: "Title"
-    config.add_index_field "doc_type_ssi", label: "Format"
+    config.add_index_field "format_hsim", label: "Format"
     config.add_index_field "created", field: "cocina_ss", label: "Created", helper_method: :publication_date
     config.add_index_field "collection_title_ss", label: "Collection Title", helper_method: :link_to_collection
     config.add_index_field "abstracts", field: "cocina_ss", label: "Abstract", helper_method: :abstracts
+    config.add_index_field "doc_type_ssi", label: "Type"
     config.add_index_field "child_count_i", label: "Child count"
 
     # solr fields to be displayed in the show (single result) view
