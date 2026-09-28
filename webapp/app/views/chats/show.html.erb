@@ -3,7 +3,7 @@
   <%= stylesheet_link_tag "chat", "data-turbo-track": "dynamic" %>
 <% end %>
 
-<div class="chat-page py-4" data-controller="chat">
+<div class="chat-page py-4" data-controller="chat" data-chat-autostart-value="<%= @question.present? %>">
   <div class="mx-auto chat-shell">
     <header class="mb-4">
       <h1>Ask AI</h1>
@@ -31,6 +31,7 @@
               <%= form.text_area :message,
                                  rows: 1,
                                  required: true,
+                                 value: @question,
                                  maxlength: Rails.configuration.x.chat.max_message_characters,
                                  placeholder: "Ask a question about people, places, themes, or documents...",
                                  class: "form-control search-q",

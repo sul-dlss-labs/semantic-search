@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class ChatsController < ApplicationController
-  def show; end
+  def show
+    @question = params[:q].to_s.strip.first(Rails.configuration.x.chat.max_message_characters).presence
+  end
 
   def create
     submitted_messages = params.require(:messages)
