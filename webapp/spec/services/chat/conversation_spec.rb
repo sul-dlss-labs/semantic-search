@@ -80,6 +80,7 @@ RSpec.describe Chat::Conversation do
       "Every citation must be a Markdown link"
     )
     expect(stream).to include("event: delta", "The corpus ", "event: sources")
+    expect(stream).to include("event: tool_call", '"name":"catalog_search_tool"', '"arguments":"{\\"query\\":\\"frogs\\"}"')
     expect(stream).to include("Frog papers", "http://example.test/catalog/frogs")
     expect(stream).to include("Toad papers", "http://example.test/catalog/toads")
     expect(stream).to end_with("event: done\ndata: {}\n\n")

@@ -70,4 +70,21 @@ RSpec.describe Chat::ToolCallExecutor do
     )
     expect(executor).to be_limit_reached
   end
+
+  it "emits each requested call with the arguments and result given to the agent" do
+    allow(Rails.configuration.x.chat).to receive(:max_tool_calls).and_return(1)
+    allow(tool_runner).to receive(:call).with(name: "get_document_chunks", arguments: { "query" => "frog" }).and_return(
+      text: "Passage found", structured_content: {}
+    )
+    calls = [ tool_call("call-1", name: "get_document_chunks"), tool_call("call-2", name: "get_document_chunks") ]
+    events = []
+
+    executor.execute(calls) { |event, data| events << [ event, data ] }
+
+    expect(events.select { |event, _| event == "tool_call" }).to eq([
+      [ "tool_call", { id: "call-1", name: "get_document_chunks", arguments: '{"query":"frog"}', result: "compacted result" } ],
+      [ "tool_call", { id: "call-2", name: "get_document_chunks", arguments: '{"query":"frog"}',
+                       result: "The tool-call limit has been reached. Use the evidence already returned." } ]
+    ])
+  end
 end

@@ -24,11 +24,14 @@ module Chat
 
     def execute(tool_calls)
       tool_calls.map do |tool_call|
-        if limit_reached?
+        message = if limit_reached?
           limit_message(tool_call)
         else
           execute_tool_call(tool_call) { |event, data| yield event, data }
         end
+        yield "tool_call", id: tool_call["id"], name: tool_call.dig("function", "name"),
+                           arguments: tool_call.dig("function", "arguments"), result: message["content"]
+        message
       end
     end
 
