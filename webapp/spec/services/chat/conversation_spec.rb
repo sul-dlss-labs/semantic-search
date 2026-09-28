@@ -45,6 +45,7 @@ RSpec.describe Chat::Conversation do
   end
 
   it "can make multiple local MCP calls before streaming a sourced answer" do
+    question = "How do frogs and toads compare?"
     client.enqueue(tool_calls: [ tool_call("call-1", "frogs"), tool_call("call-2", "toads") ])
     client.enqueue(content: "The corpus discusses frogs and toads.", deltas: [ "The corpus ", "discusses frogs and toads." ])
     allow(tool_runner).to receive(:call).with(name: "catalog_search_tool", arguments: { "query" => "frogs" }).and_return(
@@ -57,15 +58,15 @@ RSpec.describe Chat::Conversation do
     )
     allow(tool_runner).to receive(:call).with(
       name: "search_passages",
-      arguments: { "query" => "Compare frogs and toads" }
+      arguments: { "query" => question }
     ).and_return(text: "No passages", structured_content: { passages: [] })
     allow(tool_runner).to receive(:call).with(
       name: "catalog_search_tool",
-      arguments: { "query" => "Compare frogs and toads", "search_type" => "vector", "rows" => 10 }
+      arguments: { "query" => question, "search_type" => "vector", "rows" => 10 }
     ).and_return(text: "No catalog results", structured_content: { results: [] })
 
     stream = described_class.new(
-      messages: [ { role: "user", content: "Compare frogs and toads" } ],
+      messages: [ { role: "user", content: question } ],
       completion_request_factory: client,
       tool_runner:
     ).each_event.to_a.join
@@ -74,8 +75,8 @@ RSpec.describe Chat::Conversation do
     expect(client.requests.length).to eq(2)
     expect(client.requests.first.dig(:messages, 0, "content")).to include(
       "Prefer vector search for most discovery and research questions",
-      "copy the user's current question verbatim into the query argument",
-      "automatically pairs the first discovery call",
+      "copy that question verbatim into the query argument",
+      "the first discovery call with passage search",
       "Use the supplied page value exactly",
       "Every citation must be a Markdown link"
     )

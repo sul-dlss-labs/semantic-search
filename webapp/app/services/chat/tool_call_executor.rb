@@ -71,10 +71,16 @@ module Chat
     def deterministic_discovery(requested_name, requested_arguments)
       @discovery_performed = true
       DeterministicDiscovery.new(tool_runner: @tool_runner).call(
-        query: @question,
+        query: initial_discovery_query(requested_arguments),
         requested_name:,
         requested_arguments:
       )
+    end
+
+    def initial_discovery_query(requested_arguments)
+      return @question if @question.strip.match?(/\A(?:who|what|when|where|why|how|which|whose|is|are|was|were|do|does|did|can|could|would|should|will|has|have|had)\b[^.!?]*\?\z/i)
+
+      requested_arguments["query"].presence || @question
     end
   end
 end

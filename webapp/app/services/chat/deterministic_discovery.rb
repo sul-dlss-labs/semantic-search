@@ -16,7 +16,11 @@ module Chat
 
     def call(query:, requested_name:, requested_arguments:)
       passage_search = [ "search_passages", { "query" => query } ]
-      catalog_search = [ "catalog_search_tool", { "query" => query, "search_type" => "vector", "rows" => 10 } ]
+      catalog_arguments = { "query" => query, "search_type" => "vector", "rows" => 10 }
+      if requested_name == "catalog_search_tool" && requested_arguments["filters"].present?
+        catalog_arguments["filters"] = requested_arguments["filters"]
+      end
+      catalog_search = [ "catalog_search_tool", catalog_arguments ]
       passage_result = run(passage_search)
       catalog_result = run(catalog_search)
       results = [ [ passage_search.first, passage_result ], [ catalog_search.first, catalog_result ] ]

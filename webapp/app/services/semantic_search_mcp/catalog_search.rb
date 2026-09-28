@@ -13,8 +13,9 @@ module SemanticSearchMcp
       properties = {
         query: {
           type: "string",
-          description: "The search query to find materials in the catalog. For the first vector or hybrid search, pass the " \
-                       "user's current natural-language question verbatim; only rephrase it on a later fallback attempt."
+          description: "The search query to find materials in the catalog. For the first vector or hybrid search, copy a " \
+                       "user question verbatim, or express the research request in a user directive as a natural-language " \
+                       "query. Keep response instructions and collection limits out of the query; use filters for limits."
         },
         search_type: {
           type: "string",

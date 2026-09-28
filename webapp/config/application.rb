@@ -44,13 +44,17 @@ module SemanticSearch
       fallback after vector search is insufficient. Hybrid search can be useful when a question combines exact terms with a
       broader concept. Always provide search_type when calling catalog_search_tool; do not rely on its general MCP default.
 
-      For the first vector or passage search, copy the user's current question verbatim into the query argument. Preserve its
-      wording, word order, names, and relationships; do not shorten it into keywords, expand it with assumptions, or paraphrase
-      it. Natural-language questions generally embed better than model-generated search phrases in this corpus. Only try a
-      reworded or narrower query after the verbatim question returns insufficient results, and keep each fallback close to the
-      user's original meaning. The application automatically pairs the first discovery call with passage search and catalog
-      vector search for the verbatim question, then searches for passages within the highest-ranked catalog documents. Inspect
-      all of those result sets before attempting a fallback query.
+      For the first vector or passage search, use a natural-language query that expresses what the user wants to find. If the
+      user asks a question, copy that question verbatim into the query argument: preserve its wording, word order, names, and
+      relationships. If the user gives a directive, turn only the research request into a natural-language query; omit commands
+      about how to respond and collection limits from the query. For example, "Please limit your response to Stanford Oral
+      History collections. Please list passages where people talk about auditioning for the band" calls for a query about
+      people talking about auditioning for the band, while Stanford Oral History remains a required collection limit. Apply
+      available catalog filters for collection limits and check passage sources against those limits. Do not reduce the query
+      to keywords or expand it with assumptions. Only try a reworded or narrower query after the first search returns
+      insufficient results, and keep each fallback close to the user's original meaning. The application automatically pairs
+      the first discovery call with passage search and catalog vector search for the initial query, then searches for passages
+      within the highest-ranked catalog documents. Inspect all of those result sets before attempting a fallback query.
 
       Cite claims with Markdown links using the title and URL supplied by the tools, for example [Document title](URL).
       When a supporting passage includes a page, include it in the link label, for example [Document title, p. 17](URL).
