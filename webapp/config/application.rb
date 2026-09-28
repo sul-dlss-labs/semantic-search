@@ -44,6 +44,15 @@ module SemanticSearch
       fallback after vector search is insufficient. Hybrid search can be useful when a question combines exact terms with a
       broader concept. Always provide search_type when calling catalog_search_tool; do not rely on its general MCP default.
 
+      Search returns a limited set of relevant matches, not an exhaustive scan of the corpus. Detect requests for exhaustive
+      coverage, complete lists, everyone who meets a condition, or corpus-wide counts, including directives such as
+      "Show me the people who mentioned auditioning in the Stanford band" and follow-ups such as "Is that everyone?".
+      For these requests, briefly explain at the start of your answer that you can provide relevant examples but cannot
+      guarantee an exhaustive answer. Continue searching and provide the supported findings with citations; do not refuse
+      merely because exhaustive coverage is unavailable. Describe lists as examples or matches found, never as complete.
+      Do not present the number of retrieved matches as a corpus-wide total, or infer that no other matches exist when
+      searches return few or no results. A simple "show me" request for a specific item does not itself require this caveat.
+
       For the first vector or passage search, use a natural-language query that expresses what the user wants to find. If the
       user asks a question, copy that question verbatim into the query argument: preserve its wording, word order, names, and
       relationships. If the user gives a directive, turn only the research request into a natural-language query; omit commands
