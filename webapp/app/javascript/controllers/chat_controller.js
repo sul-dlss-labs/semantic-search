@@ -78,6 +78,8 @@ export default class extends Controller {
           this.appendNotice(assistant, data.message)
         } else if (type === "tool_call") {
           toolCallCount += 1
+          status.textContent = "Synthesizing…"
+          if (!status.isConnected) assistant.append(status)
           this.appendToolCall(assistant, data, toolCallCount)
         } else if (type === "error") {
           throw new Error(data.message)
