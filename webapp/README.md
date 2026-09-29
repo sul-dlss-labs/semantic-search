@@ -13,6 +13,15 @@ using its OpenAI-compatible `POST /v1/embeddings` endpoint. Configure:
 The configured LiteLLM proxy must expose that alias for `gemini/gemini-embedding-2`.
 The application requests 768-dimensional embeddings to match the Solr vector field.
 
+## Solr hybrid search
+
+Hybrid catalog searches use Solr 10.1's combined query handler to fuse a lexical
+ranking (metadata and chunk text) with a vector ranking using RRF. Configure the
+collection's `solrconfig.xml` with a `/hybrid` request handler of class
+`solr.CombinedQuerySearchHandler` and a search component of class
+`solr.CombinedQueryComponent` named `combined_query`. The webapp sends hybrid
+requests to `/hybrid`; keyword and vector requests continue to use `/select`.
+
 ## Chat configuration
 
 The `/chat` page uses the same LiteLLM proxy through its OpenAI-compatible streaming
