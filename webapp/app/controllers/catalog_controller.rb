@@ -4,6 +4,9 @@
 class CatalogController < ApplicationController
   include Blacklight::Catalog
 
+  # Run before Blacklight records or memoizes the search state.
+  prepend_before_action :classify_search, only: :index
+
   # If you'd like to handle errors returned by Solr in a certain way,
   # you can use Rails rescue_from with a method you define in this controller,
   # uncomment:
@@ -270,5 +273,11 @@ class CatalogController < ApplicationController
 
   def layout
     "application"
+  end
+
+  private
+
+  def classify_search
+    params[:search_type] = CatalogSearchClassifier.new(params[:q]).call if params[:q].present?
   end
 end

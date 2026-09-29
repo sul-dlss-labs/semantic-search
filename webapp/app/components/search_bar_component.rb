@@ -1,22 +1,8 @@
 # frozen_string_literal: true
 
 class SearchBarComponent < Blacklight::SearchBarComponent
-  # The values are read by SearchBuilder; only the labels are display text.
-  SEARCH_TYPES = [ [ "Keyword", "keyword" ], [ "Vector", "vector" ], [ "Hybrid", "hybrid" ] ].freeze
-
-  def initialize(**)
-    super(**)
-  end
-
-  # A borderless .form-select.search-field at the head of the input group.
-  def default_prepend
-    safe_join([
-      label_tag(:search_type, "Search using", class: "visually-hidden"),
-      select_tag(:search_type,
-                 options_for_select(SEARCH_TYPES, params[:search_type]),
-                 title: "Search type options",
-                 class: "form-select search-field")
-    ])
+  def initialize(params:, **)
+    super(params: params.except(:search_type), **)
   end
 
   # Submit button is text only; the magnifying glass comes from
@@ -26,11 +12,5 @@ class SearchBarComponent < Blacklight::SearchBarComponent
                aria: { label: scoped_t("submit") }) do
       tag.span(scoped_t("submit"), class: "submit-search-text")
     end
-  end
-
-  # The prepended select always sits to the left of the query input, so the input
-  # never has rounded leading corners.
-  def rounded_border_class
-    "rounded-0"
   end
 end

@@ -2,11 +2,12 @@ require 'rails_helper'
 
 RSpec.describe "Searches", type: :request do
   describe "GET /" do
-    it "performs a keyword search" do
-      get "/", params: { search_type: "keyword", search_field: "all_fields", q: "frogs" }
+    it "classifies a catalog search and keeps the strategy out of the search form" do
+      get "/", params: { search_field: "all_fields", q: "Interview with John Lynch", search_type: "vector" }
       expect(response).to have_http_status(:success)
-      expect(response.body).to include("frogs")
-      expect(response.body).to include('<option selected="selected" value="keyword">Keyword</option>')
+      expect(response.body).to include("Interview with John Lynch")
+      expect(Search.last.query_params["search_type"]).to eq("keyword")
+      expect(Nokogiri::HTML(response.body).at_css('form.search-query-form [name="search_type"]')).to be_nil
     end
 
     it "renders Search and Ask AI forms with Search selected by default" do
@@ -17,7 +18,7 @@ RSpec.describe "Searches", type: :request do
       expect(page.at_css("#search-mode-ai")["checked"]).to be_nil
 
       search_form = page.at_css('[data-search-mode-panel="search"] form')
-      expect(search_form.at_css('select[name="search_type"]')).to be_present
+      expect(search_form.at_css('[name="search_type"]')).to be_nil
       expect(search_form.at_css('button[type="submit"]').text.strip).to eq("Search")
 
       ai_form = page.at_css(".ai-search-query-form")
