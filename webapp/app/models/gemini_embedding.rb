@@ -11,6 +11,17 @@ class GeminiEmbedding
   MODEL = "gemini-embedding-2"
   DIMENSIONS = 768
 
+  # Embeds a search query. Cached so the catalog search and the requests that follow it (matching
+  # excerpts, passage search) share a single LiteLLM call.
+  #
+  # @param query [String]
+  # @return [Array<Float>]
+  def self.query_embedding(query)
+    Rails.cache.fetch("embedding/#{query}") do
+      new.embedding(input: [ query ], instruction: DEFAULT_QUERY_INSTRUCTION).first
+    end
+  end
+
   # Creates embeddings using Gemini Embedding 2 through a LiteLLM proxy.
   #
   # @param input [Array<String>] texts to embed

@@ -111,12 +111,7 @@ module SemanticSearchMcp
     private
 
     def query_embedding(query)
-      Rails.cache.fetch("embedding/#{query}") do
-        GeminiEmbedding.new.embedding(
-          input: [ query ],
-          instruction: GeminiEmbedding::DEFAULT_QUERY_INSTRUCTION
-        ).first
-      end
+      GeminiEmbedding.query_embedding(query)
     end
 
     def solr_query(embedding, document_ids, exclude_document_ids, limit)

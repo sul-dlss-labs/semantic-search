@@ -1,0 +1,12 @@
+<% field_config = blacklight_config.index_fields["matching_excerpts"] %>
+<% @placeholders.each do |placeholder| %>
+  <%= turbo_stream.remove MatchingExcerptsComponent.label_id(placeholder) %>
+  <% document = @documents[placeholder.id] %>
+  <% if document && matching_excerpts_for(document).any? %>
+    <%= turbo_stream.replace MatchingExcerptsComponent.slot_id(placeholder) do %>
+      <%= render MatchingExcerptsComponent.new(field: Blacklight::FieldPresenter.new(self, document, field_config)) %>
+    <% end %>
+  <% else %>
+    <%= turbo_stream.remove MatchingExcerptsComponent.slot_id(placeholder) %>
+  <% end %>
+<% end %>

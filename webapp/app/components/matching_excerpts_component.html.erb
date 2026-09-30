@@ -1,0 +1,43 @@
+<%# Excerpts load after the page renders: MatchingExcerptsController removes this label and swaps
+    the skeleton for the excerpts, or removes both when the result has no matching text.
+    Blacklight's layout cannot give the <dt> and <dd> ids, so they mirror its markup here. %>
+<% if pending? %>
+  <dt id="<%= self.class.label_id(@field.document) %>" class="blacklight-<%= @field.key.parameterize %> col-md-3 matching-excerpts-pending"><%= label %></dt>
+  <dd id="<%= self.class.slot_id(@field.document) %>" class="col-md-9 blacklight-<%= @field.key.parameterize %> matching-excerpts-pending" aria-busy="true">
+    <span class="visually-hidden">Loading matching text…</span>
+    <div class="matching-excerpts-skeleton placeholder-glow" aria-hidden="true">
+      <span class="placeholder col-12"></span>
+      <span class="placeholder col-10"></span>
+      <span class="placeholder col-7"></span>
+    </div>
+  </dd>
+<% else %>
+<%= render(@layout.new(field: @field)) do |component| %>
+  <% component.with_label do %>
+    <%= label %>
+  <% end %>
+  <%# A single value, so the whole list sits in one <dd> behind one toggle. %>
+  <% component.with_value(index: 0) do %>
+    <div data-controller="expandable">
+      <ul id="<%= content_id %>" class="matching-excerpts expandable-content list-unstyled mb-0"
+          data-expandable-target="content" style="--expandable-lines: <%= clamp_lines %>">
+        <% excerpts.each do |excerpt| %>
+          <li class="matching-excerpt">
+            <%# Excerpt text is untrusted document text; ExcerptMarkdown keeps only inline formatting and Solr's <mark>. %>
+            <blockquote class="matching-excerpt-text"><%= ExcerptMarkdown.to_html(excerpt[:snippet]) %></blockquote>
+            <% if (source = provenance(excerpt)).present? %>
+              <p class="matching-excerpt-source small text-body-secondary"><%= source %></p>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+      <button type="button" class="btn btn-link btn-sm p-0 expandable-toggle"
+              data-expandable-target="toggle" data-action="expandable#toggle"
+              aria-expanded="false" aria-controls="<%= content_id %>" hidden>
+        <span data-expandable-target="label">Show more</span><span class="visually-hidden"><%= toggle_description %></span>
+        <i class="bi bi-chevron-down expandable-caret" aria-hidden="true"></i>
+      </button>
+    </div>
+  <% end %>
+<% end %>
+<% end %>

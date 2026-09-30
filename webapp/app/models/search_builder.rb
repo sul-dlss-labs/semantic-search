@@ -142,10 +142,6 @@ class SearchBuilder < Blacklight::SearchBuilder
   end
 
   def retrieve_embedding(input)
-    @query_embedding = Rails.cache.fetch("embedding/#{input}") do
-      client = GeminiEmbedding.new
-      client.embedding(input: [ input ],
-                       instruction: GeminiEmbedding::DEFAULT_QUERY_INSTRUCTION).first
-    end
+    @query_embedding = GeminiEmbedding.query_embedding(input)
   end
 end

@@ -1,0 +1,3 @@
+<%# Turbo loads this frame once the page has rendered. The response is Turbo Stream actions that fill
+    in each result's "Matching text" placeholder, so the frame itself stays empty. %>
+<%= turbo_frame_tag "matching-excerpts", src: matching_excerpts_path(q: params[:q], ids: documents.map(&:id)) %>
