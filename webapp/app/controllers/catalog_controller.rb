@@ -179,6 +179,15 @@ class CatalogController < ApplicationController
     config.add_index_field "abstracts", field: "cocina_ss", label: "Abstract",
                            helper_method: :abstracts,
                            component: ExpandableMetadataComponent, expandable_lines: 3
+    # Not a Solr field: the values come from MatchingExcerpts via the controller, so that the
+    # chunks that caused a result to match are shown next to the rest of its metadata.
+    config.add_index_field "matching_excerpts", label: "Matching text",
+                           component: MatchingExcerptsComponent,
+                           expandable_lines: 6,
+                           include_in_request: false,
+                           values: ->(_config, document, view_context) {
+                             view_context.matching_excerpts_for(document)
+                           }
     config.add_index_field "doc_type_ssi", label: "Type"
     config.add_index_field "child_count_i", label: "Child count"
 
@@ -274,4 +283,37 @@ class CatalogController < ApplicationController
   def layout
     "application"
   end
+
+  # Decorates the results with the chunks that caused them to match. The embedding is taken from
+  # the search builder rather than recomputed: it is already cached there, and deriving it again
+  # would mean a second LiteLLM call in any environment with a cold cache (including test, where
+  # the cache store is :null_store).
+  def retrieve_search_results
+    builder = nil
+    response = search_service.search_results do |search_builder|
+      builder = search_builder
+    end
+
+    @matching_excerpts = MatchingExcerpts.new(
+      documents: response.documents,
+      query: search_state.params[:q],
+      search_type: search_state.params[:search_type],
+      embedding: builder&.query_embedding
+    ).call
+
+    response
+  rescue StandardError => e
+    raise if response.nil?
+
+    # MatchingExcerpts rescues internally; this only catches a failure to build it at all.
+    Rails.logger.warn("Matching excerpts unavailable: #{e.class}: #{e.message}")
+    @matching_excerpts = {}
+    response
+  end
+
+  # @return [Array<Hash>] the matching excerpts for one result; never nil
+  def matching_excerpts_for(document)
+    (@matching_excerpts || {}).fetch(document.id, [])
+  end
+  helper_method :matching_excerpts_for
 end

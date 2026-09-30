@@ -150,6 +150,7 @@
     display: none;
 }
 
+/* Shared by ExpandableMetadataComponent (Abstract) and MatchingExcerptsComponent. */
 .expandable-content {
     line-height: 1.5;
     max-height: calc(var(--expandable-lines, 4) * 1.5em);
@@ -181,4 +182,28 @@
     .expandable-caret {
         transition: none;
     }
+}
+
+/* The gap is in em so it stays part of the --expandable-lines clamp arithmetic. */
+.matching-excerpts {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.matching-excerpt-text {
+    border-inline-start: 3px solid #d9d9d6;
+    font-style: italic;
+    margin: 0;
+    padding-inline-start: 0.75rem;
+}
+
+.matching-excerpt-text mark {
+    background-color: #fff2a8;
+    padding: 0 0.1em;
+}
+
+.matching-excerpt-source {
+    margin: 0;
+    padding-inline-start: calc(0.75rem + 3px);
 }

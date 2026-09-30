@@ -1,12 +1,44 @@
 require 'rails_helper'
 
 RSpec.describe "Searches", type: :request do
+  def page_ids_are_unique?(body)
+    ids = Nokogiri::HTML(body).css("[id]").map { |node| node["id"] }
+    ids.tally.values.max == 1
+  end
+
   describe "GET /" do
     it "performs a keyword search" do
       get "/", params: { search_type: "keyword", search_field: "all_fields", q: "frogs" }
       expect(response).to have_http_status(:success)
       expect(response.body).to include("frogs")
       expect(response.body).to include('<option selected="selected" value="keyword">Keyword</option>')
+    end
+
+    it "shows the text that matched alongside the rest of each result's metadata" do
+      get "/", params: { search_type: "keyword", search_field: "all_fields", q: "education" }
+
+      page = Nokogiri::HTML(response.body)
+      metadata = page.at_css("article .document-metadata, article dl")
+      expect(metadata.css("dt").map { |dt| dt.text.strip }).to include("Matching text:")
+      expect(page.css(".matching-excerpt")).to be_present
+      expect(page.css(".matching-excerpt mark")).to be_present
+      expect(page.css(".matching-excerpt script")).to be_empty
+    end
+
+    it "still renders results when the excerpt query fails" do
+      allow(MatchingExcerpts).to receive(:new).and_raise(Blacklight::Exceptions::InvalidRequest)
+
+      get "/", params: { search_type: "keyword", search_field: "all_fields", q: "education" }
+
+      expect(response).to have_http_status(:success)
+      expect(page_ids_are_unique?(response.body)).to be(true)
+      expect(response.body).not_to include("matching-excerpt")
+    end
+
+    it "keeps excerpt element ids unique across the whole results page" do
+      get "/", params: { search_type: "keyword", search_field: "all_fields", q: "education" }
+
+      expect(page_ids_are_unique?(response.body)).to be(true)
     end
 
     it "renders Search and Ask AI forms with Search selected by default" do

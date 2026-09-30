@@ -1,0 +1,28 @@
+<%= render(@layout.new(field: @field)) do |component| %>
+  <% component.with_label do %>
+    <%= label %>
+  <% end %>
+  <%# A single value, so the whole list sits in one <dd> behind one toggle. %>
+  <% component.with_value(index: 0) do %>
+    <div data-controller="expandable">
+      <ul id="<%= content_id %>" class="matching-excerpts expandable-content list-unstyled mb-0"
+          data-expandable-target="content" style="--expandable-lines: <%= clamp_lines %>">
+        <% excerpts.each do |excerpt| %>
+          <li class="matching-excerpt">
+            <%# Excerpt text is untrusted document text; only Solr's own <mark> survives. %>
+            <blockquote class="matching-excerpt-text"><%= sanitize excerpt[:snippet], tags: %w[mark], attributes: [] %></blockquote>
+            <% if (source = provenance(excerpt)).present? %>
+              <p class="matching-excerpt-source small text-body-secondary"><%= source %></p>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+      <button type="button" class="btn btn-link btn-sm p-0 expandable-toggle"
+              data-expandable-target="toggle" data-action="expandable#toggle"
+              aria-expanded="false" aria-controls="<%= content_id %>" hidden>
+        <span data-expandable-target="label">Show more</span><span class="visually-hidden"><%= toggle_description %></span>
+        <i class="bi bi-chevron-down expandable-caret" aria-hidden="true"></i>
+      </button>
+    </div>
+  <% end %>
+<% end %>
