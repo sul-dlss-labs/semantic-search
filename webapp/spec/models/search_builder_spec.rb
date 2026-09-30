@@ -23,6 +23,17 @@ RSpec.describe SearchBuilder do
   end
 
   describe "#add_embedding_to_query" do
+    it "uses a match-all query for the starting page so facets are populated" do
+      allow(builder).to receive(:search_state)
+        .and_return(instance_double(Blacklight::SearchState, params: {}))
+      solr_parameters = { "q.alt": "*:*" }
+
+      builder.add_embedding_to_query(solr_parameters)
+
+      expect(solr_parameters[:q]).to eq("*:*")
+      expect(solr_parameters).not_to have_key(:defType)
+    end
+
     it "uses the threshold query for retrieval and reranking" do
       solr_parameters = { q: "first Marlins pitch" }
 

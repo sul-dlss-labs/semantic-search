@@ -19,7 +19,12 @@ class SearchBuilder < Blacklight::SearchBuilder
   attr_reader :query_embedding
 
   def add_embedding_to_query(solr_parameters)
-    return unless search_state.params[:q].present?
+    unless search_state.params[:q].present?
+      # q.alt only applies to DisMax parsers. Keep the initial browse request
+      # explicit so Solr returns documents and their facet counts.
+      solr_parameters[:q] = "*:*" if solr_parameters[:q].blank?
+      return
+    end
 
     if search_state.params[:search_type] == "hybrid"
       lexical_queries = keyword(solr_parameters) + keyword_chunks
