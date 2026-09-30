@@ -11,7 +11,7 @@ class SearchBuilder < Blacklight::SearchBuilder
 
   # Lexical chunk matches are scored per chunk and rolled up to the parent with
   # score=max, so this is comparable with one strong chunk rather than with a
-  # whole-document field. Tune against VECTOR_BOOST when balancing hybrid.
+  # whole-document field within the lexical ranking.
   CHUNK_BOOST = 1.0
 
   self.default_processor_chain += [ :add_embedding_to_query ]
@@ -21,6 +21,26 @@ class SearchBuilder < Blacklight::SearchBuilder
   def add_embedding_to_query(solr_parameters)
     return unless search_state.params[:q].present?
 
+    if search_state.params[:search_type] == "hybrid"
+      lexical_queries = keyword(solr_parameters) + keyword_chunks
+      # The named JSON queries specify their own parsers. A request-level q
+      # interferes with their interpretation by Solr's combined handler.
+      solr_parameters.delete(:q)
+      solr_parameters[:json] = (solr_parameters[:json] || {}).except(:query).merge(queries: {
+        lexical: { bool: { should: lexical_queries } },
+        vector: vector_similarity.first
+      })
+      solr_parameters[:combiner] = true
+      solr_parameters[:"combiner.query"] = %w[lexical vector]
+      solr_parameters[:"combiner.algorithm"] = "rrf"
+      return
+    end
+
+    if search_state.params[:search_type] == "vector"
+      solr_parameters.delete(:q)
+    else
+      solr_parameters[:defType] = "edismax"
+    end
     solr_parameters[:json] ||= { query: {} }
     solr_parameters[:json][:query][:bool] = {
       should: keyword(solr_parameters) + keyword_chunks + vector_similarity

@@ -15,7 +15,7 @@ class CatalogController < ApplicationController
     # config.bootstrap_version = 5
     #
     ## Class for sending and receiving requests from a search index
-    # config.repository_class = Blacklight::Solr::Repository
+    config.repository_class = CombinedQueryRepository
     #
     ## Class for converting Blacklight's url parameters to into request parameters for the search index
     config.search_builder_class = ::SearchBuilder
@@ -45,8 +45,7 @@ class CatalogController < ApplicationController
       rows: 20,
       'facet.mincount': 1,
       'q.alt': "*:*",
-      'qf': "all_search_tesi",
-      defType: "edismax"
+      'qf': "all_search_tesi"
     }
 
     # If you add any inputs to the search form, you must specify them so that they are not stripped out as unpermitted.

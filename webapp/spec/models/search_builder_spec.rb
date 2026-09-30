@@ -24,16 +24,48 @@ RSpec.describe SearchBuilder do
 
   describe "#add_embedding_to_query" do
     it "uses the threshold query for retrieval and reranking" do
-      solr_parameters = {}
+      solr_parameters = { q: "first Marlins pitch" }
 
       builder.add_embedding_to_query(solr_parameters)
 
       vector_clause = builder.vector_similarity
       expect(solr_parameters.dig(:json, :query, :bool, :should)).to eq(vector_clause)
+      expect(solr_parameters).not_to have_key(:q)
+      expect(solr_parameters).not_to have_key(:defType)
       expect(solr_parameters.dig(:json, :params)).to eq(
         reRankQuery: vector_clause,
         reRankDocs: 100
       )
+    end
+
+    it "uses edismax for keyword searches" do
+      allow(builder).to receive(:search_state)
+        .and_return(instance_double(Blacklight::SearchState, params: { q: "first Marlins pitch", search_type: "keyword" }))
+      solr_parameters = { q: "first Marlins pitch" }
+
+      builder.add_embedding_to_query(solr_parameters)
+
+      expect(solr_parameters[:defType]).to eq("edismax")
+      expect(solr_parameters[:q]).to eq("first Marlins pitch")
+    end
+
+    it "sends hybrid searches as separate lexical and vector rankings for RRF" do
+      allow(builder).to receive(:search_state)
+        .and_return(instance_double(Blacklight::SearchState, params: { q: "first Marlins pitch", search_type: "hybrid" }))
+      solr_parameters = { q: "first Marlins pitch" }
+
+      builder.add_embedding_to_query(solr_parameters)
+
+      expect(solr_parameters.dig(:json, :queries, :lexical, :bool, :should)).to eq(
+        [ { edismax: { query: "first Marlins pitch" } } ] + builder.keyword_chunks
+      )
+      expect(solr_parameters.dig(:json, :queries, :vector)).to eq(builder.vector_similarity.first)
+      expect(solr_parameters).to include(combiner: true, "combiner.query": %w[lexical vector],
+                                         "combiner.algorithm": "rrf")
+      expect(solr_parameters.dig(:json, :query)).to be_nil
+      expect(solr_parameters.dig(:json, :params, :reRankQuery)).to be_nil
+      expect(solr_parameters).not_to have_key(:q)
+      expect(solr_parameters).not_to have_key(:defType)
     end
   end
 end
