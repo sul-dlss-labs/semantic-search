@@ -30,5 +30,17 @@ class SolrDocument
     cocina_display.pub_date_str
   end
 
-  delegate :abstracts, to: :cocina_display
+  def abstracts
+    abstract_notes.reject { |note| note.label.match?(/\ASummary\b/i) }.flat_map(&:values)
+  end
+
+  def summaries
+    abstract_notes.select { |note| note.label.match?(/\ASummary\b/i) }.flat_map(&:values)
+  end
+
+  private
+
+  def abstract_notes
+    cocina_display&.abstract_display_data || []
+  end
 end

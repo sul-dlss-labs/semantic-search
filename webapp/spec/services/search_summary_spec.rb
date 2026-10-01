@@ -47,6 +47,20 @@ RSpec.describe SearchSummary do
     expect(context["results"].first.fetch("abstracts")).to eq([ "A survey of California frogs." ])
   end
 
+  it "includes summaries separately from abstracts" do
+    cocina_json = {
+      externalIdentifier: "druid:bb112zx3193",
+      description: {
+        title: [ { value: "Frogs" } ],
+        note: [ { type: "abstract", value: "An abstract." }, { type: "summary", value: "A summary." } ]
+      }
+    }.to_json
+    document = SolrDocument.new(title_display_tesi: "Frogs", "cocina_ss" => cocina_json)
+    context = described_class.verifier.verify(described_class.token(query: "frogs", documents: [ document ]))
+
+    expect(context["results"].first).to include("abstracts" => [ "An abstract." ], "summaries" => [ "A summary." ])
+  end
+
   it "uses the existing completion client without tools" do
     completion = Chat::LiteLlmCompletionRequest::Completion.new(
       message: { "content" => "These results concern frogs." }, tool_calls: [], finish_reason: "stop"
