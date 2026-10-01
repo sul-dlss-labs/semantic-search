@@ -43,13 +43,15 @@ RSpec.describe SearchBuilder do
       expect(solr_parameters.dig(:json, :query, :bool, :should)).to eq(vector_clause)
       expect(solr_parameters).not_to have_key(:q)
       expect(solr_parameters).not_to have_key(:defType)
-      expect(solr_parameters.dig(:json, :params)).to eq(
-        reRankQuery: vector_clause,
-        reRankDocs: 100
+      expect(solr_parameters[:json]).not_to have_key(:params)
+      expect(solr_parameters).to include(
+        rq: "{!rerank reRankQuery=$rqq reRankDocs=100 reRankWeight=100.0}",
+        rqq: "{!parent which=doc_type_ssi:parent score=max v=$rqq_vector}",
+        rqq_vector: "{!vectorSimilarity f=vector minReturn=0.8}[0.1, 0.2]"
       )
     end
 
-    it "uses edismax for keyword searches" do
+    it "uses edismax without reranking for keyword searches" do
       allow(builder).to receive(:search_state)
         .and_return(instance_double(Blacklight::SearchState, params: { q: "first Marlins pitch", search_type: "keyword" }))
       solr_parameters = { q: "first Marlins pitch" }
@@ -58,6 +60,7 @@ RSpec.describe SearchBuilder do
 
       expect(solr_parameters[:defType]).to eq("edismax")
       expect(solr_parameters[:q]).to eq("first Marlins pitch")
+      expect(solr_parameters).not_to include(:rq, :rqq, :rqq_vector)
     end
 
     it "sends hybrid searches as separate lexical and vector rankings for RRF" do
@@ -74,7 +77,7 @@ RSpec.describe SearchBuilder do
       expect(solr_parameters).to include(combiner: true, "combiner.query": %w[lexical vector],
                                          "combiner.algorithm": "rrf")
       expect(solr_parameters.dig(:json, :query)).to be_nil
-      expect(solr_parameters.dig(:json, :params, :reRankQuery)).to be_nil
+      expect(solr_parameters).not_to include(:rq, :rqq, :rqq_vector)
       expect(solr_parameters).not_to have_key(:q)
       expect(solr_parameters).not_to have_key(:defType)
     end
