@@ -125,10 +125,15 @@
     min-height: var(--ai-summary-clamp);
     max-height: var(--ai-summary-clamp);
     overflow: hidden;
+    interpolate-size: allow-keywords;
+    transition: max-height 0.5s ease-in-out;
 }
 
+/* `none` can't be interpolated, so expand to `max-content`, which interpolate-size can animate to.
+   Browsers without interpolate-size support snap open instead. */
 .ai-summary-content.is-expanded {
     max-height: none;
+    max-height: max-content;
 }
 
 /* Keep the rendered Markdown flush with the clamp. */
@@ -185,10 +190,13 @@
     line-height: 1.5;
     max-height: calc(var(--expandable-lines, 4) * 1.5em);
     overflow: hidden;
+    interpolate-size: allow-keywords;
+    transition: max-height 0.5s ease-in-out;
 }
 
 .expandable-content.is-expanded {
     max-height: none;
+    max-height: max-content;
 }
 
 /* Without JavaScript nothing replaces the skeleton. */
@@ -219,6 +227,8 @@
         animation: none;
     }
 
+    .ai-summary-content,
+    .expandable-content,
     .expandable-caret {
         transition: none;
     }
