@@ -10,4 +10,8 @@ module ApplicationHelper
   def abstracts(document:, **)
     document.abstracts.presence || "no abstract provided"
   end
+
+  def summaries(document:, **)
+    document.summaries
+  end
 end

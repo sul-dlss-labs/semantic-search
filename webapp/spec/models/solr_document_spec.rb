@@ -67,4 +67,25 @@ RSpec.describe SolrDocument do
       end
     end
   end
+
+  describe "#abstracts and #summaries" do
+    let(:cocina_json) do
+      {
+        externalIdentifier: "druid:bb112zx3193",
+        description: {
+          title: [ { value: "Bugatti Type 51A" } ],
+          note: [
+            { type: "abstract", value: "An abstract." },
+            { type: "summary", value: "A summary." },
+            { type: "scope and content", value: "Scope and content." }
+          ]
+        }
+      }.to_json
+    end
+
+    it "keeps summary notes separate from other abstract-like notes" do
+      expect(document.abstracts).to eq([ "An abstract.", "Scope and content." ])
+      expect(document.summaries).to eq([ "A summary." ])
+    end
+  end
 end

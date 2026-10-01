@@ -181,6 +181,9 @@ class CatalogController < ApplicationController
     config.add_index_field "abstracts", field: "cocina_ss", label: "Abstract",
                            helper_method: :abstracts,
                            component: ExpandableMetadataComponent, expandable_lines: 3
+    config.add_index_field "summaries", field: "cocina_ss", label: "Summary",
+                           helper_method: :summaries,
+                           component: ExpandableMetadataComponent, expandable_lines: 3
     # Not a Solr field: the chunks that caused a result to match are loaded after the page renders
     # (see MatchingExcerptsController) and shown next to the rest of its metadata.
     config.add_index_field "matching_excerpts", label: "Matching text",

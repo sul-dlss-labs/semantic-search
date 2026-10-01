@@ -26,6 +26,32 @@ RSpec.describe "Search summaries", type: :request do
     expect(response).to have_http_status(:ok)
     expect(response.body).to include('data-controller="ai-summary"')
     expect(response.body.index('data-controller="ai-summary"')).to be < response.body.index('id="sidebar"')
+    expect(Nokogiri::HTML(response.body).css("article dt").map(&:text).map(&:strip)).not_to include("Summary:")
+  end
+
+  it "renders abstract and summary notes as separate result fields" do
+    cocina = {
+      externalIdentifier: "druid:bb112zx3193",
+      description: {
+        title: [ { value: "African clawed frog" } ],
+        note: [ { type: "abstract", value: "Abstract text." }, { type: "summary", value: "Summary text." } ]
+      }
+    }
+    solr_response = Blacklight::Solr::Response.new(
+      { "response" => { "numFound" => 1, "start" => 0,
+                        "docs" => [ { id: "abc", title_display_tesi: "Frogs", cocina_ss: cocina.to_json } ] } },
+      { rows: 10 }, blacklight_config: CatalogController.blacklight_config
+    )
+    allow_any_instance_of(Blacklight::Solr::Repository).to receive(:search).and_return(solr_response)
+
+    get "/", params: { q: "frogs", search_type: "keyword" }
+
+    fields = Nokogiri::HTML(response.body).css("article dl").first
+    metadata = fields.css("dt").to_h do |label|
+      [ label.text.strip, label.xpath("following-sibling::dd[1]").first&.at_css(".expandable-content")&.text&.strip ]
+    end
+    expect(metadata["Abstract:"]).to eq("Abstract text.")
+    expect(metadata["Summary:"]).to eq("Summary text.")
   end
 
   it "generates a summary from signed search results" do
