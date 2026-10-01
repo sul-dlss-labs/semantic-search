@@ -14,6 +14,9 @@ class SearchBuilder < Blacklight::SearchBuilder
   # whole-document field within the lexical ranking.
   CHUNK_BOOST = 1.0
 
+  # Number of top-scoring documents from the main query to rescore with the vector query.
+  RERANK_DOCS = 100
+
   self.default_processor_chain += [ :add_embedding_to_query ]
 
   attr_reader :query_embedding
@@ -52,9 +55,17 @@ class SearchBuilder < Blacklight::SearchBuilder
     }
     return unless vector_similarity.present?
 
-    solr_parameters[:json][:params] ||= {}
-    solr_parameters[:json][:params][:reRankQuery] = vector_similarity
-    solr_parameters[:json][:params][:reRankDocs] = 100
+    add_vector_rerank(solr_parameters)
+  end
+
+  # The rerank parser is only applied via the top-level rq param and its reRankQuery must be
+  # a query string, so this restates the vector clause in local-params syntax. These are
+  # plain Solr params (not json.params) so Blacklight merges them into the single "params"
+  # block of the JSON request.
+  def add_vector_rerank(solr_parameters)
+    solr_parameters[:rq] = "{!rerank reRankQuery=$rqq reRankDocs=#{RERANK_DOCS} reRankWeight=#{VECTOR_BOOST}}"
+    solr_parameters[:rqq] = "{!parent which=doc_type_ssi:parent score=max v=$rqq_vector}"
+    solr_parameters[:rqq_vector] = "{!vectorSimilarity f=vector minReturn=#{VECTOR_MIN_RETURN}}#{embedding_vector}"
   end
 
   def keyword(solr_parameters)
@@ -116,7 +127,7 @@ class SearchBuilder < Blacklight::SearchBuilder
                   # to the parent. Unlike topK, this does not make documents compete for a
                   # fixed global child-chunk budget.
                   minReturn: VECTOR_MIN_RETURN,
-                  query:  "[#{retrieve_embedding(search_state.params[:q]).join(', ')}]"
+                  query: embedding_vector
                 }
               }
             }
@@ -124,6 +135,10 @@ class SearchBuilder < Blacklight::SearchBuilder
         }
       }
     ]
+  end
+
+  def embedding_vector
+    "[#{retrieve_embedding(search_state.params[:q]).join(', ')}]"
   end
 
   def retrieve_embedding(input)
