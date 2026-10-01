@@ -110,7 +110,6 @@ export default class extends Controller {
       this.inputTarget.value = content
     } finally {
       this.setBusy(false)
-      this.inputTarget.focus()
     }
   }
 
