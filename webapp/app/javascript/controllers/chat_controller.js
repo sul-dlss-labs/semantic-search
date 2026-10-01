@@ -50,7 +50,9 @@ export default class extends Controller {
 
     const assistant = this.appendMessage("Collections Assistant", "", "assistant")
     const assistantContent = assistant.querySelector(".chat-message-content")
-    const status = this.appendStatus(assistant)
+    const placeholder = this.buildPlaceholder()
+    const status = placeholder.querySelector(".chat-status")
+    assistantContent.append(placeholder)
     let responseText = ""
     let toolCallCount = 0
 
@@ -73,24 +75,24 @@ export default class extends Controller {
 
       await this.consumeStream(response.body, (type, data) => {
         if (type === "delta") {
-          status.remove()
+          placeholder.remove()
           responseText += data.content
-          this.renderMarkdown(assistantContent, responseText, this.verifiedSources)
+          this.renderAssistant(assistantContent, responseText, this.verifiedSources, placeholder)
         } else if (type === "reset") {
           responseText = ""
-          assistantContent.textContent = ""
+          this.renderAssistant(assistantContent, responseText, this.verifiedSources, placeholder)
         } else if (type === "status") {
           status.textContent = data.message
-          if (!status.isConnected) assistant.append(status)
+          if (!placeholder.isConnected) assistantContent.append(placeholder)
         } else if (type === "sources") {
           this.verifiedSources = this.mergeVerifiedSources(data.sources)
-          this.renderMarkdown(assistantContent, responseText, this.verifiedSources)
+          this.renderAssistant(assistantContent, responseText, this.verifiedSources, placeholder)
         } else if (type === "notice") {
           this.appendNotice(assistant, data.message)
         } else if (type === "tool_call") {
           toolCallCount += 1
           status.textContent = "Synthesizing…"
-          if (!status.isConnected) assistant.append(status)
+          if (!placeholder.isConnected) assistantContent.append(placeholder)
           this.appendToolCall(assistant, data, toolCallCount)
         } else if (type === "error") {
           throw new Error(data.message)
@@ -98,7 +100,7 @@ export default class extends Controller {
       })
 
       if (!responseText) throw new Error("The chat service did not return an answer. Please try again.")
-      status.remove()
+      placeholder.remove()
       this.renderMarkdown(assistantContent, responseText, this.verifiedSources)
       this.appendCopyButton(assistant, assistantContent, responseText)
       this.history.push({ role: "assistant", content: responseText })
@@ -174,12 +176,32 @@ export default class extends Controller {
     return article
   }
 
-  appendStatus(message) {
+  // One node, so re-appending it after a render preserves the caption's current text.
+  buildPlaceholder() {
+    const placeholder = document.createElement("div")
+    placeholder.className = "chat-placeholder"
+
+    const skeleton = document.createElement("div")
+    skeleton.className = "skeleton chat-skeleton placeholder-glow"
+    skeleton.setAttribute("aria-hidden", "true")
+    for (const width of ["col-12", "col-10", "col-7"]) {
+      const bar = document.createElement("span")
+      bar.className = `placeholder ${width}`
+      skeleton.append(bar)
+    }
+
     const status = document.createElement("div")
-    status.className = "chat-status mt-2"
+    status.className = "chat-status text-body-secondary mt-2"
     status.textContent = "Thinking…"
-    message.append(status)
-    return status
+
+    placeholder.append(skeleton, status)
+    return placeholder
+  }
+
+  // renderMarkdown empties the bubble, so the placeholder goes back whenever there is no text.
+  renderAssistant(container, text, sources, placeholder) {
+    this.renderMarkdown(container, text, sources)
+    if (!text) container.append(placeholder)
   }
 
   appendNotice(message, content) {

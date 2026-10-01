@@ -7,13 +7,16 @@ import { marked } from "marked"
 const summaryTags = ["p", "br", "strong", "em", "del", "code", "ul", "ol", "li"]
 
 export default class extends Controller {
-  static targets = ["content", "status", "toggle", "retry"]
+  static targets = ["content", "skeleton", "status", "toggle"]
   static values = { url: String, token: String }
 
   connect() {
     this.observer = new ResizeObserver(() => this.updateToggle())
     this.observer.observe(this.contentTarget)
-    if (this.contentTarget.textContent) return
+    if (this.contentTarget.textContent) {
+      this.endPlaceholder()
+      return
+    }
     this.load()
   }
 
@@ -26,9 +29,8 @@ export default class extends Controller {
     this.request?.abort()
     const request = new AbortController()
     this.request = request
-    this.retryTarget.hidden = true
-    this.statusTarget.hidden = false
     this.statusTarget.textContent = "Loading AI summary…"
+    this.startPlaceholder()
     try {
       const response = await fetch(this.urlValue, {
         method: "POST",
@@ -41,17 +43,35 @@ export default class extends Controller {
         body: JSON.stringify({ token: this.tokenValue })
       })
       const data = await response.json()
-      if (!response.ok) throw new Error(data.error || "The AI summary is unavailable. Please try again.")
+      if (!response.ok) throw new Error(data.error || "The AI summary is currently unavailable. Please try again later.")
       this.renderSummary(data.summary)
+      this.endPlaceholder()
       this.contentTarget.hidden = false
       this.statusTarget.textContent = "AI summary loaded."
       this.statusTarget.classList.add("visually-hidden")
       this.updateToggle()
     } catch (error) {
       if (request.signal.aborted) return
+      this.endPlaceholder()
       this.statusTarget.textContent = error.message
-      this.retryTarget.hidden = false
     }
+  }
+
+  // Invisible rather than hidden keeps the toggle's row for the caption to sit in. The caption
+  // stays through an error; only a loaded summary hides it.
+  startPlaceholder() {
+    this.loading = true
+    this.statusTarget.classList.remove("visually-hidden")
+    this.skeletonTarget.hidden = false
+    this.toggleTarget.hidden = false
+    this.toggleTarget.classList.add("invisible")
+  }
+
+  endPlaceholder() {
+    this.loading = false
+    this.skeletonTarget.hidden = true
+    this.toggleTarget.hidden = true
+    this.toggleTarget.classList.remove("invisible")
   }
 
   renderSummary(text) {
@@ -63,6 +83,8 @@ export default class extends Controller {
   }
 
   updateToggle() {
+    if (this.loading) return
+
     const expanded = this.toggleTarget.getAttribute("aria-expanded") === "true"
     this.toggleTarget.hidden = !expanded && this.contentTarget.scrollHeight <= this.contentTarget.clientHeight + 1
   }

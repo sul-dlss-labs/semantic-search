@@ -9,10 +9,20 @@
     </div>
     <button type="button" class="btn-close" aria-label="Dismiss AI summary" data-action="ai-summary#dismiss"></button>
   </div>
-  <p role="status" data-ai-summary-target="status">Loading AI summary…</p>
+  <%# Server-rendered so it paints before Stimulus connects. %>
+  <div class="skeleton placeholder-glow" aria-hidden="true" data-ai-summary-target="skeleton">
+    <span class="placeholder col-12"></span>
+    <span class="placeholder col-12"></span>
+    <span class="placeholder col-11"></span>
+    <span class="placeholder col-12"></span>
+    <span class="placeholder col-7"></span>
+  </div>
   <div id="ai-summary-content" class="ai-summary-content" data-ai-summary-target="content" hidden></div>
-  <button type="button" class="btn ai-summary-toggle mt-3" data-ai-summary-target="toggle"
-          data-action="ai-summary#toggle" aria-expanded="false" aria-controls="ai-summary-content" hidden>Show more</button>
-  <button type="button" class="btn btn-outline-primary mt-3" data-ai-summary-target="retry" data-action="ai-summary#load" hidden>Try again</button>
+  <%# Caption and toggle share one grid cell; see .ai-summary-footer. %>
+  <div class="ai-summary-footer mt-3">
+    <button type="button" class="btn ai-summary-toggle invisible" data-ai-summary-target="toggle"
+            data-action="ai-summary#toggle" aria-expanded="false" aria-controls="ai-summary-content">Show more</button>
+    <p role="status" class="ai-summary-status text-body-secondary" data-ai-summary-target="status">Loading AI summary…</p>
+  </div>
   <noscript>Enable JavaScript to load the AI summary.</noscript>
 </section>

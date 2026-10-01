@@ -117,7 +117,7 @@ RSpec.describe MatchingExcerptsComponent, type: :component do
     expect(output.at_css("dd")["id"]).to eq("matching-excerpts-slot-fr576hr0294")
     expect(output.at_css("dd")["aria-busy"]).to eq("true")
     expect(output.at_css("dd .visually-hidden").text).to eq("Loading matching text…")
-    expect(output.css("dd .matching-excerpts-skeleton .placeholder").count).to eq(3)
+    expect(output.css("dd .skeleton.placeholder-glow .placeholder").count).to eq(3)
     expect(output.css(".matching-excerpt")).to be_empty
   end
 

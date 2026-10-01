@@ -119,42 +119,13 @@
 }
 
 .chat-status {
-  --chat-shimmer-base: gray;
-  --chat-shimmer-highlight: lightgray;
-
-  width: fit-content;
-  animation: chat-status-shimmer 2s linear infinite;
-  background: linear-gradient(
-    100deg,
-    var(--chat-shimmer-base) 0%,
-    var(--chat-shimmer-base) 46%,
-    var(--chat-shimmer-highlight) 50%,
-    var(--chat-shimmer-base) 54%,
-    var(--chat-shimmer-base) 100%
-  );
-  background-position: 100% 50%;
-  background-repeat: no-repeat;
-  background-size: 200% 100%;
-  background-clip: text;
-  color: transparent;
   font-style: italic;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
-@keyframes chat-status-shimmer {
-  to {
-    background-position: 0% 50%;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .chat-status {
-    animation: none;
-    background: none;
-    color: var(--chat-shimmer-base);
-    -webkit-text-fill-color: currentColor;
-  }
+/* The bubble is width: fit-content, so an empty one collapses without this. */
+.chat-skeleton {
+  width: 28rem;
+  max-width: 100%;
 }
 
 .chat-page textarea {
