@@ -16,6 +16,9 @@ module ExcerptMarkdown
   PICTURE_PLACEHOLDER = /\**==&gt;.*?&lt;==\**/m
   # Line breaks inside table cells arrive as literal, escaped <br> tags.
   ESCAPED_BREAK = /&lt;br\s*\/?&gt;/i
+  # Underlined text arrives wrapped in literal, escaped <u> tags. Underlines read as links, so
+  # they are dropped rather than rendered.
+  ESCAPED_UNDERLINE = /&lt;\/?u&gt;/i
   TABLE_DELIMITER_ROW = /^\s*\|?\s*:?-{3,}:?\s*(?:\|\s*:?-{3,}:?\s*)*\|?\s*$\n?/
   BLOCK_END = %r{</(?:p|h[1-6]|li|blockquote|pre|tr)>|<hr\s*/?>}
 
@@ -43,6 +46,7 @@ module ExcerptMarkdown
     snippet
       .gsub(PICTURE_PLACEHOLDER, "")
       .gsub(ESCAPED_BREAK, " ")
+      .gsub(ESCAPED_UNDERLINE, "")
       # Extraction marks OCR'd columns as code. A code span would show <mark> as literal text.
       .delete("`")
       .gsub(TABLE_DELIMITER_ROW, "")
