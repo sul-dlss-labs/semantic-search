@@ -31,6 +31,10 @@ jobs:
 
       - name: Build and push Solr image
         run: |
+          if docker manifest inspect "$IMAGE" > /dev/null 2>&1; then
+            echo "$IMAGE already exists; skipping build"
+            exit 0
+          fi
           curl --fail --silent --show-error --location "$SOLR_RC_URL/10.1.0/docker/Dockerfile.official-full" |
             docker build --tag "$IMAGE" \
               --label "org.opencontainers.image.source=https://github.com/${{ github.repository }}" \
