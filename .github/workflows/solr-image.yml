@@ -1,0 +1,38 @@
+name: Solr image
+
+# No Docker image is published for Solr 10.1.0 yet, so build one from the
+# release candidate's official Dockerfile and push it to GHCR for CI to use.
+# Checksum and GPG verification still apply.
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/solr-image.yml
+
+env:
+  SOLR_RC_URL: https://dist.apache.org/repos/dist/dev/solr/solr-10.1.0-RC1-rev-b29b61bcc163c6fb083666f3e5237d2b86d13833/solr
+  IMAGE: ghcr.io/${{ github.repository }}-solr:10.1.0-rc1
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Log into GHCR
+        uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4.6.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push Solr image
+        run: |
+          curl --fail --silent --show-error --location "$SOLR_RC_URL/10.1.0/docker/Dockerfile.official-full" |
+            docker build --tag "$IMAGE" \
+              --label "org.opencontainers.image.source=https://github.com/${{ github.repository }}" \
+              --build-arg SOLR_DOWNLOAD_SERVER="$SOLR_RC_URL" -
+          docker push "$IMAGE"

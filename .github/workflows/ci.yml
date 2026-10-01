@@ -77,6 +77,9 @@ jobs:
 
   rspec:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: read
 
     steps:
       - name: Check out repository
@@ -94,11 +97,19 @@ jobs:
           bundler-cache: true
           working-directory: webapp
 
+      # Solr 10.1.0 RC1 image built by the "Solr image" workflow (solr-image.yml)
+      - name: Log into GHCR
+        uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4.6.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Start Solr
         run: |
           docker run --detach --name solr --publish 8983:8983 \
             --volume "${{ github.workspace }}/sdr-harvest/solr_configs:/opt/solr-config:ro" \
-            solr:10 solr-precreate sdr-search /opt/solr-config
+            ghcr.io/${{ github.repository }}-solr:10.1.0-rc1 solr-precreate sdr-search /opt/solr-config
           if ! curl --retry 30 --retry-delay 2 --retry-all-errors \
             --fail --silent --show-error \
             http://127.0.0.1:8983/solr/sdr-search/admin/ping; then
