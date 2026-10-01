@@ -30,6 +30,11 @@ RSpec.describe ExcerptMarkdown do
       .to eq("Contents<br>Section · 1 · Methodology<br>Section · 2 · Population <mark>Size</mark>")
   end
 
+  it "drops the escaped underline tags around underlined text" do
+    expect(html("see &lt;u&gt;http://example.com/<mark>journalism</mark>/&lt;/u&gt; for more"))
+      .to eq("see http://example.com/<mark>journalism</mark>/ for more")
+  end
+
   it "keeps highlighting inside what extraction marked as code" do
     expect(html("`PHYSICAL <mark>EDUCATION</mark>`")).to eq("PHYSICAL <mark>EDUCATION</mark>")
   end
