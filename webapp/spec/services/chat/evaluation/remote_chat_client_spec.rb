@@ -68,6 +68,29 @@ RSpec.describe Chat::Evaluation::RemoteChatClient do
   end
 
   describe Chat::Evaluation::RemoteChatClient::StreamAccumulator do
+    it "records notices and flags a length-limited answer as truncated" do
+      accumulator = described_class.new
+      accumulator.feed("event: delta\ndata: {\"content\":\"An unfinished\"}\n\n")
+      accumulator.feed(
+        "event: notice\ndata: {\"message\":\"This response reached its length limit and may be incomplete.\"}\n\n"
+      )
+      accumulator.feed("event: done\ndata: {}\n\n")
+
+      result = accumulator.finish
+
+      expect(result.answer).to eq("An unfinished")
+      expect(result.notices).to eq([ "This response reached its length limit and may be incomplete." ])
+      expect(result).to be_truncated
+    end
+
+    it "does not flag other notices as truncation" do
+      accumulator = described_class.new
+      accumulator.feed("event: notice\ndata: {\"message\":\"Your query returned more research than can be displayed.\"}\n\n")
+      accumulator.feed("event: done\ndata: {}\n\n")
+
+      expect(accumulator.finish).not_to be_truncated
+    end
+
     it "turns a server error event into an exception" do
       accumulator = described_class.new
 

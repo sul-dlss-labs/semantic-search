@@ -154,10 +154,12 @@ module Chat
         end
         citations_passed = !evaluation_case.fetch(:require_citations, false) ||
           valid_citations?(chat_result.answer, chat_result.sources)
-        passed = verdict.pass && verdict.score >= @minimum_score && citations_passed
+        truncated = chat_result.truncated?
+        passed = verdict.pass && verdict.score >= @minimum_score && citations_passed && !truncated
         @output.puts(
           "  attempt #{attempt_number}: #{passed ? 'PASS' : 'FAIL'} " \
           "(score #{format('%.2f', verdict.score)}, citations #{citations_passed ? 'present' : 'missing'}, " \
+          "#{truncated ? 'truncated at length limit, ' : ''}" \
           "response #{format_duration(response_elapsed_seconds)}, retries #{retry_count})"
         )
         {
@@ -166,6 +168,8 @@ module Chat
           retry_count:,
           answer: chat_result.answer,
           sources: chat_result.sources,
+          notices: chat_result.notices,
+          truncated:,
           citations_passed:,
           judge: {
             pass: verdict.pass,

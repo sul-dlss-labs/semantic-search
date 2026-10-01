@@ -105,6 +105,26 @@ RSpec.describe Chat::Evaluation::Runner do
     expect(result.report.dig(:cases, 0, :attempts, 0)).to include(citations_passed: false, passed: false)
   end
 
+  it "fails a response that was cut off at the output length limit" do
+    allow(chat_client).to receive(:ask).and_return(
+      Chat::Evaluation::RemoteChatClient::Result.new(
+        answer: chat_result.answer,
+        sources: chat_result.sources,
+        notices: [ "This response reached its length limit and may be incomplete." ]
+      )
+    )
+
+    result = build_runner.run
+
+    expect(result.passed).to be(false)
+    expect(result.report.dig(:cases, 0, :attempts, 0)).to include(
+      truncated: true,
+      notices: [ "This response reached its length limit and may be incomplete." ],
+      passed: false
+    )
+    expect(output.string).to include("truncated at length limit", "Chat evaluation FAILED")
+  end
+
   it "retries transient chat errors and reports response timing and retry totals" do
     chat_calls = 0
     allow(chat_client).to receive(:ask) do
