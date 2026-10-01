@@ -69,6 +69,10 @@
           </section>
         <% end %>
       </div>
+
+      <% if controller_name == "catalog" && action_name == "index" && params[:q].present? %>
+        <%= render "catalog/search_details" %>
+      <% end %>
     </main>
 
     <%= render partial: 'shared/footer' %>

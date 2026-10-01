@@ -106,4 +106,26 @@ RSpec.describe GeminiEmbedding do
   ensure
     ActiveSupport::Notifications.unsubscribe(subscriber) if subscriber
   end
+
+  describe ".query_embedding" do
+    let(:cache) { ActiveSupport::Cache::MemoryStore.new }
+
+    before do
+      allow(Rails).to receive(:cache).and_return(cache)
+      allow(http).to receive(:request).and_return(response)
+    end
+
+    it "instruments each lookup with whether the embedding was cached" do
+      events = []
+      subscriber = ActiveSupport::Notifications.subscribe(described_class::QUERY_INSTRUMENTATION_EVENT) do |event|
+        events << event
+      end
+
+      2.times { described_class.query_embedding("frogs") }
+
+      expect(events.map { |event| event.payload[:cached] }).to eq([ false, true ])
+    ensure
+      ActiveSupport::Notifications.unsubscribe(subscriber) if subscriber
+    end
+  end
 end
