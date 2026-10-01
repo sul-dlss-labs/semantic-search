@@ -22,4 +22,19 @@ RSpec.describe "catalog/_ai_summary", type: :view do
     render partial: "catalog/ai_summary", locals: { documents: [ document ] }
     expect(rendered).to include("AI-generated summary of the 1 result on this page")
   end
+
+  it "renders skeleton bars that screen readers skip" do
+    render partial: "catalog/ai_summary", locals: { documents: [ document ] }
+    bars = Nokogiri::HTML(rendered).css(".skeleton.placeholder-glow[aria-hidden='true'] .placeholder")
+    expect(bars.size).to eq(5)
+  end
+
+  it "shows the loading caption in the row the toggle will occupy" do
+    render partial: "catalog/ai_summary", locals: { documents: [ document ] }
+    footer = Nokogiri::HTML(rendered).at_css(".ai-summary-footer")
+    caption = footer.at_css("p[role='status']")
+    expect(caption.text).to eq("Loading AI summary…")
+    expect(caption["class"]).not_to include("visually-hidden")
+    expect(footer.at_css("button.ai-summary-toggle")["class"]).to include("invisible")
+  end
 end
