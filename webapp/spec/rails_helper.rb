@@ -47,6 +47,9 @@ RSpec.configure do |config|
 
   config.include ViewComponent::TestHelpers, type: :component
 
+  # Rails resets these between requests, but not between examples.
+  config.before { Current.reset }
+
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false
 

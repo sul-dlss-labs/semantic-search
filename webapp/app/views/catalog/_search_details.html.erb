@@ -1,0 +1,8 @@
+<%# Diagnostics for the search that produced this page. text-body-secondary meets WCAG AA contrast. %>
+<p class="search-details small text-body-secondary mt-3">
+  Search strategy: <%= params[:search_type] %>
+  <% if (lookup = Current.embedding_lookup) %>
+    · Query embedding: <%= number_with_delimiter(lookup[:duration_ms].round) %> ms
+    (<%= lookup[:cached] ? "cached" : "not cached" %>)
+  <% end %>
+</p>

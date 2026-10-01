@@ -137,8 +137,9 @@ class SearchBuilder < Blacklight::SearchBuilder
     ]
   end
 
+  # Memoized because the vector rerank restates the vector clause.
   def embedding_vector
-    "[#{retrieve_embedding(search_state.params[:q]).join(', ')}]"
+    @embedding_vector ||= "[#{retrieve_embedding(search_state.params[:q]).join(', ')}]"
   end
 
   def retrieve_embedding(input)

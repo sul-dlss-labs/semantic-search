@@ -8,6 +8,7 @@ class GeminiEmbedding
   DEFAULT_QUERY_INSTRUCTION = "search result"
 
   INSTRUMENTATION_EVENT = "request.litellm"
+  QUERY_INSTRUMENTATION_EVENT = "query_embedding.semantic_search"
   MODEL = "gemini-embedding-2"
   DIMENSIONS = 768
 
@@ -17,8 +18,11 @@ class GeminiEmbedding
   # @param query [String]
   # @return [Array<Float>]
   def self.query_embedding(query)
-    Rails.cache.fetch("embedding/#{query}") do
-      new.embedding(input: [ query ], instruction: DEFAULT_QUERY_INSTRUCTION).first
+    ActiveSupport::Notifications.instrument(QUERY_INSTRUMENTATION_EVENT, cached: true) do |payload|
+      Rails.cache.fetch("embedding/#{query}") do
+        payload[:cached] = false
+        new.embedding(input: [ query ], instruction: DEFAULT_QUERY_INSTRUCTION).first
+      end
     end
   end
 
