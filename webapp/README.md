@@ -99,6 +99,25 @@ CHAT_EVAL_CASE=kathleen_namphy_recovery_from_prior_negative CHAT_EVAL_RUNS=5 \
 LITELLM_EVAL_MODEL=claude-sonnet-5 bin/rails chat:evaluate
 ```
 
+If you want to analyze the chatbot's responses, you can do:
+
+Full records for the failed cases:
+```
+  jq '.cases[] | select(.passed | not)' tmp/chat_evaluations/20261001T143254Z.json
+```
+
+A shorter version that keeps only the failed attempts and the judge's verdict (score, reason and per-criterion results), without the long answer and source fields:
+```
+jq '.cases[] | select(.passed | not) | {id, question, attempts: [.attempts[] | select(.passed | not) | {attempt, citations_passed, judge}]}' tmp/chat_evaluations/20261001T143254Z.json
+```
+
+One line per failure, showing the id, score and only the criteria that failed:
+```
+jq -r '.cases[] | select(.passed | not) | .id as $id | .attempts[] | select(.passed | not)
+  | "\($id) (score \(.judge.score)): " + ([.judge.criteria[] | select(.pass | not) | .criterion] | join("; "))' \
+  tmp/chat_evaluations/20261001T143254Z.json
+```
+
 ## Deployment
 
 After the Docker GitHub Actions workflow has successfully built and published the
