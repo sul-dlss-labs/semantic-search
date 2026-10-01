@@ -108,14 +108,43 @@ module Chat
 
     def results_heading(listed)
       if listed.zero?
-        "The #{search_context.page_size} titles on that page were too long to include here. Search " \
-          "for them with your tools before describing the page."
+        empty_results_heading
       elsif listed < search_context.page_size
-        "Listed below: the first #{listed} of the #{search_context.page_size} results on that " \
-          "page (descriptive metadata only; no document text has been retrieved):"
+        partial_results_heading(listed)
       else
         "Results on that page (descriptive metadata only; no document text has been retrieved):"
       end
+    end
+
+    def empty_results_heading
+      if search_context.removed_count.positive? && search_context.documents.empty?
+        "The user removed every result this conversation carried, so none are listed."
+      else
+        "The #{search_context.page_size} titles on that page were too long to include here. Search " \
+          "for them with your tools before describing the page."
+      end
+    end
+
+    # "The first N" holds while the only things trimming the list are our carry limit and our
+    # character budget, which both drop results off the end. A removal takes them out of the
+    # middle, so from then on the list is a selection and has to be described as one.
+    def partial_results_heading(listed)
+      if search_context.removed_count.positive?
+        "Listed below: the #{listed} #{'result'.pluralize(listed)} the user kept out of the " \
+          "#{carried_description} (descriptive metadata only; no document text has been retrieved):"
+      else
+        "Listed below: the first #{listed} of the #{search_context.page_size} results on that " \
+          "page (descriptive metadata only; no document text has been retrieved):"
+      end
+    end
+
+    # What the removal was a selection from, which is the carried set rather than the whole page
+    # whenever the carry limit already trimmed it.
+    def carried_description
+      carried = search_context.carried_documents.length
+      return "#{carried} carried from that page of #{search_context.page_size}" if search_context.truncated?
+
+      "#{carried} on that page"
     end
 
     def numbered_results
@@ -147,6 +176,8 @@ module Chat
     end
 
     def results_guidance
+      return emptied_guidance if search_context.documents.empty? && search_context.removed_count.positive?
+
       [
         "- This is ONE PAGE of relevance-ranked matches from a larger result set. It is not the " \
         "whole corpus, not everything that matches, and not exhaustive. Never describe it as " \
@@ -156,7 +187,31 @@ module Chat
         "with the search and document tools.",
         '- When the user says "these results", "this page", or "them", they mean this list.',
         "- You may refer to an item above by its exact title and cite it with its URL. Do not " \
-        "invent titles, URLs, pages, or quotations."
+        "invent titles, URLs, pages, or quotations.",
+        *removal_guidance
+      ]
+    end
+
+    # Said out here rather than inside the fence, because it is an instruction about the data and
+    # the fence tells the model not to take instructions from what it wraps.
+    def removal_guidance
+      return [] if search_context.removed_count.zero?
+
+      [
+        "- The user removed #{search_context.removed_count} " \
+        "#{'result'.pluralize(search_context.removed_count)} from this context on purpose. The " \
+        'list above is now the whole of "these results": do not describe, count, or cite the ' \
+        "removed items unless the user raises them again."
+      ]
+    end
+
+    def emptied_guidance
+      [
+        "- The user removed every result this conversation carried, so there is no list here to " \
+        'describe and "these results" no longer names anything. Ask what they want to look at, ' \
+        "or find material with your search tools and say what you searched for.",
+        "- Do not rebuild the removed list from earlier turns, and do not describe that page of " \
+        "results from memory."
       ]
     end
 

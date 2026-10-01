@@ -40,11 +40,10 @@ module AiResultsHelper
              "collections. What would you like to know?"
     end
 
-    carried = pluralize(@search_context.documents.length, "result")
-    return "I can see the #{carried} from your search. What would you like to know about them?" if
+    return "I can see ther results from your search. What would you like to know about them?" if
       @search_context.query.blank?
 
-    "I can see the #{carried} from your search for #{@search_context.quoted_query}. " \
+    "I can see the results from your search for #{@search_context.quoted_query}. " \
       "What would you like to know about them?"
   end
 end

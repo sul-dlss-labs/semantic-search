@@ -54,9 +54,9 @@ RSpec.describe "Chat", type: :request do
       page = Nokogiri::HTML(response.body)
       expect(response).to have_http_status(:ok)
       expect(page.at_css(".chat-context")).to be_present
-      expect(page.at_css(".chat-context-summary").text.squish).to include("frogs", "417 matches", "showing 1–1")
+      expect(page.at_css(".chat-context-summary").text.squish).to include("frogs", "417 results", "showing 1–1")
       expect(page.at_css(".chat-context-list a").text).to eq("Frog interview")
-      expect(page.at_css("#message").text.strip).to eq('What do these results tell me about "frogs"?')
+      expect(page.at_css("#message").text.strip).to eq('What can these results tell me about "frogs"?')
       expect(page.at_css(".chat-page")["data-chat-autostart-value"]).to eq("false")
     end
 
@@ -74,6 +74,18 @@ RSpec.describe "Chat", type: :request do
       page = Nokogiri::HTML(response.body)
       expect(page.at_css(".chat-context-filter").text.squish).to include("Collection:", "Frog Oral Histories")
       expect(page.at_css(".chat-context-remove")["data-action"]).to eq("chat#removeContext")
+    end
+
+    it "offers a remove control on each carried result" do
+      get "/chat", params: { search: { q: "frogs" } }
+
+      page = Nokogiri::HTML(response.body)
+      button = page.at_css(".chat-context-result .chat-context-result-remove")
+      expect(button["data-action"]).to eq("chat#removeResult")
+      expect(button["data-chat-document-id-param"]).to eq("bb112zx3193")
+      expect(button["aria-label"]).to eq("Remove Frog interview from this conversation")
+      expect(page.at_css("summary[data-chat-target='contextCount']").text.squish)
+        .to eq("1 result carried into this conversation")
     end
 
     it "stays usable and says so when the carried search cannot be rebuilt" do
@@ -124,6 +136,43 @@ RSpec.describe "Chat", type: :request do
       expect(Chat::Conversation).to have_received(:new).with(
         hash_including(search_context: an_instance_of(Chat::SearchContext))
       )
+    end
+
+    it "drops the results the user removed from the context it answers with" do
+      conversation = instance_double(Chat::Conversation, each_event: [ "event: done\ndata: {}\n\n" ].each)
+      carried = nil
+      allow(Chat::Conversation).to receive(:new) do |**kwargs|
+        carried = kwargs[:search_context]
+        conversation
+      end
+      token = Chat::SearchContext.verifier.generate(
+        { version: 1, query: "frogs",
+          documents: [ { id: "a", title: "Frog A" }, { id: "b", title: "Frog B" } ] }
+      )
+
+      post "/chat", params: { messages: [ { role: "user", content: "frogs" } ],
+                              context_token: token, excluded_ids: [ "a" ] }, as: :json
+
+      expect(carried.documents.map { |document| document[:title] }).to eq([ "Frog B" ])
+      expect(carried.removed_count).to eq(1)
+    end
+
+    it "ignores an exclusion list that is not a list of ids" do
+      conversation = instance_double(Chat::Conversation, each_event: [ "event: done\ndata: {}\n\n" ].each)
+      carried = nil
+      allow(Chat::Conversation).to receive(:new) do |**kwargs|
+        carried = kwargs[:search_context]
+        conversation
+      end
+      token = Chat::SearchContext.verifier.generate(
+        { version: 1, query: "frogs", documents: [ { id: "a", title: "Frog A" } ] }
+      )
+
+      post "/chat", params: { messages: [ { role: "user", content: "frogs" } ],
+                              context_token: token, excluded_ids: "a" }, as: :json
+
+      expect(response).to have_http_status(:ok)
+      expect(carried.documents.map { |document| document[:title] }).to eq([ "Frog A" ])
     end
 
     it "answers without the context rather than failing the turn on a bad token" do

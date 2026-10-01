@@ -37,7 +37,7 @@ RSpec.describe "Ask AI about these results", type: :request do
     page = Nokogiri::HTML(response.body)
     hint = page.at_css("#ask-ai-results-hint")
     expect(button["aria-describedby"]).to eq("ask-ai-results-hint")
-    expect(hint.text.squish).to eq("Opens the AI assistant with your search, your facet selections, and this page of results.")
+    expect(hint.text.squish).to eq("Opens the AI chat with your search query, your facet selections, and this page of results.")
   end
 
   it "offers the assistant on a facet-only browse, which has no query to summarize" do

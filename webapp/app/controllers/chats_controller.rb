@@ -40,6 +40,16 @@ class ChatsController < ApplicationController
   # An unreadable token drops the context rather than failing the turn: the conversation is still
   # answerable, just no longer scoped to the search.
   def search_context_from_token
-    Chat::SearchContext.from_token(params[:context_token], controller: self)
+    Chat::SearchContext.from_token(
+      params[:context_token], excluded_ids: excluded_document_ids, controller: self
+    )
+  end
+
+  # The results the user dropped from the context card. They ride alongside the signed token
+  # rather than re-signing one per removal, which is safe because an id can only subtract a
+  # document the token already carries.
+  def excluded_document_ids
+    ids = params[:excluded_ids]
+    ids.is_a?(Array) ? ids.grep(String) : []
   end
 end

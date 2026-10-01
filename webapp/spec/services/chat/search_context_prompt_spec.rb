@@ -16,6 +16,8 @@ RSpec.describe Chat::SearchContextPrompt do
       page_size: 20,
       zero_results?: false,
       truncated?: false,
+      removed_count: 0,
+      carried_documents: [ {} ],
       first_item: 21,
       last_item: 40,
       filters: [ { label: "Collection", values: [ "Stanford Oral History Project" ], tool_key: "collection" } ],
@@ -86,6 +88,70 @@ RSpec.describe Chat::SearchContextPrompt do
     allow(search_context).to receive_messages(truncated?: true, page_size: 100)
 
     expect(prompt).to include("Listed below: the first 1 of the 100 results on that page")
+  end
+
+  describe "results the user removed from the context" do
+    it "describes what is left as a selection rather than as the top of the page" do
+      allow(search_context).to receive_messages(
+        removed_count: 19, page_size: 20, carried_documents: Array.new(20, {})
+      )
+
+      expect(prompt).to include("Listed below: the 1 result the user kept out of the 20 on that page")
+      expect(prompt).to include("removed 19 results from this context on purpose")
+      expect(prompt).to include(%(list above is now the whole of "these results"))
+    end
+
+    it "pluralizes a single removal" do
+      allow(search_context).to receive_messages(
+        removed_count: 1, page_size: 2, carried_documents: Array.new(2, {})
+      )
+
+      expect(prompt).to include("the 1 result the user kept out of the 2 on that page")
+      expect(prompt).to include("removed 1 result from this context")
+    end
+
+    # The carry limit already trimmed the page, so the removal was a selection from what we
+    # carried. Measuring it against the page would overstate what the user threw away.
+    it "counts a removal against the carried set when the page was also truncated" do
+      allow(search_context).to receive_messages(
+        removed_count: 9, page_size: 100, truncated?: true, carried_documents: Array.new(10, {})
+      )
+
+      expect(prompt).to include(
+        "Listed below: the 1 result the user kept out of the 10 carried from that page of 100"
+      )
+    end
+
+    # The fence tells the model not to take instructions from what it wraps, so an instruction
+    # about the removals has to sit outside it to be followed at all.
+    it "keeps the removal instruction outside the data fence" do
+      allow(search_context).to receive_messages(
+        removed_count: 19, page_size: 20, carried_documents: Array.new(20, {})
+      )
+      nonce = prompt[/<<SEARCH_CONTEXT (\h+)>>/, 1]
+
+      fenced = prompt[%r{<<SEARCH_CONTEXT #{nonce}>>(.*)<</SEARCH_CONTEXT #{nonce}>>}m, 1]
+      expect(fenced).not_to include("on purpose")
+    end
+
+    it "stops claiming a list once the user has removed every result" do
+      allow(search_context).to receive_messages(
+        removed_count: 20, documents: [], carried_documents: Array.new(20, {})
+      )
+
+      expect(prompt).to include("removed every result this conversation carried, so none are listed")
+      expect(prompt).to include(%("these results" no longer names anything))
+      expect(prompt).to include("do not describe that page of results from memory")
+      expect(prompt).not_to include("ONE PAGE")
+      expect(prompt).not_to include("too long to include here")
+    end
+
+    it "still blames our own limits when nothing was removed" do
+      allow(search_context).to receive_messages(documents: [], page_size: 20)
+
+      expect(prompt).to include("The 20 titles on that page were too long to include here")
+      expect(prompt).to include("ONE PAGE")
+    end
   end
 
   context "when the carried metadata is hostile" do

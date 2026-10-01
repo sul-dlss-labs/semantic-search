@@ -169,6 +169,50 @@ RSpec.describe Chat::SearchContext do
     end
   end
 
+  describe "results the user removed" do
+    def restored(excluded_ids)
+      stub_solr
+      described_class.from_token(
+        described_class.from_search_params({ q: "band auditions" }).token, excluded_ids:
+      )
+    end
+
+    it "drops the named documents from the carried page" do
+      context = restored([ "doc1" ])
+
+      expect(context.documents.map { |document| document[:id] }).to eq([ "doc0", "doc2" ])
+      expect(context.carried_documents.length).to eq(3)
+      expect(context.removed_count).to eq(1)
+    end
+
+    it "keeps the removed documents out of the citation seed" do
+      expect(restored([ "doc0", "doc2" ]).seed_sources).to eq(
+        results: [ { title: "Interview number 1", url: "/catalog/doc1" } ]
+      )
+    end
+
+    # A removal is the user editing the context, not us running out of room, and the prompt words
+    # those two differently.
+    it "does not read a removal as the carry having been truncated" do
+      context = restored([ "doc1" ])
+
+      expect(context).not_to be_truncated
+      expect(context.page_size).to eq(3)
+    end
+
+    it "ignores ids that were never carried, and non-string junk" do
+      context = restored([ "doc9", 42, { "id" => "doc0" }, nil ])
+
+      expect(context.documents.length).to eq(3)
+      expect(context.removed_count).to eq(0)
+    end
+
+    it "treats a missing exclusion list as nothing removed" do
+      expect(restored(nil).documents.length).to eq(3)
+      expect(restored(nil).removed_count).to eq(0)
+    end
+  end
+
   describe "#seed_sources" do
     it "exposes carried documents in the shape SourceCollection accepts" do
       stub_solr(docs: [ documents.first ])
@@ -185,7 +229,7 @@ RSpec.describe Chat::SearchContext do
       stub_solr
       context = described_class.from_search_params({ q: "band auditions" })
 
-      expect(context.suggested_question).to eq('What do these results tell me about "band auditions"?')
+      expect(context.suggested_question).to eq('What can these results tell me about "band auditions"?')
     end
 
     it "falls back to a generic question for a facet-only browse" do
@@ -206,7 +250,7 @@ RSpec.describe Chat::SearchContext do
       stub_solr
       context = described_class.from_search_params({ q: '"band auditions"' })
 
-      expect(context.suggested_question).to eq('What do these results tell me about "band auditions"?')
+      expect(context.suggested_question).to eq('What can these results tell me about "band auditions"?')
     end
   end
 end

@@ -217,6 +217,38 @@
   margin-bottom: 0.375rem;
 }
 
+.chat-context-result-row {
+  display: flex;
+  align-items: flex-start;
+  column-gap: 0.5rem;
+}
+
+.chat-context-result-body {
+  flex: 1 1 auto;
+}
+
+.chat-context-result-remove {
+  flex: 0 0 auto;
+  border: 0;
+  border-radius: 0.25rem;
+  background: none;
+  padding: 0 0.25rem;
+  color: var(--bs-secondary-color);
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.chat-context-result-remove:hover {
+  background: #fff;
+  color: var(--bs-danger);
+}
+
+.chat-context-result-remove:focus-visible {
+  outline: 2px solid #315f86;
+  outline-offset: 1px;
+  color: var(--bs-danger);
+}
+
 .chat-context-list-meta {
   display: block;
   color: var(--bs-secondary-color);

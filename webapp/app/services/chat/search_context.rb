@@ -37,14 +37,16 @@ module Chat
       nil
     end
 
+    # @param excluded_ids [Array<String>] documents the user has dropped from the carried page.
+    #   Safe to take from the browser: it can only subtract from the signed set, never add to it.
     # @return [SearchContext, nil] nil for a missing, tampered, or expired token
-    def self.from_token(token, controller: nil)
+    def self.from_token(token, excluded_ids: nil, controller: nil)
       return nil if token.blank?
 
       payload = verifier.verified(token.to_s)&.deep_symbolize_keys
       return nil unless payload&.dig(:version) == 1
 
-      new(payload, controller:)
+      new(payload, excluded_ids:, controller:)
     rescue StandardError => e
       Rails.logger.warn("Search context token could not be read: #{e.class}: #{e.message}")
       nil
@@ -144,8 +146,9 @@ module Chat
     end
     private_class_method :document_limit
 
-    def initialize(payload, controller: nil)
+    def initialize(payload, excluded_ids: nil, controller: nil)
       @payload = payload
+      @excluded_ids = Array(excluded_ids).grep(String)
       @controller = controller
     end
 
@@ -162,10 +165,20 @@ module Chat
       )
     end
 
-    def documents
-      @documents ||= Array(@payload[:documents]).map do |document|
+    # Everything the token carries, including results the user has since removed. Only the
+    # bookkeeping that describes the carry itself should use this; the prompt gets #documents.
+    def carried_documents
+      @carried_documents ||= Array(@payload[:documents]).map do |document|
         document.merge(url: SemanticSearchMcp::CatalogResults.record_url(@controller, document[:id]))
       end
+    end
+
+    def documents
+      @documents ||= carried_documents.reject { |document| excluded_ids.include?(document[:id].to_s) }
+    end
+
+    def removed_count
+      carried_documents.length - documents.length
     end
 
     def filters
@@ -194,9 +207,10 @@ module Chat
       total.zero?
     end
 
-    # True when the user's page held more results than we are willing to carry.
+    # True when the user's page held more results than we are willing to carry. Deliberately about
+    # the carry and not about #documents, so a removal does not read as a truncation.
     def truncated?
-      documents.length < page_size
+      carried_documents.length < page_size
     end
 
     def first_item
@@ -215,7 +229,7 @@ module Chat
       # so point it at the topic rather than at results that do not exist.
       return "What can you find about #{quoted_query}?" if zero_results?
 
-      "What do these results tell me about #{quoted_query}?"
+      "What can these results tell me about #{quoted_query}?"
     end
 
     # Quoted-phrase searches are a first-class pattern here, so wrapping blindly would render
@@ -224,6 +238,14 @@ module Chat
       return query if query.start_with?('"') && query.end_with?('"')
 
       %("#{query}")
+    end
+
+    private
+
+    # Trimmed to the number of carried documents: that is the most the user could have removed, so
+    # anything past it cannot match and does not need to size the Set.
+    def excluded_ids
+      @excluded_id_set ||= @excluded_ids.first(carried_documents.length).to_set
     end
   end
 end
