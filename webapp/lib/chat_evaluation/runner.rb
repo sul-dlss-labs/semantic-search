@@ -112,8 +112,7 @@ module Chat
         validate_search_context!(evaluation_case)
       end
 
-      # A search_context block is Blacklight search params, not a signed payload: the deployment
-      # turns it into a token when the harness loads the chat page.
+      # A search_context block is Blacklight search params, not a signed payload.
       def validate_search_context!(evaluation_case)
         search_context = evaluation_case[:search_context]
         return if search_context.blank?

@@ -1,5 +1,4 @@
 module AiResultsHelper
-  # True on a catalog search results page that actually rendered documents.
   def search_results_rendered?
     controller_name == "catalog" && action_name == "index" && @response&.documents.present?
   end
@@ -8,8 +7,7 @@ module AiResultsHelper
     search_results_rendered? && params[:q].present?
   end
 
-  # Wider than the summary guard: a facet-only browse and a zero-result search are both worth
-  # asking the assistant about, and neither has a query.
+  # Wider than the summary guard: a facet-only browse and a zero-result search both qualify.
   def render_ask_ai_about_results?
     controller_name == "catalog" && action_name == "index" && search_state.has_constraints?
   end
@@ -19,8 +17,7 @@ module AiResultsHelper
     search_state.to_h.except(:controller, :action)
   end
 
-  # The search params the chat page arrived with, filtered through Blacklight's own allowlist so a
-  # link back to the results page cannot carry anything the catalog would not accept.
+  # Filtered through Blacklight's allowlist so a link back cannot carry unaccepted params.
   def chat_search_params
     return {} if params[:search].blank?
 
@@ -30,8 +27,6 @@ module AiResultsHelper
     ).to_h.except(:controller, :action)
   end
 
-  # Plain DOM on the chat page rather than a real transcript turn, so naming the carried search
-  # here costs nothing and is never replayed to the model.
   def chat_greeting
     return "What would you like to learn from the collections?" if @search_context.blank?
 

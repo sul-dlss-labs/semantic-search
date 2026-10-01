@@ -191,8 +191,7 @@ RSpec.describe Chat::SearchContext do
       )
     end
 
-    # A removal is the user editing the context, not us running out of room, and the prompt words
-    # those two differently.
+    # A removal is the user editing the context, not us running out of room.
     it "does not read a removal as the carry having been truncated" do
       context = restored([ "doc1" ])
 

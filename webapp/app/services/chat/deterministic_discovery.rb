@@ -17,9 +17,8 @@ module Chat
     def call(query:, requested_name:, requested_arguments:, context_filters: {})
       passage_search = [ "search_passages", { "query" => query } ]
       catalog_arguments = { "query" => query, "search_type" => "vector", "rows" => 10 }
-      # This intercept replaces whatever the model planned, so a search started from a filtered
-      # results page would otherwise lose those filters on the turn they matter most. The model's
-      # own filters still win; the carried ones are only a default.
+      # This intercept replaces the model's plan, so carried filters stand in as a default when
+      # the model asked for none of its own.
       filters = requested_arguments["filters"].presence if requested_name == "catalog_search_tool"
       filters ||= context_filters.presence
       catalog_arguments["filters"] = filters if filters.present?

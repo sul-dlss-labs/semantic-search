@@ -22,8 +22,7 @@
     <% end %>
 
     <%= render "chats/search_context", search_context: @search_context if @search_context %>
-    <%# Outside the card on purpose: removing the context deletes the card, and a status node %>
-    <%# inside it would be detached before a screen reader could announce the change. %>
+    <%# Outside the card: a status node inside it would be detached before it could be read out. %>
     <p class="visually-hidden" role="status" data-chat-target="contextStatus"></p>
 
     <div class="card shadow-sm">

@@ -3,12 +3,10 @@
 class ChatsController < ApplicationController
   def show
     @search_context = Chat::SearchContext.from_search_params(params[:search], controller: self)
-    # Distinguishes "arrived without a search" from "arrived from a search we could not rebuild",
-    # so the page can explain the difference instead of silently dropping the context.
+    # Lets the page explain a search it could not rebuild instead of silently dropping it.
     @search_context_unavailable = params[:search].present? && @search_context.nil?
     question = submitted_question
-    # Only a question the user actually submitted may auto-send. A suggestion derived from their
-    # search is prefilled for editing, so arriving from the results page never spends a model call.
+    # A suggested question is only prefilled, so arriving here never spends a model call.
     @autostart = question.present?
     @question = question || @search_context&.suggested_question
   end
@@ -37,17 +35,15 @@ class ChatsController < ApplicationController
     params[:q].to_s.strip.first(Rails.configuration.x.chat.max_message_characters).presence
   end
 
-  # An unreadable token drops the context rather than failing the turn: the conversation is still
-  # answerable, just no longer scoped to the search.
+  # An unreadable token drops the context rather than failing the turn.
   def search_context_from_token
     Chat::SearchContext.from_token(
       params[:context_token], excluded_ids: excluded_document_ids, controller: self
     )
   end
 
-  # The results the user dropped from the context card. They ride alongside the signed token
-  # rather than re-signing one per removal, which is safe because an id can only subtract a
-  # document the token already carries.
+  # Dropped results ride alongside the signed token rather than re-signing one per removal, which
+  # is safe because an id can only subtract a document the token already carries.
   def excluded_document_ids
     ids = params[:excluded_ids]
     ids.is_a?(Array) ? ids.grep(String) : []

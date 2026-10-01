@@ -52,10 +52,6 @@
         <%= render "catalog/matching_excerpts_loader", documents: @response.documents %>
       <% end %>
 
-      <% if render_ask_ai_about_results? %>
-        <%= render "catalog/ask_ai_about_results" %>
-      <% end %>
-
       <%= render 'shared/flash_msg', layout: 'shared/flash_messages' if flash.any? %>
 
       <div class="row">
@@ -66,6 +62,9 @@
 
           <section id="sidebar" class="<%= sidebar_classes %> order-first" aria-label="<%= t('blacklight.search.documents.aria.limit_search') %>">
             <%= content_for(:sidebar) %>
+            <% if render_ask_ai_about_results? %>
+              <%= render "catalog/ask_ai_about_results" %>
+            <% end %>
           </section>
         <% else %>
           <section class="col-md-12">

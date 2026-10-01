@@ -1,5 +1,10 @@
 <% has_results = @response&.documents.present? %>
-<section class="ask-ai-results" aria-labelledby="ask-ai-results-heading">
+<% hint = if has_results
+            "Opens the AI chat with your search query, your facet selections, and this page of results."
+          else
+            "Opens the AI assistant with your search and your filters."
+          end %>
+<section class="ask-ai-results" aria-labelledby="ask-ai-results-heading" data-controller="popover dock">
   <h2 id="ask-ai-results-heading" class="visually-hidden">Ask AI about this search</h2>
   <%= link_to chat_path(search: ask_ai_search_params),
               class: "btn ask-ai-results-button",
@@ -7,11 +12,15 @@
     <%= render "shared/ai_icon", class_name: "ai-prompt-icon" %>
     <span><%= has_results ? "Ask AI about these results" : "Ask AI about this search" %></span>
   <% end %>
-  <p id="ask-ai-results-hint" class="ask-ai-results-hint">
-    <% if has_results %>
-      Opens the AI chat with your search query, your facet selections, and this page of results.
-    <% else %>
-      Opens the AI assistant with your search and your filters.
-    <% end %>
-  </p>
+  <%= tag.button type: "button", id: "ask-ai-results-info",
+                 class: "btn btn-link ask-ai-results-info",
+                 aria: { label: "What gets sent to the AI chat" },
+                 data: { popover_target: "trigger",
+                         bs_toggle: "popover",
+                         bs_placement: "top",
+                         bs_title: "Send to chat",
+                         bs_content: hint } do %>
+    <i class="bi bi-info-circle" aria-hidden="true"></i>
+  <% end %>
+  <p id="ask-ai-results-hint" class="visually-hidden"><%= hint %></p>
 </section>

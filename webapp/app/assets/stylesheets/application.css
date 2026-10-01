@@ -251,6 +251,8 @@
 .ask-ai-results {
     display: flex;
     align-items: center;
+    width: fit-content;
+    max-width: 100%;
     column-gap: 0.75rem;
     row-gap: 0.625rem;
     flex-wrap: wrap;
@@ -261,6 +263,23 @@
     color: #2e2d29;
     margin-block: 1.5rem 2rem;
     padding: 1.25rem 1.5rem;
+}
+
+@media (min-width: 992px) {
+    #sidebar .ask-ai-results {
+        flex-wrap: nowrap;
+        padding: 1rem;
+    }
+}
+
+/* Docks the card against the bottom of the viewport once the user scrolls past where it sits
+   under the facet list. */
+@media (min-width: 992px) {
+    .ask-ai-results.is-dockable {
+        position: sticky;
+        top: calc(100dvh - var(--ask-ai-card-height, 0px) - 1rem);
+        z-index: 1020;
+    }
 }
 
 .ask-ai-results-button {
@@ -280,8 +299,18 @@
     color: #234a63;
 }
 
-.ask-ai-results-hint {
-    margin: 0;
-    color: var(--bs-secondary-color);
-    font-size: 0.875rem;
+.ask-ai-results-info {
+    display: inline-flex;
+    align-items: center;
+    padding: 0;
+    border: 0;
+    color: #315f86;
+    font-size: 1.125rem;
+    line-height: 1;
+    text-decoration: none;
+}
+
+.ask-ai-results-info:hover,
+.ask-ai-results-info:focus-visible {
+    color: #234a63;
 }

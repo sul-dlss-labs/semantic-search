@@ -173,6 +173,8 @@
 }
 
 .chat-context-back {
+  display: inline-block;
+  margin-top: 1rem;
   font-size: 0.875rem;
 }
 
@@ -204,7 +206,7 @@
 
 .chat-context-details summary {
   cursor: pointer;
-  font-size: 0.875rem;
+  font-size: 1rem;
 }
 
 .chat-context-list {

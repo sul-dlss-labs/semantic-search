@@ -52,9 +52,8 @@ module Chat
 
     attr_reader :search_context
 
-    # The search context enters on the server side of the role allowlist above, as a second system
-    # message. It is server-derived and fixed-size, so it is deliberately not counted against
-    # max_history_characters, which bounds only what the browser submits.
+    # The search context is server-derived and fixed-size, so it is deliberately not counted
+    # against max_history_characters, which bounds only what the browser submits.
     def with_system_prompt
       [ Rails.configuration.x.chat.system_prompt, search_context_prompt ].compact.map do |content|
         { "role" => "system", "content" => content }

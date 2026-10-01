@@ -1,22 +1,17 @@
 # frozen_string_literal: true
 
 module Chat
-  # Renders a SearchContext as the system message that tells the assistant which page of results
-  # the user is asking about.
-  #
-  # Kept separate from SearchContext so the wording can be tested without Solr or tokens, and so
-  # the untrusted-data fencing lives in one place.
+  # Renders a SearchContext as the system message naming the page of results the user is asking
+  # about. Separate from SearchContext so the wording is testable without Solr or tokens.
   class SearchContextPrompt
     def initialize(search_context)
       @search_context = search_context
-      # Catalog metadata is operator-supplied and untrusted. An unguessable fence is the cheapest
-      # defense against a title that tries to close the block and issue its own instructions.
+      # Unguessable fence, so untrusted catalog metadata cannot close the block and issue orders.
       @nonce = SecureRandom.hex(4)
     end
 
     def call
-      # The result list is the only elastic part, so it absorbs the budget. Truncating the whole
-      # message instead would cut the guidance off the end, which is the part that matters most.
+      # Only the result list absorbs the budget; truncating the message would cut off the guidance.
       assemble(numbered_results)
     end
 
@@ -125,9 +120,8 @@ module Chat
       end
     end
 
-    # "The first N" holds while the only things trimming the list are our carry limit and our
-    # character budget, which both drop results off the end. A removal takes them out of the
-    # middle, so from then on the list is a selection and has to be described as one.
+    # The carry limit and character budget drop results off the end, so "the first N" holds. A
+    # removal takes them out of the middle, making the list a selection instead.
     def partial_results_heading(listed)
       if search_context.removed_count.positive?
         "Listed below: the #{listed} #{'result'.pluralize(listed)} the user kept out of the " \
@@ -138,8 +132,6 @@ module Chat
       end
     end
 
-    # What the removal was a selection from, which is the carried set rather than the whole page
-    # whenever the carry limit already trimmed it.
     def carried_description
       carried = search_context.carried_documents.length
       return "#{carried} carried from that page of #{search_context.page_size}" if search_context.truncated?
@@ -192,8 +184,7 @@ module Chat
       ]
     end
 
-    # Said out here rather than inside the fence, because it is an instruction about the data and
-    # the fence tells the model not to take instructions from what it wraps.
+    # Outside the fence, which tells the model not to follow instructions from what it wraps.
     def removal_guidance
       return [] if search_context.removed_count.zero?
 

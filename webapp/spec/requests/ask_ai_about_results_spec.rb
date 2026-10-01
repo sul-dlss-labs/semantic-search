@@ -40,6 +40,35 @@ RSpec.describe "Ask AI about these results", type: :request do
     expect(hint.text.squish).to eq("Opens the AI chat with your search query, your facet selections, and this page of results.")
   end
 
+  it "offers the explanation on demand in an info popover" do
+    stub_solr
+    get "/", params: { q: "frogs", search_type: "keyword" }
+
+    page = Nokogiri::HTML(response.body)
+    info = page.at_css(".ask-ai-results-info")
+    expect(page.at_css("[data-controller~='popover']")).to be_present
+    expect(info["data-popover-target"]).to eq("trigger")
+    expect(info["data-bs-toggle"]).to eq("popover")
+    expect(info["aria-label"]).to eq("What gets sent to the AI chat")
+    expect(info["data-bs-content"]).to eq("Opens the AI chat with your search query, your facet selections, and this page of results.")
+  end
+
+  # The card docks to the bottom of the viewport with position: sticky, which only works while it
+  # is a direct child of the full-height sidebar column.
+  it "renders in the facet sidebar, after the facets rather than inside them" do
+    stub_solr
+    get "/", params: { q: "frogs", search_type: "keyword" }
+
+    sidebar = Nokogiri::HTML(response.body).at_css("#sidebar")
+    card = sidebar.at_css(".ask-ai-results")
+
+    expect(card).to be_present
+    expect(card.parent).to eq(sidebar)
+    expect(card.ancestors(".facets")).to be_empty
+    expect(sidebar.at_css(".facets")).to be_present
+    expect(card["data-controller"].split).to include("dock")
+  end
+
   it "offers the assistant on a facet-only browse, which has no query to summarize" do
     stub_solr
     get "/", params: { f: { "collection_title_ss" => [ "Frog Oral Histories" ] } }

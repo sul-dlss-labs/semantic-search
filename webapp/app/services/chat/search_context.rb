@@ -1,12 +1,9 @@
 # frozen_string_literal: true
 
 module Chat
-  # The page of search results a conversation was started from.
-  #
-  # Travels in two hops. The results page links to /chat with the plain Blacklight search params,
-  # which this class re-runs to derive the context; the chat page then signs the derived context
-  # into a token that the browser replays on every turn, so the search runs once per conversation
-  # rather than once per turn and the browser never supplies context text that reaches the model.
+  # The page of search results a conversation was started from. Derived by re-running the search
+  # params the results page links with, then signed into a token the browser replays each turn, so
+  # the browser can never supply context text of its own.
   class SearchContext
     VERIFIER_PURPOSE = "chat-search-context"
     MAX_QUERY = 500
@@ -15,8 +12,7 @@ module Chat
     MAX_AUTHOR = 120
     MAX_COLLECTION = 200
 
-    # Blacklight's own allowlist covers the rest. Paging is not in search_state_fields, and it is
-    # what makes "these results" mean the page the user was actually looking at.
+    # Not in Blacklight's search_state_fields, but paging is what scopes "these results" to a page.
     PAGING_FIELDS = %i[page per_page sort].freeze
 
     def self.verifier
@@ -37,8 +33,8 @@ module Chat
       nil
     end
 
-    # @param excluded_ids [Array<String>] documents the user has dropped from the carried page.
-    #   Safe to take from the browser: it can only subtract from the signed set, never add to it.
+    # @param excluded_ids [Array<String>] dropped documents; safe from the browser because they
+    #   can only subtract from the signed set
     # @return [SearchContext, nil] nil for a missing, tampered, or expired token
     def self.from_token(token, excluded_ids: nil, controller: nil)
       return nil if token.blank?
@@ -60,13 +56,11 @@ module Chat
     end
     private_class_method :unwrap
 
-    # Re-wrapped as unpermitted parameters so Blacklight's allowlist does the filtering rather
-    # than this class trusting whatever arrived in the URL.
+    # Re-wrapped as unpermitted parameters so Blacklight's allowlist does the filtering.
     def self.search_state(attributes, controller)
       permitted = ActionController::Parameters.new(attributes.symbolize_keys)
       permitted[:search_field] = "all_fields"
-      # CatalogController picks the search strategy in a prepend_before_action that ChatsController
-      # never runs, so re-derive it here or the carried page would be ranked differently.
+      # CatalogController sets this in a prepend_before_action that ChatsController never runs.
       permitted[:search_type] = CatalogSearchClassifier.new(permitted[:q]).call if permitted[:q].present?
       Blacklight::SearchState.new(permitted, CatalogController.blacklight_config, controller)
     end
@@ -75,8 +69,7 @@ module Chat
     def self.derive(state, controller)
       config = CatalogController.blacklight_config
       response = Blacklight::SearchService.new(config:, search_state: state).search_results
-      # Reusing the MCP formatter is what guarantees carried documents get byte-identical titles
-      # and URLs to the ones the chat tools return, so SourceCollection can dedupe them.
+      # Same formatter as the chat tools, so SourceCollection can dedupe carried against retrieved.
       formatted = SemanticSearchMcp::CatalogResults.format(
         response:, query: state.query_param.to_s, search_type: state.params[:search_type].to_s,
         filters: {}, config:, controller:
@@ -111,8 +104,7 @@ module Chat
     end
     private_class_method :filters_from
 
-    # Query facets (Text chunks) store the query key rather than a displayable value. Their config
-    # is keyed by string with symbol-keyed values, so neither a plain dig nor a symbol lookup works.
+    # Query facets store the query key, and their config is string-keyed with symbol-keyed values.
     def self.label_for(filter, value)
       filter.config.query.to_h[value.to_s].to_h[:label].presence || value
     end
@@ -129,8 +121,7 @@ module Chat
     end
     private_class_method :document_from
 
-    # Collapsed before it reaches the prompt: a multi-line title inside the context block would
-    # otherwise be indistinguishable from the surrounding structure.
+    # A multi-line title would be indistinguishable from the prompt's own structure.
     def self.flatten(value, limit)
       value.to_s.gsub(/\s+/, " ").strip.truncate(limit).presence
     end
@@ -165,8 +156,7 @@ module Chat
       )
     end
 
-    # Everything the token carries, including results the user has since removed. Only the
-    # bookkeeping that describes the carry itself should use this; the prompt gets #documents.
+    # Everything the token carries, including removed results. The prompt gets #documents instead.
     def carried_documents
       @carried_documents ||= Array(@payload[:documents]).map do |document|
         document.merge(url: SemanticSearchMcp::CatalogResults.record_url(@controller, document[:id]))
@@ -185,8 +175,7 @@ module Chat
       Array(@payload[:filters])
     end
 
-    # Only the facets catalog_search_tool can actually express. Its filters take a single string
-    # per field, so a multi-select facet contributes only its first value.
+    # catalog_search_tool takes one value per field, so a multi-select facet contributes its first.
     def tool_filters
       filters.filter_map do |filter|
         next if filter[:tool_key].blank?
@@ -207,8 +196,7 @@ module Chat
       total.zero?
     end
 
-    # True when the user's page held more results than we are willing to carry. Deliberately about
-    # the carry and not about #documents, so a removal does not read as a truncation.
+    # About the carry rather than #documents, so a removal does not read as a truncation.
     def truncated?
       carried_documents.length < page_size
     end
@@ -225,15 +213,13 @@ module Chat
 
     def suggested_question
       return "What is in these results?" if query.blank?
-      # A search with no matches is exactly where the assistant's vector search can still help,
-      # so point it at the topic rather than at results that do not exist.
+      # Vector search can still help here, so point at the topic rather than absent results.
       return "What can you find about #{quoted_query}?" if zero_results?
 
       "What can these results tell me about #{quoted_query}?"
     end
 
-    # Quoted-phrase searches are a first-class pattern here, so wrapping blindly would render
-    # ""like this"".
+    # Quoted-phrase searches are common here, so wrapping blindly would render ""like this"".
     def quoted_query
       return query if query.start_with?('"') && query.end_with?('"')
 
@@ -242,8 +228,6 @@ module Chat
 
     private
 
-    # Trimmed to the number of carried documents: that is the most the user could have removed, so
-    # anything past it cannot match and does not need to size the Set.
     def excluded_ids
       @excluded_id_set ||= @excluded_ids.first(carried_documents.length).to_set
     end

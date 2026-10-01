@@ -335,8 +335,8 @@ cases:
       - Keeps instructor, quarter, and unit count as distinct values, and may note that the course moved to autumn quarter by Courses and degrees 1957-1958.
     require_citations: true
 
-  # Conversations started from a search results page. search_context holds Blacklight search params;
-  # the harness loads /chat with them so the deployment mints the signed token the browser would.
+  # Conversations started from a search results page. search_context holds Blacklight search
+  # params; the harness loads /chat with them so the deployment mints the signed token.
   - id: search_context_scoped_summary
     search_context:
       q: oral history interview

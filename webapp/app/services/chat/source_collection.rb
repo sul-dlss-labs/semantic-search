@@ -16,9 +16,8 @@ module Chat
 
     def initialize
       @sources = []
-      # Documents carried in from a search results page: retrieved by this app, but not by a chat
-      # tool during this conversation. Kept apart from @sources so they can be cited as verified
-      # links without displacing genuinely retrieved sources from the list the user sees.
+      # Documents carried in from a results page. Kept apart from @sources so they can be cited
+      # as verified links without displacing genuinely retrieved sources.
       @seeded = []
     end
 
@@ -26,7 +25,6 @@ module Chat
       collect(content, @sources)
     end
 
-    # Marks carried documents as citable without treating them as retrieved evidence.
     def seed(content)
       collect(content, @seeded)
     end
@@ -36,8 +34,8 @@ module Chat
         answer.include?(source.fetch(:title)) || answer.include?(source.fetch(:url))
       end
 
-      # The floor draws from retrieved sources only, so a seeded document reaches the browser when
-      # the answer actually cites it rather than crowding out the evidence behind the answer.
+      # The floor draws from retrieved sources only, so a seeded document reaches the browser
+      # only when the answer actually cites it.
       sources = (cited_sources + @sources.first(10)).uniq { |source| source.fetch(:url) }
       emitted_sources = bounded_sources(sources)
       Selection.new(sources:, emitted_sources:, truncated: emitted_sources.length < sources.length)
@@ -86,8 +84,7 @@ module Chat
       into << source
     end
 
-    # A seeded document that a tool later returns has been genuinely retrieved, so move it across
-    # rather than recording the same URL in both tiers.
+    # A seeded document a tool later returns was genuinely retrieved, so move it across tiers.
     def promote(url, into)
       return nil unless into.equal?(@sources)
 

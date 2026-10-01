@@ -16,8 +16,7 @@ module Chat
       @history = MessageHistory.new(messages, search_context:)
       @completion_request_factory = completion_request_factory || LiteLlmCompletionRequest.method(:new)
       @sources = SourceCollection.new
-      # Carried documents are citable from the first turn. Without this the model cites a title the
-      # user just pointed at and the link gets unwrapped to plain text as unverified.
+      # Makes carried documents citable from the first turn, before any tool has returned them.
       @sources.seed(search_context.seed_sources) if search_context
       @tool_call_executor = ToolCallExecutor.new(
         tool_runner: tool_runner || ToolRunner.new(controller: controller),

@@ -5,8 +5,7 @@ class SearchNavbarComponent < Blacklight::SearchNavbarComponent
     helpers.controller_name == "chats"
   end
 
-  # On a results page, the search the user is looking at. On the chat page, whatever search they
-  # arrived with, so asking a fresh question keeps the same context.
+  # The search in view, or on the chat page the one it arrived with, so a fresh question keeps it.
   def ai_search_params
     return helpers.chat_search_params if ai_mode?
 

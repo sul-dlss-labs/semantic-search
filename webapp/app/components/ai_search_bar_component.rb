@@ -12,8 +12,7 @@ class AiSearchBarComponent < Blacklight::Component
 
   attr_reader :q, :search_params
 
-  # Flipping the Search/Ask AI toggle on a results page submits this form, which would otherwise
-  # drop the search the user is looking at without them ever leaving the page.
+  # Carries the current search through the Search/Ask AI toggle, which submits this form.
   def search_param_fields
     flatten_params("search", search_params)
   end

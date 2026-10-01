@@ -34,10 +34,8 @@ export default class extends Controller {
     if (this.inputTarget.value.trim()) this.formTarget.requestSubmit()
   }
 
-  // The signed search context travels with every turn, because the transcript is held in the
-  // browser and the server has no conversation to attach it to. Results the user dropped travel
-  // as bare ids beside it: the server can only subtract them from what the token already carries,
-  // so this stays unable to put context text of its own in front of the model.
+  // The signed context travels with every turn because the transcript lives in the browser.
+  // Dropped results travel as bare ids, which the server can only subtract from the token.
   contextParams() {
     const token = this.hasContextTokenTarget ? this.contextTokenTarget.value : ""
     if (!token) return {}
@@ -56,8 +54,7 @@ export default class extends Controller {
     this.inputTarget.focus()
   }
 
-  // Drops a single result from the carried page. The row goes away rather than being disabled,
-  // because the card is a statement of what the next turn will see.
+  // The row goes away rather than being disabled: the card states what the next turn will see.
   removeResult(event) {
     const { documentId, title } = event.params
     if (!documentId) return
@@ -75,8 +72,7 @@ export default class extends Controller {
     nextFocus.focus()
   }
 
-  // Removing the row destroys the focused button, so focus moves to the next remove button, or
-  // out to the message box once the list is empty.
+  // Removing the row destroys the focused button, so move focus on before it disappears.
   focusAfterRemoving(row) {
     const rows = this.contextResultTargets
     const index = rows.indexOf(row)

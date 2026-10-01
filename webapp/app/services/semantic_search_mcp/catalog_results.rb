@@ -24,9 +24,8 @@ module SemanticSearchMcp
       }
     end
 
-    # Public so Chat::SearchContext builds carried-document URLs identically. Chat::SourceCollection
-    # dedupes on URL and the browser matches citation hrefs against it exactly, so a carried
-    # document whose URL is built differently would silently fail to match a retrieved one.
+    # Public so Chat::SearchContext builds carried-document URLs identically: dedupe and citation
+    # matching are both exact on URL.
     def record_url(controller, id)
       return controller.solr_document_url(id) if controller
 

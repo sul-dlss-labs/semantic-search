@@ -93,17 +93,14 @@ module SemanticSearch
     # Maximum combined characters of tool evidence sent back to the model.
     config.x.chat.max_evidence_characters = 40_000
 
-    # Maximum number of search results carried into a conversation started from the results page.
-    # Caps the payload even when the user is viewing 50 or 100 results per page.
+    # Maximum search results carried into a conversation started from the results page.
     config.x.chat.max_search_context_documents = 20
 
-    # Maximum characters of the search context system message. This is the fourth independent
-    # budget in this list and nothing sums them: the system prompt, the conversation history,
-    # the tool evidence, and this context all ride along on every completion in the loop.
+    # Maximum characters of the search context system message. Independent of the budgets above;
+    # all four ride along on every completion.
     config.x.chat.max_search_context_characters = 6_000
 
-    # How long a signed search context token remains valid. It gates a live conversation, so it
-    # needs to outlast a long reading session rather than a single page view.
+    # How long a signed search context token stays valid; outlasts a long reading session.
     config.x.chat.search_context_expires_in = 12.hours
 
     # Maximum number of verified sources sent to and displayed by the browser.

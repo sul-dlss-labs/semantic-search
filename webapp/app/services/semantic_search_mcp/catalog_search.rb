@@ -84,9 +84,8 @@ module SemanticSearchMcp
       SemanticSearchMcp.internal_error("Catalog search failed.", e)
     end
 
-    # Maps this tool's `filters` keys to their Solr fields. The keys are derived from facet labels,
-    # so renaming a facet label in CatalogController renames a tool filter key. Public because
-    # Chat::SearchContext needs the same mapping to translate a user's active facets into filters.
+    # Maps this tool's `filters` keys to their Solr fields. Keys come from facet labels, so
+    # renaming a facet label in CatalogController renames a tool filter key.
     def facet_options
       used_keys = Set.new
       CatalogController.blacklight_config.facet_fields.each_with_object({}) do |(field_name, config), options|
@@ -101,7 +100,6 @@ module SemanticSearchMcp
       end
     end
 
-    # Inverts facet_options so a Solr facet field can be translated to a tool filter key.
     def filter_key_for(solr_field)
       facet_options.find { |_key, options| options[:field] == solr_field }&.first
     end

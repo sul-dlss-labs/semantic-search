@@ -110,8 +110,7 @@ RSpec.describe Chat::SearchContextPrompt do
       expect(prompt).to include("removed 1 result from this context")
     end
 
-    # The carry limit already trimmed the page, so the removal was a selection from what we
-    # carried. Measuring it against the page would overstate what the user threw away.
+    # Measuring the removal against the page would overstate what the user threw away.
     it "counts a removal against the carried set when the page was also truncated" do
       allow(search_context).to receive_messages(
         removed_count: 9, page_size: 100, truncated?: true, carried_documents: Array.new(10, {})
@@ -122,8 +121,7 @@ RSpec.describe Chat::SearchContextPrompt do
       )
     end
 
-    # The fence tells the model not to take instructions from what it wraps, so an instruction
-    # about the removals has to sit outside it to be followed at all.
+    # An instruction inside the fence would be one the model is told not to follow.
     it "keeps the removal instruction outside the data fence" do
       allow(search_context).to receive_messages(
         removed_count: 19, page_size: 20, carried_documents: Array.new(20, {})

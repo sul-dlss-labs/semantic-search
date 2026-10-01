@@ -30,9 +30,8 @@ module Chat
         @base_uri.path = "/" if @base_uri.path.blank?
       end
 
-      # search_context is a hash of Blacklight search params. It is resolved into a signed token by
-      # the deployment itself, because the harness runs against a remote target and does not share
-      # its secret_key_base.
+      # search_context is a hash of Blacklight search params, resolved into a signed token by the
+      # deployment itself, which is the only side holding secret_key_base.
       def ask(question, history: [], search_context: nil)
         csrf_token, cookies, context_token = fetch_session(search_context)
         accumulator = StreamAccumulator.new
@@ -74,8 +73,7 @@ module Chat
         [ CGI.unescapeHTML(token), cookies, context_token_from(body, search_context) ]
       end
 
-      # Fails loudly rather than silently evaluating an unscoped conversation, which would look
-      # like a model regression instead of a broken entry path.
+      # Fails loudly: an unscoped conversation would look like a model regression.
       def context_token_from(body, search_context)
         return nil if search_context.blank?
 
