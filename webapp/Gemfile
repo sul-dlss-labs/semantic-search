@@ -69,7 +69,7 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem "blacklight", "~> 9.1"
+gem "blacklight", "~> 9.2"
 # Helpers for rendering Cocina metadata [https://sul-dlss.github.io/cocina_display/]
 gem "cocina_display", "~> 2.13"
 gem "mcp", "~> 1.6"
