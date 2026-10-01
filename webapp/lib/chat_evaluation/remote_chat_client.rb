@@ -8,7 +8,18 @@ module Chat
   module Evaluation
     # Exercises the deployed chat endpoint through the same HTTP interface as a browser.
     class RemoteChatClient
-      Result = Data.define(:answer, :sources)
+      # The server sends this notice, then a done event, when the model hits its output token limit.
+      LENGTH_LIMIT_NOTICE = "reached its length limit"
+
+      Result = Data.define(:answer, :sources, :notices) do
+        def initialize(answer:, sources:, notices: [])
+          super
+        end
+
+        def truncated?
+          notices.any? { |notice| notice.to_s.include?(LENGTH_LIMIT_NOTICE) }
+        end
+      end
 
       class RequestError < StandardError; end
 
@@ -85,6 +96,7 @@ module Chat
           @data_lines = []
           @answer = +""
           @sources = []
+          @notices = []
           @done = false
         end
 
@@ -99,7 +111,7 @@ module Chat
           dispatch
           raise RequestError, "Chat stream ended without a done event" unless @done
 
-          Result.new(answer: @answer, sources: @sources)
+          Result.new(answer: @answer, sources: @sources, notices: @notices)
         end
 
         private
@@ -132,6 +144,8 @@ module Chat
             @answer.clear
           when "sources"
             @sources = Array(data["sources"])
+          when "notice"
+            @notices << data.fetch("message", "")
           when "error"
             raise RequestError, data.fetch("message", "The chat stream reported an error")
           when "done"
