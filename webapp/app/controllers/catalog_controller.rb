@@ -197,7 +197,9 @@ class CatalogController < ApplicationController
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display
     config.add_show_field "title_tesi", label: "Title"
+    config.add_show_field "created", field: "cocina_ss", label: "Created", helper_method: :publication_date
     config.add_show_field "collection_title_ss", label: "Collection Title", helper_method: :link_to_collection
+    config.add_show_field "abstracts", field: "cocina_ss", label: "Abstract", helper_method: :abstracts
     config.add_show_field "child_count_i", label: "Child count"
 
     # "fielded" search configuration. Used by pulldown among other places.
