@@ -30,8 +30,11 @@ module Chat
         @base_uri.path = "/" if @base_uri.path.blank?
       end
 
-      def ask(question, history: [])
-        csrf_token, cookies = fetch_session
+      # search_context is a hash of Blacklight search params. It is resolved into a signed token by
+      # the deployment itself, because the harness runs against a remote target and does not share
+      # its secret_key_base.
+      def ask(question, history: [], search_context: nil)
+        csrf_token, cookies, context_token = fetch_session(search_context)
         accumulator = StreamAccumulator.new
         uri = endpoint_uri
         request = Net::HTTP::Post.new(
@@ -43,7 +46,9 @@ module Chat
         )
         messages = Array(history).map { |message| message.to_h.stringify_keys }
         messages << { "role" => "user", "content" => question }
-        request.body = { messages: }.to_json
+        body = { messages: }
+        body[:context_token] = context_token if context_token.present?
+        request.body = body.to_json
 
         perform(uri, request) do |response|
           raise_request_error(response) unless response.is_a?(Net::HTTPSuccess)
@@ -55,21 +60,36 @@ module Chat
 
       private
 
-      def fetch_session
-        uri = endpoint_uri
+      def fetch_session(search_context = nil)
+        uri = endpoint_uri(search_context)
         request = Net::HTTP::Get.new(uri, "Accept" => "text/html")
         response = perform(uri, request)
         raise_request_error(response) unless response.is_a?(Net::HTTPSuccess)
 
-        token = response.body.to_s[/<meta\s+[^>]*name=["']csrf-token["'][^>]*content=["']([^"']+)["'][^>]*>/i, 1]
+        body = response.body.to_s
+        token = body[/<meta\s+[^>]*name=["']csrf-token["'][^>]*content=["']([^"']+)["'][^>]*>/i, 1]
         raise RequestError, "The chat page did not contain a CSRF token" if token.blank?
 
         cookies = Array(response.get_fields("set-cookie")).filter_map { |cookie| cookie.split(";", 2).first }.join("; ")
-        [ CGI.unescapeHTML(token), cookies ]
+        [ CGI.unescapeHTML(token), cookies, context_token_from(body, search_context) ]
       end
 
-      def endpoint_uri
-        URI.join(@base_uri.to_s.end_with?("/") ? @base_uri.to_s : "#{@base_uri}/", "chat")
+      # Fails loudly rather than silently evaluating an unscoped conversation, which would look
+      # like a model regression instead of a broken entry path.
+      def context_token_from(body, search_context)
+        return nil if search_context.blank?
+
+        token = body[/<input[^>]*name=["']context_token["'][^>]*value=["']([^"']+)["']/i, 1]
+        token ||= body[/<input[^>]*value=["']([^"']+)["'][^>]*name=["']context_token["']/i, 1]
+        raise RequestError, "The chat page did not carry a search context for #{search_context.inspect}" if token.blank?
+
+        CGI.unescapeHTML(token)
+      end
+
+      def endpoint_uri(search_context = nil)
+        uri = URI.join(@base_uri.to_s.end_with?("/") ? @base_uri.to_s : "#{@base_uri}/", "chat")
+        uri.query = { search: search_context }.to_query if search_context.present?
+        uri
       end
 
       def perform(uri, request)

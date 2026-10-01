@@ -109,6 +109,27 @@ module Chat
 
           raise ArgumentError, "Chat evaluation case #{evaluation_case[:id]} has an invalid history message"
         end
+        validate_search_context!(evaluation_case)
+      end
+
+      # A search_context block is Blacklight search params, not a signed payload: the deployment
+      # turns it into a token when the harness loads the chat page.
+      def validate_search_context!(evaluation_case)
+        search_context = evaluation_case[:search_context]
+        return if search_context.blank?
+
+        invalid = !search_context.is_a?(Hash) ||
+          search_context.except(:q, :f, :page, :per_page, :sort).any? ||
+          (search_context[:q].present? && !search_context[:q].is_a?(String)) ||
+          !valid_search_context_filters?(search_context[:f])
+        raise ArgumentError, "Chat evaluation case #{evaluation_case[:id]} has an invalid search_context" if invalid
+      end
+
+      def valid_search_context_filters?(filters)
+        return true if filters.blank?
+        return false unless filters.is_a?(Hash)
+
+        filters.values.all? { |values| values.is_a?(Array) && values.all? { |value| value.is_a?(String) } }
       end
 
       def evaluate_case(evaluation_case)
@@ -121,6 +142,7 @@ module Chat
           reference_answer: evaluation_case.fetch(:reference_answer),
           rubric: evaluation_case.fetch(:rubric),
           history: evaluation_case.fetch(:history, []),
+          search_context: evaluation_case.fetch(:search_context, nil),
           require_citations: evaluation_case.fetch(:require_citations, false),
           pass_rate:,
           passed: pass_rate >= @required_pass_rate,
@@ -138,7 +160,8 @@ module Chat
         chat_result = with_transient_retries(on_retry:) do
           @chat_client.ask(
             evaluation_case.fetch(:question),
-            history: evaluation_case.fetch(:history, [])
+            history: evaluation_case.fetch(:history, []),
+            search_context: evaluation_case.fetch(:search_context, nil)
           )
         end
         response_elapsed_seconds = elapsed_since(response_started_at)

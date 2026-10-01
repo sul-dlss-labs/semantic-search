@@ -5,10 +5,11 @@ require "json"
 module Chat
   # Executes model-requested tools and returns messages suitable for the next completion.
   class ToolCallExecutor
-    def initialize(tool_runner:, source_collection:, question:, result_compactor: nil)
+    def initialize(tool_runner:, source_collection:, question:, result_compactor: nil, context_filters: {})
       @tool_runner = tool_runner
       @source_collection = source_collection
       @question = question
+      @context_filters = context_filters || {}
       @call_count = 0
       @discovery_performed = false
       @result_compactor = result_compactor || ToolResultCompactor.new(
@@ -76,7 +77,8 @@ module Chat
       DeterministicDiscovery.new(tool_runner: @tool_runner).call(
         query: initial_discovery_query(requested_arguments),
         requested_name:,
-        requested_arguments:
+        requested_arguments:,
+        context_filters: @context_filters
       )
     end
 

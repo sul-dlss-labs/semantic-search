@@ -334,3 +334,49 @@ cases:
       - Says the course was listed for spring quarter and ties that quarter to the Announcement of courses 1954-1955 rather than leaving the year unstated.
       - Keeps instructor, quarter, and unit count as distinct values, and may note that the course moved to autumn quarter by Courses and degrees 1957-1958.
     require_citations: true
+
+  # Conversations started from a search results page. search_context holds Blacklight search params;
+  # the harness loads /chat with them so the deployment mints the signed token the browser would.
+  - id: search_context_scoped_summary
+    search_context:
+      q: oral history interview
+      f:
+        collection_title_ss:
+          - "Stanford Historical Society Oral History Program interviews : 1999-2025 (inclusive)"
+    question: Summarize these results for me.
+    reference_answer: >-
+      A summary of the interviews on that page of results, describing them as a
+      relevance-ranked page of matches rather than a complete list, and drawing
+      on the Stanford Historical Society Oral History Program.
+    rubric:
+      - Describes material actually present in the carried results rather than unrelated collections.
+      - Presents the results as examples or as one page of matches, never as a complete or exhaustive list.
+      - Does not present the number of carried results as a corpus-wide total.
+    require_citations: true
+
+  - id: search_context_broadens_when_asked
+    search_context:
+      q: oral history interview
+      f:
+        collection_title_ss:
+          - "Stanford Historical Society Oral History Program interviews : 1999-2025 (inclusive)"
+    question: Is there anything about this topic outside the collection I filtered to?
+    reference_answer: >-
+      Material from outside the filtered collection, with the assistant saying
+      that it searched beyond the filter the user had applied.
+    rubric:
+      - Searches beyond the carried filter instead of refusing or reporting that nothing exists outside it.
+      - Says explicitly that it looked outside the filter the user had applied.
+      - Does not claim the filtered collection is the only place the topic appears.
+
+  - id: search_context_zero_results_keeps_searching
+    search_context:
+      q: '"qwertzuiop plugh xyzzy"'
+    question: Why can't I find anything, and is there related material?
+    reference_answer: >-
+      An explanation that the catalog search found no matches, followed by an
+      attempt to find related material with the assistant's own search tools.
+    rubric:
+      - Reports that the user's search returned no matches.
+      - Still searches the collections with its own tools rather than stopping at the empty result.
+      - Does not state or imply that the corpus contains nothing on the topic based only on the empty search.

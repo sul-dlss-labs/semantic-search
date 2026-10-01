@@ -65,6 +65,42 @@ RSpec.describe Chat::Evaluation::RemoteChatClient do
         [ { "title" => "Baseball history", "url" => "https://example.test/baseball" } ]
       )
     end
+
+    context "with a search context" do
+      let(:search_context) { { q: "band auditions", f: { "collection_title_ss" => [ "Oral Histories" ] } } }
+
+      it "loads the chat page with the search so the deployment mints the token, then replays it" do
+        allow(get_response).to receive(:body).and_return(
+          '<html><head><meta name="csrf-token" content="csrf"></head>' \
+          '<body><input type="hidden" name="context_token" value="signed&amp;token"></body></html>'
+        )
+        allow(post_response).to receive(:read_body) { |&block| block.call("event: done\ndata: {}\n\n") }
+        allow(get_http).to receive(:request) do |request|
+          expect(request.uri.query).to eq(
+            "search%5Bf%5D%5Bcollection_title_ss%5D%5B%5D=Oral+Histories&search%5Bq%5D=band+auditions"
+          )
+          get_response
+        end
+        allow(post_http).to receive(:request) do |request, &block|
+          expect(JSON.parse(request.body)["context_token"]).to eq("signed&token")
+          block.call(post_response)
+        end
+
+        described_class.new(base_url: "https://chat.example").ask("What is here?", search_context:)
+
+        expect(post_http).to have_received(:request)
+      end
+
+      it "fails loudly when the page carries no context, rather than evaluating an unscoped answer" do
+        allow(get_response).to receive(:body).and_return(
+          '<html><head><meta name="csrf-token" content="csrf"></head></html>'
+        )
+
+        expect do
+          described_class.new(base_url: "https://chat.example").ask("What is here?", search_context:)
+        end.to raise_error(described_class::RequestError, /did not carry a search context/)
+      end
+    end
   end
 
   describe Chat::Evaluation::RemoteChatClient::StreamAccumulator do

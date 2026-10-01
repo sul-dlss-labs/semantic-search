@@ -8,7 +8,7 @@ const markdownTags = [
 ]
 
 export default class extends Controller {
-  static targets = ["messages", "form", "input", "submit", "submitLabel", "error"]
+  static targets = ["messages", "form", "input", "submit", "submitLabel", "error", "context", "contextToken", "contextStatus"]
   static values = { autostart: Boolean }
 
   static streamInterruptedMessage = "The answer stream was interrupted before it finished. The response may have been too large or the connection may have timed out. Please try again, or ask a narrower question."
@@ -28,6 +28,22 @@ export default class extends Controller {
     // restored page does not send the same question again.
     this.autostartValue = false
     if (this.inputTarget.value.trim()) this.formTarget.requestSubmit()
+  }
+
+  // The signed search context travels with every turn, because the transcript is held in the
+  // browser and the server has no conversation to attach it to.
+  contextParams() {
+    const token = this.hasContextTokenTarget ? this.contextTokenTarget.value : ""
+    return token ? { context_token: token } : {}
+  }
+
+  removeContext() {
+    if (this.hasContextTokenTarget) this.contextTokenTarget.value = ""
+    if (this.hasContextTarget) this.contextTarget.remove()
+    if (this.hasContextStatusTarget) {
+      this.contextStatusTarget.textContent = "Search context removed. Answers now cover the whole collection."
+    }
+    this.inputTarget.focus()
   }
 
   keydown(event) {
@@ -64,7 +80,7 @@ export default class extends Controller {
           "Content-Type": "application/json",
           "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]')?.content || ""
         },
-        body: JSON.stringify({ messages: this.history })
+        body: JSON.stringify({ messages: this.history, ...this.contextParams() })
       })
 
       if (!response.ok) {

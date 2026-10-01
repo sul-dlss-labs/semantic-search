@@ -61,7 +61,8 @@ RSpec.describe Chat::Evaluation::Runner do
       history: [
         { role: "user", content: "Who threw it?" },
         { role: "assistant", content: "I could not find it." }
-      ]
+      ],
+      search_context: nil
     )
     report = JSON.parse(@report_path.read)
     expect(report).to include("passed" => true, "evaluation_model" => "judge-model")

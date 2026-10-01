@@ -74,4 +74,44 @@ RSpec.describe Chat::DeterministicDiscovery do
       expect(described_class).not_to be_handles("get_document_chunks")
     end
   end
+
+  describe "carried search filters" do
+    let(:filters) { { "collection" => "Stanford Oral History Project" } }
+
+    def stub_searches(expected_catalog_arguments)
+      allow(tool_runner).to receive(:call).and_return(text: "", structured_content: {})
+      allow(tool_runner).to receive(:call).with(
+        name: "catalog_search_tool", arguments: expected_catalog_arguments
+      ).and_return(text: "Catalog", structured_content: { results: [] })
+    end
+
+    it "applies the carried filters when the model requested none" do
+      expected = catalog_arguments.merge("filters" => filters)
+      stub_searches(expected)
+
+      discovery.call(query:, requested_name: "search_passages", requested_arguments: { "query" => query },
+                     context_filters: filters)
+
+      expect(tool_runner).to have_received(:call).with(name: "catalog_search_tool", arguments: expected)
+    end
+
+    it "lets the model's own filters win over the carried ones" do
+      requested = { "query" => query, "filters" => { "topic" => "Music" } }
+      expected = catalog_arguments.merge("filters" => { "topic" => "Music" })
+      stub_searches(expected)
+
+      discovery.call(query:, requested_name: "catalog_search_tool", requested_arguments: requested,
+                     context_filters: filters)
+
+      expect(tool_runner).to have_received(:call).with(name: "catalog_search_tool", arguments: expected)
+    end
+
+    it "leaves the fan-out unfiltered when there is no carried search" do
+      stub_searches(catalog_arguments)
+
+      discovery.call(query:, requested_name: "search_passages", requested_arguments: { "query" => query })
+
+      expect(tool_runner).to have_received(:call).with(name: "catalog_search_tool", arguments: catalog_arguments)
+    end
+  end
 end

@@ -1,0 +1,17 @@
+<% has_results = @response&.documents.present? %>
+<section class="ask-ai-results" aria-labelledby="ask-ai-results-heading">
+  <h2 id="ask-ai-results-heading" class="visually-hidden">Ask AI about this search</h2>
+  <%= link_to chat_path(search: ask_ai_search_params),
+              class: "btn ask-ai-results-button",
+              aria: { describedby: "ask-ai-results-hint" } do %>
+    <%= render "shared/ai_icon", class_name: "ai-prompt-icon" %>
+    <span><%= has_results ? "Ask AI about these results" : "Ask AI about this search" %></span>
+  <% end %>
+  <p id="ask-ai-results-hint" class="ask-ai-results-hint">
+    <% if has_results %>
+      Opens the AI assistant chat with your search query, your facet selections, and this page of results.
+    <% else %>
+      Opens the AI assistant with your search and your filters.
+    <% end %>
+  </p>
+</section>
