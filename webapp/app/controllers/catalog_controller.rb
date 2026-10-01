@@ -181,6 +181,16 @@ class CatalogController < ApplicationController
     config.add_index_field "abstracts", field: "cocina_ss", label: "Abstract",
                            helper_method: :abstracts,
                            component: ExpandableMetadataComponent, expandable_lines: 3
+    # Not a Solr field: the chunks that caused a result to match are loaded after the page renders
+    # (see MatchingExcerptsController) and shown next to the rest of its metadata.
+    config.add_index_field "matching_excerpts", label: "Matching text",
+                           component: MatchingExcerptsComponent,
+                           expandable_lines: 6,
+                           include_in_request: false,
+                           values: ->(_config, document, view_context) {
+                             # Other controllers sharing this config (bookmarks) show no excerpts.
+                             view_context.try(:matching_excerpts_for, document)
+                           }
     config.add_index_field "doc_type_ssi", label: "Type"
     config.add_index_field "child_count_i", label: "Child count"
 
@@ -282,4 +292,14 @@ class CatalogController < ApplicationController
   def classify_search
     params[:search_type] = CatalogSearchClassifier.new(params[:q]).call if params[:q].present?
   end
+
+  # Excerpts are loaded after the page renders, so the results only carry a placeholder for them.
+  # JSON and other formats have no way to fill a placeholder in, so they get none.
+  def matching_excerpts_for(_document)
+    # The rendered format rather than request.format, which is not html? for "Accept: */*".
+    return [] unless formats.first == :html && params[:q].present?
+
+    MatchingExcerptsComponent::PENDING
+  end
+  helper_method :matching_excerpts_for
 end

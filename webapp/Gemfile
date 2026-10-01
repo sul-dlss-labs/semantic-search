@@ -75,3 +75,6 @@ gem "cocina_display", "~> 2.13"
 gem "mcp", "~> 1.6"
 
 gem "rsolr", ">= 1.0", "< 4"
+
+# Renders the Markdown in matching-text excerpts [https://github.com/gjtorikian/commonmarker]
+gem "commonmarker", "~> 2.10"

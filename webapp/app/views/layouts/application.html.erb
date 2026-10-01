@@ -49,6 +49,7 @@
 
       <% if controller_name == "catalog" && action_name == "index" && params[:q].present? && @response&.documents.present? %>
         <%= render "catalog/ai_summary", documents: @response.documents %>
+        <%= render "catalog/matching_excerpts_loader", documents: @response.documents %>
       <% end %>
 
       <%= render 'shared/flash_msg', layout: 'shared/flash_messages' if flash.any? %>
