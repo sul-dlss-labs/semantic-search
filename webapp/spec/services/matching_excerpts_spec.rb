@@ -57,6 +57,12 @@ RSpec.describe MatchingExcerpts do
                                      "hl.encoder" => "html")
     end
 
+    it "highlights the subject of a question rather than its filler words" do
+      service(query: 'Is there anything about "Phil Knight" in the repository?', embedding: embedding).call
+
+      expect(sent_params["hl.q"]).to eq('"Phil Knight"')
+    end
+
     it "requires each chunk to match the query rather than just the filters" do
       service(embedding: embedding).call
       bool = sent_params.dig(:json, :query, :bool)
