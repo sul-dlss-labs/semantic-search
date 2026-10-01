@@ -82,7 +82,7 @@ GEM
     bcrypt_pbkdf (1.1.2)
     bigdecimal (4.1.3)
     bindex (0.8.1)
-    blacklight (9.2.0)
+    blacklight (9.2.1)
       globalid
       i18n (>= 1.7.0)
       jbuilder (~> 2.7)
@@ -452,7 +452,7 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  blacklight (~> 9.1)
+  blacklight (~> 9.2)
   bootsnap
   brakeman
   bundler-audit
@@ -500,7 +500,7 @@ CHECKSUMS
   bcrypt_pbkdf (1.1.2) sha256=c2414c23ce66869b3eb9f643d6a3374d8322dfb5078125c82792304c10b94cf6
   bigdecimal (4.1.3) sha256=61ebe1e5e559bdc3cc6f2c0ee7f427321fc838f59611c294356eb04d6e21cf66
   bindex (0.8.1) sha256=7b1ecc9dc539ed8bccfc8cb4d2732046227b09d6f37582ff12e50a5047ceb17e
-  blacklight (9.2.0) sha256=30abe82fb3d86d740f9bde89f713283d94c46a47a933d8089327161b98490100
+  blacklight (9.2.1) sha256=8c657a2180a86e38e426042a9ac1224a90659008da396094cb9836fb0acb526d
   bootsnap (1.26.0) sha256=ca96237015e6cd74a02963d5821cf00ac5ea134653b323e8cd6d702a7718bf1b
   brakeman (8.1.0) sha256=cfa9e5214e4925842f4bc849a64f8a7e6c5d0425fe98eac8d7b7bc60fdc17e07
   builder (3.3.0) sha256=497918d2f9dca528fdca4b88d84e4ef4387256d984b8154e9d5d3fe5a9c8835f
