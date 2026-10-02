@@ -84,6 +84,26 @@ module SemanticSearchMcp
       SemanticSearchMcp.internal_error("Catalog search failed.", e)
     end
 
+    # Maps this tool's `filters` keys to their Solr fields. Keys come from facet labels, so
+    # renaming a facet label in CatalogController renames a tool filter key.
+    def facet_options
+      used_keys = Set.new
+      CatalogController.blacklight_config.facet_fields.each_with_object({}) do |(field_name, config), options|
+        next unless usable_facet?(config)
+
+        key = unique_key(clean_label(config.label), field_name, used_keys)
+        used_keys << key
+        options[key] = {
+          field: config.field || field_name,
+          description: "Filter by #{config.label.downcase}"
+        }
+      end
+    end
+
+    def filter_key_for(solr_field)
+      facet_options.find { |_key, options| options[:field] == solr_field }&.first
+    end
+
     private
 
     def catalog_result_schema
@@ -185,20 +205,6 @@ module SemanticSearchMcp
           limit: MATCHED_CHUNK_TOP_K
         }
       }
-    end
-
-    def facet_options
-      used_keys = Set.new
-      CatalogController.blacklight_config.facet_fields.each_with_object({}) do |(field_name, config), options|
-        next unless usable_facet?(config)
-
-        key = unique_key(clean_label(config.label), field_name, used_keys)
-        used_keys << key
-        options[key] = {
-          field: config.field || field_name,
-          description: "Filter by #{config.label.downcase}"
-        }
-      end
     end
 
     def usable_facet?(config)

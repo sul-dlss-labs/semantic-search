@@ -1,5 +1,8 @@
 <search>
   <%= form_with url: chat_path, method: :get, class: "search-query-form ai-search-query-form", role: "search", aria: { label: "Ask AI" } do |form| %>
+    <% search_param_fields.each do |name, value| %>
+      <%= hidden_field_tag name, value, id: nil %>
+    <% end %>
     <%= form.label :q, "Your question", class: "visually-hidden", for: "ai-question" %>
     <div class="input-group">
       <%= render "shared/ai_icon", class_name: "ai-prompt-icon" %>

@@ -5,6 +5,13 @@ class SearchNavbarComponent < Blacklight::SearchNavbarComponent
     helpers.controller_name == "chats"
   end
 
+  # The search in view, or on the chat page the one it arrived with, so a fresh question keeps it.
+  def ai_search_params
+    return helpers.chat_search_params if ai_mode?
+
+    helpers.render_ask_ai_about_results? ? helpers.ask_ai_search_params : {}
+  end
+
   def search_bar_component
     search_bar_component_class.new(
       url: helpers.search_action_url,

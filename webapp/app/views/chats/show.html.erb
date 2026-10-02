@@ -3,7 +3,7 @@
   <%= stylesheet_link_tag "chat", "data-turbo-track": "dynamic" %>
 <% end %>
 
-<div class="chat-page py-4" data-controller="chat" data-chat-autostart-value="<%= @question.present? %>">
+<div class="chat-page py-4" data-controller="chat" data-chat-autostart-value="<%= @autostart.present? %>">
   <div class="mx-auto chat-shell">
     <header class="mb-4">
       <h1>Ask AI</h1>
@@ -13,18 +13,34 @@
       </p>
     </header>
 
+    <% if @search_context_unavailable %>
+      <div class="alert alert-warning" role="alert">
+        The search context from your results page is no longer available, so answers here cover the
+        whole collection. <%= link_to "Go back to your results", search_catalog_path(chat_search_params) %>
+        and try again.
+      </div>
+    <% end %>
+
+    <%= render "chats/search_context", search_context: @search_context if @search_context %>
+    <%# Outside the card: a status node inside it would be detached before it could be read out. %>
+    <p class="visually-hidden" role="status" data-chat-target="contextStatus"></p>
+
     <div class="card shadow-sm">
       <div class="card-body chat-messages" role="log" aria-live="polite" aria-relevant="additions text"
            data-chat-target="messages">
         <article class="chat-message chat-message-assistant">
           <div class="chat-message-label">Collections Assistant</div>
-          <div class="chat-message-content">What would you like to learn from the collections?</div>
+          <div class="chat-message-content"><%= chat_greeting %></div>
         </article>
       </div>
 
       <div class="card-footer bg-body p-3">
         <div class="alert alert-danger d-none mb-3" role="alert" data-chat-target="error"></div>
         <%= form_with url: chat_path, method: :post, html: { data: { action: "submit->chat#submit", chat_target: "form" } } do |form| %>
+          <% if @search_context %>
+            <%= hidden_field_tag :context_token, @search_context.token, id: nil,
+                                 data: { chat_target: "contextToken" } %>
+          <% end %>
           <%= form.label :message, "Your question", class: "form-label visually-hidden" %>
           <div class="search-query-form">
             <div class="input-group">

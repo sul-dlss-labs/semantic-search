@@ -8,7 +8,10 @@ const markdownTags = [
 ]
 
 export default class extends Controller {
-  static targets = ["messages", "form", "input", "submit", "submitLabel", "error"]
+  static targets = [
+    "messages", "form", "input", "submit", "submitLabel", "error", "context", "contextToken",
+    "contextStatus", "contextCount", "contextResult", "contextEmptied"
+  ]
   static values = { autostart: Boolean }
 
   static streamInterruptedMessage = "The answer stream was interrupted before it finished. The response may have been too large or the connection may have timed out. Please try again, or ask a narrower question."
@@ -16,6 +19,7 @@ export default class extends Controller {
   connect() {
     this.history = []
     this.verifiedSources = []
+    this.excludedIds = new Set()
     this.copyFeedbackTimeouts = new WeakMap()
     this.debugPanelSequence = this.messagesTarget.querySelectorAll(".chat-debug-panel").length
     this.autostart()
@@ -28,6 +32,69 @@ export default class extends Controller {
     // restored page does not send the same question again.
     this.autostartValue = false
     if (this.inputTarget.value.trim()) this.formTarget.requestSubmit()
+  }
+
+  // The signed context travels with every turn because the transcript lives in the browser.
+  // Dropped results travel as bare ids, which the server can only subtract from the token.
+  contextParams() {
+    const token = this.hasContextTokenTarget ? this.contextTokenTarget.value : ""
+    if (!token) return {}
+
+    const params = { context_token: token }
+    if (this.excludedIds.size > 0) params.excluded_ids = Array.from(this.excludedIds)
+    return params
+  }
+
+  removeContext() {
+    if (this.hasContextTokenTarget) this.contextTokenTarget.value = ""
+    if (this.hasContextTarget) this.contextTarget.remove()
+    if (this.hasContextStatusTarget) {
+      this.contextStatusTarget.textContent = "Search context removed. Answers now cover the whole collection."
+    }
+    this.inputTarget.focus()
+  }
+
+  // The row goes away rather than being disabled: the card states what the next turn will see.
+  removeResult(event) {
+    const { documentId, title } = event.params
+    if (!documentId) return
+
+    this.excludedIds.add(documentId)
+    const row = event.currentTarget.closest("[data-chat-target='contextResult']")
+    const nextFocus = this.focusAfterRemoving(row)
+    row?.remove()
+
+    const remaining = this.contextResultTargets.length
+    this.updateContextCount(remaining)
+    this.announceContext(
+      `Removed ${title || "result"} from this conversation. ${this.resultCountLabel(remaining)} remaining.`
+    )
+    nextFocus.focus()
+  }
+
+  // Removing the row destroys the focused button, so move focus on before it disappears.
+  focusAfterRemoving(row) {
+    const rows = this.contextResultTargets
+    const index = rows.indexOf(row)
+    const neighbour = rows[index + 1] || rows[index - 1]
+    return neighbour?.querySelector(".chat-context-result-remove") || this.inputTarget
+  }
+
+  updateContextCount(remaining) {
+    if (this.hasContextCountTarget) {
+      this.contextCountTarget.textContent = remaining === 0
+        ? "No results carried into this conversation"
+        : `${this.resultCountLabel(remaining)} carried into this conversation`
+    }
+    if (this.hasContextEmptiedTarget) this.contextEmptiedTarget.classList.toggle("d-none", remaining > 0)
+  }
+
+  resultCountLabel(count) {
+    return `${count} result${count === 1 ? "" : "s"}`
+  }
+
+  announceContext(message) {
+    if (this.hasContextStatusTarget) this.contextStatusTarget.textContent = message
   }
 
   keydown(event) {
@@ -64,7 +131,7 @@ export default class extends Controller {
           "Content-Type": "application/json",
           "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]')?.content || ""
         },
-        body: JSON.stringify({ messages: this.history })
+        body: JSON.stringify({ messages: this.history, ...this.contextParams() })
       })
 
       if (!response.ok) {

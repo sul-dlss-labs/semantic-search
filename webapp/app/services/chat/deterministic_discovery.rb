@@ -14,12 +14,14 @@ module Chat
       @tool_runner = tool_runner
     end
 
-    def call(query:, requested_name:, requested_arguments:)
+    def call(query:, requested_name:, requested_arguments:, context_filters: {})
       passage_search = [ "search_passages", { "query" => query } ]
       catalog_arguments = { "query" => query, "search_type" => "vector", "rows" => 10 }
-      if requested_name == "catalog_search_tool" && requested_arguments["filters"].present?
-        catalog_arguments["filters"] = requested_arguments["filters"]
-      end
+      # This intercept replaces the model's plan, so carried filters stand in as a default when
+      # the model asked for none of its own.
+      filters = requested_arguments["filters"].presence if requested_name == "catalog_search_tool"
+      filters ||= context_filters.presence
+      catalog_arguments["filters"] = filters if filters.present?
       catalog_search = [ "catalog_search_tool", catalog_arguments ]
       passage_result = run(passage_search)
       catalog_result = run(catalog_search)

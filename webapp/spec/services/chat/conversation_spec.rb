@@ -512,4 +512,66 @@ RSpec.describe Chat::Conversation do
       described_class.normalize_messages([ { role: "assistant", content: "Hello" } ])
     end.to raise_error(described_class::InvalidMessages, "The last message must be from the user.")
   end
+
+  describe "a conversation started from a search results page" do
+    let(:search_context) do
+      instance_double(
+        Chat::SearchContext,
+        tool_filters: { "collection" => "Stanford Oral History Project" },
+        seed_sources: { results: [ { title: "Carried record", url: "http://example.test/catalog/carried" } ] }
+      )
+    end
+
+    before do
+      allow(Chat::SearchContextPrompt).to receive(:new).with(search_context)
+        .and_return(instance_double(Chat::SearchContextPrompt, call: "They searched for band auditions."))
+    end
+
+    def run(question)
+      events = []
+      Chat::Conversation.new(
+        messages: [ { role: "user", content: question } ],
+        completion_request_factory: client.method(:call),
+        tool_runner:,
+        search_context:
+      ).each_event.each { |event| events << event }
+      events.join
+    end
+
+    it "puts the carried search in front of the conversation on every request" do
+      client.enqueue(content: "An answer.", deltas: [ "An answer." ])
+
+      run("What is in these results?")
+
+      expect(client.requests.first[:messages].first(2)).to eq(
+        [
+          { "role" => "system", "content" => Rails.configuration.x.chat.system_prompt },
+          { "role" => "system", "content" => "They searched for band auditions." }
+        ]
+      )
+    end
+
+    it "makes a carried document citable without the model having to retrieve it" do
+      answer = "See [Carried record](http://example.test/catalog/carried)."
+      client.enqueue(content: answer, deltas: [ answer ])
+
+      body = run("What is in these results?")
+
+      expect(body).to include("event: sources")
+      expect(body).to include("http://example.test/catalog/carried")
+    end
+
+    it "defaults the first search to the filters the user had applied" do
+      client.enqueue(tool_calls: [ tool_call("call-1", "band auditions") ])
+      client.enqueue(content: "An answer.", deltas: [ "An answer." ])
+      allow(tool_runner).to receive(:call).and_return(text: "", structured_content: {})
+
+      run("What is in these results?")
+
+      expect(tool_runner).to have_received(:call).with(
+        name: "catalog_search_tool",
+        arguments: hash_including("filters" => { "collection" => "Stanford Oral History Project" })
+      )
+    end
+  end
 end

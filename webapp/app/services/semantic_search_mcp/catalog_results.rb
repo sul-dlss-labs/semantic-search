@@ -24,6 +24,14 @@ module SemanticSearchMcp
       }
     end
 
+    # Public so Chat::SearchContext builds carried-document URLs identically: dedupe and citation
+    # matching are both exact on URL.
+    def record_url(controller, id)
+      return controller.solr_document_url(id) if controller
+
+      Rails.application.routes.url_helpers.solr_document_path(id)
+    end
+
     private
 
     def format_document(document, controller, matched_chunks)
@@ -52,12 +60,6 @@ module SemanticSearchMcp
 
     def array_value(document, field_names)
       field_names.flat_map { |field_name| Array(document[field_name]) }.compact_blank.presence
-    end
-
-    def record_url(controller, id)
-      return controller.solr_document_url(id) if controller
-
-      Rails.application.routes.url_helpers.solr_document_path(id)
     end
 
     def extract_facets(response, config)

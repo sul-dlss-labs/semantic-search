@@ -15,7 +15,7 @@
         <%= search_bar %>
       </div>
       <div class="search-mode-panel" data-search-mode-panel="ai">
-        <%= render AiSearchBarComponent.new(q: params[:q]) %>
+        <%= render AiSearchBarComponent.new(q: params[:q], search_params: ai_search_params) %>
       </div>
     </div>
   </div>

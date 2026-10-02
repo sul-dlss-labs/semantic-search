@@ -16,9 +16,34 @@ module Chat
 
     def initialize
       @sources = []
+      # Documents carried in from a results page. Kept apart from @sources so they can be cited
+      # as verified links without displacing genuinely retrieved sources.
+      @seeded = []
     end
 
     def add(content)
+      collect(content, @sources)
+    end
+
+    def seed(content)
+      collect(content, @seeded)
+    end
+
+    def for_answer(answer)
+      cited_sources = (@sources + @seeded).select do |source|
+        answer.include?(source.fetch(:title)) || answer.include?(source.fetch(:url))
+      end
+
+      # The floor draws from retrieved sources only, so a seeded document reaches the browser
+      # only when the answer actually cites it.
+      sources = (cited_sources + @sources.first(10)).uniq { |source| source.fetch(:url) }
+      emitted_sources = bounded_sources(sources)
+      Selection.new(sources:, emitted_sources:, truncated: emitted_sources.length < sources.length)
+    end
+
+    private
+
+    def collect(content, into)
       return unless content.is_a?(Hash)
 
       content = content.deep_symbolize_keys
@@ -42,25 +67,13 @@ module Chat
         }
       end
 
-      candidates.each { |candidate| add_candidate(candidate) }
+      candidates.each { |candidate| add_candidate(candidate, into) }
     end
 
-    def for_answer(answer)
-      cited_sources = @sources.select do |source|
-        answer.include?(source.fetch(:title)) || answer.include?(source.fetch(:url))
-      end
-
-      sources = (cited_sources + @sources.first(10)).uniq { |source| source.fetch(:url) }
-      emitted_sources = bounded_sources(sources)
-      Selection.new(sources:, emitted_sources:, truncated: emitted_sources.length < sources.length)
-    end
-
-    private
-
-    def add_candidate(candidate)
+    def add_candidate(candidate, into)
       return if candidate[:title].blank? || candidate[:url].blank?
 
-      existing_source = @sources.find { |source| source[:url] == candidate[:url] }
+      existing_source = promote(candidate[:url], into) || into.find { |source| source[:url] == candidate[:url] }
       if existing_source
         merge_pages(existing_source, candidate[:pages])
         return
@@ -68,7 +81,19 @@ module Chat
 
       source = { title: candidate[:title], url: candidate[:url] }
       source[:pages] = candidate[:pages] if candidate[:pages].any?
-      @sources << source
+      into << source
+    end
+
+    # A seeded document a tool later returns was genuinely retrieved, so move it across tiers.
+    def promote(url, into)
+      return nil unless into.equal?(@sources)
+
+      seeded_source = @seeded.find { |source| source[:url] == url }
+      return nil if seeded_source.nil?
+
+      @seeded.delete(seeded_source)
+      @sources << seeded_source
+      seeded_source
     end
 
     def pages_from(chunks)

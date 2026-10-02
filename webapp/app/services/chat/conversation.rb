@@ -11,14 +11,18 @@ module Chat
       MessageHistory.normalize(value)
     end
 
-    def initialize(messages:, controller: nil, completion_request_factory: nil, tool_runner: nil)
-      @history = MessageHistory.new(messages)
+    def initialize(messages:, controller: nil, completion_request_factory: nil, tool_runner: nil,
+                   search_context: nil)
+      @history = MessageHistory.new(messages, search_context:)
       @completion_request_factory = completion_request_factory || LiteLlmCompletionRequest.method(:new)
       @sources = SourceCollection.new
+      # Makes carried documents citable from the first turn, before any tool has returned them.
+      @sources.seed(search_context.seed_sources) if search_context
       @tool_call_executor = ToolCallExecutor.new(
         tool_runner: tool_runner || ToolRunner.new(controller: controller),
         source_collection: @sources,
-        question: @history.last_user_content
+        question: @history.last_user_content,
+        context_filters: search_context&.tool_filters || {}
       )
     end
 

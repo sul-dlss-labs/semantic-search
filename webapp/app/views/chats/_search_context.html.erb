@@ -1,0 +1,84 @@
+<section class="chat-context card mb-3" aria-labelledby="chat-context-heading" data-chat-target="context">
+  <div class="card-body">
+    <div class="chat-context-header">
+      <h2 id="chat-context-heading" class="chat-context-heading">
+        <i class="bi bi-arrow-right-circle-fill" aria-hidden="true"></i> FROM YOUR SEARCH
+      </h2>
+      <button type="button" class="btn btn-sm btn-link chat-context-remove" data-action="chat#removeContext">
+        Remove this search context
+      </button>
+    </div>
+
+    <p class="chat-context-summary">
+      <strong>
+        <% if search_context.query.present? %>
+          <%= search_context.query %>
+        <% else %>
+          All records
+        <% end %>
+      </strong>
+      <% if search_context.zero_results? %>
+        &middot; no matches
+      <% else %>
+        &middot; <%= number_with_delimiter(search_context.total) %>
+        <%= "result".pluralize(search_context.total) %>
+        &middot; showing <%= search_context.first_item %>&ndash;<%= search_context.last_item %>
+      <% end %>
+    </p>
+
+    <% if search_context.filters.any? %>
+      <ul class="chat-context-filters">
+        <% search_context.filters.each do |filter| %>
+          <li class="chat-context-filter">
+            <span class="chat-context-filter-label"><%= filter[:label] %>:</span>
+            <%= filter[:values].to_sentence %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <% if search_context.documents.any? %>
+      <details class="chat-context-details">
+        <summary data-chat-target="contextCount">
+          <%= pluralize(search_context.documents.length, "result") %> carried into this conversation
+        </summary>
+        <ul class="chat-context-list">
+          <% search_context.documents.each do |document| %>
+            <li class="chat-context-result" data-chat-target="contextResult">
+              <%# The flex row is a child of the li so the li keeps its list-item marker. %>
+              <div class="chat-context-result-row">
+                <div class="chat-context-result-body">
+                  <%= link_to document[:title], document[:url] %>
+                  <% if document[:collection].present? %>
+                    <span class="chat-context-list-meta"><%= document[:collection] %></span>
+                  <% end %>
+                </div>
+                <%= tag.button type: "button", class: "chat-context-result-remove",
+                               title: "Remove from this conversation",
+                               aria: { label: "Remove #{document[:title]} from this conversation" },
+                               data: { action: "chat#removeResult",
+                                       chat_document_id_param: document[:id],
+                                       chat_title_param: document[:title] } do %>
+                  <i class="bi bi-x-lg" aria-hidden="true"></i>
+                <% end %>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      </details>
+      <%# Unhidden by the controller once the last result is removed. %>
+      <p class="chat-context-note d-none" data-chat-target="contextEmptied">
+        No results are carried into this conversation. Your search query and filters still are.
+      </p>
+      <% if search_context.truncated? %>
+        <p class="chat-context-note">
+          Your page showed <%= search_context.page_size %> results; the first
+          <%= search_context.documents.length %> were carried into this conversation.
+        </p>
+      <% end %>
+    <% end %>
+
+    <%= link_to "Back to these results", search_catalog_path(search_context.search_params),
+                class: "chat-context-back" %>
+  </div>
+</section>
