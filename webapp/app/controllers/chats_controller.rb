@@ -2,13 +2,10 @@
 
 class ChatsController < ApplicationController
   def show
-    @search_context = Chat::SearchContext.from_search_params(params[:search], controller: self)
-    # Lets the page explain a search it could not rebuild instead of silently dropping it.
-    @search_context_unavailable = params[:search].present? && @search_context.nil?
-    question = submitted_question
-    # A suggested question is only prefilled, so arriving here never spends a model call.
-    @autostart = question.present?
-    @question = question || @search_context&.suggested_question
+    render locals: {
+      search_context: Chat::SearchContext.from_search_params(params[:search], controller: self),
+      question: submitted_question
+    }
   end
 
   def create

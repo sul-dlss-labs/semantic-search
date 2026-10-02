@@ -1,0 +1,25 @@
+<%= form_with url: chat_path, method: :post, html: { data: { action: "submit->chat#submit", chat_target: "form" } } do |form| %>
+  <% if search_context %>
+    <%= hidden_field_tag :context_token, search_context.token, id: nil,
+                         data: { chat_target: "contextToken" } %>
+  <% end %>
+  <%= form.label :message, "Your question", class: "form-label visually-hidden" %>
+  <div class="search-query-form">
+    <div class="input-group">
+      <%= form.text_area :message,
+                         rows: 1,
+                         required: true,
+                         value: question,
+                         maxlength: max_characters,
+                         placeholder: PLACEHOLDER,
+                         class: "form-control search-q",
+                         data: { chat_target: "input", action: "keydown->chat#keydown" } %>
+      <%= tag.button class: "btn btn-primary search-btn", type: "submit",
+                     aria: { label: "Send" },
+                     data: { chat_target: "submit" } do %>
+        <span class="submit-search-text" aria-hidden="true" data-chat-target="submitLabel">Send</span>
+      <% end %>
+    </div>
+  </div>
+  <div class="form-text">This is an experimental system with limited data. AI may be inaccurate. Please verify important details against the cited sources.</div>
+<% end %>
