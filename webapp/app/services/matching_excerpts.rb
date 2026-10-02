@@ -177,8 +177,9 @@ class MatchingExcerpts
       "hl" => true,
       "hl.fl" => HIGHLIGHT_FIELD,
       # Required: the highlighter does not see the query when it is expressed in the JSON DSL,
-      # and silently returns empty highlights without this.
-      "hl.q" => @query,
+      # and silently returns empty highlights without this. Filler words are left out so that
+      # only the subject of a question is highlighted.
+      "hl.q" => HighlightQuery.new(@query).call,
       # edismax is lenient, so malformed user input cannot turn into a 400.
       "hl.qparser" => "edismax",
       "hl.qf" => HIGHLIGHT_FIELD,
