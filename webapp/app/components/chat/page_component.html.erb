@@ -1,0 +1,38 @@
+<div class="chat-page py-4" data-controller="chat" data-chat-autostart-value="<%= autostart? %>">
+  <div class="mx-auto chat-shell">
+    <header class="mb-4">
+      <h1>Ask AI</h1>
+      <p class="lead mb-2">Chat with the AI assistant about material in our digital collections.</p>
+      <p class="text-body-secondary mb-0">
+        This experimental system covers only part of our collections. The assistant searches this site’s catalog and document text, and will decline requests outside that scope.
+      </p>
+    </header>
+
+    <% if search_context_unavailable? %>
+      <div class="alert alert-warning" role="alert">
+        The search context from your results page is no longer available, so answers here cover the
+        whole collection. <%= link_to "Go back to your results", search_catalog_path(search_params) %>
+        and try again.
+      </div>
+    <% end %>
+
+    <%= render Chat::SearchContextComponent.new(search_context:) %>
+    <%# Outside the card: a status node inside it would be detached before it could be read out. %>
+    <p class="visually-hidden" role="status" data-chat-target="contextStatus"></p>
+
+    <div class="card shadow-sm">
+      <div class="card-body chat-messages" role="log" aria-live="polite" aria-relevant="additions text"
+           data-chat-target="messages">
+        <article class="chat-message chat-message-assistant">
+          <div class="chat-message-label">Collections Assistant</div>
+          <div class="chat-message-content"><%= greeting %></div>
+        </article>
+      </div>
+
+      <div class="card-footer bg-body p-3">
+        <div class="alert alert-danger d-none mb-3" role="alert" data-chat-target="error"></div>
+        <%= render Chat::FormComponent.new(question:, search_context:) %>
+      </div>
+    </div>
+  </div>
+</div>
