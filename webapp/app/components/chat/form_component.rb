@@ -2,8 +2,6 @@
 
 module Chat
   class FormComponent < ViewComponent::Base
-    PLACEHOLDER = "Ask a question about people, places, themes, or documents..."
-
     def initialize(question:, search_context: nil)
       @question = question
       @search_context = search_context
