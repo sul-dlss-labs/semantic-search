@@ -49,7 +49,7 @@
                                  required: true,
                                  value: @question,
                                  maxlength: Rails.configuration.x.chat.max_message_characters,
-                                 placeholder: "Ask a question about people, places, themes, or documents...",
+                                 placeholder: AiSearchBarComponent::PLACEHOLDER,
                                  class: "form-control search-q",
                                  data: { chat_target: "input", action: "keydown->chat#keydown" } %>
               <%= tag.button class: "btn btn-primary search-btn", type: "submit",
