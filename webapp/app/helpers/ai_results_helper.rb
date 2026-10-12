@@ -26,19 +26,4 @@ module AiResultsHelper
       CatalogController.blacklight_config
     ).to_h.except(:controller, :action)
   end
-
-  def chat_greeting
-    return "What would you like to learn from the collections?" if @search_context.blank?
-
-    if @search_context.zero_results?
-      return "That search did not match anything in the catalog, but I can still search the " \
-             "collections. What would you like to know?"
-    end
-
-    return "I can see ther results from your search. What would you like to know about them?" if
-      @search_context.query.blank?
-
-    "I can see the results from your search for #{@search_context.quoted_query}. " \
-      "What would you like to know about them?"
-  end
 end
