@@ -72,7 +72,7 @@ end
 gem "blacklight", "~> 9.2"
 # Helpers for rendering Cocina metadata [https://sul-dlss.github.io/cocina_display/]
 gem "cocina_display", "~> 2.14"
-gem "mcp", "~> 1.6"
+gem "mcp", "~> 1.7"
 
 gem "rsolr", ">= 1.0", "< 4"
 
