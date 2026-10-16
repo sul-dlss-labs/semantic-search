@@ -23,6 +23,12 @@ RSpec.describe HighlightQuery do
     expect(highlight("What do the documents say about water rights?")).to eq("water rights")
   end
 
+  it "drops the pronouns that Solr's stopwords keep" do
+    expect(highlight("gridiron star reminiscences of his undergraduate days on the Farm"))
+      .to eq("gridiron star reminiscences undergraduate days Farm")
+    expect(highlight("her letters to them about our house")).to eq("letters house")
+  end
+
   it "ignores the case and apostrophe style of filler words" do
     expect(highlight("What’s There about Frogs")).to eq("Frogs")
   end

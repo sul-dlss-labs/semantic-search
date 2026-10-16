@@ -17,10 +17,11 @@ class HighlightQuery
   # "OR" and "NOT" keep their meaning.
   FILLER_WORDS = %w[
     a about an any anything are as at be but by can could did do does documents everything files
-    find for give had has have how i if in info information into is it items know list look
-    looking materials me mention mentioned mentions my of on please regarding related repository
-    say says show some something such tell that the their then there these they this to was we
-    were what what's when where which who why will with would you
+    find for give had has have he her hers him his how i if in info information into is it its
+    items know list look looking materials me mention mentioned mentions my of on our ours please
+    regarding related repository say says she show some something such tell that the their theirs
+    them then there these they this to us was we were what what's when where which who why will
+    with would you your yours
   ].to_set.freeze
 
   # Trailing punctuation would otherwise reach Solr attached to a kept word, where "?" is a
