@@ -1,22 +1,80 @@
-<%= tag.div id: "search-bar", tabindex: -1, class: "navbar navbar-search bg-body-tertiary border-bottom", role: "navigation", aria: { label: t("blacklight.search.header") } do %>
-  <div class="<%= container_classes %>">
-    <div class="search-modes">
-      <fieldset class="toggle-radio search-mode-toggle">
-        <legend class="visually-hidden">Search mode</legend>
-        <div class="btn-group">
-          <%= radio_button_tag :search_mode, "search", !ai_mode?, id: "search-mode-search", class: "btn-check search-mode-input-search", autocomplete: "off" %>
-          <%= label_tag "search-mode-search", "Search", class: "btn btn-primary" %>
-          <%= radio_button_tag :search_mode, "ai", ai_mode?, id: "search-mode-ai", class: "btn-check search-mode-input-ai", autocomplete: "off" %>
-          <%= label_tag "search-mode-ai", "Ask AI", class: "btn btn-primary" %>
-        </div>
-      </fieldset>
+<% search_modes = capture do %>
+  <div class="search-modes">
+    <fieldset class="toggle-radio search-mode-toggle">
+      <legend class="visually-hidden">Search mode</legend>
+      <div class="btn-group">
+        <%= radio_button_tag :search_mode, "search", !ai_mode?, id: "search-mode-search", class: "btn-check search-mode-input-search", autocomplete: "off" %>
+        <%= label_tag "search-mode-search", "Search", class: "btn btn-primary" %>
+        <%= radio_button_tag :search_mode, "ai", ai_mode?, id: "search-mode-ai", class: "btn-check search-mode-input-ai", autocomplete: "off" %>
+        <%= label_tag "search-mode-ai", "Ask AI", class: "btn btn-primary" %>
+      </div>
+    </fieldset>
 
-      <div class="search-mode-panel" data-search-mode-panel="search">
-        <%= search_bar %>
-      </div>
-      <div class="search-mode-panel" data-search-mode-panel="ai">
-        <%= render AiSearchBarComponent.new(q: params[:q], search_params: ai_search_params) %>
-      </div>
+    <% if home? %>
+      <p class="home-search-description" data-search-mode-panel="search">
+        Search for items in Stanford Libraries’ digital collections.
+      </p>
+      <p class="home-search-description" data-search-mode-panel="ai">
+        Chat with AI about Stanford Libraries’ digital collections.
+      </p>
+
+      <button type="button" class="btn btn-link home-more-info" data-bs-toggle="modal" data-bs-target="#home-more-info-modal" aria-haspopup="dialog">
+        <i class="bi bi-info-circle" aria-hidden="true"></i>
+        More info
+      </button>
+    <% end %>
+
+    <div class="search-mode-panel" data-search-mode-panel="search">
+      <%= search_bar %>
+    </div>
+    <div class="search-mode-panel" data-search-mode-panel="ai">
+      <%= render AiSearchBarComponent.new(q: params[:q], search_params: ai_search_params) %>
     </div>
   </div>
+<% end %>
+
+<% if home? %>
+  <%= tag.section id: "search-bar", tabindex: -1, class: "home-hero",
+                  style: "--home-hero-image: url(#{helpers.image_path('hero.png')})",
+                  aria: { label: t("blacklight.search.header") } do %>
+    <div class="<%= container_classes %>">
+      <div class="card home-search-panel">
+        <div class="card-body">
+          <%= search_modes %>
+        </div>
+        <div class="card-footer home-search-disclaimer">
+          This experimental system has limited data. AI outputs may be inaccurate.
+          <%# The documentation route lands separately. %>
+          <a href="/documentation" class="text-nowrap">Learn how this system works<i class="bi bi-arrow-up-right ms-1" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="home-more-info-modal" tabindex="-1" aria-labelledby="home-more-info-title" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title h3" id="home-more-info-title">About this system</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p class="home-more-info-disclaimer">
+              This system only includes portions of Stanford Libraries' digital collections, such as Oral Histories from the Stanford Historical Society and selections from the University Archives, with more to come. AI-generated outputs may not reflect everything in the collections, so please verify important details.
+            </p>
+            <h3 class="fs-6">Which exploration mode should I use?</h3>
+            <ul class="mb-0">
+              <li>Use <strong>Search</strong> to explore the collections in a traditional search interface. Appropriate when you want to browse, compare items, or find a specific title, name or phrase.</li>
+              <li>Use <strong>Ask AI</strong> to start a conversation with the AI assistant. Appropriate when you have questions about specific people, places, themes, or documents and want a detailed answer with sources.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <%= tag.div id: "search-bar", tabindex: -1, class: "navbar navbar-search bg-body-tertiary border-bottom", role: "navigation", aria: { label: t("blacklight.search.header") } do %>
+    <div class="<%= container_classes %>">
+      <%= search_modes %>
+    </div>
+  <% end %>
 <% end %>
