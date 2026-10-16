@@ -26,6 +26,10 @@ class MatchingExcerpts
   HIGHLIGHT_FIELD = "chunk_text_tesi"
   TIME_ALLOWED_MS = 2_000
 
+  # How many of the query's clauses need to be matched in a chunk to trigger highlighting
+  # See https://solr.apache.org/guide/solr/latest/query-guide/dismax-query-parser.html#mm-minimum-should-match-parameter
+  HIGHLIGHT_MIN_MATCH = "50%"
+
   # @param documents [Array<SolrDocument>] the current page of results
   # @param query [String, nil] the user's query
   # @param search_type [String, nil] "keyword", "vector", or nil for hybrid
@@ -177,12 +181,12 @@ class MatchingExcerpts
       "hl" => true,
       "hl.fl" => HIGHLIGHT_FIELD,
       # Required: the highlighter does not see the query when it is expressed in the JSON DSL,
-      # and silently returns empty highlights without this. Filler words are left out so that
-      # only the subject of a question is highlighted.
-      "hl.q" => HighlightQuery.new(@query).call,
-      # edismax is lenient, so malformed user input cannot turn into a 400.
-      "hl.qparser" => "edismax",
-      "hl.qf" => HIGHLIGHT_FIELD,
+      # and silently returns empty highlights without this. edismax is lenient, so malformed user
+      # input cannot turn into a 400. The user's words are passed by reference so they can never
+      # rewrite the local params; filler words are left out so that only the subject of a
+      # question is highlighted.
+      "hl.q" => "{!edismax qf=#{HIGHLIGHT_FIELD} mm='#{HIGHLIGHT_MIN_MATCH}' v=$hlq}",
+      "hlq" => HighlightQuery.new(@query).call,
       "hl.snippets" => 1,
       "hl.fragsize" => FRAGMENT_CHARACTERS,
       "hl.encoder" => "html",

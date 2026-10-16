@@ -52,15 +52,27 @@ RSpec.describe MatchingExcerpts do
 
       # The highlighter does not see a query expressed in the JSON DSL, so hl.q is required;
       # without it Solr silently returns empty highlights.
-      expect(sent_params).to include("hl" => true, "hl.q" => "water rights",
-                                     "hl.qparser" => "edismax", "hl.qf" => "chunk_text_tesi",
-                                     "hl.encoder" => "html")
+      expect(sent_params).to include("hl" => true, "hl.q" => "{!edismax qf=chunk_text_tesi mm='50%' v=$hlq}",
+                                     "hlq" => "water rights", "hl.encoder" => "html")
     end
 
     it "highlights the subject of a question rather than its filler words" do
       service(query: 'Is there anything about "Phil Knight" in the repository?', embedding: embedding).call
 
-      expect(sent_params["hl.q"]).to eq('"Phil Knight"')
+      expect(sent_params["hlq"]).to eq('"Phil Knight"')
+    end
+
+    it "keeps the user's words out of the highlight query's local params" do
+      service(query: "water} {!lucene}*:* mm=0", embedding: embedding).call
+
+      expect(sent_params["hl.q"]).to eq("{!edismax qf=chunk_text_tesi mm='50%' v=$hlq}")
+      expect(sent_params["hlq"]).to eq("water} {!lucene}*:* mm=0")
+    end
+
+    it "leaves hl.weightMatches on, since that is what makes the highlighter honour mm" do
+      service(embedding: embedding).call
+
+      expect(sent_params).not_to include("hl.weightMatches")
     end
 
     it "requires each chunk to match the query rather than just the filters" do
@@ -275,6 +287,19 @@ RSpec.describe MatchingExcerpts do
       # Every excerpt of a keyword search contains the query term, so each one is highlighted.
       expect(excerpts).to be_present
       expect(excerpts.map { |excerpt| excerpt[:snippet] }).to all(include("<mark>"))
+    end
+
+    it "leaves a chunk unmarked when it holds too few of the query's words" do
+      # The chunks still match on "education", but no chunk can hold the made-up words, so none
+      # reaches the minimum the highlighter is asked for. This is Solr's behaviour to verify: the
+      # mm only lives in hl.q, and a highlighter that ignored it would mark "education" anyway.
+      result = described_class.new(documents: parents, query: "education qxzvj wqzjx jqxzw",
+                                   search_type: "keyword").call
+      excerpts = result.values.flatten
+
+      expect(excerpts).to be_present
+      expect(excerpts.map { |excerpt| excerpt[:snippet] }).to all(be_present)
+      expect(excerpts).to be_none { |excerpt| excerpt[:highlighted] }
     end
 
     it "scores chunks semantically when given an embedding" do
