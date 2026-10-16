@@ -21,6 +21,8 @@ module ExcerptMarkdown
   ESCAPED_UNDERLINE = /&lt;\/?u&gt;/i
   TABLE_DELIMITER_ROW = /^\s*\|?\s*:?-{3,}:?\s*(?:\|\s*:?-{3,}:?\s*)*\|?\s*$\n?/
   BLOCK_END = %r{</(?:p|h[1-6]|li|blockquote|pre|tr)>|<hr\s*/?>}
+  # The whitespace after <li> separates a loose item's marker from its paragraph.
+  LIST_TAG = %r{<ol(?: start="(\d+)")?>|<ul>|</[ou]l>|<li>\s*}
 
   OPTIONS = {
     render: { unsafe: true, hardbreaks: false },
@@ -35,7 +37,7 @@ module ExcerptMarkdown
   # @return [ActiveSupport::SafeBuffer]
   def to_html(snippet)
     html = Commonmarker.to_html(preprocess(snippet.to_s), options: OPTIONS)
-    html = html.gsub(/<li>/, "<li>• ").gsub(BLOCK_END, "<br>")
+    html = marked_list_items(html).gsub(BLOCK_END, "<br>")
     html = sanitizer.sanitize(html, tags: ALLOWED_TAGS, attributes: [])
     html.gsub(%r{(?:\s*<br>\s*)+}, "<br>").delete_prefix("<br>").delete_suffix("<br>").strip.html_safe
   end
@@ -51,6 +53,30 @@ module ExcerptMarkdown
       .delete("`")
       .gsub(TABLE_DELIMITER_ROW, "")
       .lines.map { |line| line.include?("|") ? table_row(line) : line }.join
+  end
+
+  # The sanitizer drops <ol start>, so ordered items are given their number as text. That number
+  # is often not a list at all: a transcript line "1956. The first day…" after a blank line is,
+  # to Markdown, item 1956 of a list, and a bullet would lose the year.
+  def marked_list_items(html)
+    numbers = []
+
+    html.gsub(LIST_TAG) do |tag|
+      start = Regexp.last_match(1)
+
+      if tag.start_with?("<li>")
+        number = numbers.last
+        numbers[-1] += 1 if number
+        next number ? "<li>#{number}. " : "<li>• "
+      end
+
+      case tag
+      when "<ul>" then numbers.push(nil)
+      when %r{\A</} then numbers.pop
+      else numbers.push(start ? start.to_i : 1)
+      end
+      tag
+    end
   end
 
   # "|Section|1|Methodology|" becomes "Section · 1 · Methodology", as a paragraph of its own so
