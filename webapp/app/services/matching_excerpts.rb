@@ -26,9 +26,16 @@ class MatchingExcerpts
   HIGHLIGHT_FIELD = "chunk_text_tesi"
   TIME_ALLOWED_MS = 2_000
 
-  # How many of the query's clauses need to be matched in a chunk to trigger highlighting
+  # Score each half of the query separately as a pseudo-field
+  VECTOR_SCORE_FIELD = "vector_score"
+  KEYWORD_MATCH_FIELD = "keyword_match"
+
+  # How many of the query's subject words a chunk must contain to count as a keyword match, which
+  # is also what it takes for the chunk to be highlighted at all: half, rounded down, and never
+  # fewer than one. A chunk that matched a six-word query by meaning but shares only two of its
+  # words with it ("undergraduate", "days") is neither.
   # See https://solr.apache.org/guide/solr/latest/query-guide/dismax-query-parser.html#mm-minimum-should-match-parameter
-  HIGHLIGHT_MIN_MATCH = "50%"
+  KEYWORD_MIN_MATCH = "50%"
 
   # @param documents [Array<SolrDocument>] the current page of results
   # @param query [String, nil] the user's query
@@ -93,17 +100,34 @@ class MatchingExcerpts
   end
 
   def excerpt_for(chunk, highlighting)
+    match = match_type(chunk)
     snippet = bounded(sanitized(highlighting.dig(chunk.id, HIGHLIGHT_FIELD)&.first.to_s))
+
+    # Remove highlighting on chunks that matched only via vector search, since
+    # the highlighting is misleading: we didn't match on specific words
+    snippet = snippet.gsub(%r{</?mark>}, "") if match == :semantic
 
     {
       chunk_id: chunk.id,
       snippet: snippet,
       highlighted: snippet.include?("<mark>"),
+      match: match,
       filename: chunk["filename_ss"],
       page: chunk["page_ss"],
       chunk_index: chunk["chunk_index_i"],
       score: chunk["score"]
     }.compact
+  end
+
+  # @return [Symbol, nil] why the chunk matched: :keyword, :semantic, or :both
+  def match_type(chunk)
+    return if signal_queries.empty?
+
+    semantic = chunk[VECTOR_SCORE_FIELD].to_f.positive?
+    keyword = chunk[KEYWORD_MATCH_FIELD].to_f.positive?
+    return :keyword unless semantic
+
+    keyword ? :both : :semantic
   end
 
   # Solr escapes the source text and inserts only <mark> (hl.encoder=html), but the text is
@@ -185,7 +209,7 @@ class MatchingExcerpts
       # input cannot turn into a 400. The user's words are passed by reference so they can never
       # rewrite the local params; filler words are left out so that only the subject of a
       # question is highlighted.
-      "hl.q" => "{!edismax qf=#{HIGHLIGHT_FIELD} mm='#{HIGHLIGHT_MIN_MATCH}' v=$hlq}",
+      "hl.q" => keyword_match_query,
       "hlq" => HighlightQuery.new(@query).call,
       "hl.snippets" => 1,
       "hl.fragsize" => FRAGMENT_CHARACTERS,
@@ -208,9 +232,42 @@ class MatchingExcerpts
         },
         # chunk_text_tesi is deliberately omitted: hl.defaultSummary always supplies a snippet,
         # so fetching the full chunk would quadruple the response for nothing.
-        fields: %w[id chunk_index_i filename_ss page_ss score]
+        fields: %w[id chunk_index_i filename_ss page_ss score] + signal_fields
       }
-    }
+    }.merge(signal_queries)
+  end
+
+  # Queries scoring each half of a hybrid or vector search on its own, for #signal_fields; see
+  # #match_type. Empty in a keyword search, which has only the one half.
+  def signal_queries
+    @signal_queries ||= if vector_query
+      similarity = vector_query[:vectorSimilarity]
+      filters = similarity[:preFilter].each_with_index.to_h { |filter, i| [ "excerpt_filter_#{i}", filter ] }
+      filter_refs = filters.keys.map { |key| "preFilter=$#{key}" }.join(" ")
+
+      {
+        "excerpt_vector" => "{!vectorSimilarity f=#{similarity[:f]} minReturn=#{similarity[:minReturn]} " \
+                            "#{filter_refs}}#{similarity[:query]}",
+        "excerpt_keyword" => keyword_match_query
+      }.merge(filters)
+    else
+      {}
+    end
+  end
+
+  # Matches a chunk containing at least KEYWORD_MIN_MATCH of the query's subject words (hlq).
+  # The same query decides both what is highlighted and what counts as a keyword match, so no
+  # chunk is highlighted without counting as one.
+  def keyword_match_query
+    "{!edismax qf=#{HIGHLIGHT_FIELD} mm='#{KEYWORD_MIN_MATCH}' v=$hlq}"
+  end
+
+  # query() scores a chunk against one of #signal_queries, falling back to 0 where it does not
+  # match.
+  def signal_fields
+    return [] if signal_queries.empty?
+
+    [ "#{VECTOR_SCORE_FIELD}:query($excerpt_vector,0)", "#{KEYWORD_MATCH_FIELD}:query($excerpt_keyword,0)" ]
   end
 
   # Mirrors SearchBuilder's clauses, reusing its constants so excerpt ranking cannot drift away
@@ -226,20 +283,21 @@ class MatchingExcerpts
   end
 
   def vector_clause
+    return unless vector_query
+
+    { boost: { b: SearchBuilder::VECTOR_BOOST, query: vector_query } }
+  end
+
+  def vector_query
     return if @search_type == "keyword" || !usable_embedding?
 
-    {
-      boost: {
-        b: SearchBuilder::VECTOR_BOOST,
-        query: {
-          vectorSimilarity: {
-            f: "vector",
-            minReturn: SearchBuilder::VECTOR_MIN_RETURN,
-            # A nested vector query does not inherit the enclosing bool's filters.
-            preFilter: [ "doc_type_ssi:child", terms_filter, "-filename_ss:#{METADATA_FILENAME}" ],
-            query: "[#{@embedding.join(', ')}]"
-          }
-        }
+    @vector_query ||= {
+      vectorSimilarity: {
+        f: "vector",
+        minReturn: SearchBuilder::VECTOR_MIN_RETURN,
+        # A nested vector query does not inherit the enclosing bool's filters.
+        preFilter: [ "doc_type_ssi:child", terms_filter, "-filename_ss:#{METADATA_FILENAME}" ],
+        query: "[#{@embedding.join(', ')}]"
       }
     }
   end
