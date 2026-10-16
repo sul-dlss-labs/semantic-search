@@ -5,6 +5,11 @@ class SearchNavbarComponent < Blacklight::SearchNavbarComponent
     helpers.controller_name == "chats"
   end
 
+  # The landing page: the same test Blacklight's catalog/index uses to render "home".
+  def home?
+    helpers.controller_name == "catalog" && helpers.action_name == "index" && !helpers.has_search_parameters?
+  end
+
   # The search in view, or on the chat page the one it arrived with, so a fresh question keeps it.
   def ai_search_params
     return helpers.chat_search_params if ai_mode?
