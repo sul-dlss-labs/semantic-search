@@ -21,6 +21,17 @@ RSpec.describe ExcerptMarkdown do
       .to eq("<mark>Frogs</mark> of the Valley<br>First paragraph.<br>• one<br>• two")
   end
 
+  it "keeps the number of a line that Markdown reads as an ordered list" do
+    # A transcript paragraph that opens with a year is, to Markdown, item 1956 of a list.
+    expect(html("The <mark>day</mark> I arrived was September 20,\n\n1956. The first—probably four <mark>days</mark>"))
+      .to eq("The <mark>day</mark> I arrived was September 20,<br>1956. The first—probably four <mark>days</mark>")
+  end
+
+  it "numbers each item of an ordered list and bullets the items nested in it" do
+    expect(html("1. one\n\n2. two\n\n   - nested\n\n3. three"))
+      .to eq("1. one<br>2. two<br>• nested<br>3. three")
+  end
+
   it "keeps the soft line breaks of OCR'd prose as spaces" do
     expect(html("line one of OCR\nline two")).to eq("line one of OCR\nline two")
   end
