@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   post "/mcp", to: "mcp#index", as: :mcp
   resource :chat, only: %i[show create], controller: "chats"
+  resource :documentation, only: :show, controller: "documentation"
   resource :search_summary, only: :create
   resources :matching_excerpts, only: :index
 
