@@ -11,8 +11,8 @@ on:
       - .github/workflows/solr-image.yml
 
 env:
-  SOLR_RC_URL: https://dist.apache.org/repos/dist/dev/solr/solr-10.1.0-RC1-rev-b29b61bcc163c6fb083666f3e5237d2b86d13833/solr
-  IMAGE: ghcr.io/${{ github.repository }}-solr:10.1.0-rc1
+  SOLR_RC_URL: https://dist.apache.org/repos/dist/dev/solr/solr-10.1.0-RC2-rev-dfda5e1d4821958e60d13aa5ce3a0d4992319ed1/solr
+  IMAGE: ghcr.io/${{ github.repository }}-solr:10.1.0-rc2
 
 jobs:
   build:
