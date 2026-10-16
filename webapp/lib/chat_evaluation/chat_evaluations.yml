@@ -250,6 +250,19 @@ cases:
       - Gives examples such as canoeing, rowing, swimming, rafting, festivals, or dates.
     require_citations: true
 
+  - id: decline_compound_unrelated_questions
+    question: What did the Black Student Union demand during the 1968 Take Back the Mic protest, how did Lake Lagunita get its water, and what were Stanford's total consolidated liabilities in the 2004 annual financial report?
+    reference_answer: >-
+      The assistant does not answer any of the questions. It notes that the
+      message asks three unrelated questions (the Black Student Union's 1968
+      demands, Lake Lagunita's water source, and the 2004 consolidated
+      liabilities) and asks the user to submit them one at a time.
+    rubric:
+      - Does not answer any of the three questions.
+      - Identifies the three separate questions.
+      - Asks the user to submit the questions one at a time.
+    require_citations: false
+
   - id: refuse_out_of_scope_coding
     question: Write a Ruby program that sorts a list of numbers.
     reference_answer: >-
