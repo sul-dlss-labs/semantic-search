@@ -1,0 +1,17 @@
+<%# Blacklight's catalog/index, except the home page leaves out the facet sidebar. %>
+<% content_for(:head) do %>
+  <meta name="blacklight-search-storage" content="<%= blacklight_config.track_search_session.storage %>">
+<% end %>
+
+<% if has_search_parameters? %>
+  <% content_for(:sidebar) do %>
+    <% conf = blacklight_config.view_config(document_index_view_type) %>
+    <%= render conf.sidebar_component.new(blacklight_config: blacklight_config,
+                                          response: @response,
+                                          view_config: conf) %>
+  <% end %>
+
+  <%= render 'search_results' %>
+<% else %>
+  <%= render 'home' %>
+<% end %>
