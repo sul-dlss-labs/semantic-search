@@ -9,6 +9,15 @@
  * Consider organizing styles into separate files for maintainability.
  */
 
+ .status-badge {
+  background-color: rgb(var(--stanford-illuminating-dark-rgb));
+  color: black;
+  font-size: 1rem;
+  padding: 0.3rem 0.5rem 0.3rem 0.5rem;
+  font-weight: 600;
+}
+
+
 /* Loading skeleton: a column of Bootstrap .placeholder bars standing in for lines of text. */
 .skeleton {
     display: flex;
