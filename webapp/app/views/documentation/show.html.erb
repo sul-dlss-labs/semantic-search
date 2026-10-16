@@ -1,0 +1,157 @@
+<% content_for :page_title, "Documentation — #{application_name}" %>
+
+<div class="row documentation">
+  <nav aria-label="On this page" class="documentation-toc col-md-3">
+    <h2 class="h6">On this page</h2>
+    <ul>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#search-modes">How a search mode is chosen</a></li>
+      <li>
+        <ul>
+          <li><a href="#keyword-search">Keyword search</a></li>
+          <li><a href="#semantic-search">Semantic search</a></li>
+          <li><a href="#hybrid-search">Hybrid search</a></li>
+        </ul>
+      </li>
+      <li><a href="#matching-text">Matching text</a></li>
+      <li><a href="#ai-summary">AI summary</a></li>
+      <li><a href="#ask-ai">Ask AI</a></li>
+      <li><a href="#limitations">Limitations</a></li>
+    </ul>
+  </nav>
+
+  <article class="documentation-content col-md-9">
+    <h1>Documentation</h1>
+    <p class="lead">
+      How this system works. What happens when you search the collections or ask AI a question.
+    </p>
+
+    <section id="overview">
+      <h2>Overview</h2>
+      <p>
+        The collections come from the Stanford Digital Repository (SDR) and are indexed in
+        <a href="https://solr.apache.org/">Apache Solr</a>, a search engine. Each item is stored as a
+        metadata record (title, authors, dates, collection, and so on) together with its full text,
+        which is split into passages of roughly 1,200 characters.
+      </p>
+      <p>
+        Every passage also has an <i>embedding</i>: a list of numbers that represents what the
+        passage means. Passages about similar topics have similar embeddings, even when they use
+        different words. Embeddings are what make semantic search possible.
+      </p>
+    </section>
+
+    <section id="search-modes">
+      <h2>How a search mode is chosen</h2>
+      <p>
+        When you use Search, you don't need to pick a search mode. The app looks at the shape of your query and chooses
+        keyword, semantic, or hybrid search for you.
+      </p>
+      <table class="table table-sm">
+        <thead>
+          <tr><th scope="col">If your query looks like…</th><th scope="col">The app uses…</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>A quoted phrase, a field search such as title, an identifier (druid or DOI), or a title-like phrase</td>
+            <td>Keyword</td>
+          </tr>
+          <tr>
+            <td>A question (“How did…”, “What is…”, or ending in “?”)</td>
+            <td>Semantic, or hybrid if the question includes names or exact terms</td>
+          </tr>
+          <tr>
+            <td>A long, natural-language description</td>
+            <td>Semantic</td>
+          </tr>
+          <tr>
+            <td>Anything else</td>
+            <td>Hybrid</td>
+          </tr>
+        </tbody>
+      </table>
+
+    <p class="text-muted">
+      The chosen search mode is displayed at the bottom of the search results page after "Search strategy".
+    </p>
+    </section>
+
+    <section id="keyword-search">
+      <h3>Keyword search</h3>
+      <p>
+        Keyword search matches the words you typed against item metadata and the full-text passages.
+        It is the best choice for exact titles, names, and identifiers, where you know the precise
+        words that should appear.
+      </p>
+    </section>
+
+    <section id="semantic-search">
+      <h3>Semantic search</h3>
+      <p>
+        Semantic search turns your query into an embedding and looks for passages whose embeddings are
+        close to it, that is, passages with a similar meaning. It can find relevant material even
+        when it shares no words with your query.
+      </p>
+      <p>
+        An item is ranked by its single best-matching passage, and only passages above a similarity
+        threshold count, so loosely related material is left out.
+      </p>
+    </section>
+
+    <section id="hybrid-search">
+      <h3>Hybrid search</h3>
+      <p>
+        Hybrid search runs a keyword search and a semantic search separately, then merges the two
+        ranked lists using a method called <i>Reciprocal Rank Fusion</i>. Items that rank
+        highly in either list rise to the top, and items that do well in both rank highest. This
+        gives a good balance when a query mixes specific terms with a broader idea.
+      </p>
+    </section>
+
+    <section id="matching-text">
+      <h2>Matching text</h2>
+      <p>
+        The snippets shown under each search result are the passages from that item that best matched
+        your query, with matching words highlighted.
+      </p>
+    </section>
+
+    <section id="ai-summary">
+      <h2>AI summary (“About these results”)</h2>
+      <p>
+        When a search has results, an AI model writes a short overview of the items on the current
+        page. The summary is based only on their metadata, such as titles, authors, and abstracts.
+        It does not search any further or read the items’ full text.
+      </p>
+    </section>
+
+    <section id="ask-ai">
+      <h2 class="d-flex align-items-center gap-2">
+        <%= render "shared/ai_icon", class_name: "ai-prompt-icon" %>
+        Ask AI
+      </h2>
+      <p>Ask AI answers questions about the collections in a conversation. For each question:</p>
+      <ol>
+        <li>Your question is sent along with the conversation so far. Conversations are not saved.</li>
+        <li>The AI model searches the collections using read-only search tools: the same keyword, semantic, and hybrid searches described above, plus a search over individual passages.</li>
+        <li>It reads the most relevant passages from the items it finds.</li>
+        <li>It writes an answer that cites the items it used, with page numbers where available.</li>
+        <li>Before the answer is shown, any link that doesn’t point to a source the AI actually retrieved is removed.</li>
+      </ol>
+      <p>
+        From a search results page, <strong>Ask AI about these results</strong> starts a conversation that
+        already knows your current search, including any filters, so you can ask follow-up questions
+        about those items.
+      </p>
+    </section>
+    <section id="limitations">
+      <h2>Limitations</h2>
+      <ul>
+        <li>Answers come only from these collections, not from the wider web.</li>
+        <li>Answers are not exhaustive. The AI reads a sample of the most relevant material, not every matching item.</li>
+        <li>The number of searches the AI can run for a single answer is capped.</li>
+        <li>AI models can make mistakes. Check the cited sources before relying on an answer.</li>
+      </ul>
+    </section>
+  </article>
+</div>

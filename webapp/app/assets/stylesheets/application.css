@@ -333,3 +333,47 @@
 .ask-ai-results-info:focus-visible {
     color: #234a63;
 }
+
+.documentation {
+    margin: 1.5rem 0 3rem;
+}
+
+.documentation-content {
+    max-width: 100ch;
+}
+
+.documentation-content section {
+    margin-top: 2rem;
+    scroll-margin-top: 1rem;
+}
+
+.documentation-toc {
+    background: var(--stanford-fog-light);
+    padding: 1rem;
+    max-width: 16rem;
+    margin-right: 1.5rem;
+    border-radius: 0.25rem;
+}
+
+.documentation-toc ul {
+    padding-left: 1.25rem;
+}
+
+/* The wrapper item for a nested list shouldn't draw its own bullet. */
+.documentation-toc li:has(> ul) {
+    list-style: none;
+}
+
+@media (min-width: 768px) {
+    .documentation-toc {
+        position: sticky;
+        top: 1rem;
+        align-self: flex-start;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .documentation-toc {
+        margin-bottom: 1.5rem;
+    }
+}
