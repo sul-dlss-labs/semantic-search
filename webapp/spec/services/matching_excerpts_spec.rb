@@ -136,6 +136,40 @@ RSpec.describe MatchingExcerpts do
       expect(should.length).to eq(1)
       expect(should.first).to have_key(:boost)
     end
+
+    it "scores each half of a hybrid search separately so excerpts can say why they matched" do
+      service(query: "Is there anything about water rights?", embedding: embedding).call
+      vector = sent_should.last.dig(:boost, :query, :vectorSimilarity)
+
+      # Spelled out from the ranking clause, with its filters passed by reference.
+      expect(sent_params["excerpt_vector"]).to eq(
+        "{!vectorSimilarity f=vector minReturn=#{SearchBuilder::VECTOR_MIN_RETURN} preFilter=$excerpt_filter_0 " \
+        "preFilter=$excerpt_filter_1 preFilter=$excerpt_filter_2}#{vector[:query]}"
+      )
+      expect(sent_params.values_at("excerpt_filter_0", "excerpt_filter_1", "excerpt_filter_2")).to eq(vector[:preFilter])
+      # Only the subject words count, and enough of them must be present. It is the highlighter's
+      # own query, so nothing is highlighted that does not count as a keyword match.
+      expect(sent_params["excerpt_keyword"]).to eq(
+        "{!edismax qf=chunk_text_tesi mm='#{described_class::KEYWORD_MIN_MATCH}' v=$hlq}"
+      )
+      expect(sent_params["excerpt_keyword"]).to eq(sent_params["hl.q"])
+      expect(sent_params["hlq"]).to eq("water rights")
+      expect(sent_params.dig(:json, :fields)).to include("vector_score:query($excerpt_vector,0)",
+                                                         "keyword_match:query($excerpt_keyword,0)")
+    end
+
+    it "keeps the separate scores out of JSON queries, which would send it to the RRF handler" do
+      service(embedding: embedding).call
+
+      expect(sent_params[:json]).not_to have_key(:queries)
+    end
+
+    it "does not score the halves separately in keyword mode, which has only one" do
+      service(search_type: "keyword", embedding: embedding).call
+
+      expect(sent_params.keys).not_to include("excerpt_vector", "excerpt_keyword")
+      expect(sent_params.dig(:json, :fields)).to eq(%w[id chunk_index_i filename_ss page_ss score])
+    end
   end
 
   describe "the excerpts" do
@@ -145,6 +179,7 @@ RSpec.describe MatchingExcerpts do
           chunk_id: "bb191qg8085_report_pdf_c4",
           snippet: "…<mark>water</mark> rights…",
           highlighted: true,
+          match: :keyword,
           filename: "report.pdf",
           page: "12",
           chunk_index: 4,
@@ -157,6 +192,41 @@ RSpec.describe MatchingExcerpts do
       snippet = service(embedding: embedding).call.values.flatten.first[:snippet]
 
       expect(snippet).not_to be_html_safe
+    end
+
+    describe "why each one matched" do
+      let(:chunk) { payload.dig("grouped", "_root_", "groups", 0, "doclist", "docs", 0) }
+
+      it "calls a chunk that only matched by meaning semantic, dropping the words it happens to share" do
+        chunk.merge!("vector_score" => 0.91, "keyword_match" => 0.0)
+        excerpt = service(embedding: embedding).call.values.flatten.first
+
+        expect(excerpt).to include(match: :semantic, snippet: "…water rights…", highlighted: false)
+      end
+
+      it "calls a chunk that matched by meaning and contains most of the query both, keeping its marks" do
+        chunk.merge!("vector_score" => 0.91, "keyword_match" => 6.3)
+        excerpt = service(embedding: embedding).call.values.flatten.first
+
+        expect(excerpt).to include(match: :both, snippet: "…<mark>water</mark> rights…", highlighted: true)
+      end
+
+      it "calls a chunk below the vector threshold a keyword match" do
+        chunk.merge!("vector_score" => 0.0, "keyword_match" => 0.0)
+
+        expect(service(embedding: embedding).call.values.flatten.first).to include(match: :keyword)
+      end
+
+      it "calls every chunk of a vector search semantic unless it contains most of the query" do
+        chunk.merge!("vector_score" => 0.88)
+
+        expect(service(search_type: "vector", embedding: embedding).call.values.flatten.first)
+          .to include(match: :semantic, highlighted: false)
+      end
+
+      it "says nothing in a keyword search, where every excerpt matched by its words" do
+        expect(service(search_type: "keyword").call.values.flatten.first).not_to have_key(:match)
+      end
     end
 
     it "flags a chunk that matched semantically but contains no query terms" do
@@ -313,6 +383,25 @@ RSpec.describe MatchingExcerpts do
 
       expect(result).to be_present
       expect(result.values.flatten).to all(include(:snippet))
+    end
+
+    it "says why each excerpt of a hybrid search matched" do
+      # A chunk's own vector is as close as a query embedding can get to it, so at least that
+      # chunk matches semantically.
+      chunk = real_repository.search(
+        params: { q: "{!terms f=_root_}#{parents.first.id}", rows: 1, fl: "vector", facet: false,
+                  fq: [ "doc_type_ssi:child", "-filename_ss:_metadata_" ] }
+      ).documents.first
+
+      excerpts = described_class.new(documents: parents, query: "education",
+                                     embedding: chunk["vector"]).call.values.flatten
+      matches = excerpts.pluck(:match)
+
+      expect(matches).to all(be_in(%i[keyword semantic both]))
+      expect(matches).to include(:semantic).or include(:both)
+      # A chunk found by its meaning keeps none of the marks on words it shares with the query.
+      expect(excerpts.select { |excerpt| excerpt[:match] == :semantic })
+        .to be_none { |excerpt| excerpt[:snippet].include?("<mark>") }
     end
   end
 end
