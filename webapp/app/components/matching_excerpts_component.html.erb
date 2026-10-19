@@ -25,7 +25,7 @@
           <li class="matching-excerpt">
             <%# Excerpt text is untrusted document text; ExcerptMarkdown keeps only inline formatting and Solr's <mark>. %>
             <blockquote class="matching-excerpt-text"><%= ExcerptMarkdown.to_html(excerpt[:snippet]) %></blockquote>
-            <% if (source = provenance(excerpt)).present? %>
+            <% if (source = source_line(excerpt)).present? %>
               <p class="matching-excerpt-source small text-body-secondary"><%= source %></p>
             <% end %>
           </li>

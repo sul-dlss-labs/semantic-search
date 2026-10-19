@@ -19,6 +19,14 @@ class MatchingExcerptsComponent < Blacklight::MetadataFieldComponent
   DEFAULT_LINES = 6
   PENDING = :pending
 
+  # Why each excerpt matched, from MatchingExcerpts#match_type. Without it, the marks on a passage
+  # found by its meaning would suggest it was found by the few words it shares with the query.
+  MATCH_LABELS = {
+    keyword: "Keyword match",
+    semantic: "Similar in meaning",
+    both: "Keyword match, similar in meaning"
+  }.freeze
+
   # The id of the placeholder <dd> that the asynchronously loaded excerpts replace.
   def self.slot_id(document)
     "matching-excerpts-slot-#{document.id.to_s.parameterize}"
@@ -49,6 +57,17 @@ class MatchingExcerptsComponent < Blacklight::MetadataFieldComponent
 
   def clamp_lines
     @field.field_config.expandable_lines || DEFAULT_LINES
+  end
+
+  # "Similar in meaning · report.pdf · page 12": why the excerpt matched, then where it is from.
+  def source_line(excerpt)
+    parts = [ match_label(excerpt), provenance(excerpt) ].compact_blank
+    safe_join(parts, " · ") if parts.any?
+  end
+
+  def match_label(excerpt)
+    label = MATCH_LABELS[excerpt[:match]]
+    tag.span(label, class: "matching-excerpt-match") if label
   end
 
   # "report.pdf · page 12", omitting whatever the index could not supply. The chunk index is an

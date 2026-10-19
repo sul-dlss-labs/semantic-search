@@ -63,6 +63,22 @@ RSpec.describe MatchingExcerptsComponent, type: :component do
     expect(output.at_css(".matching-excerpt-source a")["href"]).to eq("/catalog/fr576hr0294?canvas_index=11")
   end
 
+  it "says why each excerpt matched ahead of its source" do
+    labelled = [
+      excerpts.first.merge(match: :semantic),
+      excerpts.last.merge(match: :both),
+      { chunk_id: "a_c9", snippet: "text", match: :keyword }
+    ]
+    output = render_inline(described_class.new(field: presenter(values: labelled)))
+
+    expect(output.css(".matching-excerpt-source").map { |node| node.text.strip }).to eq(
+      [ "Similar in meaning · chapter-01.pdf · page 12", "Keyword match, similar in meaning · chapter-02.pdf",
+        "Keyword match" ]
+    )
+    # The label is plain text; only the source links to the record.
+    expect(output.css(".matching-excerpt-source a").map(&:text)).to eq([ "chapter-01.pdf · page 12", "chapter-02.pdf" ])
+  end
+
   it "does not render a source line when the index supplied neither file nor page" do
     output = render_inline(described_class.new(field: presenter(values: [ { chunk_id: "a_c1", snippet: "text" } ])))
 
