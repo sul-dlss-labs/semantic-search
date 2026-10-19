@@ -299,7 +299,7 @@ RSpec.describe Chat::Conversation do
     expect(stream).not_to include("event: done")
   end
 
-  it "includes available page numbers with verified sources" do
+  it "includes available page numbers, and the files they came from, with verified sources" do
     client.enqueue(tool_calls: [ tool_call("call-1", "Professor X") ])
     client.enqueue(content: "Professor X discussed a milestone.", deltas: [ "Professor X discussed a milestone." ])
     allow(tool_runner).to receive(:call).and_return(
@@ -309,11 +309,13 @@ RSpec.describe Chat::Conversation do
           {
             document_title: "Oral history with Professor X",
             url: "http://example.test/catalog/abc123",
+            filename: "transcript.pdf",
             page: "28"
           },
           {
             document_title: "Oral history with Professor X",
             url: "http://example.test/catalog/abc123",
+            filename: "transcript.pdf",
             page: "31"
           }
         ]
@@ -329,7 +331,8 @@ RSpec.describe Chat::Conversation do
     expect(stream).to include(
       '"title":"Oral history with Professor X"',
       '"url":"http://example.test/catalog/abc123"',
-      '"pages":["28","31"]'
+      '"pages":["28","31"]',
+      '"page_files":{"28":"transcript.pdf","31":"transcript.pdf"}'
     )
   end
 

@@ -36,6 +36,35 @@ RSpec.describe Chat::SourceCollection do
     expect(selection).not_to be_truncated
   end
 
+  it "records the file each page came from so a citation can open it, keeping the first file for a page" do
+    collection.add(
+      results: [
+        {
+          title: "Kurland oral history",
+          url: "http://example.test/kurland",
+          matched_chunks: [ { filename: "transcript.pdf", page: "14" }, { filename: "_metadata_" } ]
+        }
+      ]
+    )
+    collection.add(
+      passages: [
+        { document_title: "Kurland oral history", url: "http://example.test/kurland", filename: "notes.pdf", page: "14" },
+        { document_title: "Kurland oral history", url: "http://example.test/kurland", filename: "notes.pdf", page: "2" }
+      ]
+    )
+
+    expect(collection.for_answer("Kurland oral history says so.").sources).to eq(
+      [
+        {
+          title: "Kurland oral history",
+          url: "http://example.test/kurland",
+          pages: [ "14", "2" ],
+          page_files: { "14" => "transcript.pdf", "2" => "notes.pdf" }
+        }
+      ]
+    )
+  end
+
   describe "#seed" do
     let(:carried) { { title: "Carried record", url: "http://example.test/carried" } }
 

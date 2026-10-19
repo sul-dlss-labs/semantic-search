@@ -50,7 +50,7 @@ RSpec.describe "Matching excerpts", type: :request do
     expect(field.css(".matching-excerpt mark").map(&:text)).to eq(%w[water])
     expect(field.css("script")).to be_empty
     expect(field.at_css(".matching-excerpt-source a")["href"])
-      .to eq("/catalog/bb191qg8085?canvas_index=11")
+      .to eq("/catalog/bb191qg8085?filename=report.pdf&page=12")
   end
 
   it "searches as the results page did, without embedding a keyword query" do

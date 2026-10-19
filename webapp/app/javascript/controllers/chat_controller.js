@@ -496,8 +496,12 @@ export default class extends Controller {
     const verifiedPages = Array.isArray(source.pages) ? source.pages.map(String) : []
     if (!page || !verifiedPages.includes(page)) return source.url
 
+    // Opens the viewer at the cited file and page, as matching excerpt links do
+    // (MatchingExcerptsComponent#record_path).
     const url = new URL(source.url, document.baseURI)
-    url.searchParams.set("canvas_index", Number.parseInt(page, 10) - 1)
+    const filename = source.page_files?.[page]
+    if (filename) url.searchParams.set("filename", filename)
+    url.searchParams.set("page", page)
     return url.toString()
   }
 

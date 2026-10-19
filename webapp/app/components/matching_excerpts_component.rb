@@ -80,13 +80,12 @@ class MatchingExcerptsComponent < Blacklight::MetadataFieldComponent
     location.present? ? link_to(location, record_path(excerpt)) : location
   end
 
-  # Links to the record's page here, opening its viewer at the excerpt's page, the same way chat
-  # citations do (chat_controller.js#citationUrl): DocumentComponent passes canvas_index on to the
-  # embed, and canvases are numbered from zero.
+  # Links to the record's page here, opening its viewer at the excerpt's file and page, the same way
+  # chat citations do (chat_controller.js#citationUrl): DocumentComponent passes both on to the embed.
   def record_path(excerpt)
     page = excerpt[:page].to_s
-    canvas_index = (page.to_i - 1 if page.match?(/\A\d+\z/) && page.to_i.positive?)
-    helpers.solr_document_path(record_id, { canvas_index: }.compact)
+    page_number = (page.to_i if page.match?(/\A\d+\z/) && page.to_i.positive?)
+    helpers.solr_document_path(record_id, { filename: excerpt[:filename].presence, page: page_number }.compact)
   end
 
   # Child chunks surfaced as results carry ids like "bb191qg8085_report_pdf_c4".

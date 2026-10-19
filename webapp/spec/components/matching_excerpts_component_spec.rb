@@ -41,26 +41,36 @@ RSpec.describe MatchingExcerptsComponent, type: :component do
     expect(sources).to eq([ "chapter-01.pdf · page 12", "chapter-02.pdf" ])
   end
 
-  it "links each source to the record's page, opening the viewer at the matching page like chat citations" do
+  it "links each source to the record's page, opening the viewer at the matching file and page like chat citations" do
     links = rendered.css(".matching-excerpt-source a")
 
     expect(links.map(&:text)).to eq([ "chapter-01.pdf · page 12", "chapter-02.pdf" ])
-    expect(links.pluck("href")).to eq([ "/catalog/fr576hr0294?canvas_index=11", "/catalog/fr576hr0294" ])
+    expect(links.pluck("href")).to eq(
+      [ "/catalog/fr576hr0294?filename=chapter-01.pdf&page=12", "/catalog/fr576hr0294?filename=chapter-02.pdf" ]
+    )
   end
 
-  it "links to the record without a canvas when the page is not a page number" do
+  it "links to the file without a page when the page is not a page number" do
     named = [ { chunk_id: "a_c1", snippet: "text", filename: "Front matter.pdf", page: "iv" },
               { chunk_id: "a_c2", snippet: "text", filename: "cover.pdf", page: "0" } ]
     output = render_inline(described_class.new(field: presenter(values: named)))
 
-    expect(output.css(".matching-excerpt-source a").pluck("href")).to eq([ "/catalog/fr576hr0294" ] * 2)
+    expect(output.css(".matching-excerpt-source a").pluck("href")).to eq(
+      [ "/catalog/fr576hr0294?filename=Front+matter.pdf", "/catalog/fr576hr0294?filename=cover.pdf" ]
+    )
+  end
+
+  it "links to the page alone when the index supplied no file" do
+    output = render_inline(described_class.new(field: presenter(values: [ { chunk_id: "a_c1", snippet: "text", page: "3" } ])))
+
+    expect(output.at_css(".matching-excerpt-source a")["href"]).to eq("/catalog/fr576hr0294?page=3")
   end
 
   it "links a matching chunk that is itself a result to its parent record" do
     child = presenter(document: SolrDocument.new(id: "fr576hr0294_chapter-01_pdf_c3"))
     output = render_inline(described_class.new(field: child))
 
-    expect(output.at_css(".matching-excerpt-source a")["href"]).to eq("/catalog/fr576hr0294?canvas_index=11")
+    expect(output.at_css(".matching-excerpt-source a")["href"]).to eq("/catalog/fr576hr0294?filename=chapter-01.pdf&page=12")
   end
 
   it "says why each excerpt matched ahead of its source" do
