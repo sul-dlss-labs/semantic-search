@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class SearchNavbarComponent < Blacklight::SearchNavbarComponent
+  def render?
+    helpers.controller_name != "documentation"
+  end
+
   def ai_mode?
     helpers.controller_name == "chats"
   end
