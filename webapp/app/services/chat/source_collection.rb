@@ -48,14 +48,20 @@ module Chat
 
       content = content.deep_symbolize_keys
       candidates = Array(content[:results]).map do |result|
-        { title: result[:title], url: result[:url], pages: pages_from(result[:matched_chunks]) }
+        {
+          title: result[:title],
+          url: result[:url],
+          pages: pages_from(result[:matched_chunks]),
+          page_files: page_files_from(result[:matched_chunks])
+        }
       end
       candidates.concat(
         Array(content[:passages]).map do |passage|
           {
             title: passage[:document_title] || passage[:document_id] || "Catalog record",
             url: passage[:url],
-            pages: pages_from([ passage ])
+            pages: pages_from([ passage ]),
+            page_files: page_files_from([ passage ])
           }
         end
       )
@@ -63,7 +69,8 @@ module Chat
         candidates << {
           title: "Document #{content[:document_id]}",
           url: content[:url],
-          pages: pages_from(content[:chunks])
+          pages: pages_from(content[:chunks]),
+          page_files: page_files_from(content[:chunks])
         }
       end
 
@@ -75,12 +82,13 @@ module Chat
 
       existing_source = promote(candidate[:url], into) || into.find { |source| source[:url] == candidate[:url] }
       if existing_source
-        merge_pages(existing_source, candidate[:pages])
+        merge_pages(existing_source, candidate[:pages], candidate[:page_files])
         return
       end
 
       source = { title: candidate[:title], url: candidate[:url] }
       source[:pages] = candidate[:pages] if candidate[:pages].any?
+      source[:page_files] = candidate[:page_files] if candidate[:page_files].any?
       into << source
     end
 
@@ -100,10 +108,22 @@ module Chat
       Array(chunks).flat_map { |chunk| Array(chunk[:page]) }.compact_blank.map(&:to_s).uniq
     end
 
-    def merge_pages(source, pages)
-      return if pages.empty?
+    # The file each page came from, so a citation of the page can open that file at it
+    # (chat_controller.js#citationUrl). A page number found in more than one file keeps the first.
+    def page_files_from(chunks)
+      Array(chunks).each_with_object({}) do |chunk, page_files|
+        filename = chunk[:filename].to_s
+        next if filename.blank?
 
-      source[:pages] = (Array(source[:pages]) + pages).uniq
+        Array(chunk[:page]).compact_blank.each { |page| page_files[page.to_s] ||= filename }
+      end
+    end
+
+    def merge_pages(source, pages, page_files)
+      source[:pages] = (Array(source[:pages]) + pages).uniq if pages.any?
+      return if page_files.empty?
+
+      source[:page_files] = (source[:page_files] || {}).merge(page_files) { |_page, first_file, _file| first_file }
     end
 
     def bounded_sources(sources)
