@@ -42,7 +42,7 @@
     }
 }
 
-.navbar-search .search-modes {
+:is(.navbar-search, .home-search-panel) .search-modes {
     display: flex;
     flex: 1 1 auto;
     flex-wrap: wrap;
@@ -51,12 +51,12 @@
     min-width: 0;
 }
 
-.navbar-search .search-mode-toggle {
+:is(.navbar-search, .home-search-panel) .search-mode-toggle {
     flex: 0 0 auto;
     min-width: 0;
 }
 
-.navbar-search .search-mode-panel {
+:is(.navbar-search, .home-search-panel) .search-mode-panel {
     flex: 1 1 20rem;
     min-width: 0;
 }
@@ -66,11 +66,12 @@
     display: none;
 }
 
-.navbar-search [data-search-mode-panel="ai"] .search-q {
+/* SUL draws this divider for the search-field select, which we don't render. */
+:is(.navbar-search, .home-search-panel) .search-mode-panel .search-q {
     border-inline-start: none;
 }
 
-.navbar-search .ai-search-query-form {
+:is(.navbar-search, .home-search-panel) .ai-search-query-form {
     .input-group::before,
     .search-btn::before {
         display: none;
@@ -86,7 +87,7 @@
 }
 
 @media (min-width: 576px) {
-    .navbar-search .ai-search-query-form {
+    :is(.navbar-search, .home-search-panel) .ai-search-query-form {
         .ai-prompt-icon {
             display: block;
             flex: none;
@@ -97,6 +98,88 @@
         .ai-submit-icon {
             display: none;
         }
+    }
+}
+
+/* Home page: the search modes sit in a card over the hero image. */
+.home-hero {
+    background: var(--home-hero-image) center / cover no-repeat;
+    padding-block: 2rem;
+}
+
+.home-search-panel {
+    max-width: 52rem;
+    border: 0;
+    border-radius: 0.25rem;
+    box-shadow: 0 4px 12px #0004;
+    overflow: hidden;
+}
+
+.home-search-panel .card-body {
+    padding: 1.5rem;
+}
+
+/* The input wraps onto its own row under the toggle and More info. */
+.home-search-panel .search-mode-panel {
+    flex-basis: 100%;
+    margin-top: 0.5rem;
+}
+
+.home-more-info {
+    display: inline-flex;
+    align-items: center;
+    column-gap: 0.375rem;
+    margin-inline-start: auto;
+    padding: 0;
+    color: #2e2d29;
+}
+
+.home-more-info:hover,
+.home-more-info:focus-visible {
+    color: #2e2d29;
+    text-decoration: underline;
+}
+
+.home-more-info-disclaimer {
+    background: #fdf9ec;
+    border: 1px solid #e8dfc3;
+    border-radius: 0.25rem;
+    padding: 0.75rem 1rem;
+}
+
+/* Below md: its own row under the toggle and More info; md and up: inline between them. */
+.home-search-description {
+    flex-basis: 100%;
+    order: 1;
+    margin: 0;
+    font-style: italic;
+}
+
+.home-search-panel .search-mode-panel {
+    order: 2;
+}
+
+@media (min-width: 768px) {
+    .home-search-description {
+        flex: 1 1 12rem;
+        order: 0;
+    }
+
+    .home-search-panel .search-mode-panel {
+        order: 0;
+    }
+}
+
+.home-search-disclaimer {
+    background: rgb(var(--stanford-illuminating-dark-rgb), 0.1);
+    border-top: 1px solid rgb(var(--stanford-40-black-rgb));
+    font-size: 0.875rem;
+    padding: 0.75rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .home-hero {
+        padding-block: 5rem;
     }
 }
 
