@@ -8,5 +8,5 @@ pin_all_from "app/javascript/controllers", under: "controllers"
 pin "@github/auto-complete-element", to: "https://cdn.jsdelivr.net/npm/@github/auto-complete-element@3.8.0/+esm"
 pin "@popperjs/core", to: "https://ga.jspm.io/npm:@popperjs/core@2.11.8/dist/umd/popper.min.js"
 pin "bootstrap", to: "https://ga.jspm.io/npm:bootstrap@5.3.8/dist/js/bootstrap.js"
-pin "dompurify" # @3.4.16
-pin "marked" # @18.0.14
+pin "dompurify" # @3.4.17
+pin "marked" # @18.1.1
