@@ -1,0 +1,6 @@
+<%# Turbo is disabled because both links redirect off-site through Shibboleth. %>
+<% if authenticated? %>
+  <%= link_to "Logout", logout_path, class: "nav-link", data: { turbo: false } %>
+<% else %>
+  <%= link_to "Login", login_path, class: "nav-link", data: { turbo: false } %>
+<% end %>
