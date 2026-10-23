@@ -11,6 +11,19 @@
       <span class="placeholder col-7"></span>
     </div>
   </dd>
+<% elsif restricted? %>
+<%= render(@layout.new(field: @field)) do |component| %>
+  <% component.with_label do %>
+    <%= label %>
+  <% end %>
+  <% component.with_value(index: 0) do %>
+    <%# Turbo is disabled because login redirects off-site through Shibboleth. %>
+    <p class="matching-excerpts-restricted mb-0">
+      This item has restricted access.
+      <%= link_to "Log in", helpers.login_path, data: { turbo: false } %> to see the text that matched your search.
+    </p>
+  <% end %>
+<% end %>
 <% else %>
 <%= render(@layout.new(field: @field)) do |component| %>
   <% component.with_label do %>
