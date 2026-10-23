@@ -8,7 +8,8 @@
 # rendering pipeline would run them through `to_sentence` and wrap them in microdata.
 #
 # The results page renders it with the PENDING value, as a label and skeleton; the excerpts
-# themselves are rendered in their place by MatchingExcerptsController.
+# themselves are rendered in their place by MatchingExcerptsController. Restricted results seen by
+# an anonymous user get the RESTRICTED value instead, which renders a prompt to log in.
 #
 #   config.add_index_field "matching_excerpts", label: "Matching text",
 #                          component: MatchingExcerptsComponent, expandable_lines: 6,
@@ -18,6 +19,7 @@
 class MatchingExcerptsComponent < Blacklight::MetadataFieldComponent
   DEFAULT_LINES = 6
   PENDING = :pending
+  RESTRICTED = :restricted
 
   # Why each excerpt matched, from MatchingExcerpts#match_type. Without it, the marks on a passage
   # found by its meaning would suggest it was found by the few words it shares with the query.
@@ -46,6 +48,10 @@ class MatchingExcerptsComponent < Blacklight::MetadataFieldComponent
 
   def pending?
     render_field_values == [ PENDING ]
+  end
+
+  def restricted?
+    render_field_values == [ RESTRICTED ]
   end
 
   alias_method :excerpts, :render_field_values

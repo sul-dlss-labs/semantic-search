@@ -298,11 +298,13 @@ class CatalogController < ApplicationController
     params[:search_type] = CatalogSearchClassifier.new(params[:q]).call if params[:q].present?
   end
 
-  # Excerpts are loaded after the page renders, so the results only carry a placeholder for them.
+  # Excerpts are loaded after the page renders, so the results only carry a placeholder for them,
+  # or a prompt to log in for restricted results.
   # JSON and other formats have no way to fill a placeholder in, so they get none.
-  def matching_excerpts_for(_document)
+  def matching_excerpts_for(document)
     # The rendered format rather than request.format, which is not html? for "Accept: */*".
     return [] unless formats.first == :html && params[:q].present?
+    return MatchingExcerptsComponent::RESTRICTED if hide_restricted_text?(document)
 
     MatchingExcerptsComponent::PENDING
   end
