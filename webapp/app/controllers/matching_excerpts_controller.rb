@@ -15,7 +15,7 @@ class MatchingExcerptsController < ApplicationController
   # Matches Blacklight's default max_per_page.
   MAX_DOCUMENTS = 100
   DOCUMENT_FIELDS = %w[id doc_type_ssi title_display_tesi title_tesi title_tsim
-                       chunk_text_tesi filename_ss page_ss chunk_index_i].freeze
+                       chunk_text_tesi filename_ss page_ss chunk_index_i public_bsi].freeze
 
   # Answers with streams for every requested id, even on failure, so no result is left showing
   # a loading skeleton.
@@ -28,8 +28,10 @@ class MatchingExcerptsController < ApplicationController
 
   private
 
+  # Restricted documents are dropped for anonymous users, so their placeholders are removed
+  # rather than filled with text they may not see.
   def documents_and_excerpts
-    found = documents.index_by(&:id)
+    found = documents.reject { |document| hide_restricted_text?(document) }.index_by(&:id)
     excerpts = MatchingExcerpts.new(documents: found.values, query: query, search_type: search_type,
                                     embedding: embedding).call
     [ found, excerpts ]

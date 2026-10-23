@@ -155,6 +155,15 @@ RSpec.describe MatchingExcerptsComponent, type: :component do
     expect(pending_output.at_css("dd")["class"].split).to include(*loaded.at_css("dd")["class"].split)
   end
 
+  it "prompts the user to log in instead of showing the excerpts of a restricted result" do
+    output = render_inline(described_class.new(field: presenter(values: described_class::RESTRICTED)))
+
+    expect(output.at_css("dt").text).to include("Matching text")
+    expect(output.at_css("dd .matching-excerpts-restricted").text).to include("restricted access")
+    expect(output.at_css("dd a")["href"]).to eq("/webauth/login")
+    expect(output.css(".matching-excerpt, [aria-busy]")).to be_empty
+  end
+
   it "renders nothing when the document has no matching excerpts" do
     expect(render_inline(described_class.new(field: presenter(values: []))).to_html).to be_blank
   end

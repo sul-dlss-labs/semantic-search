@@ -6,10 +6,11 @@ RSpec.describe "Matching excerpts", type: :request do
   # Title-like queries classify as keyword searches, which keeps LiteLLM out of the request.
   let(:query) { "Water Rights" }
   let(:ids) { %w[bb191qg8085 bb205zt9580] }
+  let(:restricted) { false }
   let(:documents) do
     Blacklight::Solr::Response.new(
       { "response" => { "numFound" => 2, "start" => 0, "docs" => [
-        { "id" => "bb191qg8085", "doc_type_ssi" => "parent", "title_tsim" => [ "Water Rights" ] },
+        { "id" => "bb191qg8085", "doc_type_ssi" => "parent", "title_tsim" => [ "Water Rights" ], "public_bsi" => !restricted },
         { "id" => "bb205zt9580", "doc_type_ssi" => "parent", "title_tsim" => [ "Riparian Law" ] }
       ] } },
       {}, blacklight_config: CatalogController.blacklight_config, document_model: SolrDocument
@@ -99,6 +100,24 @@ RSpec.describe "Matching excerpts", type: :request do
       [ "remove", "matching-excerpts-label-bb191qg8085" ], [ "remove", "matching-excerpts-slot-bb191qg8085" ],
       [ "remove", "matching-excerpts-label-bb205zt9580" ], [ "remove", "matching-excerpts-slot-bb205zt9580" ]
     ])
+  end
+
+  context "when a result is restricted" do
+    let(:restricted) { true }
+
+    it "withholds its excerpts from an anonymous user" do
+      get matching_excerpts_path(q: query, ids: ids)
+
+      expect(MatchingExcerpts).to have_received(:new).with(hash_including(documents: [ documents.documents.last ]))
+      expect(streams.pluck("action")).to eq(%w[remove remove remove remove])
+    end
+
+    it "shows its excerpts to a logged in user" do
+      sign_in
+      get matching_excerpts_path(q: query, ids: ids)
+
+      expect(streams.find { |stream| stream["action"] == "replace" }["target"]).to eq("matching-excerpts-slot-bb191qg8085")
+    end
   end
 
   it "removes the placeholder of a result that is no longer in the index" do
