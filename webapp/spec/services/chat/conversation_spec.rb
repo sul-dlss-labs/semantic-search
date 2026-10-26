@@ -244,6 +244,36 @@ RSpec.describe Chat::Conversation do
     expect(stream).to end_with("event: done\ndata: {}\n\n")
   end
 
+  it "tells an anonymous user that logging in would let the answer draw on more sources" do
+    client.enqueue(content: "Frogs are amphibians.", deltas: [ "Frogs are amphibians." ])
+
+    stream = described_class.new(
+      messages: [ { role: "user", content: "What are frogs?" } ],
+      completion_request_factory: client,
+      tool_runner:,
+      login_url: "/webauth/login?return_to=%2Fchat"
+    ).each_event.to_a.join
+
+    notice = stream.split("\n\n").find { |event| event.start_with?("event: notice\n") }
+    expect(JSON.parse(notice.split("data: ", 2).last)).to eq(
+      "message" => described_class::LOGIN_MESSAGE,
+      "link" => { "url" => "/webauth/login?return_to=%2Fchat", "text" => "Log in to include them." }
+    )
+    expect(stream).to end_with("event: done\ndata: {}\n\n")
+  end
+
+  it "does not prompt a logged-in user to log in" do
+    client.enqueue(content: "Frogs are amphibians.", deltas: [ "Frogs are amphibians." ])
+
+    stream = described_class.new(
+      messages: [ { role: "user", content: "What are frogs?" } ],
+      completion_request_factory: client,
+      tool_runner:
+    ).each_event.to_a.join
+
+    expect(stream).not_to include("event: notice")
+  end
+
   it "emits verified sources for links in a length-limited partial response" do
     url = "http://example.test/catalog/frogs"
     partial_answer = "See [Frog papers](#{url}) for details that continue"

@@ -539,6 +539,9 @@ RSpec.describe "MCP endpoint", type: :request do
           "Matched chunks:",
           "(transcript.pdf, page 17, chunk 4) The passage about frogs and maps."
         )
+        expect(solr_connection).to have_received(:send_and_receive).with(
+          anything, satisfy { |options| options.to_json.include?("public_bsi:true") }
+        )
       end
     end
 
@@ -623,6 +626,40 @@ RSpec.describe "MCP endpoint", type: :request do
         result = response.parsed_body.fetch("result")
         expect(result["isError"]).to be true
         expect(result.dig("structuredContent", "error")).to include("Invalid cursor for document abc123")
+      end
+    end
+
+    describe "restricted chunks" do
+      let(:solr_requests) { [] }
+
+      before do
+        allow(GeminiEmbedding).to receive(:new).and_return(instance_double(GeminiEmbedding, embedding: [ [ 0.1, 0.2 ] ]))
+        allow(solr_connection).to receive(:send_and_receive) do |_path, options|
+          solr_requests << options.to_json
+          empty_solr_response
+        end
+      end
+
+      def call_tool(name, arguments)
+        post_mcp(jsonrpc: "2.0", id: "restricted", method: "tools/call", params: { name:, arguments: })
+      end
+
+      it "limits anonymous users to public chunks" do
+        call_tool("search_passages", { query: "frogs" })
+        call_tool("get_document_chunks", { document_id: "abc123" })
+
+        expect(solr_requests.length).to eq(2)
+        expect(solr_requests).to all(include("public_bsi:true"))
+      end
+
+      it "lets logged-in users read every chunk" do
+        sign_in
+
+        call_tool("search_passages", { query: "frogs" })
+        call_tool("get_document_chunks", { document_id: "abc123" })
+
+        expect(solr_requests.length).to eq(2)
+        expect(solr_requests).to all(satisfy { |request| !request.include?("public_bsi") })
       end
     end
 

@@ -19,14 +19,25 @@ class ChatsController < ApplicationController
     response.headers["Cache-Control"] = "no-cache, no-store"
     response.headers["X-Accel-Buffering"] = "no"
     response.headers["Last-Modified"] = Time.current.httpdate
+    search_context = search_context_from_token
     self.response_body = Chat::Conversation.new(
-      messages:, controller: self, search_context: search_context_from_token
+      messages:, controller: self, search_context:, login_url: login_url_for(messages, search_context)
     ).each_event
   rescue ActionController::ParameterMissing, Chat::Conversation::InvalidMessages => e
     render json: { error: e.message }, status: :unprocessable_content
   end
 
   private
+
+  # Anonymous answers only draw on public chunks, so they link to a login that returns here and
+  # asks the latest question again. The transcript lives in the browser and cannot come along.
+  def login_url_for(messages, search_context)
+    return if authenticated?
+
+    question = messages.reverse.find { |message| message["role"] == "user" }&.dig("content")
+    return_to = chat_path({ q: question, search: search_context&.search_params.presence }.compact)
+    login_path(return_to:)
+  end
 
   def submitted_question
     params[:q].to_s.strip.first(Rails.configuration.x.chat.max_message_characters).presence

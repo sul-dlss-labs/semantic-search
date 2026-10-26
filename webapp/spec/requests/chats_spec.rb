@@ -122,8 +122,33 @@ RSpec.describe "Chat", type: :request do
       expect(Chat::Conversation).to have_received(:new).with(
         messages: [ { "role" => "user", "content" => "frogs" } ],
         controller: an_instance_of(ChatsController),
-        search_context: nil
+        search_context: nil,
+        login_url: "/webauth/login?return_to=%2Fchat%3Fq%3Dfrogs"
       )
+    end
+
+    it "carries the search into the login link so the user returns to the same question" do
+      conversation = instance_double(Chat::Conversation, each_event: [ "event: done\ndata: {}\n\n" ].each)
+      allow(Chat::Conversation).to receive(:new).and_return(conversation)
+      token = Chat::SearchContext.verifier.generate(
+        { version: 1, query: "frogs", documents: [], search_params: { q: "frogs" } }
+      )
+
+      post "/chat", params: { messages: [ { role: "user", content: "Tell me more" } ], context_token: token }, as: :json
+
+      expect(Chat::Conversation).to have_received(:new).with(
+        hash_including(login_url: "/webauth/login?return_to=#{CGI.escape('/chat?q=Tell+me+more&search%5Bq%5D=frogs')}")
+      )
+    end
+
+    it "does not offer a login link to a logged-in user" do
+      conversation = instance_double(Chat::Conversation, each_event: [ "event: done\ndata: {}\n\n" ].each)
+      allow(Chat::Conversation).to receive(:new).and_return(conversation)
+      sign_in
+
+      post "/chat", params: { messages: [ { role: "user", content: "frogs" } ] }, as: :json
+
+      expect(Chat::Conversation).to have_received(:new).with(hash_including(login_url: nil))
     end
 
     it "scopes the conversation to a validly signed search context" do

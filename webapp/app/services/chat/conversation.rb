@@ -7,13 +7,18 @@ module Chat
 
     InvalidMessages = MessageHistory::InvalidMessages
 
+    LOGIN_MESSAGE = "Some sources are available only to Stanford users, so this answer may be missing evidence."
+
     def self.normalize_messages(value)
       MessageHistory.normalize(value)
     end
 
+    # @param login_url [String, nil] given when the user is not logged in, so their answers are
+    #   drawn only from public sources
     def initialize(messages:, controller: nil, completion_request_factory: nil, tool_runner: nil,
-                   search_context: nil)
+                   search_context: nil, login_url: nil)
       @history = MessageHistory.new(messages, search_context:)
+      @login_url = login_url
       @completion_request_factory = completion_request_factory || LiteLlmCompletionRequest.method(:new)
       @sources = SourceCollection.new
       # Makes carried documents citable from the first turn, before any tool has returned them.
@@ -151,6 +156,7 @@ module Chat
         )
       end
       yield_event.call("notice", message: SourceCollection::LIMIT_MESSAGE) if source_selection.truncated
+      yield_event.call("notice", message: LOGIN_MESSAGE, link: { url: @login_url, text: "Log in to include them." }) if @login_url
     end
 
     def incomplete(completion, streamed_content:)

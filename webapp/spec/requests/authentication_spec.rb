@@ -9,6 +9,20 @@ RSpec.describe "Authentication", type: :request do
 
       expect(response).to redirect_to(root_path)
     end
+
+    it "returns to a page on this site named by return_to" do
+      get "/webauth/login", params: { return_to: "/chat?q=frogs" },
+                            headers: authentication_headers_for("user@stanford.edu")
+
+      expect(response).to redirect_to("/chat?q=frogs")
+    end
+
+    it "ignores a return_to that points off-site" do
+      get "/webauth/login", params: { return_to: "https://evil.example.com/" },
+                            headers: authentication_headers_for("user@stanford.edu")
+
+      expect(response).to redirect_to(root_path)
+    end
   end
 
   describe "GET /webauth/logout" do

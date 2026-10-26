@@ -73,7 +73,7 @@ module SemanticSearchMcp
       limit = normalized_limit(limit)
       offset = decode_cursor(cursor, document_id)
       response = CatalogController.blacklight_config.repository.search(
-        params: solr_query(document_id, limit, offset)
+        params: solr_query(document_id, limit, offset, controller)
       )
       chunks = response.documents.map { |document| format_chunk(document) }
       next_offset = offset + chunks.length
@@ -101,10 +101,10 @@ module SemanticSearchMcp
 
     private
 
-    def solr_query(document_id, limit, offset)
+    def solr_query(document_id, limit, offset, controller)
       {
         q: "_root_:#{RSolr.solr_escape(document_id)}",
-        fq: "doc_type_ssi:child",
+        fq: [ "doc_type_ssi:child", SemanticSearchMcp.chunk_access_filter(controller) ].compact,
         fl: FIELDS.join(","),
         sort: "filename_ss asc, chunk_index_i asc, id asc",
         rows: limit,
