@@ -8,6 +8,7 @@ RSpec.describe "Home page", type: :request do
     expect(page.at_css(".home-hero .search-modes")).to be_present
     expect(page.at_css(page.at_css(".home-more-info")["data-bs-target"])).to be_present
     expect(page.at_css(".navbar-search, #sidebar")).to be_nil
+    expect(page.at_css(".safari-notice")).to be_nil
   end
 
   it "keeps the navbar search and facets once a search is in view" do

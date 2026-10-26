@@ -3,6 +3,11 @@ module AiResultsHelper
     controller_name == "catalog" && action_name == "index" && @response&.documents.present?
   end
 
+  # Pages that deep link into PDFs, which Safari's PDF viewer opens at the first page instead.
+  def render_safari_notice?
+    (search_results_rendered? && has_search_parameters?) || controller_name == "chats"
+  end
+
   def render_ai_summary?
     search_results_rendered? && params[:q].present?
   end

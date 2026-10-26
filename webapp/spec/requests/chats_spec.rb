@@ -14,6 +14,12 @@ RSpec.describe "Chat", type: :request do
       expect(response.body).to include("Ask AI")
     end
 
+    it "includes the hidden Safari notice" do
+      get "/chat"
+
+      expect(Nokogiri::HTML(response.body).at_css(".safari-notice[data-controller='safari-notice'][hidden]")).to be_present
+    end
+
     it "starts with Ask AI selected and prepares a submitted question for autostart" do
       get "/chat", params: { q: "frogs in ponds" }
 

@@ -47,6 +47,8 @@
     <main id="main-container" class="<%= container_classes %>" aria-label="<%= t('blacklight.main.aria.main_container') %>">
       <%= content_for(:container_header) %>
 
+      <%= render "shared/safari_notice" if render_safari_notice? %>
+
       <% if render_ai_summary? %>
         <%= render "catalog/ai_summary", documents: @response.documents %>
         <%= render "catalog/matching_excerpts_loader", documents: @response.documents %>
