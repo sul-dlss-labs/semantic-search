@@ -188,9 +188,9 @@ RSpec.describe "MCP endpoint", type: :request do
       expect(response).to have_http_status(:bad_request)
       expect(response.parsed_body).to include(
         "jsonrpc" => "2.0",
-        "id" => nil,
         "error" => include("code" => -32_700)
       )
+      expect(response.parsed_body).not_to have_key("id")
     end
 
     it "requires the modern per-request metadata envelope" do
