@@ -169,6 +169,25 @@ RSpec.describe Chat::SearchContext do
     end
   end
 
+  describe "results the user selected" do
+    it "carries only the selected documents, in page order rather than click order" do
+      stub_solr
+      context = described_class.from_search_params({ q: "band auditions" }, selected_ids: [ "doc2", "doc0" ])
+
+      expect(context.documents.map { |document| document[:id] }).to eq([ "doc0", "doc2" ])
+      expect(context.selected_count).to eq(2)
+      expect(described_class.from_token(context.token).selected_count).to eq(2)
+    end
+
+    it "falls back to the whole page when no selected id is on it" do
+      stub_solr
+      context = described_class.from_search_params({ q: "band auditions" }, selected_ids: [ "doc9", 42 ])
+
+      expect(context.documents.length).to eq(3)
+      expect(context).not_to be_selected
+    end
+  end
+
   describe "results the user removed" do
     def restored(excluded_ids)
       stub_solr

@@ -3,7 +3,9 @@
 class ChatsController < ApplicationController
   def show
     render locals: {
-      search_context: Chat::SearchContext.from_search_params(params[:search], controller: self),
+      search_context: Chat::SearchContext.from_search_params(
+        params[:search], selected_ids: selected_document_ids, controller: self
+      ),
       question: submitted_question
     }
   end
@@ -48,6 +50,11 @@ class ChatsController < ApplicationController
     Chat::SearchContext.from_token(
       params[:context_token], excluded_ids: excluded_document_ids, controller: self
     )
+  end
+
+  def selected_document_ids
+    ids = params[:selected_ids]
+    ids.is_a?(Array) ? ids.grep(String) : []
   end
 
   # Dropped results ride alongside the signed token rather than re-signing one per removal, which

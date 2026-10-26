@@ -20,14 +20,14 @@ module Chat
     end
 
     # @return [SearchContext, nil] nil when there is nothing to carry, or the search cannot run
-    def self.from_search_params(search_params, controller: nil)
+    def self.from_search_params(search_params, selected_ids: nil, controller: nil)
       attributes = unwrap(search_params)
       return nil if attributes.blank?
 
       state = search_state(attributes, controller)
       return nil unless state.has_constraints?
 
-      new(derive(state, controller), controller:)
+      new(derive(state, controller, selected_ids), controller:)
     rescue StandardError => e
       Rails.logger.warn("Search context could not be derived: #{e.class}: #{e.message}")
       nil
@@ -66,14 +66,15 @@ module Chat
     end
     private_class_method :search_state
 
-    def self.derive(state, controller)
+    def self.derive(state, controller, selected_ids)
       config = CatalogController.blacklight_config
       response = Blacklight::SearchService.new(config:, search_state: state).search_results
       # Same formatter as the chat tools, so SourceCollection can dedupe carried against retrieved.
-      formatted = SemanticSearchMcp::CatalogResults.format(
+      formatted = Array(SemanticSearchMcp::CatalogResults.format(
         response:, query: state.query_param.to_s, search_type: state.params[:search_type].to_s,
         filters: {}, config:, controller:
-      ).dig(:structured_content, :results)
+      ).dig(:structured_content, :results))
+      selected = select_from(formatted, selected_ids)
 
       {
         version: 1,
@@ -82,13 +83,22 @@ module Chat
         page: state.page.to_i,
         per_page: state.per_page.to_i,
         total: response.total.to_i,
-        page_size: Array(formatted).length,
+        page_size: formatted.length,
+        selected_count: selected&.length,
         filters: filters_from(state),
-        documents: Array(formatted).first(document_limit).map { |result| document_from(result) },
+        documents: (selected || formatted).first(document_limit).map { |result| document_from(result) },
         search_params: state.to_h.except(:controller, :action)
       }
     end
     private_class_method :derive
+
+    def self.select_from(formatted, selected_ids)
+      ids = Array(selected_ids).grep(String).to_set
+      return nil if ids.empty?
+
+      formatted.select { |result| ids.include?(result[:id].to_s) }.presence
+    end
+    private_class_method :select_from
 
     def self.filters_from(state)
       state.filters.map do |filter|
@@ -149,6 +159,11 @@ module Chat
     def per_page = @payload[:per_page].to_i
     def total = @payload[:total].to_i
     def page_size = @payload[:page_size].to_i
+    def selected_count = @payload[:selected_count]&.to_i
+
+    def selected?
+      selected_count.present?
+    end
 
     def token
       self.class.verifier.generate(
@@ -198,7 +213,7 @@ module Chat
 
     # About the carry rather than #documents, so a removal does not read as a truncation.
     def truncated?
-      carried_documents.length < page_size
+      carried_documents.length < (selected? ? selected_count : page_size)
     end
 
     def first_item

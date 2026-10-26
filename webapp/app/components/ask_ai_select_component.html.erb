@@ -1,0 +1,5 @@
+<div class="form-check ask-ai-select">
+  <%= tag.input type: "checkbox", id: input_id, class: "form-check-input ask-ai-select-input",
+                value: @document.id, aria: { label: label }, data: { ask_ai_select: true } %>
+  <label class="form-check-label text-muted" for="<%= input_id %>">Select</label>
+</div>
