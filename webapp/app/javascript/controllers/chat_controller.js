@@ -426,6 +426,7 @@ export default class extends Controller {
       const source = sourcesByUrl.get(href)
       if (source) {
         link.setAttribute("href", this.citationUrl(source, link.textContent))
+        this.openInNewTab(link)
         return
       }
 
@@ -483,6 +484,7 @@ export default class extends Controller {
         const source = sourcesByTitle.get(match[1])
         link.href = this.citationUrl(source, match[0])
         link.textContent = match[0]
+        this.openInNewTab(link)
         replacement.append(link)
         previousIndex = match.index + match[0].length
       })
@@ -503,6 +505,10 @@ export default class extends Controller {
     if (filename) url.searchParams.set("filename", filename)
     url.searchParams.set("page", page)
     return url.toString()
+  }
+
+  openInNewTab(link) {
+    link.target = "_blank"
   }
 
   escapeRegExp(text) {
