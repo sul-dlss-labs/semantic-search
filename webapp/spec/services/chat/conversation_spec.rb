@@ -50,11 +50,11 @@ RSpec.describe Chat::Conversation do
     client.enqueue(content: "The corpus discusses frogs and toads.", deltas: [ "The corpus ", "discusses frogs and toads." ])
     allow(tool_runner).to receive(:call).with(name: "catalog_search_tool", arguments: { "query" => "frogs" }).and_return(
       text: "Frog result",
-      structured_content: { results: [ { title: "Frog papers", url: "http://example.test/catalog/frogs" } ] }
+      structured_content: { results: [ { title: "Frog papers", url: "http://example.test/catalog/frogs", matched_chunks: [ { text: "Frogs." } ] } ] }
     )
     allow(tool_runner).to receive(:call).with(name: "catalog_search_tool", arguments: { "query" => "toads" }).and_return(
       text: "Toad result",
-      structured_content: { results: [ { title: "Toad papers", url: "http://example.test/catalog/toads" } ] }
+      structured_content: { results: [ { title: "Toad papers", url: "http://example.test/catalog/toads", matched_chunks: [ { text: "Toads." } ] } ] }
     )
     allow(tool_runner).to receive(:call).with(
       name: "search_passages",
@@ -281,7 +281,7 @@ RSpec.describe Chat::Conversation do
     client.enqueue(content: partial_answer, deltas: [ partial_answer ], finish_reason: "length")
     allow(tool_runner).to receive(:call).and_return(
       text: "Frog result",
-      structured_content: { results: [ { title: "Frog papers", url: } ] }
+      structured_content: { results: [ { title: "Frog papers", url:, matched_chunks: [ { text: "Frogs." } ] } ] }
     )
 
     stream = described_class.new(
@@ -375,8 +375,8 @@ RSpec.describe Chat::Conversation do
       text: "Results",
       structured_content: {
         results: [
-          { title: "Frog papers", url: "http://example.test/catalog/frogs" },
-          { title: "Frog history", url: "http://example.test/catalog/history" }
+          { title: "Frog papers", url: "http://example.test/catalog/frogs", matched_chunks: [ { text: "Frogs." } ] },
+          { title: "Frog history", url: "http://example.test/catalog/history", matched_chunks: [ { text: "History." } ] }
         ]
       }
     )
@@ -422,7 +422,8 @@ RSpec.describe Chat::Conversation do
     sources = 11.times.map do |index|
       {
         title: "Source #{index + 1}",
-        url: "http://example.test/catalog/source-#{index + 1}"
+        url: "http://example.test/catalog/source-#{index + 1}",
+        matched_chunks: [ { text: "Evidence." } ]
       }
     end
     cited_source = sources.last
@@ -444,7 +445,7 @@ RSpec.describe Chat::Conversation do
       JSON.generate(content: "The decisive evidence appears in " \
                              "[#{cited_source[:title]}, p. 29](<#{cited_source[:url]}>).")
     )
-    expect(stream).to include(JSON.generate(cited_source))
+    expect(stream).to include(JSON.generate(cited_source.except(:matched_chunks)))
   end
 
   it "answers every requested tool call when the execution limit is reached" do

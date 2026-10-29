@@ -21,8 +21,11 @@ module Chat
       @seeded = []
     end
 
+    # Only results that carry evidence become sources. A catalog result with no matched chunks
+    # was found from its metadata alone, as are restricted records that an anonymous user cannot
+    # read any chunks of, so citing it would point at text the answer never drew on.
     def add(content)
-      collect(content, @sources)
+      collect(content, @sources, require_evidence: true)
     end
 
     def seed(content)
@@ -43,7 +46,7 @@ module Chat
 
     private
 
-    def collect(content, into)
+    def collect(content, into, require_evidence: false)
       return unless content.is_a?(Hash)
 
       content = content.deep_symbolize_keys
@@ -52,7 +55,8 @@ module Chat
           title: result[:title],
           url: result[:url],
           pages: pages_from(result[:matched_chunks]),
-          page_files: page_files_from(result[:matched_chunks])
+          page_files: page_files_from(result[:matched_chunks]),
+          evidence: Array(result[:matched_chunks]).any?
         }
       end
       candidates.concat(
@@ -61,7 +65,8 @@ module Chat
             title: passage[:document_title] || passage[:document_id] || "Catalog record",
             url: passage[:url],
             pages: pages_from([ passage ]),
-            page_files: page_files_from([ passage ])
+            page_files: page_files_from([ passage ]),
+            evidence: true
           }
         end
       )
@@ -70,10 +75,12 @@ module Chat
           title: "Document #{content[:document_id]}",
           url: content[:url],
           pages: pages_from(content[:chunks]),
-          page_files: page_files_from(content[:chunks])
+          page_files: page_files_from(content[:chunks]),
+          evidence: Array(content[:chunks]).any?
         }
       end
 
+      candidates.select! { |candidate| candidate[:evidence] } if require_evidence
       candidates.each { |candidate| add_candidate(candidate, into) }
     end
 
