@@ -65,6 +65,21 @@ RSpec.describe Chat::SourceCollection do
     )
   end
 
+  it "does not make a source of a result found without any matching chunks" do
+    collection.add(results: [ { title: "Restricted record", url: "http://example.test/restricted" } ])
+
+    expect(collection.for_answer("Restricted record says so.").sources).to be_empty
+  end
+
+  it "makes a source of a result once a passage from it is retrieved" do
+    collection.add(results: [ { title: "Frog papers", url: "http://example.test/frogs" } ])
+    collection.add(passages: [ { document_title: "Frog papers", url: "http://example.test/frogs", page: "4" } ])
+
+    expect(collection.for_answer("Frog papers says so.").sources).to eq(
+      [ { title: "Frog papers", url: "http://example.test/frogs", pages: [ "4" ] } ]
+    )
+  end
+
   describe "#seed" do
     let(:carried) { { title: "Carried record", url: "http://example.test/carried" } }
 
@@ -76,7 +91,7 @@ RSpec.describe Chat::SourceCollection do
 
     it "keeps an uncited carried document out of the source list shown to the user" do
       collection.seed(results: [ carried ])
-      collection.add(results: [ { title: "Retrieved record", url: "http://example.test/retrieved" } ])
+      collection.add(results: [ { title: "Retrieved record", url: "http://example.test/retrieved", matched_chunks: [ { text: "Evidence." } ] } ])
 
       selection = collection.for_answer("Retrieved record answers the question.")
 
@@ -85,7 +100,7 @@ RSpec.describe Chat::SourceCollection do
 
     it "does not let carried documents crowd retrieved evidence out of the floor" do
       collection.seed(results: 20.times.map { |i| { title: "Carried #{i}", url: "http://example.test/c#{i}" } })
-      collection.add(results: [ { title: "Retrieved record", url: "http://example.test/retrieved" } ])
+      collection.add(results: [ { title: "Retrieved record", url: "http://example.test/retrieved", matched_chunks: [ { text: "Evidence." } ] } ])
 
       selection = collection.for_answer("An answer that cites nothing by name.")
 
@@ -107,7 +122,7 @@ RSpec.describe Chat::SourceCollection do
     sources = 11.times.map do |index|
       { title: format("Source %02d", index + 1), url: "http://example.test/#{index + 1}" }
     end
-    collection.add(results: sources)
+    collection.add(results: sources.map { |source| source.merge(matched_chunks: [ { text: "Evidence." } ]) })
 
     selection = collection.for_answer("The answer appears in Source 11.")
 
