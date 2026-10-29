@@ -26,12 +26,6 @@ class SolrDocument
     end
   end
 
-  # Restricted items are not publicly accessible; their full text is shown only to logged in users.
-  # Documents indexed without public_bsi are treated as public.
-  def restricted?
-    self["public_bsi"] == false
-  end
-
   def publication_date
     cocina_display.pub_date_str
   end

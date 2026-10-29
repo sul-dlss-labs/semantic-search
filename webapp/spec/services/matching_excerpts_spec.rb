@@ -14,7 +14,7 @@ RSpec.describe MatchingExcerpts do
         { "groupValue" => "bb191qg8085",
           "doclist" => { "numFound" => 5, "start" => 0, "docs" => [
             { "id" => "bb191qg8085_report_pdf_c4", "chunk_index_i" => 4,
-              "filename_ss" => "report.pdf", "page_ss" => "12", "score" => 91.24 }
+              "filename_ss" => "report.pdf", "page_ss" => "12", "score" => 91.24, "public_bsi" => false }
           ] } }
       ] } },
       "highlighting" => {
@@ -168,7 +168,7 @@ RSpec.describe MatchingExcerpts do
       service(search_type: "keyword", embedding: embedding).call
 
       expect(sent_params.keys).not_to include("excerpt_vector", "excerpt_keyword")
-      expect(sent_params.dig(:json, :fields)).to eq(%w[id chunk_index_i filename_ss page_ss score])
+      expect(sent_params.dig(:json, :fields)).to eq(%w[id chunk_index_i filename_ss page_ss score public_bsi])
     end
   end
 
@@ -183,9 +183,16 @@ RSpec.describe MatchingExcerpts do
           filename: "report.pdf",
           page: "12",
           chunk_index: 4,
-          score: 91.24
+          score: 91.24,
+          public: false
         } ]
       )
+    end
+
+    it "asks Solr whether each chunk is public" do
+      service(embedding: embedding).call
+
+      expect(sent_params.dig(:json, :fields)).to include("public_bsi")
     end
 
     it "returns strings the view still has to escape" do
