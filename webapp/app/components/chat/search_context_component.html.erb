@@ -23,6 +23,9 @@
         &middot; <%= number_with_delimiter(@search_context.total) %>
         <%= "result".pluralize(@search_context.total) %>
         &middot; showing <%= @search_context.first_item %>&ndash;<%= @search_context.last_item %>
+        <% if @search_context.selected? %>
+          &middot; <%= @search_context.selected_count %> selected
+        <% end %>
       <% end %>
     </p>
 
@@ -72,7 +75,11 @@
       </p>
       <% if @search_context.truncated? %>
         <p class="chat-context-note">
-          Your page showed <%= @search_context.page_size %> results; the first
+          <% if @search_context.selected? %>
+            You selected <%= @search_context.selected_count %> results; the first
+          <% else %>
+            Your page showed <%= @search_context.page_size %> results; the first
+          <% end %>
           <%= @search_context.documents.length %> were carried into this conversation.
         </p>
       <% end %>

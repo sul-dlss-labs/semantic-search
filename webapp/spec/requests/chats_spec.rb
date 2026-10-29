@@ -94,6 +94,16 @@ RSpec.describe "Chat", type: :request do
         .to eq("1 result carried into this conversation")
     end
 
+    it "carries only the results the user selected on the results page" do
+      allow(Chat::SearchContext).to receive(:from_search_params).and_call_original
+
+      get "/chat", params: { search: { q: "frogs" }, selected_ids: [ "bb112zx3193" ] }
+
+      expect(Chat::SearchContext).to have_received(:from_search_params)
+        .with(anything, selected_ids: [ "bb112zx3193" ], controller: anything)
+      expect(Nokogiri::HTML(response.body).at_css(".chat-context-summary").text.squish).to include("1 selected")
+    end
+
     it "stays usable and says so when the carried search cannot be rebuilt" do
       allow(Chat::SearchContext).to receive(:from_search_params).and_return(nil)
 

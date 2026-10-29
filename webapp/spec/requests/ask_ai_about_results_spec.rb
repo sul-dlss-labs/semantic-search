@@ -37,7 +37,10 @@ RSpec.describe "Ask AI about these results", type: :request do
     page = Nokogiri::HTML(response.body)
     hint = page.at_css("#ask-ai-results-hint")
     expect(button["aria-describedby"]).to eq("ask-ai-results-hint")
-    expect(hint.text.squish).to eq("Opens the AI chat with your search query, your facet selections, and this page of results.")
+    expect(hint.text.squish).to eq(
+      "Opens the AI chat with your search query, your facet selections, and this page of results, " \
+      "or only the results you select."
+    )
   end
 
   it "offers the explanation on demand in an info popover" do
@@ -50,7 +53,10 @@ RSpec.describe "Ask AI about these results", type: :request do
     expect(info["data-popover-target"]).to eq("trigger")
     expect(info["data-bs-toggle"]).to eq("popover")
     expect(info["aria-label"]).to eq("What gets sent to the AI chat")
-    expect(info["data-bs-content"]).to eq("Opens the AI chat with your search query, your facet selections, and this page of results.")
+    expect(info["data-bs-content"]).to eq(
+      "Opens the AI chat with your search query, your facet selections, and this page of results, " \
+      "or only the results you select."
+    )
   end
 
   # The card docks to the bottom of the viewport with position: sticky, which only works while it
@@ -91,6 +97,25 @@ RSpec.describe "Ask AI about these results", type: :request do
     get "/"
 
     expect(button).to be_nil
+    expect(Nokogiri::HTML(response.body).at_css(".ask-ai-select-input")).to be_nil
+  end
+
+  it "offers a checkbox on each result for narrowing what gets sent" do
+    stub_solr
+    get "/", params: { q: "frogs", search_type: "keyword" }
+
+    checkbox = Nokogiri::HTML(response.body).at_css(".index-document-functions .ask-ai-select-input")
+    expect(checkbox["value"]).to eq("bb112zx3193")
+    expect(checkbox["aria-label"]).to eq("Select Frog interview for Ask AI")
+  end
+
+  it "leaves the checkbox off results that have no search to narrow" do
+    stub_solr
+    get "/", params: { q: "", search_field: "all_fields" }
+
+    page = Nokogiri::HTML(response.body)
+    expect(page.text).to include("Frog interview")
+    expect(page.at_css(".ask-ai-select-input")).to be_nil
   end
 
   it "does not derive the context while rendering the results page" do

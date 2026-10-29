@@ -104,6 +104,8 @@ module Chat
     def results_heading(listed)
       if listed.zero?
         empty_results_heading
+      elsif search_context.removed_count.zero? && search_context.selected?
+        selected_results_heading(listed)
       elsif listed < search_context.page_size
         partial_results_heading(listed)
       else
@@ -114,10 +116,21 @@ module Chat
     def empty_results_heading
       if search_context.removed_count.positive? && search_context.documents.empty?
         "The user removed every result this conversation carried, so none are listed."
+      elsif search_context.selected?
+        "The #{search_context.selected_count} titles the user selected from that page were too long " \
+          "to include here. Search for them with your tools before describing them."
       else
         "The #{search_context.page_size} titles on that page were too long to include here. Search " \
           "for them with your tools before describing the page."
       end
+    end
+
+    def selected_results_heading(listed)
+      selected = search_context.selected_count
+      lead = listed < selected ? "the first #{listed} of the #{selected}" : "the #{selected}"
+      "Listed below: #{lead} #{'result'.pluralize(selected)} the user selected from the " \
+        "#{search_context.page_size} on that page (descriptive metadata only; no document text " \
+        "has been retrieved):"
     end
 
     # The carry limit and character budget drop results off the end, so "the first N" holds. A
@@ -134,7 +147,13 @@ module Chat
 
     def carried_description
       carried = search_context.carried_documents.length
-      return "#{carried} carried from that page of #{search_context.page_size}" if search_context.truncated?
+      page_size = search_context.page_size
+      if search_context.selected?
+        return "#{carried} carried of the #{search_context.selected_count} selected from that page of #{page_size}" if search_context.truncated?
+
+        return "#{carried} selected from that page of #{page_size}"
+      end
+      return "#{carried} carried from that page of #{page_size}" if search_context.truncated?
 
       "#{carried} on that page"
     end
@@ -180,7 +199,17 @@ module Chat
         '- When the user says "these results", "this page", or "them", they mean this list.',
         "- You may refer to an item above by its exact title and cite it with its URL. Do not " \
         "invent titles, URLs, pages, or quotations.",
+        *selection_guidance,
         *removal_guidance
+      ]
+    end
+
+    def selection_guidance
+      return [] unless search_context.selected?
+
+      [
+        "- The user hand-picked these results from that page; \"these results\" means this " \
+        "selection. Do not describe the unselected items on that page."
       ]
     end
 

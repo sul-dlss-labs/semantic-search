@@ -16,6 +16,8 @@ RSpec.describe Chat::SearchContextPrompt do
       page_size: 20,
       zero_results?: false,
       truncated?: false,
+      selected?: false,
+      selected_count: nil,
       removed_count: 0,
       carried_documents: [ {} ],
       first_item: 21,
@@ -149,6 +151,25 @@ RSpec.describe Chat::SearchContextPrompt do
 
       expect(prompt).to include("The 20 titles on that page were too long to include here")
       expect(prompt).to include("ONE PAGE")
+    end
+  end
+
+  describe "results the user selected from the page" do
+    before do
+      allow(search_context).to receive_messages(selected?: true, selected_count: 1, carried_documents: [ {} ])
+    end
+
+    it "presents the list as the user's selection and scopes \"these results\" to it" do
+      expect(prompt).to include("Listed below: the 1 result the user selected from the 20 on that page")
+      expect(prompt).to include(%(The user hand-picked these results from that page; "these results" means this selection))
+    end
+
+    it "stacks a removal on top of the selection" do
+      allow(search_context).to receive_messages(removed_count: 2, carried_documents: Array.new(3, {}), selected_count: 3)
+
+      expect(prompt).to include("Listed below: the 1 result the user kept out of the 3 selected from that page of 20")
+      expect(prompt).to include("removed 2 results from this context on purpose")
+      expect(prompt).to include("hand-picked")
     end
   end
 

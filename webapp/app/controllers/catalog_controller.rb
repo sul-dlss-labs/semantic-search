@@ -83,6 +83,7 @@ class CatalogController < ApplicationController
     # config.index.document_actions.delete(:bookmark)
 
     config.add_results_document_tool(:bookmark, component: Blacklight::Document::BookmarkComponent, if: :render_bookmarks_control?)
+    config.add_results_document_tool(:ask_ai_select, component: AskAiSelectComponent)
 
     config.add_results_collection_tool(:sort_widget)
     config.add_results_collection_tool(:per_page_widget)
