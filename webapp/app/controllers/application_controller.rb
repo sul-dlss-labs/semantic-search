@@ -11,12 +11,4 @@ class ApplicationController < ActionController::Base
   stale_when_importmap_changes
 
   layout "application"
-
-  private
-
-  # @return [Boolean] true if the document's text must be withheld from this user.
-  def hide_restricted_text?(document)
-    document.restricted? && !authenticated?
-  end
-  helper_method :hide_restricted_text?
 end

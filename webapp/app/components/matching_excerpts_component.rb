@@ -8,8 +8,9 @@
 # rendering pipeline would run them through `to_sentence` and wrap them in microdata.
 #
 # The results page renders it with the PENDING value, as a label and skeleton; the excerpts
-# themselves are rendered in their place by MatchingExcerptsController. Restricted results seen by
-# an anonymous user get the RESTRICTED value instead, which renders a prompt to log in.
+# themselves are rendered in their place by MatchingExcerptsController, which gives a result whose
+# excerpts include a restricted chunk the RESTRICTED value for an anonymous user instead, rendering
+# a prompt to log in.
 #
 #   config.add_index_field "matching_excerpts", label: "Matching text",
 #                          component: MatchingExcerptsComponent, expandable_lines: 6,

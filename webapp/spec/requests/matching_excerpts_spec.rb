@@ -6,11 +6,10 @@ RSpec.describe "Matching excerpts", type: :request do
   # Title-like queries classify as keyword searches, which keeps LiteLLM out of the request.
   let(:query) { "Water Rights" }
   let(:ids) { %w[bb191qg8085 bb205zt9580] }
-  let(:restricted) { false }
   let(:documents) do
     Blacklight::Solr::Response.new(
       { "response" => { "numFound" => 2, "start" => 0, "docs" => [
-        { "id" => "bb191qg8085", "doc_type_ssi" => "parent", "title_tsim" => [ "Water Rights" ], "public_bsi" => !restricted },
+        { "id" => "bb191qg8085", "doc_type_ssi" => "parent", "title_tsim" => [ "Water Rights" ] },
         { "id" => "bb205zt9580", "doc_type_ssi" => "parent", "title_tsim" => [ "Riparian Law" ] }
       ] } },
       {}, blacklight_config: CatalogController.blacklight_config, document_model: SolrDocument
@@ -132,21 +131,34 @@ RSpec.describe "Matching excerpts", type: :request do
     end
   end
 
-  context "when a result is restricted" do
-    let(:restricted) { true }
-
-    it "withholds its excerpts from an anonymous user" do
-      get matching_excerpts_path(q: query, ids: ids)
-
-      expect(MatchingExcerpts).to have_received(:new).with(hash_including(documents: [ documents.documents.last ]))
-      expect(streams.pluck("action")).to eq(%w[remove remove remove remove])
+  # Results are always parents, but the ids come from the URL, so a restricted chunk can be asked
+  # for directly.
+  context "when a restricted chunk is requested directly" do
+    let(:ids) { %w[bb191qg8085_thesis_pdf_c2] }
+    let(:documents) do
+      Blacklight::Solr::Response.new(
+        { "response" => { "numFound" => 1, "start" => 0, "docs" => [
+          { "id" => "bb191qg8085_thesis_pdf_c2", "doc_type_ssi" => "child", "chunk_text_tesi" => "secret water rights",
+            "filename_ss" => "thesis.pdf", "chunk_index_i" => 2, "public_bsi" => false }
+        ] } },
+        {}, blacklight_config: CatalogController.blacklight_config, document_model: SolrDocument
+      )
     end
 
-    it "shows its excerpts to a logged in user" do
+    before { allow(MatchingExcerpts).to receive(:new).and_call_original }
+
+    it "prompts an anonymous user to log in instead of showing its text" do
+      get matching_excerpts_path(q: query, ids: ids)
+
+      expect(streams.find { |stream| stream["action"] == "replace" }.at_css(".matching-excerpts-restricted")).to be_present
+      expect(response.body).not_to include("secret")
+    end
+
+    it "shows its text to a logged in user" do
       sign_in
       get matching_excerpts_path(q: query, ids: ids)
 
-      expect(streams.find { |stream| stream["action"] == "replace" }["target"]).to eq("matching-excerpts-slot-bb191qg8085")
+      expect(response.body).to include("secret water rights")
     end
   end
 

@@ -26,13 +26,6 @@ class SolrDocument
     end
   end
 
-  # Restricted items are not publicly accessible; their full text is shown only to logged in users.
-  # Only child chunks are indexed with public_bsi, so this is never true of a parent: the excerpts
-  # drawn from a parent's chunks are checked by MatchingExcerptsController instead.
-  def restricted?
-    self["public_bsi"] == false
-  end
-
   def publication_date
     cocina_display.pub_date_str
   end
