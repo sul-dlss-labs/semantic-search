@@ -84,7 +84,7 @@ module SemanticSearchMcp
       limit = normalized_limit(limit)
       embedding = query_embedding(query)
       response = CatalogController.blacklight_config.repository.search(
-        params: solr_query(embedding, document_ids, exclude_document_ids, limit)
+        params: solr_query(embedding, document_ids, exclude_document_ids, limit, controller)
       )
       passage_documents = response.documents
       parent_ids = passage_documents.filter_map { |document| parent_id(document) }.uniq
@@ -114,7 +114,7 @@ module SemanticSearchMcp
       GeminiEmbedding.query_embedding(query)
     end
 
-    def solr_query(embedding, document_ids, exclude_document_ids, limit)
+    def solr_query(embedding, document_ids, exclude_document_ids, limit, controller)
       {
         facet: false,
         json: {
@@ -122,7 +122,7 @@ module SemanticSearchMcp
             knn: {
               f: "vector",
               topK: limit,
-              preFilter: pre_filters(document_ids, exclude_document_ids),
+              preFilter: pre_filters(document_ids, exclude_document_ids, controller),
               query: "[#{embedding.join(', ')}]"
             }.compact
           },
@@ -132,8 +132,8 @@ module SemanticSearchMcp
       }
     end
 
-    def pre_filters(document_ids, exclude_document_ids)
-      filters = [ "doc_type_ssi:child" ]
+    def pre_filters(document_ids, exclude_document_ids, controller)
+      filters = [ "doc_type_ssi:child", SemanticSearchMcp.chunk_access_filter(controller) ].compact
       filters << root_filter(document_ids) if document_ids.present?
       filters << "-#{root_filter(exclude_document_ids)}" if exclude_document_ids.present?
       filters

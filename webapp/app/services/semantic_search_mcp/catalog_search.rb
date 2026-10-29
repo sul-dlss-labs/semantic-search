@@ -69,7 +69,7 @@ module SemanticSearchMcp
       response = Blacklight::SearchService.new(config: config, search_state: state).search_results do |builder|
         search_builder = builder
       end
-      matched_chunks = matched_chunks(response.documents, search_builder&.query_embedding, config)
+      matched_chunks = matched_chunks(response.documents, search_builder&.query_embedding, config, controller)
 
       CatalogResults.format(
         response: response,
@@ -162,11 +162,12 @@ module SemanticSearchMcp
       }
     end
 
-    def matched_chunks(documents, embedding, config)
+    def matched_chunks(documents, embedding, config, controller)
       parent_ids = Array(documents).filter_map { |document| document.id || document["id"] }.to_set
       return {} if embedding.blank? || parent_ids.empty?
 
-      response = config.repository.search(params: matched_chunk_query(embedding))
+      access_filter = SemanticSearchMcp.chunk_access_filter(controller)
+      response = config.repository.search(params: matched_chunk_query(embedding, access_filter))
       response.documents.each_with_object(Hash.new { |hash, key| hash[key] = [] }) do |chunk, matches|
         parent_id = parent_id_for(chunk, parent_ids)
         next unless parent_id
@@ -190,7 +191,9 @@ module SemanticSearchMcp
       parent_ids.find { |parent_id| child_id&.start_with?("#{parent_id}_") }
     end
 
-    def matched_chunk_query(embedding)
+    # The access filter is a preFilter rather than an fq so that restricted chunks do not use up
+    # the topK budget before being discarded.
+    def matched_chunk_query(embedding, access_filter)
       {
         facet: false,
         json: {
@@ -198,8 +201,9 @@ module SemanticSearchMcp
             knn: {
               f: "vector",
               topK: MATCHED_CHUNK_TOP_K,
+              preFilter: Array(access_filter).presence,
               query: "[#{embedding.join(', ')}]"
-            }
+            }.compact
           },
           fields: %w[id chunk_text_tesi filename_ss chunk_index_i page_ss score],
           limit: MATCHED_CHUNK_TOP_K

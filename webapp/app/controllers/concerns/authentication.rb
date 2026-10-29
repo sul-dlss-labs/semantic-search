@@ -47,7 +47,9 @@ module Authentication
     redirect_to main_app.login_path
   end
 
+  # A return_to param lets a page that cannot write the session (such as a streamed chat answer)
+  # link to login. url_from discards it unless it points back at this host.
   def after_authentication_url
-    session.delete(:return_to_after_authenticating) || root_url
+    session.delete(:return_to_after_authenticating) || url_from(params[:return_to]) || root_url
   end
 end

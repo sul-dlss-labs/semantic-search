@@ -155,7 +155,7 @@ export default class extends Controller {
           this.verifiedSources = this.mergeVerifiedSources(data.sources)
           this.renderAssistant(assistantContent, responseText, this.verifiedSources, placeholder)
         } else if (type === "notice") {
-          this.appendNotice(assistant, data.message)
+          this.appendNotice(assistant, data.message, data.link)
         } else if (type === "tool_call") {
           toolCallCount += 1
           status.textContent = "Synthesizing…"
@@ -271,12 +271,23 @@ export default class extends Controller {
     if (!text) container.append(placeholder)
   }
 
-  appendNotice(message, content) {
+  appendNotice(message, content, link) {
     const notice = document.createElement("div")
     notice.className = "chat-source-notice alert alert-warning mt-2 mb-0"
     notice.textContent = content
+    if (link?.url && this.safeSourceUrl(link.url)) notice.append(this.buildAnchor(link))
     message.append(notice)
     return notice
+  }
+
+  buildAnchor(link) {
+    const anchor = document.createElement("a")
+    anchor.href = link.url
+    anchor.className = "alert-link ms-1"
+    // Login leaves the site through Shibboleth.
+    anchor.dataset.turbo = "false"
+    anchor.textContent = link.text || link.url
+    return anchor
   }
 
   appendToolCall(message, call, count) {
