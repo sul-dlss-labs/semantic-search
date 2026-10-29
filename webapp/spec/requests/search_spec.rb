@@ -50,6 +50,17 @@ RSpec.describe "Searches", type: :request do
           .to eq(matching_excerpts_path(q: query, ids: %w[bb191qg8085 bb205zt9580]))
       end
 
+      it "includes the hidden Safari notice, explaining the PDF page links it affects" do
+        get "/", params: { search_field: "all_fields", q: query }
+
+        notice = Nokogiri::HTML(response.body).at_css(".safari-notice")
+        expect(notice["data-controller"]).to eq("safari-notice")
+        expect(notice["hidden"]).not_to be_nil
+        expect(notice.at_css("details summary").text).to eq("See more")
+        expect(notice.at_css("details").text).to include("PDF")
+        expect(notice.at_css("button.btn-close")["data-action"]).to eq("safari-notice#dismiss")
+      end
+
       it "keeps excerpt element ids unique across the whole results page" do
         get "/", params: { search_field: "all_fields", q: query }
 
