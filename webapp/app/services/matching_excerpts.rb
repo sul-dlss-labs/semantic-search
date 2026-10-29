@@ -94,7 +94,8 @@ class MatchingExcerpts
         filename: document["filename_ss"],
         page: document["page_ss"],
         chunk_index: document["chunk_index_i"],
-        score: document["score"]
+        score: document["score"],
+        public: document["public_bsi"]
       }.compact ]
     end
   end
@@ -115,7 +116,9 @@ class MatchingExcerpts
       filename: chunk["filename_ss"],
       page: chunk["page_ss"],
       chunk_index: chunk["chunk_index_i"],
-      score: chunk["score"]
+      score: chunk["score"],
+      # Access is indexed per chunk, not on the parent, so callers decide from this who may see it.
+      public: chunk["public_bsi"]
     }.compact
   end
 
@@ -232,7 +235,7 @@ class MatchingExcerpts
         },
         # chunk_text_tesi is deliberately omitted: hl.defaultSummary always supplies a snippet,
         # so fetching the full chunk would quadruple the response for nothing.
-        fields: %w[id chunk_index_i filename_ss page_ss score] + signal_fields
+        fields: %w[id chunk_index_i filename_ss page_ss score public_bsi] + signal_fields
       }
     }.merge(signal_queries)
   end

@@ -102,6 +102,36 @@ RSpec.describe "Matching excerpts", type: :request do
     ])
   end
 
+  context "when a matching chunk of a result is restricted" do
+    let(:excerpts) do
+      {
+        "bb191qg8085" => [
+          { chunk_id: "bb191qg8085_report_pdf_c4", snippet: "public <mark>water</mark> rights", public: true },
+          { chunk_id: "bb191qg8085_thesis_pdf_c2", snippet: "secret <mark>water</mark> rights", public: false }
+        ]
+      }
+    end
+
+    it "prompts an anonymous user to log in instead of showing its excerpts" do
+      get matching_excerpts_path(q: query, ids: ids)
+
+      field = streams.find { |stream| stream["action"] == "replace" }.at_css("template")
+      expect(field.at_css(".matching-excerpts-restricted").text).to include("restricted access")
+      expect(field.at_css(".matching-excerpts-restricted a")["href"]).to eq("/webauth/login")
+      expect(field.css(".matching-excerpt")).to be_empty
+      expect(response.body).not_to include("water")
+    end
+
+    it "shows its excerpts to a logged in user" do
+      sign_in
+      get matching_excerpts_path(q: query, ids: ids)
+
+      field = streams.find { |stream| stream["action"] == "replace" }.at_css("template")
+      expect(field.css(".matching-excerpt").length).to eq(2)
+      expect(field.css(".matching-excerpts-restricted")).to be_empty
+    end
+  end
+
   context "when a result is restricted" do
     let(:restricted) { true }
 

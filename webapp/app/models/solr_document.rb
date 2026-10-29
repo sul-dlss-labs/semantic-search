@@ -27,7 +27,8 @@ class SolrDocument
   end
 
   # Restricted items are not publicly accessible; their full text is shown only to logged in users.
-  # Documents indexed without public_bsi are treated as public.
+  # Only child chunks are indexed with public_bsi, so this is never true of a parent: the excerpts
+  # drawn from a parent's chunks are checked by MatchingExcerptsController instead.
   def restricted?
     self["public_bsi"] == false
   end

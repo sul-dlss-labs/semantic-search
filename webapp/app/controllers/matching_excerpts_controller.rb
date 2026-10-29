@@ -77,9 +77,15 @@ class MatchingExcerptsController < ApplicationController
     }).documents
   end
 
-  # @return [Array<Hash>] the matching excerpts for one result; never nil
+  # Access is indexed on each chunk rather than on the parent, so a result is only known to be
+  # restricted once its excerpts are found. An anonymous user gets a prompt to log in in place of
+  # any result with a matching chunk they may not see.
+  # @return [Array<Hash>, Array<Symbol>] the matching excerpts for one result; never nil
   def matching_excerpts_for(document)
-    @matching_excerpts.fetch(document.id, [])
+    excerpts = @matching_excerpts.fetch(document.id, [])
+    return [ MatchingExcerptsComponent::RESTRICTED ] if !authenticated? && excerpts.any? { |excerpt| excerpt[:public] == false }
+
+    excerpts
   end
   helper_method :matching_excerpts_for
 end
