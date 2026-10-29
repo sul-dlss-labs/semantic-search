@@ -19,10 +19,12 @@ RSpec.describe "Searches", type: :request do
       # CI's Solr core is empty, so supply the result page directly. Title-like queries classify
       # as keyword searches, which keeps LiteLLM out of the request.
       let(:query) { "Water Rights" }
+      let(:restricted_ids) { [] }
       let(:results) do
         docs = { "bb191qg8085" => "Water Rights", "bb205zt9580" => "Riparian Law" }.map do |id, title|
           cocina = { externalIdentifier: "druid:#{id}", description: { title: [ { value: title } ], note: [] } }
-          { "id" => id, "doc_type_ssi" => "parent", "title_tsim" => [ title ], "cocina_ss" => cocina.to_json }
+          { "id" => id, "doc_type_ssi" => "parent", "title_tsim" => [ title ], "cocina_ss" => cocina.to_json,
+            "public_bsi" => restricted_ids.exclude?(id) }
         end
         Blacklight::Solr::Response.new(
           { "response" => { "numFound" => docs.length, "start" => 0, "docs" => docs } },
@@ -59,6 +61,29 @@ RSpec.describe "Searches", type: :request do
         expect(notice.at_css("details summary").text).to eq("See more")
         expect(notice.at_css("details").text).to include("PDF")
         expect(notice.at_css("button.btn-close")["data-action"]).to eq("safari-notice#dismiss")
+      end
+
+      context "when a result is restricted" do
+        let(:restricted_ids) { %w[bb205zt9580] }
+
+        it "prompts an anonymous user to log in instead of loading its excerpts" do
+          get "/", params: { search_field: "all_fields", q: query }
+
+          page = Nokogiri::HTML(response.body)
+          expect(page.css("article dd[aria-busy]").pluck("id")).to eq(%w[matching-excerpts-slot-bb191qg8085])
+          expect(page.css("article .matching-excerpts-restricted").count).to eq(1)
+          expect(page.at_css("turbo-frame#matching-excerpts")["src"])
+            .to eq(matching_excerpts_path(q: query, ids: %w[bb191qg8085]))
+        end
+
+        it "loads its excerpts for a logged in user" do
+          sign_in
+          get "/", params: { search_field: "all_fields", q: query }
+
+          page = Nokogiri::HTML(response.body)
+          expect(page.css("article dd[aria-busy]").count).to eq(2)
+          expect(page.css(".matching-excerpts-restricted")).to be_empty
+        end
       end
 
       it "keeps excerpt element ids unique across the whole results page" do
