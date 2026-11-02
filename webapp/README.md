@@ -123,9 +123,9 @@ jq -r '.cases[] | select(.passed | not) | .id as $id | .attempts[] | select(.pas
 After the Docker GitHub Actions workflow has successfully built and published the
 current commit using its short SHA tag, deploy that CI-built image with the following process.
 
-Get a one-time-key
+Get a Kerberos ticket
 ```sh
-./bin/setup-otk
+kinit
 ```
 
 Sign into vault
@@ -133,11 +133,11 @@ Sign into vault
 vault login -method oidc
 ```
 
-Then run kamal deploy
+Then run kamal deploy through `bin/kamal-otk`, which installs a one-time SSH key on the server for
+the duration of the command
 ```sh
 VERSION="$(git rev-parse --short=7 HEAD)" \
 KAMAL_REGISTRY_USERNAME=<github user> \
 KAMAL_REGISTRY_PASSWORD=<github token> \
-KAMAL_OTK_KEY=~/.ssh/id_kamal_otk \
-  bin/kamal deploy --skip-push
+  bin/kamal-otk deploy --skip-push
 ```
