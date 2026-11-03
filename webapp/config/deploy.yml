@@ -103,9 +103,12 @@ builder:
 # Use a different ssh user than root
 ssh:
   user: semantic
+<% if ENV["KAMAL_SSH_KEY_PATH"] -%>
+  # Set by bin/kamal-otk.
   keys:
-    - "<%= ENV['KAMAL_OTK_KEY'] %>"
+    - <%= ENV["KAMAL_SSH_KEY_PATH"] %>
   keys_only: true
+<% end -%>
 
 # Use accessory services (secrets come from .kamal/secrets).
 # accessories:

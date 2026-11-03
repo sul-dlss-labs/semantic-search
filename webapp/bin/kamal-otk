@@ -1,0 +1,136 @@
+#!/usr/bin/env ruby
+
+# Runs Kamal from a developer machine using a one-time SSH key, since the servers only let us in
+# with Kerberos and Kamal's SSH library can't do Kerberos. It:
+#
+#   1. generates a fresh, passphrase-less keypair and installs the public key on each host using
+#      the system SSH client (which uses your Kerberos ticket),
+#   2. runs bin/kamal with that key (config/deploy.yml reads KAMAL_SSH_KEY_PATH) and a scratch
+#      ssh-agent holding only that key, and
+#   3. always removes the key from the hosts afterwards.
+#
+# Using a scratch agent rather than your usual one keeps other keys from using up the server's
+# MaxAuthTries before ours. It's also the only way Kamal's port forwarding to a remote builder can
+# authenticate, since that builds its own SSH options from `builder.remote` and ignores the
+# configured keys.
+#
+# Pass Kamal's -d/--destination option as usual to use config/deploy.<destination>.yml.
+#
+# If your ~/.ssh/config reaches the servers through a jump host with a ControlMaster (see
+# https://github.com/sul-dlss/DeveloperPlaybook/blob/main/best-practices/ssh_configuration.md),
+# set USE_CAPISTRANO_CONTROLMASTER=true, as for dlss-capistrano, to open the master connection
+# first (CONTROLMASTER_HOST and CONTROLMASTER_SOCKET override its defaults).
+#
+# Usage: bin/kamal-otk [kamal args...], e.g. bin/kamal-otk deploy-main
+
+require "bundler/setup"
+require "kamal"
+require "open3"
+require "pathname"
+require "securerandom"
+require "tmpdir"
+require "uri"
+
+# Kamal's own -d/--destination option, which picks config/deploy.<destination>.yml.
+def destination_from(args)
+  args.each_with_index do |arg, index|
+    return args[index + 1] if [ "-d", "--destination" ].include?(arg)
+    return arg.split("=", 2).last if arg.start_with?("-d=", "--destination=")
+  end
+  nil
+end
+
+# Same mechanism as dlss-capistrano's controlmaster:setup/:start tasks:
+# https://github.com/sul-dlss/dlss-capistrano/blob/main/lib/dlss/capistrano/tasks/control_master.rake
+def ensure_controlmaster!
+  return unless ENV.fetch("USE_CAPISTRANO_CONTROLMASTER", "false") == "true"
+
+  controlmaster_host = ENV.fetch("CONTROLMASTER_HOST", "dlss-jump")
+  controlmaster_socket = ENV.fetch("CONTROLMASTER_SOCKET", "~/.ssh/%r@%h:%p")
+
+  return if system("ssh", "-O", "check", "-S", controlmaster_socket, controlmaster_host, out: File::NULL, err: File::NULL)
+
+  # Not in BatchMode, so this is where you'll be prompted for multi-factor authentication.
+  system("ssh", "-f", "-N", "-S", controlmaster_socket, controlmaster_host, exception: true)
+end
+
+# The user@host pairs Kamal connects to: every role's hosts plus any remote builder.
+def ssh_destinations(config)
+  destinations = config.roles.flat_map(&:hosts).map { |host| "#{config.ssh.user}@#{host}" }
+  if config.builder.remote
+    builder = URI(config.builder.remote)
+    destinations << "#{builder.user || config.ssh.user}@#{builder.host}"
+  end
+  destinations.uniq
+end
+
+# Removes the authorized_keys lines matching pattern.
+def remove_keys_command(pattern)
+  "touch ~/.ssh/authorized_keys && " \
+    "{ grep -v '#{pattern}' ~/.ssh/authorized_keys || true; } > ~/.ssh/authorized_keys.tmp && " \
+    "mv ~/.ssh/authorized_keys.tmp ~/.ssh/authorized_keys && " \
+    "chmod 600 ~/.ssh/authorized_keys"
+end
+
+# Every `kamal-otk-` key was written by this script, so we also drop any left behind by runs that
+# didn't get to clean up. Kerberos is the fallback way in, so we're never locked out.
+def install_key_command(public_key)
+  "mkdir -p ~/.ssh && chmod 700 ~/.ssh && " \
+    "#{remove_keys_command(' kamal-otk-')} && " \
+    "echo '#{public_key}' >> ~/.ssh/authorized_keys"
+end
+
+def start_ssh_agent
+  output, status = Open3.capture2("ssh-agent", "-s")
+  abort "Unable to start ssh-agent" unless status.success?
+
+  output.scan(/^(SSH_AUTH_SOCK|SSH_AGENT_PID)=([^;]+);/).to_h
+end
+
+Dir.chdir(File.expand_path("..", __dir__))
+
+begin
+  config = Kamal::Configuration.create_from(config_file: Pathname.new("config/deploy.yml"), destination: destination_from(ARGV))
+rescue StandardError => e
+  # e.g. a missing config/deploy.<destination>.yml or an invalid config.
+  abort e.message
+end
+destinations = ssh_destinations(config)
+
+ensure_controlmaster!
+
+exit_status = Dir.mktmpdir do |dir|
+  key_path = File.join(dir, "id_kamal_otk")
+  comment = "kamal-otk-#{SecureRandom.hex(6)}"
+
+  system("ssh-keygen", "-q", "-t", "ed25519", "-f", key_path, "-N", "", "-C", comment, exception: true)
+  public_key = File.read("#{key_path}.pub").strip
+
+  begin
+    destinations.each do |destination|
+      # BatchMode fails fast instead of prompting if Kerberos isn't working.
+      next if system("ssh", "-o", "BatchMode=yes", destination, install_key_command(public_key))
+
+      abort "Failed to install the one-time key on #{destination}. Is your kinit valid?"
+    end
+
+    agent_env = start_ssh_agent
+    begin
+      system(agent_env, "ssh-add", "-q", key_path, exception: true)
+
+      kamal_env = agent_env.merge("KAMAL_SSH_KEY_PATH" => key_path)
+      system(kamal_env, "bin/kamal", *ARGV) ? 0 : ($?.exitstatus || 1)
+    ensure
+      system(agent_env, "ssh-agent", "-k", out: File::NULL)
+    end
+  ensure
+    # Best-effort cleanup: don't let a removal failure mask the deploy's own result.
+    destinations.each do |destination|
+      next if system("ssh", "-o", "BatchMode=yes", destination, remove_keys_command(" #{comment}$"))
+
+      warn "Failed to remove the one-time key from #{destination}; remove #{comment} from ~/.ssh/authorized_keys manually."
+    end
+  end
+end
+
+exit exit_status

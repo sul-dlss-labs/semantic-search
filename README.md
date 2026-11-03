@@ -66,9 +66,11 @@ We deploy with kamal.
   * Get a GitHub token.
   * cd 'webapp'
   * Authenticate with kerberos: `kinit`
-  * Get a one time key: `./bin/setup-otk`
   * Login to vault (use SSO): `vault login -method oidc`
   * Deploy: `KAMAL_REGISTRY_USERNAME=jcoyne \
     KAMAL_REGISTRY_PASSWORD=<github token> \
-    KAMAL_OTK_KEY=~/.ssh/id_kamal_otk \
-    bin/kamal deploy-main`
+    bin/kamal-otk deploy-main`
+
+`bin/kamal-otk` installs a one-time SSH key on the server using your Kerberos ticket, runs
+`bin/kamal` with whatever arguments you give it, then removes the key. Use it for any Kamal command,
+e.g. `bin/kamal-otk console` or `bin/kamal-otk logs`.
