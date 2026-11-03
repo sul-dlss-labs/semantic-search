@@ -1,0 +1,55 @@
+#!/usr/bin/env ruby
+
+# Runs a command with the env.secret vars from config/deploy.yml in its environment, fetching
+# their values from Vault, for .kamal/secrets to read as ${NAME}. Vars already set in the
+# environment are left as-is, so Jenkins (which injects them itself) doesn't need this script.
+# bin/kamal-otk runs Kamal through it.
+#
+# Usage: bin/with-deploy-env COMMAND [ARGS...], e.g. bin/with-deploy-env bin/kamal deploy
+
+require "bundler/setup"
+require "kamal"
+require "open3"
+require "pathname"
+
+# The Jenkinsfile reads the same paths, minus the "puppet/" prefix.
+VAULT_SECRET_PATHS = {
+  "SECRET_KEY_BASE" => "puppet/application/semantic-search/demo/secret_key_base",
+  "LITELLM_API_KEY" => "puppet/application/semantic-search/demo/litellm_key"
+}.freeze
+
+def ensure_vault_login!
+  abort "Missing secrets in environment and the `vault` CLI is unavailable" unless system("vault", "-version", out: File::NULL, err: File::NULL)
+  return if system("vault", "token", "lookup", out: File::NULL, err: File::NULL)
+
+  warn "Vault token missing or expired; launching `vault login -method oidc`..."
+  # Keep login output (which includes the token) off stdout.
+  system("vault", "login", "-method", "oidc", out: $stderr, exception: true)
+end
+
+def fetch_secret_from_vault(path)
+  stdout, stderr, status = Open3.capture3("vault", "kv", "get", "-field=content", path)
+  return stdout.strip if status.success?
+
+  abort "Unable to read Vault secret at #{path}: #{stderr.strip}"
+end
+
+abort "Usage: bin/with-deploy-env COMMAND [ARGS...]" if ARGV.empty?
+
+secret_keys = Dir.chdir(File.expand_path("..", __dir__)) do
+  Kamal::Configuration.create_from(config_file: Pathname.new("config/deploy.yml")).env.secret_keys
+rescue StandardError => e
+  abort e.message
+end
+
+missing_keys = secret_keys.select { |key| ENV[key].to_s.empty? }
+unless missing_keys.empty?
+  ensure_vault_login!
+
+  missing_keys.each do |key|
+    path = VAULT_SECRET_PATHS.fetch(key) { abort "No Vault path for secret #{key}; add one to VAULT_SECRET_PATHS in #{__FILE__}" }
+    ENV[key] = fetch_secret_from_vault(path)
+  end
+end
+
+exec(*ARGV)

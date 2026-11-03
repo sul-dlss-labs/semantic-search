@@ -46,10 +46,10 @@ registry:
 # Inject ENV variables into containers (secrets come from .kamal/secrets).
 env:
   secret:
-    - RAILS_MASTER_KEY
+    - SECRET_KEY_BASE
     - LITELLM_API_KEY
-    - SOLR_URL
   clear:
+    SOLR_URL: https://sul-solr-test.stanford.edu/solr/semantic-search-demo
     # Allow streamed chat responses to outlast Thruster's 30-second write deadline.
     THRUSTER_HTTP_WRITE_TIMEOUT: 360
     LITELLM_API_BASE: https://dlss-aigateway-prod.stanford.edu/v1/
