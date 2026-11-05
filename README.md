@@ -73,4 +73,15 @@ We deploy with kamal.
 
 `bin/kamal-otk` installs a one-time SSH key on the server using your Kerberos ticket, runs
 `bin/kamal` with whatever arguments you give it, then removes the key. Use it for any Kamal command,
-e.g. `bin/kamal-otk console` or `bin/kamal-otk logs`.
+e.g. `bin/kamal-otk console` or `bin/kamal-otk logs`. It runs Kamal through `bin/with-deploy-env`,
+which loads any deploy secrets missing from your environment from Vault (logging you in with
+`vault login -method oidc` if needed).
+
+### Adding a secret
+
+1. Add it to Vault (as the `content` field), e.g.
+   `vault kv put puppet/application/semantic-search/demo/<name> content=...`.
+2. Add the environment variable to `env.secret` in `webapp/config/deploy.yml`.
+3. Add `NAME=${NAME}` to `webapp/.kamal/secrets`.
+4. Add its Vault path to `VAULT_SECRET_PATHS` in `webapp/bin/with-deploy-env`.
+5. Add it to `secrets` in `Jenkinsfile`, using the same path without the `puppet/` prefix.
