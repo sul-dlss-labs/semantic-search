@@ -1,6 +1,6 @@
 # semantic-search
-Developing semantic search for SUL
 
+Developing semantic search for SUL
 
 ## Goal
 
@@ -9,6 +9,7 @@ We are attempting to create a semantic search prototype.
 This currently depends on https://github.com/sul-dlss-labs/sdr-harvest for creating the index (and the solr config)
 
 ### Run the webapp
+
 ```
 cd webapp
 LITELLM_API_KEY=<key> bin/rails dev
@@ -57,19 +58,22 @@ curl -X POST http://localhost:3000/mcp \
 
 ## Deployment
 
-The github workflow will build the docker image on each commit.
+We deploy to semantic-search-demo.stanford.edu with [Kamal](https://kamal-deploy.org). The image is
+built on the demo server itself and passed through Kamal's local registry, so no registry credentials
+are needed.
 
-See https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry
+### Continuous deployment
 
-We deploy with kamal.
+Jenkins deploys every merge to `main` (see `Jenkinsfile`), using the `jenkinsqa@sul-ci-prod` SSH key
+that Puppet authorizes for the `semantic` user on the server.
 
-  * Get a GitHub token.
-  * cd 'webapp'
-  * Authenticate with kerberos: `kinit`
-  * Login to vault (use SSO): `vault login -method oidc`
-  * Deploy: `KAMAL_REGISTRY_USERNAME=jcoyne \
-    KAMAL_REGISTRY_PASSWORD=<github token> \
-    bin/kamal-otk deploy-main`
+### Deploying by hand
+
+```
+cd webapp
+kinit
+bin/kamal-otk deploy
+```
 
 `bin/kamal-otk` installs a one-time SSH key on the server using your Kerberos ticket, runs
 `bin/kamal` with whatever arguments you give it, then removes the key. Use it for any Kamal command,
