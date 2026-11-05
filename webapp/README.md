@@ -120,24 +120,10 @@ jq -r '.cases[] | select(.passed | not) | .id as $id | .attempts[] | select(.pas
 
 ## Deployment
 
-After the Docker GitHub Actions workflow has successfully built and published the
-current commit using its short SHA tag, deploy that CI-built image with the following process.
-
-Get a Kerberos ticket
+Jenkins deploys every merge to `main`. To deploy the committed code by hand:
 ```sh
 kinit
+bin/kamal-otk deploy
 ```
 
-Sign into vault
-```sh
-vault login -method oidc
-```
-
-Then run kamal deploy through `bin/kamal-otk`, which installs a one-time SSH key on the server for
-the duration of the command
-```sh
-VERSION="$(git rev-parse --short=7 HEAD)" \
-KAMAL_REGISTRY_USERNAME=<github user> \
-KAMAL_REGISTRY_PASSWORD=<github token> \
-  bin/kamal-otk deploy --skip-push
-```
+See the [repository README](../README.md#deployment) for details.

@@ -30,18 +30,11 @@ proxy:
 #   ssl: true
 #   host: app.example.com
 
-# Where you keep your container images.
+# Use Kamal's local registry mode: Kamal runs a registry container on the machine running Kamal
+# (a developer laptop or Jenkins) and tunnels it to the servers over SSH, so no registry
+# credentials are needed.
 registry:
-  # Alternatives: hub.docker.com / registry.digitalocean.com / ghcr.io / ...
-  server: ghcr.io
-
-  # Needed for authenticated registries.
-  username:
-    - KAMAL_REGISTRY_USERNAME
-
-  # Always use an access token rather than real password when possible.
-  password:
-    - KAMAL_REGISTRY_PASSWORD
+  server: localhost:5555
 
 # Inject ENV variables into containers (secrets come from .kamal/secrets).
 env:
@@ -78,9 +71,6 @@ env:
 # Aliases are triggered with "bin/kamal <alias>". You can overwrite arguments on invocation:
 # "bin/kamal logs -r job" will tail logs from the first server in the job section.
 aliases:
-  # Deploy the image CI tagged with the short SHA of origin/main. A fixed version (e.g. "main") would reuse
-  # the same asset volume each deploy, and Kamal never overwrites the stale .manifest.json in it.
-  deploy-main: deploy --skip-push --version=<%= `git rev-parse --short=7 origin/main`.strip %>
   console: app exec --interactive --reuse "bin/rails console"
   shell: app exec --interactive --reuse "bash"
   logs: app logs -f
@@ -96,15 +86,18 @@ volumes:
 # version inside the asset_path.
 asset_path: /rails/public/assets
 
-# Configure the image builder.
+# Build natively on the demo server (which already has Docker via Puppet) rather than emulating
+# amd64 on an arm64 developer laptop. This also keeps the layer cache warm between deploys, whether
+# they come from a laptop or from Jenkins.
 builder:
   arch: amd64
+  remote: ssh://semantic@semantic-search-demo.stanford.edu
 
 # Use a different ssh user than root
 ssh:
   user: semantic
 <% if ENV["KAMAL_SSH_KEY_PATH"] -%>
-  # Set by bin/kamal-otk.
+  # Set by bin/kamal-otk for local deploys. Jenkins authenticates with its own SSH agent instead.
   keys:
     - <%= ENV["KAMAL_SSH_KEY_PATH"] %>
   keys_only: true
